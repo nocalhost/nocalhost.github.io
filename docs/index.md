@@ -1,4 +1,7 @@
 # Welcome to Nocalhost
 
-For full documentation visit [nocalhost.dev](https://nocalhost.dev).
+## What is Nocalhost
+
+Nocalhost is a Cloud Native Development Environment.
+
 
