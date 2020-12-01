@@ -1,7 +1,5 @@
-# Welcome to Nocalhost
-
-## What is Nocalhost
-
-Nocalhost is a Cloud Native Development Environment.
-
+---
+template: layout/home.html
+title: index
+---
 

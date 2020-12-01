@@ -1,3 +1,28 @@
 site_name: Nocalhost Docs
 theme:
   name: material
+  custom_dir: .
+
+nav:
+  - Getting started:
+    - Quick Start: getting-started.md
+    - Installation: installation.md
+    - Cluster: cluster.md
+    - Application: application.md
+    - Service: service.md
+    - DevSpace: devspace.md
+    - Architecture : architecture.md
+    - User: user.md
+  - Tutorials:
+    - Docker: Tutorials/nocalhost-with-docker-desktop.md
+    - Helm: Tutorials/nocalhost-with-helm.md
+    - Kubernetes: Tutorials/nocalhost-with-k8s-manifests.md
+    - MiniKube: Tutorials/nocalhost-with-minikube.md
+    - TKE: Tutorials/nocalhost-with-tke.md
+    - Serverless: Tutorials/nocalhost-with-serverless-kubernetes.md
+    - IDE Plugins: Tutorials/nocalhost-without-ide-plugin.md
+  - References:
+    - Config file: References/nocalhost-config-yaml-spec.md
+  - FAQ:
+    - API Server: FAQ/api-server-in-minikube.md
+    - Dep: FAQ/dep-label-selector.md
