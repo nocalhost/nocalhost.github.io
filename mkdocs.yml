@@ -4,25 +4,27 @@ theme:
   custom_dir: .
 
 nav:
-  - Getting started:
-    - Quick Start: getting-started.md
-    - Installation: installation.md
+  - Getting started: getting-started.md
+  - Installation: installation.md
+  - Concepts: 
     - Cluster: cluster.md
     - Application: application.md
+    - User: user.md
     - Service: service.md
     - DevSpace: devspace.md
-    - Architecture : architecture.md
-    - User: user.md
+    - DevContainer: devcontainer.md
   - Tutorials:
     - Docker: Tutorials/nocalhost-with-docker-desktop.md
     - Helm: Tutorials/nocalhost-with-helm.md
     - Kubernetes: Tutorials/nocalhost-with-k8s-manifests.md
     - MiniKube: Tutorials/nocalhost-with-minikube.md
     - TKE: Tutorials/nocalhost-with-tke.md
-    - Serverless: Tutorials/nocalhost-with-serverless-kubernetes.md
-    - IDE Plugins: Tutorials/nocalhost-without-ide-plugin.md
+    - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
+    - CLI: Tutorials/nocalhost-without-ide-plugin.md
   - References:
-    - Config file: References/nocalhost-config-yaml-spec.md
-  - FAQ:
-    - API Server: FAQ/api-server-in-minikube.md
-    - Dep: FAQ/dep-label-selector.md
+    - Architecture : architecture.md
+    - Config Specs: References/nocalhost-config-yaml-spec.md
+    - CLI Commands: cli-commands.md
+    - File sync: file-sync.md
+    - Service Dependency: service-denepdency.md
+  - FAQ: faq.md
