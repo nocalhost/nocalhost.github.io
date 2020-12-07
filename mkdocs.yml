@@ -13,6 +13,7 @@ nav:
     - Service: service.md
     - DevSpace: devspace.md
     - DevContainer: devcontainer.md
+    - DevMode: devmode.md
   - Tutorials:
     - Docker: Tutorials/nocalhost-with-docker-desktop.md
     - Helm: Tutorials/nocalhost-with-helm.md
@@ -27,4 +28,5 @@ nav:
     - CLI Commands: cli-commands.md
     - File sync: file-sync.md
     - Service Dependency: service-denepdency.md
+    - Port Forward: port-forward.md
   - FAQ: faq.md
