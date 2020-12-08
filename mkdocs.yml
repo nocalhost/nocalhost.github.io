@@ -3,10 +3,28 @@ theme:
   name: material
   custom_dir: .
 
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+
+
 nav:
   - Getting started: getting-started.md
   - Installation: installation.md
-  - Concepts: 
+  - Concepts:
     - Cluster: cluster.md
     - Application: application.md
     - User: user.md
