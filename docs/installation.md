@@ -4,7 +4,7 @@ title: Installation
 
 !!! note "Installation dependencies"
 	To use nocalhost, you must require [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/). <br />
-	You can click [this link](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to install kubectl, 
+	You can click [this link](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to install kubectl,
 	click [this link](https://helm.sh/docs/intro/install/) to install helm
 
 ## nhctl
@@ -12,7 +12,7 @@ title: Installation
 The Nocalhost command-line tool, nhctl, allows
 you to run commands against Nocalhost.
 You can use nhctl to install application, create dev space,
-start dev mode and more. Foa all commands list of nhctl,
+start dev mode and more. For all commands list of nhctl,
 see [nhctl](/cli-commands.md).
 
 
@@ -87,7 +87,7 @@ nhctl version
 ## Install nhctl on Windows
 1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe). <br />
 Or if you have curl installed, use this command:
-```bash	
+```bash
 curl -LO "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe" -o nhctl.exe
 ```
 2. Add nhctl binary in to your PATH.
@@ -104,9 +104,9 @@ You can install application, open dev space,
 start dev mode and more.
 
 ### Install Nocalhost VScode Plugin on VScode Marketplace
-1. Open the VScode Marketplace web page from [this link](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost). 
+1. Open the VScode Marketplace web page from [this link](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost).
 and click "install" button.
-2. It will lead you to open the VScode Editor and install the Plugin. 
+2. It will lead you to open the VScode Editor and install the Plugin.
 
 ### Install Nocalhost VScode Plugin on VScode Editor
 1. Open the VScode Editor, and click left bar "Extensions" icon.
