@@ -36,10 +36,10 @@ Nocalhost will deploy applications to kubernetes cluster according to the depend
 Any changes made to the local service will be automatically synchronized to the new container of the kubernetes cluster.
 
 * **Debugging Via Remote Debugger**
-* When the development mode is turned on, nhctl will open up the local and kubernetes cluster network, establish a link between the local and the new pod, and map the port to the local through port forward. At this time, you can directly perform remote debug in the IDE.
+When the development mode is turned on, nhctl will open up the local and kubernetes cluster network, establish a link between the local and the new pod, and map the port to the local through port forward. At this time, you can directly perform remote debug in the IDE.
 
 * **uninstall application**
-* Release and recycling of kubernetes cluster resources.
+Release and recycling of kubernetes cluster resources.
 
 **nocalhost-web**
 * nocalhost-web provides a visual interface to manage users, development kubernetes clusters, applications and development namespaces.
