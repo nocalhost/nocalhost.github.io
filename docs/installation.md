@@ -85,6 +85,9 @@ nhctl version
 ```
 
 ## Install nhctl on Windows
+
+### Install nhctl binary on Windows
+
 1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe). <br />
 Or if you have curl installed, use this command:
 ```bash
@@ -95,6 +98,25 @@ curl -LO "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-
 ```bash
 nhctl version
 ```
+
+### Install nhctl using package management
+
+<!-- === "Snap"
+	If you are on Ubuntu or another Linux distribution that support [snap](https://snapcraft.io/docs/installing-snapd) package manager, nhctl is available as a [snap](https://snapcraft.io/) application.
+	```bash
+	snap install nhctl --classic
+
+	nhctl version
+	``` -->
+=== "baulk"
+	If you are on Windows and using [baulk](https://github.com/baulk/baulk) package manager, nhctl is available for installation. Open CMD with Administrators.
+	```bash
+	baulk install nocalhost
+
+	baulk-exec cmd
+
+	nhctl version
+	```
 
 ## Install Nocalhost VScode Plugin
 
