@@ -34,4 +34,4 @@ kubectl --kubeconfig <kubeconfig> exec -it pod/<pod_name> -c nocalhost-dev -- ba
 ```
 
 !!! note
-	[Click here](/References/cli-commands.md) to get more details about the arguments of nhctl
+	[Click here](/References/cli-commands) to get more details about the arguments of nhctl

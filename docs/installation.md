@@ -13,7 +13,7 @@ The Nocalhost command-line tool, nhctl, allows
 you to run commands against Nocalhost.
 You can use nhctl to install application, create dev space,
 start dev mode and more. For all commands list of nhctl,
-see [nhctl](/cli-commands.md).
+see [nhctl](/References/cli-commands).
 
 
 ## Install nhctl on Linux
