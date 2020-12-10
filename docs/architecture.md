@@ -24,6 +24,7 @@ Here's the diagram of Nocalhost with all the components tied together.
 ### Component
 **IDE plugin**
 * IDE plugin packs the capabilities of nhctl and nocalhost-api development environment management to provide users with a better experience.
+
 **nhctl**
 
 nhctl is the core component of nocalhost, the core functions are as follows:
@@ -38,7 +39,7 @@ Any changes made to the local service will be automatically synchronized to the 
 * When the development mode is turned on, nhctl will open up the local and kubernetes cluster network, establish a link between the local and the new pod, and map the port to the local through port forward. At this time, you can directly perform remote debugg in the IDE.
 
 * **uninstall application**
-Release and recycling of kubernetes cluster resources
+* Release and recycling of kubernetes cluster resources
 
 **nocalhost-web**
 * nocalhost-web provides a visual interface to manage users, development kubernetes clusters, applications and development namespaces
@@ -48,4 +49,5 @@ Release and recycling of kubernetes cluster resources
 
 **nocalhost-dep** 
 * When application microservices are deployed in a Kubernetes cluster using Manifest, the startup sequence and dependencies of these microservices cannot be controlled. A typical scenario is: Service A and Service B both rely on Mysql, Redis, RabbitMQ, and only when these dependent services are available can Service A and Service B be started. To solve this problem, usually when the dependent services are running, manually delete the pods of service A and service B, and restart the solution. In addition to basic services that all services rely on like Mysql, there may also be dependencies between services and services. If there are a large number of microservices, sorting out the manual restart sequence will become very complicated and time-consuming.
+
 * nocalhost-dep implements Kubernetes Admission Webhook using the same technology selection as Istio injecting Sidecar. When a new application is deployed to the cluster, nocalhost-dep will automatically inject the InitContainer Sidecar into the workload according to the declared dependencies, and query and wait for the dependent services in the InitContainer until the startup is completed, using the features of InitContainer to start the real business container , Realize service dependency processing. The principle of InitContainer is to use k8s-wait-for to achieve.
