@@ -3,7 +3,7 @@ title: Installation
 ---
 
 !!! note "Prerequisites"
-	To use nocalhost, please make sure that  [git](https://git-scm.com/downloads) [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/) are installed.
+	To use nocalhost, please make sure that  [git](https://git-scm.com/downloads), [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/) are installed.
 
 ## nhctl
 
@@ -120,7 +120,7 @@ The Nocalhost VScode Plugin allows you to use Nocalhost on VSCode Editor.
 You can install application, open DevSpace start DevMode in VSCode directly.
 
 ### Install Nocalhost VScode Plugin on VScode Marketplace
-Follow this link: https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost
+Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost)
 
 ### Or Install Nocalhost VScode Plugin on VScode Editor
 1. Open the VScode Editor, and click left bar "Extensions" icon.
