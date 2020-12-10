@@ -8,7 +8,7 @@
 name: nocalhost
 
 # Application manifest type
-# type: select，options：helm/helm-repo/manifest
+# type: select，options：helm/rawManiifest
 # default value: null
 # required
 # nhctl param: --type,-t

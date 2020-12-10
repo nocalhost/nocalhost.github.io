@@ -1,5 +1,5 @@
 ---
-template: layout/home.html
+template: home.html
 title: index
 ---
 

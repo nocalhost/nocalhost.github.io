@@ -1,7 +1,12 @@
 site_name: Nocalhost Docs
 theme:
   name: material
-  custom_dir: .
+  custom_dir: overrides
+  palette:
+    - scheme: nocalhost
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition
