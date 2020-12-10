@@ -2,6 +2,8 @@ site_name: Nocalhost Docs
 theme:
   name: material
   custom_dir: overrides
+  # logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
   palette:
     - scheme: nocalhost
 
