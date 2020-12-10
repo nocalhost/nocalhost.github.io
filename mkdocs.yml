@@ -25,13 +25,13 @@ nav:
   - Getting started: getting-started.md
   - Installation: installation.md
   - Concepts:
-    - Cluster: cluster.md
-    - Application: application.md
-    - User: user.md
-    - Service: service.md
-    - DevSpace: devspace.md
-    - DevContainer: devcontainer.md
-    - DevMode: devmode.md
+    - Cluster: Concepts/cluster.md
+    - Application: Concepts/application.md
+    - User: Concepts/user.md
+    - Service: Concepts/service.md
+    - DevSpace: Concepts/devspace.md
+    - DevContainer: Concepts/devcontainer.md
+    - DevMode: Concepts/devmode.md
   - Tutorials:
     - Docker: Tutorials/nocalhost-with-docker-desktop.md
     - Helm: Tutorials/nocalhost-with-helm.md
@@ -40,11 +40,14 @@ nav:
     - TKE: Tutorials/nocalhost-with-tke.md
     - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
     - CLI: Tutorials/nocalhost-without-ide-plugin.md
+    - VScode Plugin: Tutorials/vscode-plugin.md
   - References:
-    - Architecture : architecture.md
+    - Architecture : References/architecture.md
     - Config Specs: References/nocalhost-config-yaml-spec.md
-    - CLI Commands: cli-commands.md
-    - File sync: file-sync.md
-    - Service Dependency: service-denepdency.md
-    - Port Forward: port-forward.md
-  - FAQ: faq.md
+    - CLI Commands: References/cli-commands.md
+    - File sync: References/file-sync.md
+    - Service Dependency: References/service-denepdency.md
+    - Port Forward: References/port-forward.md
+  - FAQ:
+    - Deploy API Server in MiniKube: FAQ/api-server-in-minikube.md
+    - Nocalhost-Dep label Selector: FAQ/dep-label-selector.md
