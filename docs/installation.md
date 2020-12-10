@@ -2,18 +2,14 @@
 title: Installation
 ---
 
-!!! note "Installation dependencies"
-	To use nocalhost, you must require [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/). <br />
-	You can click [this link](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to install kubectl,
-	click [this link](https://helm.sh/docs/intro/install/) to install helm
+!!! note "Prerequisites"
+	To use nocalhost, please make sure that  [git](https://git-scm.com/downloads) [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/) are installed.
 
 ## nhctl
 
-The Nocalhost command-line tool, nhctl, allows
-you to run commands against Nocalhost.
-You can use nhctl to install application, create dev space,
-start dev mode and more. For all commands list of nhctl,
-see [nhctl](/References/cli-commands).
+The Nocalhost command-line tool: nhctl, allows you to run commands against Nocalhost.
+You can use nhctl to install application, create DevSpace,
+start DevMode. See [nhctl](/References/cli-commands) for full list of sub commands.
 
 
 ## Install nhctl on Linux
@@ -120,17 +116,13 @@ nhctl version
 
 ## Install Nocalhost VScode Plugin
 
-The Nocalhost VScode Plugin, allows you
-to use Nocalhost on VScode Editor.
-You can install application, open dev space,
-start dev mode and more.
+The Nocalhost VScode Plugin allows you to use Nocalhost on VSCode Editor.
+You can install application, open DevSpace start DevMode in VSCode directly.
 
 ### Install Nocalhost VScode Plugin on VScode Marketplace
-1. Open the VScode Marketplace web page from [this link](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost).
-and click "install" button.
-2. It will lead you to open the VScode Editor and install the Plugin.
+Follow this link: https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost
 
-### Install Nocalhost VScode Plugin on VScode Editor
+### Or Install Nocalhost VScode Plugin on VScode Editor
 1. Open the VScode Editor, and click left bar "Extensions" icon.
 2. Type "nocalhost" in the search input box.
 3. Select the "nocalhost-vscode-plugin", and the click install button to install.
