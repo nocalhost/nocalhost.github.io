@@ -42,6 +42,12 @@ Uninstalling application from DevSpace.
 * Nocalhost manages serviceAccount, namespace and application in kubernetes cluster through api-server, and persists to database, providing data support for IDE plugin usage.
 
 **nocalhost-dep** 
-* When application microservices are deployed in a Kubernetes cluster, the startup sequence and dependencies of these microservices cannot be controlled. A typical scenario is: Service A and Service B both rely on Mysql, Redis, RabbitMQ. Service A and Service B cannot be started unless these dependent services are available. Usually developers have to wait Kubernetes cluster to restart the Pod rely on the HealthCheck Probe. This is why many large system running in Kubernetes start up slowly.
+* When application microservices are deployed in a Kubernetes cluster, there is no way to controler the startup sequence and dependencies of these microservices. A typical scenario is: Service A and Service B both rely on Mysql, Redis, RabbitMQ. Service A and Service B cannot be started unless these dependent services are available. 
 
-* By implemented a Kubernetes Admission Webhook like Istio injecting Sidecar, nocalhost-dep can controls the starting order. When a new application is deployed to the cluster, nocalhost-dep will inject the InitContainer into the workload automatically. According to the declared dependencies, nocalhost-dep keeps waiting for the dependent services's availability. Once all dependent service become available, the InitContainer exits, then the containers which container business logics start.
+* Usually developers have to wait the Pod's restarting rely on Kubernetes' HealthCheck Probe. After restarting again and again, the time interval will be very long. This is why many large system running in Kubernetes start up extremely slow.
+
+* By implemented a Kubernetes Admission Webhook like Istio injecting Sidecar, nocalhost-dep can controls the starting order. 
+
+* When applications deployed, nocalhost-dep will inject InitContainers into the workload automatically. According to declared dependencies, nocalhost-dep keeps waiting for the dependent services's availability. 
+
+* Once all dependent service become available, the InitContainer exits, then the containers which container business logics start. There is no restarting, which means minimal time waiting of starting.
