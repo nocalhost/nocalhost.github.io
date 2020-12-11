@@ -18,7 +18,7 @@ start DevMode. See [nhctl](/References/cli-commands) for full list of sub comman
 
 1. Download the latest release with command:
 ```bash
-curl -LO "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-linux-amd64" -o nhctl
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-linux-amd64" -o nhctl
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -55,7 +55,7 @@ nhctl version
 
 1. Download the latest release with command:
 ```bash
-curl -LO "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-darwin-amd64" -o nhctl
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-darwin-amd64" -o nhctl
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -87,7 +87,7 @@ nhctl version
 1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe). <br />
 Or if you have curl installed, use this command:
 ```bash
-curl -LO "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe" -o nhctl.exe
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe" -o nhctl.exe
 ```
 2. Add nhctl binary in to your PATH.
 3. Test you installed.
