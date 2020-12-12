@@ -4,12 +4,11 @@ title: Getting started
 
 ## Before you start
 
-You need prepare some prerequisites before coding with Nocalhost:
+Prerequisites:
 
 - A Kubernetes Cluster(Provided by Cloud Platform is recommended although Minikube is fine.).
 - kubectl is installed and configured with admin access to your cluster.
 - RBAC must be enabled on your cluster.
-- A Kubernetes natived application organized by Helm or raw manifests in Git repository.
 - Helm installed.
 - Visual Studio Code installed.
 - Git installed.
@@ -20,6 +19,7 @@ You can follow this link to install nhctl: [https://nocalhost.dev/installation/]
 
 ## Step 2: Initialize the cluster and setup Nocalhost Server
 
+TODO
 
 ## Step 3: Install VSCode Extension of Nocalhost
 
@@ -75,8 +75,8 @@ TODO (screenshot)
 
 Make code changes and refresh the webpage you opend to check out the results.
 
-Example, add "Hello Nocalhost!" here in line 355 of productpage.py 😎. 
+Example, add **Hello Nocalhost!** here in line 355 of **productpage.py**. 😎 
 
 ![](../assets/images/make-code-changes.png)
 
-Refresh the webpage, you see the result immediately 😊.
+Refresh the webpage, you see the result immediately. 😄
