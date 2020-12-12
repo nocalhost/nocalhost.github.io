@@ -1,4 +1,4 @@
-#### This is the first time I access the administrator website and I cannot find the registr link. How do I log in?
+#### This is the first time I access the administrator website and I cannot find the register link. How do I log in?
 
 Nocalhost is not support user register by self.
 
