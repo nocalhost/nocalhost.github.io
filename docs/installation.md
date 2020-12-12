@@ -84,7 +84,7 @@ nhctl version
 
 ### Install nhctl binary on Windows
 
-1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.3/nhctl-windows-amd64.exe). <br />
+1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-windows-amd64.exe). <br />
 Or if you have curl installed, use this command:
 ```bash
 curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-windows-amd64.exe" -o nhctl.exe
