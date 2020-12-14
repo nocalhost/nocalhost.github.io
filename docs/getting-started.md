@@ -19,7 +19,7 @@ Follow this link: [https://nocalhost.dev/installation/](https://nocalhost.dev/in
 
 ## Step 2: Initialize the cluster and setup Nocalhost Server
 
-- Option 1: Init Cluster Provided by Cloud Platform, for example: [TKE](https://cloud.tencent.com/product/tke) :
+- Option 1: Init Cluster provided by cloud platform, for example: [TKE](https://cloud.tencent.com/product/tke) :
 
 Execute nhctl init in terminal:
 ```
@@ -28,7 +28,7 @@ nhctl init -n nocalhost
 
 - Option 2: Init Minikube drived by docker:
 
-After **minikube(docker driver)**(`minikube start`) started, execute nhctl init in terminal:
+After **minikube(docker driver)**(`minikube start --driver=docker`) started, execute nhctl init in terminal:
 ```
 nhctl init -n nocalhost -t nodeport -p 80
 ```
@@ -41,16 +41,14 @@ After started:
 
 ![](../assets/images/init-completed.png)
 
-**[FOR MINIKUBE ONLY]: DO NOT CLOSE TERMINAL TO KEEP THE PORT FORWARDING**
+**[FOR MINIKUBE ONLY]: DO NOT CLOSE THIS TERMINAL WINDOW TO KEEP THE PORT FORWARDING**
 
-> `nhctl init` command flags
-
-- --namespace: to specify which namespace to install.(create automately)
-- --port: to specify which port Nocalhost Web to listen.(Default 80)
-- --set: to overide values for Nocalhost's Helm Chart
-- --type: to specify service type of Nocalhost Web(nodeport or loadbalaner)
-
-You can config flags to adapt your cluster.
+!!! note " `nhctl init` command flags"
+    - --namespace: to specify which namespace to install.(create automately)
+    - --port: to specify which port Nocalhost Web to listen.(Default 80)
+    - --set: to overide values for Nocalhost's Helm Chart
+    - --type: to specify service type of Nocalhost Web(nodeport or loadbalaner)
+    You can config flags to adapt your cluster.
 
 ## Step 3: Configure and login Nocalhost Server in VSCode
 
@@ -86,7 +84,7 @@ After all micro services of bookinfo started, you see this:
 
 ![](../assets/images/app-started.png)
 
-You can access the product page of bookinfo: 
+Now, you can access the product page of bookinfo: 
 
 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage)
 
@@ -94,7 +92,7 @@ You can access the product page of bookinfo:
 
 ## Step 5: Start DevMode
 
-By clicking the green hammer icon, you can switch a service to DevMode easily.
+By clicking the green hammer icon, you can switch a service to DevMode.
 
 ![](../assets/images/click-green-hammer.png)
 
@@ -110,19 +108,19 @@ After DevMode established, you will see this:
 
 In DevMode, the dev container will not respond for requests until you start process again.
 
-Execute `sh run.sh` in dev container to start **productpage service**:
+Execute `sh run.sh` in dev container to start **productpage service** in hot-reloading mode:
 
 ![](../assets/images/run-sh.png)
 
 ## Step 6: Make code changes and check the result
 
-Make code changes and refresh the webpage you opend to check out the results.
+Make code changes and refresh the web page you opened to check out the result.
 
-Example, add **Hello Nocalhost!** here in line 355 of **productpage.py**, and save the file. 😎 
+Example, add **Hello Nocalhost!** here in line 355 of **productpage.py**. Don't forget to save the file. 😎 
 
 ![](../assets/images/code-changes.png)
 
-Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) , you see the code change result immediately. 😄
+Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) , you will see the code change result immediately. 😄
 
 ![](../assets/images/after-change.png)
 
@@ -130,4 +128,4 @@ Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/
 
 By this tutorial based on Nocalhost, you've experienced the convenience and power of cloud native development. Try to use it in real projects!
 
-Any questions and contributions are welcomed. GitHub Issue: https://github.com/nocalhost/nocalhost
+Any questions and contributions are welcomed. GitHub Issue: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost)
