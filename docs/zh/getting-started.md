@@ -48,6 +48,7 @@ nhctl init -n nocalhost -t nodeport -p 80
     - --port: 指定 Nocalhost Web 监听的端口.(默认是 80)
     - --set: 指定覆盖 Nocalhost Helm Chart 的 value
     - --type: 指定 Nocalhost Web 的 Service Type(nodeport or loadbalaner)
+    --force: 强制初始化，请注意它将删除所有 Nocalhost 的旧数据
 
     你可以根据你的集群情况，配置上述 init 参数来执行初始化过程.
 

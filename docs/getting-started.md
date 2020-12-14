@@ -49,6 +49,7 @@ After started:
     - --set: to overide values for Nocalhost's Helm Chart
     - --type: to specify service type of Nocalhost Web(nodeport or loadbalaner)
     You can config flags to adapt your cluster.
+    - --force: force to init, be careful it will remove all nocalhost old data
 
 ## Step 3: Configure and login Nocalhost Server in VSCode
 
