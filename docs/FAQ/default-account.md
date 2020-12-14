@@ -1,8 +1,9 @@
-#### This is the first time I access the administrator website and I cannot find the register link. How do I log in?
+#### Why there isn't a register link? How to login Nocalhost Web?
 
-Nocalhost is not support user register by self.
+Nocalhost does not support self-registration.
+By now, Nocalhost Server(api and web) is designed using by administrtor.
 
-You can log in with the default administrator account email and password.
+Administrtors can sign in with the default administrator account email and password.
 
 The default account's Email is:
 ```
@@ -13,4 +14,4 @@ The default account's password is:
 123456
 ```
 
-After login, you can change admin user's Email and password. And add users.
+After signed in, they can change admin user's Email and password. They can also manage users, clusters and applications.
