@@ -56,6 +56,7 @@ nav:
     - Service Dependency: References/service-denepdency.md
     - Port Forward: References/port-forward.md
   - FAQ:
+    - Work with Helm: FAQ/work-with-helm.md
     - Dependency Label Selector: FAQ/dep-label-selector.md
     - Deployment with HPA: FAQ/deployment-with-hpa.md
     - Multi-container Pods: FAQ/multi-container-pods.md
