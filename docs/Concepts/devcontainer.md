@@ -4,4 +4,4 @@ DevContainer is the container carrier for DevMode development and debugging. Its
 
 **note:**
 
-* The docker used by DevContainer is defined in the application directory .nocalhost/config
+- The docker used by DevContainer is defined in the application directory .nocalhost/config
