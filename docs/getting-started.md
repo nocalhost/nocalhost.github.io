@@ -15,11 +15,11 @@ Prerequisites:
 
 ## Step 1: Install nhctl and VSCode extension
 
-Follow this link: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/)
+Follow this link: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/){:target="_blank"}
 
 ## Step 2: Initialize the cluster and setup Nocalhost Server
 
-- Option 1: Init Cluster provided by cloud platform, for example: [TKE](https://cloud.tencent.com/product/tke) :
+- Option 1: Init Cluster provided by cloud platform, for example: [TKE](https://cloud.tencent.com/product/tke){:target="_blank"} :
 
 Execute nhctl init in terminal:
 ```
@@ -120,7 +120,7 @@ Example, add **Hello Nocalhost!** here in line 355 of **productpage.py**. Don't 
 
 ![](../assets/images/code-changes.png)
 
-Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) , you will see the code change result immediately. 😄
+Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"} , you will see the code change result immediately. 😄
 
 ![](../assets/images/after-change.png)
 
@@ -128,4 +128,4 @@ Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/
 
 By this tutorial based on Nocalhost, you've experienced the convenience and power of cloud native development. Try to use it in real projects!
 
-Any questions and contributions are welcomed. GitHub Issue: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost)
+Any questions and contributions are welcomed. GitHub Issue: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost){:target="_blank"}

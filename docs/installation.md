@@ -3,12 +3,12 @@ title: Installation
 ---
 
 !!! note "Prerequisites"
-	To use nocalhost, please make sure that  [git](https://git-scm.com/downloads), [kubectl](https://kubernetes.io/docs/home/) and [helm](https://helm.sh/) are installed.
+	To use nocalhost, please make sure that  [git](https://git-scm.com/downloads){:target="_blank"}, [kubectl](https://kubernetes.io/docs/home/){:target="_blank"} and [helm](https://helm.sh/){:target="_blank"} are installed.
 
 ## nhctl
 
 The Nocalhost command-line tool: nhctl, allows you to run commands against Nocalhost.
-You can use nhctl to install application, switch services to DevMode, sync codes, forward ports. See [nhctl](/References/cli-commands) for full list of sub commands.
+You can use nhctl to install application, switch services to DevMode, sync codes, forward ports. See [nhctl](/References/cli-commands){:target="_blank"} for full list of sub commands.
 
 
 ## Install nhctl on Linux
@@ -42,7 +42,7 @@ nhctl version
 	nhctl version
 	``` -->
 === "Homebrew"
-	If you are on Linux and using [Homebrew](https://docs.brew.sh/Homebrew-on-Linux) package manager, nhctl is available for [installation](https://docs.brew.sh/Homebrew-on-Linux#install).
+	If you are on Linux and using [Homebrew](https://docs.brew.sh/Homebrew-on-Linux){:target="_blank"} package manager, nhctl is available for [installation](https://docs.brew.sh/Homebrew-on-Linux#install){:target="_blank"}.
 	```bash
 	brew install nocalhost/repo/nocalhost
 
@@ -83,7 +83,7 @@ nhctl version
 
 ### Install nhctl binary on Windows
 
-1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe). <br />
+1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe){:target="_blank"}. <br />
 Or if you have curl installed, use this command:
 ```bash
 curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe" -o nhctl.exe
@@ -115,7 +115,7 @@ nhctl: Nocalhost CLI
 	nhctl version
 	``` -->
 === "baulk"
-	If you are on Windows and using [baulk](https://github.com/baulk/baulk) package manager, nhctl is available for installation. Open CMD with Administrators.
+	If you are on Windows and using [baulk](https://github.com/baulk/baulk){:target="_blank"} package manager, nhctl is available for installation. Open CMD with Administrators.
 	```bash
 	baulk install nocalhost
 
@@ -130,7 +130,7 @@ The Nocalhost VScode Plugin allows you to use Nocalhost on VSCode Editor.
 You can install application, open DevSpace, start DevMode in VSCode conveniently.
 
 ### Install Nocalhost VScode Plugin on VScode Marketplace
-Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost)
+Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost){:target="_blank"}
 
 ### Or Install Nocalhost VScode Plugin on VScode Editor
 1. Open the VScode Editor, and click left bar "Extensions" icon.
