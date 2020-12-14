@@ -58,7 +58,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 ![](../assets/images/config-server-url.png)
 
 
-输入从 **第二步** 获得的访问地址, 按下回车键保存.
+输入从 **第二步** 获得的访问地址, 如果你使用的是 `Minikube`，那么可以输入固定地址 `http://127.0.0.1:31219`，按下回车键保存.
 
 分别输入用户名和密码，按下回车键保存:
 

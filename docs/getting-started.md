@@ -57,7 +57,7 @@ Enter the Nocalhost Extension page in VSCode, click "Config Server URL" on left 
 ![](../assets/images/config-server-url.png)
 
 
-Paste the access url you get from **Step 2**, hit **Enter** on your keyboard.
+Paste the access url you get from **Step 2**, for example, if you use minikube you should enter fixed address: `http://127.0.0.1:31219`, hit **Enter** on your keyboard.
 
 Enter username and password:
 
