@@ -8,8 +8,7 @@ title: Installation
 ## nhctl
 
 The Nocalhost command-line tool: nhctl, allows you to run commands against Nocalhost.
-You can use nhctl to install application, create DevSpace,
-start DevMode. See [nhctl](/References/cli-commands) for full list of sub commands.
+You can use nhctl to install application, switch services to DevMode, sync codes, forward ports. See [nhctl](/References/cli-commands) for full list of sub commands.
 
 
 ## Install nhctl on Linux
@@ -18,7 +17,7 @@ start DevMode. See [nhctl](/References/cli-commands) for full list of sub comman
 
 1. Download the latest release with command:
 ```bash
-curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-linux-amd64" -o nhctl
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-linux-amd64" -o nhctl
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -55,7 +54,7 @@ nhctl version
 
 1. Download the latest release with command:
 ```bash
-curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-darwin-amd64" -o nhctl
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-darwin-amd64" -o nhctl
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -84,10 +83,10 @@ nhctl version
 
 ### Install nhctl binary on Windows
 
-1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-windows-amd64.exe). <br />
+1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe). <br />
 Or if you have curl installed, use this command:
 ```bash
-curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-windows-amd64.exe" -o nhctl.exe
+curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe" -o nhctl.exe
 ```
 2. Add nhctl binary in to your PATH.
 3. Test you installed.
@@ -99,7 +98,7 @@ You will see:
 
 ```
 nhctl: Nocalhost CLI
-    Version: v0.0.6
+    Version: v0.0.5
     Git commit: 605cbf149a4b4d8983111b8984111365a5f54192
     Built: Sat Dec 12 13:29:03 2020
     OS/Arch: linux/amd64
@@ -128,7 +127,7 @@ nhctl: Nocalhost CLI
 ## Install Nocalhost VScode Plugin
 
 The Nocalhost VScode Plugin allows you to use Nocalhost on VSCode Editor.
-You can install application, open DevSpace start DevMode in VSCode directly.
+You can install application, open DevSpace, start DevMode in VSCode conveniently.
 
 ### Install Nocalhost VScode Plugin on VScode Marketplace
 Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost)
@@ -137,3 +136,5 @@ Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost
 1. Open the VScode Editor, and click left bar "Extensions" icon.
 2. Type "nocalhost" in the search input box.
 3. Select the "nocalhost-vscode-plugin", and the click install button to install.
+
+![](../assets/images/extension-market.png)
