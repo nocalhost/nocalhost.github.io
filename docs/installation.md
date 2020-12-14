@@ -95,6 +95,17 @@ curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.5/nhctl-w
 nhctl version
 ```
 
+You will see:
+
+```
+nhctl: Nocalhost CLI
+    Version: v0.0.6
+    Git commit: 605cbf149a4b4d8983111b8984111365a5f54192
+    Built: Sat Dec 12 13:29:03 2020
+    OS/Arch: linux/amd64
+    Go version: go1.14.4
+```
+
 ### Install nhctl using package management
 
 <!-- === "Snap"
