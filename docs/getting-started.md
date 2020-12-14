@@ -126,3 +126,8 @@ Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/
 
 ![](../assets/images/after-change.png)
 
+# Congratulations!
+
+By this tutorial based on Nocalhost, you've experienced the convenience and power of cloud native development. Try to use it in real projects!
+
+Any questions and contributions are welcomed. GitHub Issue: https://github.com/nocalhost/nocalhost
