@@ -30,6 +30,7 @@ markdown_extensions:
 
 nav:
   - Getting started: getting-started.md
+  - 快速上手: zh/getting-started.md
   - Installation: installation.md
   - Deployment: deployment.md
   - Concepts:
