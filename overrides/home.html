@@ -2,54 +2,58 @@
 
 <!-- Render hero under tabs -->
 {% block tabs %}
-  {{ super() }}
+{{ super() }}
 
-  <!-- Additional styles for landing page -->
-  <style>
+<!-- Additional styles for landing page -->
+<style>
 
-    /* Application header should be static for the landing page */
+/* Application header should be static for the landing page */
     .md-header {
-      position: initial;
+        position: initial;
     }
 
     /* Remove spacing, as we cannot hide it completely */
     .md-main__inner {
-      margin: 0;
+        margin: 0;
     }
 
     /* Hide main content for now */
     .md-content {
-      display: none;
+        display: none;
     }
 
     /* Hide table of contents */
     @media screen and (min-width: 60em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
+        .md-sidebar--secondary {
+            display: none;
+        }
     }
 
     /* Hide navigation */
     @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
+        .md-sidebar--primary {
+            display: none;
+        }
     }
-  </style>
+</style>
 
-  <!-- Hero for landing page -->
-  <section id="nocalhost" class="tx-container">
+<!-- Hero for landing page -->
+<section id="nocalhost" class="tx-container">
     <div class="md-grid md-typeset">
-      <div class="tx-hero">
+        <div class="tx-hero">
 
-        <!-- Hero content -->
-        {% include "partials/content_1.html" %}
-        {% include "partials/content_2.html" %}
-        {% include "partials/content_3.html" %}
-        {% include "partials/content_4.html" %}
-      </div>
+            <!-- Hero content -->
+            {% include "partials/content_1.html" %}
+            {% include "partials/content_2.html" %}
+            {% include "partials/content_3.html" %}
+            {% include "partials/content_4.html" %}
+        </div>
     </div>
-  </section>
+</section>
+<footer id="nocalhost-footer">
+    <img src="/assets/images/logo-black.png" height="60" alt="nocalhost">
+    <p>2020 © Nocalhost Project Authors. All rights reserved. </p>
+</footer>
 {% endblock %}
 
 <!-- Content -->
@@ -57,3 +61,4 @@
 
 <!-- Application footer -->
 {% block footer %}{% endblock %}
+
