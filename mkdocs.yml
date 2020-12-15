@@ -29,8 +29,13 @@ markdown_extensions:
 
 
 nav:
+  - 中文文档: 
+    - 快速上手: zh/getting-started.md
+    - 概念介绍: 
+      - DevMode: zh/Concepts/devmode.md
+      - DevSpace: zh/Concepts/devspace.md
+      - DevContainer: zh/Concepts/devcontainer.md
   - Getting started: getting-started.md
-  - 快速上手: zh/getting-started.md
   - Installation: installation.md
   - Deployment: deployment.md
   - Concepts:
