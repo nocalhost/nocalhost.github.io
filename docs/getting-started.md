@@ -2,90 +2,88 @@
 title: Getting started
 ---
 
-## Before you start
+## Before start
 
 Prerequisites:
 
-- A Kubernetes(1.16+) Cluster(Provided by Cloud Platform is recommended although Minikube is fine).
-- kubectl is installed and configured with admin access to your cluster.
-- RBAC must be enabled on your cluster.
-- Helm3 installed.
-- Visual Studio Code(1.31+) installed.
-- Git installed.
+- A Kubernetes(1.16+) Cluster(prefer to be provided by the Cloud platform or Minikube)
+- Configure kubectl for you to be able to access above cluster as admin
+- RBAC must be enabled in above cluster
+- Install Helm3
+- Install Visual Studio Code(1.31+)
+- Install Git
 
 ## Step 1: Install nhctl and VSCode extension
 
-Follow this link: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/){:target="_blank"}
+Reference link: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/){:target="_blank"}
 
 ## Step 2: Initialize the cluster and setup Nocalhost Server
 
-- Option 1: Init Cluster provided by cloud platform, for example: [TKE](https://cloud.tencent.com/product/tke){:target="_blank"} :
+- Option 1: Kubernetes provided by the Cloud platform, such as Tencent [TKE](https://cloud.tencent.com/product/tke){:target="_blank"} 
+Initialize at terminal:
 
-Execute nhctl init in terminal:
 ```
 nhctl init -n nocalhost
 ```
 
-- Option 2: Init Minikube drived by docker:
+- Option 2: startup minikube derived by docker:
 
-After **minikube(docker driver)**(`minikube start --driver=docker`) started, execute nhctl init in terminal:
+After **minikube(docker driver)**(`minikube start --driver=docker`) is started, execute the initialization in terminal:
 ```
 nhctl init -n nocalhost -t nodeport -p 80
 ```
 
-Wait for the starting process:
+Waiting for the initialization process:
 
 ![](../assets/images/initializing.png)
 
-After started:
+After the initialization:
 
 ![](../assets/images/init-completed.png)
 
-**[FOR MINIKUBE ONLY]: DO NOT CLOSE THIS TERMINAL WINDOW TO KEEP THE PORT FORWARDING**
+**[MINIKUBE WARN]: Please do not close above terminal for the port to be able to keep forwarding**
 
 !!! note " `nhctl init` command flags"
     - --namespace: to specify which namespace to install.(create automately)
     - --port: to specify which port Nocalhost Web to listen.(Default 80)
     - --set: to overide values for Nocalhost's Helm Chart
     - --type: to specify service type of Nocalhost Web(nodeport or loadbalaner)
-    You can config flags to adapt your cluster.
-    - --force: force to init, be careful it will remove all nocalhost old data
+    - --force: to specify if delete old data before initialization
 
 ## Step 3: Configure and login Nocalhost Server in VSCode
 
-Enter the Nocalhost Extension page in VSCode, click "Config Server URL" on left panel:
+Open the VSCode extension page, click on the “Config Server URL” button at left:
 
 ![](../assets/images/config-server-url.png)
 
 
-Paste the access url you get from **Step 2**, for example, if you use minikube you should enter fixed address: `http://127.0.0.1:31219`, hit **Enter** on your keyboard.
+Input the access address from Step Two, press Enter to save
+Input the username and password respectively, press Enter to save:
 
-Enter username and password:
+- Username: foo@nocalhost.dev
+- assword: 123456
 
-- username: foo@nocalhost.dev
-- password: 123456
-
-After signed in, you see this:
+After login, you can find:
 
 ![](../assets/images/signedin.png)
 
 ## Step 4: Install demo application: bookinfo
 
-Click the install icon to install application: bookinfo.
+Click the installation icon at the left to install application  bookinfo
 
 ![](../assets/images/signedin.png)
 
-When you click "install" icon, Nocalhost deploy it in your cluster.
+After it, Nocalhost starts to execute the installation.
 
 ![](../assets/images/wait-for-start.png)
 
-You can click refresh icon to check the status of application.
+You can click on the refresh icon to check the status of installation and startup process
 
-After all micro services of bookinfo started, you see this:
+After all microservices startup, you will find
 
 ![](../assets/images/app-started.png)
 
-Now, you can access the product page of bookinfo: 
+Now, you can visit the appliction website: 
 
 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage)
 
@@ -93,40 +91,39 @@ Now, you can access the product page of bookinfo:
 
 ## Step 5: Start DevMode
 
-By clicking the green hammer icon, you can switch a service to DevMode.
+Switch the service to the DevMode by clicking on the green hammer icon.
 
 ![](../assets/images/click-green-hammer.png)
 
-Choose "Clone from Git repo" and specify a dir to storage.
+Select “Clone from Git repo” and specify a local address for Nocalhost to clone the source code.
 
 ![](../assets/images/clone-repo.png)
 
-After checking out source codes, Nocalhost will open a new window and continue switching to DevMode.
+After the source code is checked out, Nocalhost will open a new VSCode window, and continue to switch to the DevMode.
 
-After DevMode established, you will see this:
+When it is completed (it will take long time when it is the first time to run it), you will find:
 
 ![](../assets/images/devmode.png)
 
-In DevMode, the dev container will not respond for requests until you start process again.
+Under the DevMode, the main process will not startup by default for the DevContainer, and therefore it will not respond the request from the website. While refresh the webpage, the webpage will be on error and will be recovered, until you start up again.
 
-Execute `sh run.sh` in dev container to start **productpage service** in hot-reloading mode:
+You can execute `sh run.sh` to start your process.
 
 ![](../assets/images/run-sh.png)
 
-## Step 6: Make code changes and check the result
+## Step 6: Change the code and check the result
 
-Make code changes and refresh the web page you opened to check out the result.
-
-Example, add **Hello Nocalhost!** here in line 355 of **productpage.py**. Don't forget to save the file. 😎 
+You can try to change a piece of code, refresh and check the result.
+For example: add "Hello Nocalhost!" at line 355 in the file productpage.py. Do not forget to save the file. 😎 
 
 ![](../assets/images/code-changes.png)
 
-Refresh the webpage [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"} , you will see the code change result immediately. 😄
+Refresh the webpage, here is the outcome: [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}  😄
 
 ![](../assets/images/after-change.png)
 
 # Congratulations!
 
-By this tutorial based on Nocalhost, you've experienced the convenience and power of cloud native development. Try to use it in real projects!
+You have had a great experience about the Cloud Native development through above Nocalhost simple tutorial. You can start to try to configure and use the Nocalhost in the real project now.
 
-Any questions and contributions are welcomed. GitHub Issue: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost){:target="_blank"}
+Any feedback is welcomed. Github Issues: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost){:target="_blank"}
