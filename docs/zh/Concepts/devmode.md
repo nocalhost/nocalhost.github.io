@@ -20,7 +20,7 @@ TODO 补一个配图
 
 开发者无需登录 Nocalhost Web 控制台，直接在 IDE 插件中登录后，即可列出自己的 DevSpace 列表，可方便的在插件中部署，卸载，开发，调试应用。
 
-![](../assets/images/devspace-list-plugin.png)
+![](../../assets/images/devspace-list-plugin.png)
 
 ## 如何查看当前服务是否为 DevMode
 
@@ -29,8 +29,8 @@ TODO 补一个配图
 ```
 nhctl list <application_name>
 ```
-![](../assets/images/devmode-nhctl.png)
+![](../../assets/images/devmode-nhctl.png)
 
 1. 在插件端查看 DevMode 的状态
 
-![](../assets/images/devmode-plugin.png)
+![](../../assets/images/devmode-plugin.png)

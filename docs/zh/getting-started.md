@@ -120,11 +120,11 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 例如, 在文件 **productpage.py** 的 355 行添加 **Hello Nocalhost!** . 别忘了保存文件.
 
-![](../../assets/images/code-changes.png)
+![](../assets/images/code-changes.png)
 
 刷新网页，即可立即看到效果。 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) 😄
 
-![](../../assets/images/after-change.png)
+![](../assets/images/after-change.png)
 
 # 恭喜!
 
