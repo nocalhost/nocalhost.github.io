@@ -1,0 +1,46 @@
+.md-grid {
+  max-width: 100%;
+}
+
+.tx-hero {
+  position: relative;
+}
+
+.tx-hero__background_1 {
+  height: 1100px;
+  width: calc(50% + 700px);
+  min-width: 1560px;
+  border-top: 0;
+  border-right: 200px solid transparent;
+  border-bottom: 621px solid transparent;
+  border-left: 330px solid transparent;
+  border-image-source: url(/assets/images/test-border-bg.svg);
+  border-image-slice: 0 200 621 330 fill;
+  border-image-repeat: stretch;
+  position: relative;
+  left: calc(25% - 350px);
+}
+
+#nocalhost .tx-hero__content {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+#nocalhost .tx-hero__content h1 {
+  color: #fff;
+  font-size: 90px;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+#nocalhost .tx-hero__content p {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+#nocalhost .tx-hero__content_btns {
+  text-align: center;
+}

@@ -9,6 +9,8 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/home.css
+  - stylesheets/nocalhost_content_1.css
 
 markdown_extensions:
   - admonition

@@ -14,3 +14,22 @@
   height: 48px;
   width: auto;
 }
+
+.md-button__home_github {
+  background-color: #9b5bfb;
+  color: #fff !important;
+  border: 0.1rem solid #9b5bfb !important;
+  border-radius: 0.1rem !important;
+}
+
+.md-button__home_github:hover {
+  border-color: hsla(231, 99%, 66%, 1) !important;
+}
+
+.md-button__home_github > img {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+  height: 19px;
+  margin-right: 5px;
+}

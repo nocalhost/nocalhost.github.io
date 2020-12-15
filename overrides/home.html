@@ -38,40 +38,15 @@
   </style>
 
   <!-- Hero for landing page -->
-  <section class="tx-container">
+  <section id="nocalhost" class="tx-container">
     <div class="md-grid md-typeset">
       <div class="tx-hero">
 
-        <!-- Hero image -->
-        <div class="tx-hero__image">
-          <img
-            src="assets/images/illustration.png"
-            alt=""
-            width="1659"
-            height="1200"
-            draggable="false"
-          >
-        </div>
-
         <!-- Hero content -->
-        <div class="tx-hero__content">
-          <h1>Nocalhost</h1>
-          <p>{{ config.site_description }}</p>
-          <a
-            href="{{ 'getting-started/' | url }}"
-            title="{{ 'Getting Started' | e }}"
-            class="md-button md-button--primary"
-          >
-            Quick start
-          </a>
-          <a
-            href="{{ '/' | url }}"
-            title="Material for MkDocs Insiders"
-            class="md-button"
-          >
-            Documents
-          </a>
-        </div>
+        {% include "partials/content_1.html" %}
+        {% include "partials/content_2.html" %}
+        {% include "partials/content_3.html" %}
+        {% include "partials/content_4.html" %}
       </div>
     </div>
   </section>
