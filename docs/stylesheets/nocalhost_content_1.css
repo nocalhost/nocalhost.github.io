@@ -29,6 +29,8 @@
 
 #nocalhost .tx-hero__content h1 {
   color: #fff;
+  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
+    Helvetica, Arial, sans-serif;
   font-size: 90px;
   text-align: center;
   margin-top: 1em;
@@ -43,4 +45,6 @@
 
 #nocalhost .tx-hero__content_btns {
   text-align: center;
+  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
+    Helvetica, Arial, sans-serif;
 }

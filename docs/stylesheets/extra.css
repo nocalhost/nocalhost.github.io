@@ -4,6 +4,18 @@
   --md-primary-fg-color--dark: #0059b2;
 }
 
+@font-face {
+  font-family: "nexa_light";
+  src: url("/assets/fonts/nexa_light.woff");
+  src: url("/assets/fonts/nexa_light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "nexa_bold";
+  src: url("/assets/fonts/nexa_bold.woff");
+  src: url("/assets/fonts/nexa_bold.woff") format("woff");
+}
+
 .md-header-nav__button.md-logo {
   padding: 0;
   margin: 0;
