@@ -33,4 +33,4 @@ nhctl list <application_name>
 
 1. 在插件端查看 DevMode 的状态
 
-TODO 补充一个新 ICON 的截图
+![](../assets/images/devmode-plugin.png)
