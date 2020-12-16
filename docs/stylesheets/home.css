@@ -55,14 +55,16 @@
   width: 100%; }
   #nocalhost .tx-hero_content_2 .groups {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    flex-wrap: wrap; }
   #nocalhost .tx-hero_content_2 h2 {
     font-size: 48px;
     text-align: center;
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     color: #ffffff; }
   #nocalhost .tx-hero_content_2 section {
-    width: 593px;
+    min-width: 500px;
+    max-width: 593px;
     padding: 40px;
     padding-bottom: 80px;
     background-color: #0078f9;
@@ -89,7 +91,8 @@
   #nocalhost .tx-hero_content_2 .title {
     display: flex;
     margin-bottom: 14px;
-    align-items: baseline; }
+    align-items: baseline;
+    flex-wrap: wrap; }
   #nocalhost .tx-hero_content_2 h3 {
     color: #fff;
     font-size: 42px;
@@ -119,11 +122,18 @@
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
   #nocalhost .tx-hero_content_3 .content {
     display: flex;
-    justify-content: space-evenly; }
+    justify-content: space-evenly;
+    flex-wrap: wrap; }
   #nocalhost .tx-hero_content_3 .arrow {
     display: flex; }
+    @media (max-width: 1100px) {
+      #nocalhost .tx-hero_content_3 .arrow {
+        display: none; } }
   #nocalhost .tx-hero_content_3 section {
     width: 500px; }
+    @media (max-width: 1100px) {
+      #nocalhost .tx-hero_content_3 section {
+        margin-top: 20px; } }
     #nocalhost .tx-hero_content_3 section .title {
       font-size: 42px;
       color: rgba(255, 255, 255, 0.5);
@@ -174,6 +184,9 @@
     display: flex;
     justify-content: center;
     overflow-x: auto; }
+    @media (max-width: 1200px) {
+      #nocalhost .tx-hero_content_4 .table {
+        justify-content: start; } }
     #nocalhost .tx-hero_content_4 .table img {
       min-width: 1200px; }
   #nocalhost .tx-hero_content_4 .bottom-banner {
@@ -206,6 +219,18 @@
         left: 282px; }
     #nocalhost .tx-hero_content_4 .bottom-banner a {
       white-space: nowrap; }
+    @media (max-width: 1200px) {
+      #nocalhost .tx-hero_content_4 .bottom-banner {
+        padding: 100px 20px; } }
+    @media (max-width: 800px) {
+      #nocalhost .tx-hero_content_4 .bottom-banner {
+        display: block;
+        padding: 50px 20px;
+        height: auto; }
+        #nocalhost .tx-hero_content_4 .bottom-banner .btn {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px; } }
 
 #nocalhost-footer {
   height: 140px;

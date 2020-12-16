@@ -67,4 +67,12 @@
       opacity: 0.9;
       min-width: 1920px; }
 
-/*# sourceMappingURL=nocalhost_content_1.css.map */
+#home {
+  background-color: transparent;
+  height: 160px;
+  position: absolute; }
+  @media screen and (max-width: 76.1875em) {
+    #home .md-header-nav__button.md-logo {
+      display: block; } }
+
+/*# sourceMappingURL=grid.css.map */

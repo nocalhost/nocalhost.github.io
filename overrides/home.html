@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 
+{% block header %}{% endblock %}
 <!-- Render hero under tabs -->
 {% block tabs %}
 {{ super() }}
@@ -37,6 +38,7 @@
     }
 </style>
 
+{% include "partials/home_header.html" %}
 <!-- Hero for landing page -->
 <section id="nocalhost" class="tx-container">
     <div class="md-grid md-typeset">
@@ -50,12 +52,7 @@
         </div>
     </div>
 </section>
-<footer id="nocalhost-footer">
-	<div class="footer-content">
-		<img src="/assets/images/logo-black.png" height="60" alt="nocalhost">
-		<p>2020 © Nocalhost Project Authors. All rights reserved. </p>
-	</div>
-</footer>
+{% include "partials/home_footer.html" %}
 {% endblock %}
 
 <!-- Content -->
