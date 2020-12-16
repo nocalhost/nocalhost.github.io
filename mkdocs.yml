@@ -31,10 +31,19 @@ markdown_extensions:
 nav:
   - 中文文档: 
     - 快速上手: zh/getting-started.md
-    - 概念介绍: 
+    - 概念介绍:
+      - Application: zh/Concepts/application.md
       - DevMode: zh/Concepts/devmode.md
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
+    - 常见问题:
+      - Helm 工作负载名称: zh/FAQ/work-with-helm.md
+      - 依赖标签选择器: zh/FAQ/dep-label-selector.md
+      - HPA 控制的 Deployment: zh/FAQ/deployment-with-hpa.md
+      - 多容器 Pod: zh/FAQ/multi-container-pods.md
+      - VSCode 插件功能限制: zh/FAQ/vscode-plugin-limits.md
+      - 加密的 SSH 私钥: zh/FAQ/ssh-private-keys-passphrase.md
+      - 默认管理账户: zh/FAQ/default-account.md
   - Getting started: getting-started.md
   - Installation: installation.md
   - Deployment: deployment.md
