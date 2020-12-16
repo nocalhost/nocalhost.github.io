@@ -1,8 +1,8 @@
 #nocalhost {
 
 	.tx-hero_content {
-		padding-top: 120px;
-        padding-bottom: 160px;
+		padding: 120px 20px 160px 20px;
+		position: relative;
 
 		.h2 {
 			display: flex;
@@ -30,6 +30,48 @@
         }
     }
 
+	.tx-hero_content_1 {
+		position: relative;
+		width: 100%;
+		z-index: 2;
+		height: 680px;
+
+		h1 {
+			font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+			color: #fff;
+			font-size: 90px;
+			text-align: center;
+			margin-top: 1em;
+			margin-bottom: 0.3em;
+		}
+
+		p {
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		.tx-hero__content_btns {
+			text-align: center;
+
+			a {
+				margin-right: 10px;
+			}
+		}
+
+		strong {
+			position: relative;
+			&::before {
+				content: '';
+				background-image: url("/assets/images/home/nocalhost-affix.svg");
+				width: 60px;
+				height:12px;
+				position: absolute;
+				bottom: -12px;
+			}
+		}
+	}
+
 	.tx-hero_content_2 {
 		// background-image: linear-gradient(#e6eff8, #ffffff);
 		position: relative;
@@ -48,6 +90,7 @@
 		section {
 			width: 593px;
 			padding: 40px;
+			padding-bottom: 80px;
 			background-color: #0078f9;
 			border-radius: 4px;
 			box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
@@ -87,13 +130,14 @@
 			color: #fff;
 			font-size: 42px;
 			margin: 0;
+			margin-right: 10px;
 		}
 		h4 {
 			color: #fff;
 			font-size: 24px;
 			margin: 0;
 			line-height: 63px;
-			margin-left: 10px;
+			white-space: nowrap;
 		}
 		p {
 			color: #fff;
@@ -173,7 +217,6 @@
                     list-style: none;
                     font-size: 14px;
                     margin: 0;
-                    height: 22px;
                     line-height: 22px;
                     display: flex;
                     margin-top: 10px;
@@ -201,6 +244,11 @@
         .table {
             display: flex;
             justify-content: center;
+			overflow-x: auto;
+
+			img {
+				min-width: 1200px;
+			}
         }
 
         .bottom-banner {
@@ -214,6 +262,17 @@
                 margin: 0;
                 margin-right: 150px;
 				white-space: nowrap;
+				position: relative;
+
+				&::before {
+					content: '';
+					background-image: url('/assets/images/home/nocalhost-affix.svg');
+					position: absolute;
+					width: 60px;
+					height: 12px;
+					bottom: -2px;
+					left: 282px;
+				}
             }
             background-image: linear-gradient(-180deg, #0f2b34 0%, #000000 100%);
             border-radius: 20px;

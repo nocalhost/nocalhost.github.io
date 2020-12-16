@@ -1,210 +1,211 @@
 #nocalhost .tx-hero_content {
-  padding-top: 120px;
-  padding-bottom: 160px;
-}
-#nocalhost .tx-hero_content .h2 {
-  display: flex;
-  justify-content: center;
-}
+  padding: 120px 20px 160px 20px;
+  position: relative; }
+  #nocalhost .tx-hero_content .h2 {
+    display: flex;
+    justify-content: center; }
 #nocalhost h2 {
   margin-top: 0;
   margin-bottom: 130px;
   position: relative;
+  z-index: 2; }
+  #nocalhost h2:before {
+    position: absolute;
+    display: block;
+    height: 86px;
+    width: 86px;
+    border-radius: 86px;
+    content: '';
+    background-color: #ed58ed;
+    z-index: -1;
+    bottom: 0;
+    left: -38px; }
+#nocalhost .tx-hero_content_1 {
+  position: relative;
+  width: 100%;
   z-index: 2;
-}
-#nocalhost h2:before {
-  position: absolute;
-  display: block;
-  height: 86px;
-  width: 86px;
-  border-radius: 86px;
-  content: "";
-  background-color: #ed58ed;
-  z-index: -1;
-  bottom: 0;
-  left: -38px;
-}
+  height: 680px; }
+  #nocalhost .tx-hero_content_1 h1 {
+    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 90px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.3em; }
+  #nocalhost .tx-hero_content_1 p {
+    color: #fff;
+    font-size: 20px;
+    text-align: center; }
+  #nocalhost .tx-hero_content_1 .tx-hero__content_btns {
+    text-align: center; }
+    #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
+      margin-right: 10px; }
+  #nocalhost .tx-hero_content_1 strong {
+    position: relative; }
+    #nocalhost .tx-hero_content_1 strong::before {
+      content: '';
+      background-image: url("/assets/images/home/nocalhost-affix.svg");
+      width: 60px;
+      height: 12px;
+      position: absolute;
+      bottom: -12px; }
 #nocalhost .tx-hero_content_2 {
   position: relative;
   z-index: 2;
-  width: 100%;
-}
-#nocalhost .tx-hero_content_2 .groups {
-  display: flex;
-  justify-content: center;
-}
-#nocalhost .tx-hero_content_2 h2 {
-  font-size: 48px;
-  text-align: center;
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  color: #ffffff;
-}
-#nocalhost .tx-hero_content_2 section {
-  width: 593px;
-  padding: 40px;
-  background-color: #0078f9;
-  border-radius: 4px;
-  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
-  margin: 7px;
-}
-#nocalhost .tx-hero_content_2 section strong, #nocalhost .tx-hero_content_2 section .title {
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-}
-#nocalhost .tx-hero_content_2 .se2 {
-  background-color: #0f2b34;
-}
-#nocalhost .tx-hero_content_2 .se3 {
-  background-color: #ffffff;
-}
-#nocalhost .tx-hero_content_2 .se3 h3 {
-  color: #0b0f13;
-}
-#nocalhost .tx-hero_content_2 .se3 h4 {
-  color: #0b0f13;
-}
-#nocalhost .tx-hero_content_2 .se3 p {
-  color: #0b0f13;
-}
-#nocalhost .tx-hero_content_2 .se3 strong {
-  color: #0b0f13;
-}
-#nocalhost .tx-hero_content_2 strong {
-  color: #fff;
-  font-size: 20px;
-}
-#nocalhost .tx-hero_content_2 .title {
-  display: flex;
-  margin-bottom: 14px;
-  align-items: baseline;
-}
-#nocalhost .tx-hero_content_2 h3 {
-  color: #fff;
-  font-size: 42px;
-  margin: 0;
-}
-#nocalhost .tx-hero_content_2 h4 {
-  color: #fff;
-  font-size: 24px;
-  margin: 0;
-  line-height: 63px;
-  margin-left: 10px;
-}
-#nocalhost .tx-hero_content_2 p {
-  color: #fff;
-  font-size: 14px;
-}
-#nocalhost .tx-hero_content_2 .icon {
-  display: flex;
-  justify-content: center;
-}
-#nocalhost .tx-hero_content_2 .icon img {
-  width: 300px !important;
-  height: 300px !important;
-}
+  width: 100%; }
+  #nocalhost .tx-hero_content_2 .groups {
+    display: flex;
+    justify-content: center; }
+  #nocalhost .tx-hero_content_2 h2 {
+    font-size: 48px;
+    text-align: center;
+    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    color: #ffffff; }
+  #nocalhost .tx-hero_content_2 section {
+    width: 593px;
+    padding: 40px;
+    padding-bottom: 80px;
+    background-color: #0078f9;
+    border-radius: 4px;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+    margin: 7px; }
+    #nocalhost .tx-hero_content_2 section strong, #nocalhost .tx-hero_content_2 section .title {
+      font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+  #nocalhost .tx-hero_content_2 .se2 {
+    background-color: #0f2b34; }
+  #nocalhost .tx-hero_content_2 .se3 {
+    background-color: #ffffff; }
+    #nocalhost .tx-hero_content_2 .se3 h3 {
+      color: #0b0f13; }
+    #nocalhost .tx-hero_content_2 .se3 h4 {
+      color: #0b0f13; }
+    #nocalhost .tx-hero_content_2 .se3 p {
+      color: #0b0f13; }
+    #nocalhost .tx-hero_content_2 .se3 strong {
+      color: #0b0f13; }
+  #nocalhost .tx-hero_content_2 strong {
+    color: #fff;
+    font-size: 20px; }
+  #nocalhost .tx-hero_content_2 .title {
+    display: flex;
+    margin-bottom: 14px;
+    align-items: baseline; }
+  #nocalhost .tx-hero_content_2 h3 {
+    color: #fff;
+    font-size: 42px;
+    margin: 0;
+    margin-right: 10px; }
+  #nocalhost .tx-hero_content_2 h4 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+    line-height: 63px;
+    white-space: nowrap; }
+  #nocalhost .tx-hero_content_2 p {
+    color: #fff;
+    font-size: 14px; }
+  #nocalhost .tx-hero_content_2 .icon {
+    display: flex;
+    justify-content: center; }
+    #nocalhost .tx-hero_content_2 .icon img {
+      width: 300px !important;
+      height: 300px !important; }
 #nocalhost .tx-hero_content_3 {
-  background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%);
-}
-#nocalhost .tx-hero_content_3 h2 {
-  color: #ffffff;
-  font-size: 48px;
-  text-align: center;
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-}
-#nocalhost .tx-hero_content_3 .content {
-  display: flex;
-  justify-content: space-evenly;
-}
-#nocalhost .tx-hero_content_3 .arrow {
-  display: flex;
-}
-#nocalhost .tx-hero_content_3 section {
-  width: 500px;
-}
-#nocalhost .tx-hero_content_3 section .title {
-  font-size: 42px;
-  color: rgba(255, 255, 255, 0.5);
-  font-family: "nexa_light", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-}
-#nocalhost .tx-hero_content_3 section .title strong {
-  color: #ffffff;
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-}
-#nocalhost .tx-hero_content_3 section p {
-  font-size: 14px;
-  color: #ffffff;
-}
-#nocalhost .tx-hero_content_3 section .nocalhost-list li::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-image: url("/assets/images/home/section3-smileface.svg");
-  display: inline-block;
-  margin-right: 10px;
-}
-#nocalhost .tx-hero_content_3 section .localhost-list li::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-image: url("/assets/images/home/section3-sadface.svg");
-  display: inline-block;
-  margin-right: 10px;
-}
-#nocalhost .tx-hero_content_3 section ul {
-  color: #ffffff;
-  margin: 0;
-}
-#nocalhost .tx-hero_content_3 section ul li {
-  list-style: none;
-  font-size: 14px;
-  margin: 0;
-  height: 22px;
-  line-height: 22px;
-  display: flex;
-  margin-top: 10px;
-}
+  background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%); }
+  #nocalhost .tx-hero_content_3 h2 {
+    color: #ffffff;
+    font-size: 48px;
+    text-align: center;
+    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+  #nocalhost .tx-hero_content_3 .content {
+    display: flex;
+    justify-content: space-evenly; }
+  #nocalhost .tx-hero_content_3 .arrow {
+    display: flex; }
+  #nocalhost .tx-hero_content_3 section {
+    width: 500px; }
+    #nocalhost .tx-hero_content_3 section .title {
+      font-size: 42px;
+      color: rgba(255, 255, 255, 0.5);
+      font-family: "nexa_light", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+      #nocalhost .tx-hero_content_3 section .title strong {
+        color: #ffffff;
+        font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    #nocalhost .tx-hero_content_3 section p {
+      font-size: 14px;
+      color: #ffffff; }
+    #nocalhost .tx-hero_content_3 section .nocalhost-list li::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-image: url("/assets/images/home/section3-smileface.svg");
+      display: inline-block;
+      margin-right: 10px; }
+    #nocalhost .tx-hero_content_3 section .localhost-list li::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-image: url("/assets/images/home/section3-sadface.svg");
+      display: inline-block;
+      margin-right: 10px; }
+    #nocalhost .tx-hero_content_3 section ul {
+      color: #ffffff;
+      margin: 0; }
+      #nocalhost .tx-hero_content_3 section ul li {
+        list-style: none;
+        font-size: 14px;
+        margin: 0;
+        line-height: 22px;
+        display: flex;
+        margin-top: 10px; }
 #nocalhost .tx-hero_content_4 {
   background-image: linear-gradient(-180deg, #e5fefe 0%, #ffffff 100%);
-  padding-top: 120px;
-}
-#nocalhost .tx-hero_content_4 h2 {
-  font-size: 48px;
-  color: #0b0f13;
-  text-align: center;
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-}
-#nocalhost .tx-hero_content_4 p {
-  font-size: 18px;
-  color: #0b0f13;
-  text-align: center;
-}
-#nocalhost .tx-hero_content_4 .table {
-  display: flex;
-  justify-content: center;
-}
-#nocalhost .tx-hero_content_4 .bottom-banner {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 120px;
-  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(-180deg, #0f2b34 0%, #000000 100%);
-  border-radius: 20px;
-  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  padding: 106px 214px;
-  align-items: center;
-}
-#nocalhost .tx-hero_content_4 .bottom-banner h3 {
-  font-size: 34px;
-  color: #ffffff;
-  margin: 0;
-  margin-right: 150px;
-  white-space: nowrap;
-}
-#nocalhost .tx-hero_content_4 .bottom-banner a {
-  white-space: nowrap;
-}
+  padding-top: 120px; }
+  #nocalhost .tx-hero_content_4 h2 {
+    font-size: 48px;
+    color: #0b0f13;
+    text-align: center;
+    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+  #nocalhost .tx-hero_content_4 p {
+    font-size: 18px;
+    color: #0b0f13;
+    text-align: center; }
+  #nocalhost .tx-hero_content_4 .table {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; }
+    #nocalhost .tx-hero_content_4 .table img {
+      min-width: 1200px; }
+  #nocalhost .tx-hero_content_4 .bottom-banner {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 120px;
+    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(-180deg, #0f2b34 0%, #000000 100%);
+    border-radius: 20px;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    padding: 106px 214px;
+    align-items: center; }
+    #nocalhost .tx-hero_content_4 .bottom-banner h3 {
+      font-size: 34px;
+      color: #ffffff;
+      margin: 0;
+      margin-right: 150px;
+      white-space: nowrap;
+      position: relative; }
+      #nocalhost .tx-hero_content_4 .bottom-banner h3::before {
+        content: '';
+        background-image: url("/assets/images/home/nocalhost-affix.svg");
+        position: absolute;
+        width: 60px;
+        height: 12px;
+        bottom: -2px;
+        left: 282px; }
+    #nocalhost .tx-hero_content_4 .bottom-banner a {
+      white-space: nowrap; }
 
 #nocalhost-footer {
   height: 140px;
@@ -212,18 +213,15 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
-  border-image: linear-gradient(90deg, #ed58ed 25%, #6f38ff 50%, #1ee7e7 75%, #0080ff 100%) 1;
-}
-#nocalhost-footer .footer-content {
-  display: flex;
-  max-width: 1200px;
-  justify-content: space-between;
-  margin: 40px auto;
-}
-#nocalhost-footer p {
-  line-height: 60px;
-  height: 60px;
-  margin: 0;
-}
+  border-image: linear-gradient(90deg, #ed58ed 25%, #6f38ff 50%, #1ee7e7 75%, #0080ff 100%) 1; }
+  #nocalhost-footer .footer-content {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 40px auto; }
+  #nocalhost-footer p {
+    line-height: 60px;
+    height: 60px;
+    margin: 0; }
 
 /*# sourceMappingURL=home.css.map */
