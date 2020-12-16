@@ -17,7 +17,7 @@ You can use nhctl to install application, switch services to DevMode, sync codes
 
 1. Download the latest release with command:
 ```bash
-curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-linux-amd64" -o nhctl
+curl -sL https://git.io/JLsgQ | sh
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -54,7 +54,7 @@ nhctl version
 
 1. Download the latest release with command:
 ```bash
-curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-darwin-amd64" -o nhctl
+curl -sL https://git.io/JLsgQ | sh
 ```
 2. Make the nhctl binary executable.
 ```bash
@@ -83,7 +83,7 @@ nhctl version
 
 ### Install nhctl binary on Windows
 
-1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe){:target="_blank"}. <br />
+1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/latest){:target="_blank"}. <br />
 Or if you have curl installed, use this command:
 ```bash
 curl -L "https://github.com/nocalhost/nocalhost/releases/download/v0.0.7/nhctl-windows-amd64.exe" -o nhctl.exe
