@@ -48,3 +48,7 @@
   font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
     Helvetica, Arial, sans-serif;
 }
+
+#nocalhost .tx-hero__content_btns a {
+  margin-right: 20px;
+}

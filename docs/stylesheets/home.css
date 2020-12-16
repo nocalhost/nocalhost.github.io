@@ -1,3 +1,9 @@
+#nocalhost .tx-hero_content {
+  padding-top: 120px;
+  padding-bottom: 160px; }
+  #nocalhost .tx-hero_content .h2 {
+    display: flex;
+    justify-content: center; }
 #nocalhost h2 {
   margin-top: 0;
   margin-bottom: 130px;
@@ -11,11 +17,12 @@
     border-radius: 86px;
     content: '';
     background-color: #ed58ed;
-    z-index: 1;
-    bottom: 0; }
+    z-index: -1;
+    bottom: 0;
+    left: -38px; }
 #nocalhost .tx-hero_content_2 {
-  padding-top: 120px;
-  background-image: linear-gradient(#e6eff8, #ffffff);
+  background-image: linear-gradient(-180deg, #e6eff8 0%, #ffffff 100%);
+  margin-top: -400px;
   width: 100%; }
   #nocalhost .tx-hero_content_2 .groups {
     display: flex;
@@ -51,7 +58,8 @@
     font-size: 20px; }
   #nocalhost .tx-hero_content_2 .title {
     display: flex;
-    margin-bottom: 14px; }
+    margin-bottom: 14px;
+    align-items: baseline; }
   #nocalhost .tx-hero_content_2 h3 {
     color: #fff;
     font-size: 42px;
@@ -68,10 +76,11 @@
   #nocalhost .tx-hero_content_2 .icon {
     display: flex;
     justify-content: center; }
+    #nocalhost .tx-hero_content_2 .icon img {
+      width: 300px !important;
+      height: 300px !important; }
 #nocalhost .tx-hero_content_3 {
-  background-image: linear-gradient(#2d0777, #200847, #160823);
-  padding-top: 120px;
-  padding-bottom: 160px; }
+  background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%); }
   #nocalhost .tx-hero_content_3 h2 {
     color: #ffffff;
     font-size: 48px;
@@ -120,7 +129,7 @@
         display: flex;
         margin-top: 10px; }
 #nocalhost .tx-hero_content_4 {
-  background-image: linear-gradient(#e5efef, #ffffff);
+  background-image: linear-gradient(-180deg, #e5fefe 0%, #ffffff 100%);
   padding-top: 120px; }
   #nocalhost .tx-hero_content_4 h2 {
     font-size: 48px;
@@ -135,8 +144,11 @@
     display: flex;
     justify-content: center; }
   #nocalhost .tx-hero_content_4 .bottom-banner {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 120px;
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(#0f2b34, #000000);
+    background-image: linear-gradient(-180deg, #0f2b34 0%, #000000 100%);
     border-radius: 20px;
     box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
     height: 260px;
@@ -145,13 +157,26 @@
     padding: 106px 214px;
     align-items: center; }
     #nocalhost .tx-hero_content_4 .bottom-banner h3 {
-      font-size: 42px;
+      font-size: 34px;
       color: #ffffff;
       margin: 0;
-      margin-right: 180px; }
+      margin-right: 150px;
+      white-space: nowrap; }
+    #nocalhost .tx-hero_content_4 .bottom-banner a {
+      white-space: nowrap; }
 
 #nocalhost-footer {
-  display: flex; }
+  height: 140px;
+  border-top: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-image: linear-gradient(90deg, #ed58ed 25%, #6f38ff 50%, #1ee7e7 75%, #0080ff 100%) 1; }
+  #nocalhost-footer .footer-content {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 40px auto; }
   #nocalhost-footer p {
     line-height: 60px;
     height: 60px;
