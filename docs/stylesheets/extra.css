@@ -60,3 +60,11 @@
     position: static;
   }
 }
+
+.nocalhost-nav-logo {
+  background: #0b0f13 !important;
+}
+
+.md-header {
+  background: #0b0f13;
+}
