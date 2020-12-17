@@ -70,9 +70,13 @@
 #home {
   background-color: transparent;
   height: 160px;
-  position: absolute; }
+  position: absolute;
+  z-index: 999; }
   @media screen and (max-width: 76.1875em) {
     #home .md-header-nav__button.md-logo {
       display: block; } }
+  #home .md-grid {
+    max-width: 1400px;
+    height: 2.4rem; }
 
 /*# sourceMappingURL=grid.css.map */

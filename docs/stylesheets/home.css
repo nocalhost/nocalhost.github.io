@@ -18,13 +18,16 @@
     content: '';
     background-color: #ed58ed;
     z-index: -1;
-    bottom: 0;
+    top: -20px;
     left: -38px; }
 #nocalhost .tx-hero_content_1 {
   position: relative;
   width: 100%;
   z-index: 2;
   height: 680px; }
+  @media (max-width: 700px) {
+    #nocalhost .tx-hero_content_1 h1 {
+      margin-top: 0 !important; } }
   #nocalhost .tx-hero_content_1 h1 {
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     color: #fff;
@@ -63,7 +66,7 @@
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     color: #ffffff; }
   #nocalhost .tx-hero_content_2 section {
-    min-width: 500px;
+    min-width: 460px;
     max-width: 593px;
     padding: 40px;
     padding-bottom: 80px;
@@ -123,7 +126,9 @@
   #nocalhost .tx-hero_content_3 .content {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto; }
   #nocalhost .tx-hero_content_3 .arrow {
     display: flex; }
     @media (max-width: 1100px) {
@@ -144,6 +149,9 @@
     #nocalhost .tx-hero_content_3 section p {
       font-size: 14px;
       color: #ffffff; }
+    @media (max-width: 700px) {
+      #nocalhost .tx-hero_content_3 section {
+        transform: scale(0.9); } }
     #nocalhost .tx-hero_content_3 section .nocalhost-list li::before {
       content: '';
       width: 20px;

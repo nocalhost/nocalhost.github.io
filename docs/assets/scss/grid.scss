@@ -93,11 +93,17 @@
     background-color: transparent;
     height: 160px;
     position: absolute;
+    z-index: 999;
 
     @media screen and (max-width: 76.1875em) {
         .md-header-nav__button.md-logo {
             display: block;
         }
+    }
+
+    .md-grid {
+        max-width: 1400px;
+        height: 2.4rem;
     }
 }
 

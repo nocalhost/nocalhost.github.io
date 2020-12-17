@@ -24,7 +24,7 @@
             content: '';
             background-color: #ed58ed;
             z-index: -1;
-            bottom: 0;
+            top: -20px;
 			left: -38px;
         }
     }
@@ -34,6 +34,12 @@
 		width: 100%;
 		z-index: 2;
 		height: 680px;
+
+        @media (max-width: 700px) {
+            h1 {
+                margin-top: 0!important;
+            }
+        }
 
 		h1 {
 			font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
@@ -72,7 +78,6 @@
 	}
 
 	.tx-hero_content_2 {
-		// background-image: linear-gradient(#e6eff8, #ffffff);
 		position: relative;
 		z-index: 2;
 		width: 100%;
@@ -88,7 +93,7 @@
             color: #ffffff;
 		}
 		section {
-            min-width: 500px;
+            min-width: 460px;
 			max-width: 593px;
 			padding: 40px;
 			padding-bottom: 80px;
@@ -170,6 +175,8 @@
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .arrow {
@@ -196,6 +203,10 @@
             p {
                 font-size: 14px;
                 color: #ffffff;
+            }
+
+            @media (max-width: 700px) {
+                transform: scale(0.9);
             }
 
             .nocalhost-list {
