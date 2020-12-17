@@ -1,5 +1,5 @@
 
-## nhctl commands
+## Nhctl CLI
 nhctl 可以用来部署应用和开发基于 Kubernetes 的应用，nhctl 跟 Kubernetes 交互需要依赖 kubectl 。可以通过 --kubeconfig 指定使用的 kubeconfig 文件。
 
 语法：nhctl [commond] [Name] [flags]
