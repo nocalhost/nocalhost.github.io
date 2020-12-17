@@ -134,7 +134,7 @@ nhctl install applicationNameFooBar \
 
 ## `Nocalhost` 对原生 Application 的增强
 
-`Nocalhost` 并对用户的 k8s manifest配置无侵入，如果你需要使用一些增强功能，例如 `Pre-Install`、例如依赖管理等。在你的仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml) 。
+`Nocalhost` 对用户的 k8s manifest 配置无侵入，如果你需要使用一些增强功能，例如 `Pre-Install`、例如依赖管理等。在你的仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml) 。
 
 
 ### Pre-Install
@@ -199,5 +199,5 @@ nocalhost 使用唯一的 Application Name 来区分不同的 Application。注�
 
 ### `~/.nh` 下的 `Application`
 
-注意，`~/.nh/` 目录下，nhctl 和 IDE 插件会存储一些文件用以保存当前应用部署，开发等的一些状态，通常你不需要了解或者直接使用他们。
+注意，`~/.nh/` 目录下，`nhctl` 和 IDE 插件会存储一些文件用以保存当前应用部署，开发等的一些状态，通常你不需要了解或者直接使用他们。
 
