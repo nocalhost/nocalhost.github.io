@@ -49,7 +49,9 @@
 @media screen and (max-width: 76.1875em) {
   .md-nav--primary .md-nav__title {
     height: auto;
-    padding: 0;
+  }
+  .nocalhost-nav-logo {
+    padding: 0 !important;
   }
 }
 
