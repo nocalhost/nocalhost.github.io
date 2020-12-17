@@ -83,6 +83,15 @@
                     opacity: 0.9;
                     min-width: 1920px;
                 }
+
+                .tx-hero__element_bubbles {
+                  width: 310px;
+                  height: 340px;
+                  background: url(/assets/images/element-bubbles.svg);
+                  position: relative;
+                  top: 725px;
+                  left: -665px;
+                }
             }
 
         }
