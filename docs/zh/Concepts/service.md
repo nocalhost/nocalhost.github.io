@@ -1,11 +1,12 @@
 ## 什么是 Service
 
-`Service` 与 `kubernetes` 的 `svc` 完全不同，`Service` 目前承担两种功能：
+`Service` 与 `kubernetes` 的 `svc` 完全不同，`Service` 可以认为是对 `Deployment` 的增强，对应我们应用中的一个具体服务，`Service` 目前支持两种功能：
+
 
 
 - 对 `Nocalhost` `Dev-Mode` 的配置，例如进入开发容器后的工作空间是哪个，将哪些文件同步到开发容器中，等。
 
-- 对 k8s 原生资源的增强，包括启动顺序依赖关系的指定
+- 支持基于依赖关系的 `deployment` 启动顺序控制
 
 
 **这些配置并不是必须的！完全不进行配置，也可以照常创建 `Application`、`Cluster` 等等，也可以照常部署你的应用，`Service` 只在你有需要时才需要配置。**
