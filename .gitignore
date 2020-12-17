@@ -21,3 +21,5 @@ venv
 
 # IDEs
 .vscode
+
+.sass-cache

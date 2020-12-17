@@ -1,80 +1,58 @@
 {% extends "main.html" %}
 
+{% block header %}{% endblock %}
 <!-- Render hero under tabs -->
 {% block tabs %}
-  {{ super() }}
+{{ super() }}
 
-  <!-- Additional styles for landing page -->
-  <style>
+<!-- Additional styles for landing page -->
+<style>
 
-    /* Application header should be static for the landing page */
+/* Application header should be static for the landing page */
     .md-header {
-      position: initial;
+        position: initial;
     }
 
     /* Remove spacing, as we cannot hide it completely */
     .md-main__inner {
-      margin: 0;
+        margin: 0;
     }
 
     /* Hide main content for now */
     .md-content {
-      display: none;
+        display: none;
     }
 
     /* Hide table of contents */
     @media screen and (min-width: 60em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
+        .md-sidebar--secondary {
+            display: none;
+        }
     }
 
     /* Hide navigation */
     @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
+        .md-sidebar--primary {
+            display: none;
+        }
     }
-  </style>
+</style>
 
-  <!-- Hero for landing page -->
-  <section class="tx-container">
+{% include "partials/home_header.html" %}
+<!-- Hero for landing page -->
+<section id="nocalhost" class="tx-container">
     <div class="md-grid md-typeset">
-      <div class="tx-hero">
+        <div class="tx-hero">
 
-        <!-- Hero image -->
-        <div class="tx-hero__image">
-          <img
-            src="assets/images/illustration.png"
-            alt=""
-            width="1659"
-            height="1200"
-            draggable="false"
-          >
+            <!-- Hero content -->
+            {% include "partials/content_1.html" %}
+            {% include "partials/content_2.html" %}
+            {% include "partials/content_3.html" %}
+            {% include "partials/content_4.html" %}
         </div>
-
-        <!-- Hero content -->
-        <div class="tx-hero__content">
-          <h1>Nocalhost</h1>
-          <p>{{ config.site_description }}</p>
-          <a
-            href="{{ 'getting-started/' | url }}"
-            title="{{ 'Getting Started' | e }}"
-            class="md-button md-button--primary"
-          >
-            Quick start
-          </a>
-          <a
-            href="{{ '/' | url }}"
-            title="Material for MkDocs Insiders"
-            class="md-button"
-          >
-            Documents
-          </a>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
+{% include "partials/home_footer.html" %}
 {% endblock %}
 
 <!-- Content -->
@@ -82,3 +60,4 @@
 
 <!-- Application footer -->
 {% block footer %}{% endblock %}
+
