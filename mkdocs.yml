@@ -34,6 +34,7 @@ nav:
     - 概念介绍:
       - Cluster: zh/Concepts/cluster.md
       - Application: zh/Concepts/application.md
+      - User: zh/Concepts/user.md
       - DevMode: zh/Concepts/devmode.md
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
