@@ -42,7 +42,7 @@ nav:
       - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
-      - 依赖标签选择器: zh/FAQ/dep-label-单选or.md
+      - 依赖标签选择器: zh/FAQ/dep-label-selector.md
       - HPA 控制的 Deployment: zh/FAQ/deployment-with-hpa.md
       - 多容器 Pod: zh/FAQ/multi-container-pods.md
       - VSCode 插件功能限制: zh/FAQ/vscode-plugin-limits.md
