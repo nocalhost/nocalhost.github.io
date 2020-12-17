@@ -92,7 +92,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/before-change.png)
 
-## Step 5: Start DevMode
+## 第五步: 进入开发模式
 
 你可以点击某个工作负载的绿色锤子图标来把工作负载切换到开发模式.
 
