@@ -4,6 +4,18 @@
   --md-primary-fg-color--dark: #0059b2;
 }
 
+@font-face {
+  font-family: "nexa_light";
+  src: url("/assets/fonts/nexa_light.woff");
+  src: url("/assets/fonts/nexa_light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "nexa_bold";
+  src: url("/assets/fonts/nexa_bold.woff");
+  src: url("/assets/fonts/nexa_bold.woff") format("woff");
+}
+
 .md-header-nav__button.md-logo {
   padding: 0;
   margin: 0;
@@ -11,6 +23,38 @@
 
 .md-header-nav__button.md-logo img,
 .md-header-nav__button.md-logo svg {
-  height: 48px;
+  height: 2.4rem;
   width: auto;
+}
+
+.md-button__home_github {
+  background-color: #9b5bfb;
+  color: #fff !important;
+  border: 0.1rem solid #9b5bfb !important;
+  border-radius: 0.1rem !important;
+}
+
+.md-button__home_github:hover {
+  border-color: hsla(231, 99%, 66%, 1) !important;
+}
+
+.md-button__home_github > img {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+  height: 19px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    height: auto;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-nav__button {
+    position: static;
+  }
 }
