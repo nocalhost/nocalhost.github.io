@@ -8,9 +8,9 @@
 
 ## Cluster 是做什么的
 
-`Cluster` 同样也承担着 `kubeconfig` 的功能，例如，在你 install `Application` 时创建 `namespace`、`apply` 你的 `yaml` 资源、安装 `helm` 资源等。
+`Cluster` 管理运行开发环境中的应用程序的资源。
 
-`Cluster` 一般与 `Space` 配合使用，我们需要在 `Nocalhost-Web` 进行 `Cluster` 的配置。在实际的开发过程中，用户不需要直接接触 `Cluster` 这个概念，而用户在 `Space` 下的操作实际上都借助了 `Cluster` 的能力。
+`Cluster` 一般与 `DevSpace` 配合使用，我们需要在 `Nocalhost-Web` 进行 `Cluster` 的配置。在实际的开发过程中，用户不需要直接接触 `Cluster` 这个概念，而用户在 `DevSpace` 下的操作实际上都借助了 `Cluster` 的能力。
 
 ## 如何管理 Cluster
 
@@ -18,7 +18,7 @@
 
 ![](../../assets/images/concept/cluster-list.png)
 
-点击右上角的 `CREATE` 进行 `Cluster` 的创建。这里要注意，确认此 `kubeconfig` 是否拥有所有权限吗，使用如下命令进行确认：
+点击右上角的 `CREATE` 进行 `Cluster` 的创建。这里要注意，确认此 `kubeconfig` 是否拥有集群管理权限，可使用如下命令进行确认：
 
 ```
 > kubectl auth can-i '*' '*'
