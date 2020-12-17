@@ -37,9 +37,11 @@ nav:
       - DevMode: zh/Concepts/devmode.md
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
+    - 参考手册:
+      - Nocalhost 配置说明: zh/Refernces/nocalhost-config-yaml-spec.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
-      - 依赖标签选择器: zh/FAQ/dep-label-selector.md
+      - 依赖标签选择器: zh/FAQ/dep-label-单选or.md
       - HPA 控制的 Deployment: zh/FAQ/deployment-with-hpa.md
       - 多容器 Pod: zh/FAQ/multi-container-pods.md
       - VSCode 插件功能限制: zh/FAQ/vscode-plugin-limits.md
@@ -74,7 +76,7 @@ nav:
     - Port Forward: References/port-forward.md
   - FAQ:
     - Work with Helm: FAQ/work-with-helm.md
-    - Dependency Label Selector: FAQ/dep-label-selector.md
+    - Dependency Label 单选or: FAQ/dep-label-单选or.md
     - Deployment with HPA: FAQ/deployment-with-hpa.md
     - Multi-container Pods: FAQ/multi-container-pods.md
     - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
