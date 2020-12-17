@@ -126,7 +126,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/after-change.png)
 
-# 恭喜!
+## 恭喜!
 
 通过这个简单的基于 Nocalhost 的教程，你已经体验了云原生开发的便捷和强大。可以开始尝试在真实的项目中配置并使用 Nocalhost 了。
 
