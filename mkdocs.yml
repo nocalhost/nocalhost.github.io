@@ -77,7 +77,7 @@ nav:
     - Port Forward: References/port-forward.md
   - FAQ:
     - Work with Helm: FAQ/work-with-helm.md
-    - Dependency Label 单选or: FAQ/dep-label-单选or.md
+    - Dependency Label Selector: FAQ/dep-label-Selector.md
     - Deployment with HPA: FAQ/deployment-with-hpa.md
     - Multi-container Pods: FAQ/multi-container-pods.md
     - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
