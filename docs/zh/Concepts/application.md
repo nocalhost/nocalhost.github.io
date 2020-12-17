@@ -168,6 +168,8 @@ services:
     - "productpage"
 ```
 
+可以点击 [启动依赖管理](https://nocalhost.dev/zh/Concepts/service/#2) 来查看更多。
+
 ### 开发镜像配置
 
 上述配置中，`devContainerImage: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:latest`，代表你在进入开发模式时，使用此镜像作为容器，替代原镜像进行开发。
