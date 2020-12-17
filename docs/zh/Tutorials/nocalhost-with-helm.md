@@ -70,7 +70,7 @@ services:
     dependPodsLabelSelector:
     - "productpage"
 ```
-更详细的参数的使用说明，请 [点击](https://nocalhost.dev/References/nocalhost-config-yaml-spec/) 。
+更详细的参数的使用说明，请 [点击](https://nocalhost.dev/zh/References/nocalhost-config-yaml-spec/) 。
 
 
 ## 2. Nocalhost 服务端配置
