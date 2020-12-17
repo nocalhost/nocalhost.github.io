@@ -39,7 +39,7 @@ nav:
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
     - 参考手册:
-      - Nocalhost 配置说明: zh/Refernces/nocalhost-config-yaml-spec.md
+      - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-单选or.md
