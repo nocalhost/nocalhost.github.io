@@ -107,7 +107,6 @@
 		}
 
 		section {
-            min-width: 460px;
 			max-width: 593px;
 			padding: 40px;
 			padding-bottom: 80px;
@@ -121,9 +120,11 @@
 				width: 100%;
 			}
 
-            strong, .title {
-                font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-            }
+			overflow: hidden;
+
+			strong, .title {
+					font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+			}
 		}
 		.se2 {
 			background-color: #0f2b34;
@@ -175,8 +176,10 @@
 			display: flex;
 			justify-content: center;
 			img {
-				width: 300px!important;
-				height: 300px!important;
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
 			}
 		}
 	}
