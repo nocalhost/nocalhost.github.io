@@ -8,14 +8,19 @@
 .md-tabs__item a {
     line-height: 20px;
 }
+@media screen and (max-width: 420px) {
+	.sm-hide {
+		display: none;
+	}
+}
 </style>
 
 <div class="md-tabs-block">
     <ul class="md-tabs__list">
-        <li class="md-tabs__item">
+        <li class="md-tabs__item sm-hide">
             <a href="/" class="md-tabs__link"> Home </a>
         </li>
-        <li class="md-tabs__item">
+        <li class="md-tabs__item sm-hide">
             <a href="/getting-started/" class="md-tabs__link md-tabs__link"> Quick Start </a>
         </li>
         <li class="md-tabs__item">

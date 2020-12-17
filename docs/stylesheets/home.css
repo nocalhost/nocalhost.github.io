@@ -8,7 +8,11 @@
   margin-top: 0;
   margin-bottom: 130px;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  font-size: 48px;
+  text-align: center;
+  font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  color: #ffffff; }
   #nocalhost h2:before {
     position: absolute;
     display: block;
@@ -20,14 +24,15 @@
     z-index: -1;
     top: -20px;
     left: -38px; }
+  @media (max-width: 420px) {
+    #nocalhost h2 {
+      font-size: 36px;
+      margin-bottom: 20px; } }
 #nocalhost .tx-hero_content_1 {
   position: relative;
   width: 100%;
   z-index: 2;
   height: 680px; }
-  @media (max-width: 700px) {
-    #nocalhost .tx-hero_content_1 h1 {
-      margin-top: 0 !important; } }
   #nocalhost .tx-hero_content_1 h1 {
     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     color: #fff;
@@ -35,14 +40,24 @@
     text-align: center;
     margin-top: 1em;
     margin-bottom: 0.3em; }
+    @media (max-width: 700px) {
+      #nocalhost .tx-hero_content_1 h1 {
+        margin-top: 0; } }
+    @media (max-width: 420px) {
+      #nocalhost .tx-hero_content_1 h1 {
+        font-size: 60px; } }
   #nocalhost .tx-hero_content_1 p {
     color: #fff;
     font-size: 20px;
     text-align: center; }
+    @media (max-width: 420px) {
+      #nocalhost .tx-hero_content_1 p {
+        line-height: 40px; } }
   #nocalhost .tx-hero_content_1 .tx-hero__content_btns {
     text-align: center; }
     #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
-      margin-right: 10px; }
+      margin-right: 10px;
+      margin-bottom: 10px; }
   #nocalhost .tx-hero_content_1 strong {
     position: relative; }
     #nocalhost .tx-hero_content_1 strong::before {
@@ -60,11 +75,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap; }
-  #nocalhost .tx-hero_content_2 h2 {
-    font-size: 48px;
-    text-align: center;
-    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-    color: #ffffff; }
   #nocalhost .tx-hero_content_2 section {
     min-width: 460px;
     max-width: 593px;
@@ -118,11 +128,6 @@
       height: 300px !important; }
 #nocalhost .tx-hero_content_3 {
   background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%); }
-  #nocalhost .tx-hero_content_3 h2 {
-    color: #ffffff;
-    font-size: 48px;
-    text-align: center;
-    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
   #nocalhost .tx-hero_content_3 .content {
     display: flex;
     justify-content: space-evenly;
@@ -180,10 +185,7 @@
   background-image: linear-gradient(-180deg, #e5fefe 0%, #ffffff 100%);
   padding-top: 120px; }
   #nocalhost .tx-hero_content_4 h2 {
-    font-size: 48px;
-    color: #0b0f13;
-    text-align: center;
-    font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    color: #0b0f13; }
   #nocalhost .tx-hero_content_4 p {
     font-size: 18px;
     color: #0b0f13;
