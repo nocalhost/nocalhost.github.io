@@ -10,6 +10,8 @@
             top: 0;
             z-index: 0;
             width: 100%;
+            overflow: hidden;
+            height: 100%;
 
             .tx-hero__header_bg_container {
                 display: flex;
@@ -17,7 +19,6 @@
                 width: 100%;
                 position: absolute;
                 top: 0;
-				overflow: hidden;
 
                 .tx-hero__header_bg_black {
                     height: 1100px;
