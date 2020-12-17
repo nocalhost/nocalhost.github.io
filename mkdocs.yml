@@ -81,7 +81,7 @@ nav:
     - Config Specs: References/nocalhost-config-yaml-spec.md
     - CLI Commands: References/cli-commands.md
     - File sync: References/file-sync.md
-    - Service Dependency: References/service-denepdency.md
+    - Service Dependency: References/service-dependency.md
     - Port Forward: References/port-forward.md
   - FAQ:
     - Work with Helm: FAQ/work-with-helm.md
