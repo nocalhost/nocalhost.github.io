@@ -35,6 +35,7 @@ nav:
       - Cluster: zh/Concepts/cluster.md
       - Application: zh/Concepts/application.md
       - User: zh/Concepts/user.md
+      - Service: zh/Concepts/service.md
       - DevMode: zh/Concepts/devmode.md
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
