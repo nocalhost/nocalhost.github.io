@@ -12,6 +12,8 @@
 
 普通的 `User` 只能看到属于自己的 `DevSpace`，并且拥有这些 `DevSpace` 下的所有权限，例如对 `DevSpace` 下相应 `Application` 的 `install`、`unInstall`（部署与销毁）、可以进入开发模式、进行端口转发等。
 
+实际上，我们也会为这个 `User` 创建每个 `DevSpace` 对应的 `namespace` 的 `kubeconfig`，用于访问此 `namespace` 下的所有资源。
+
 例如当前在 VSCode Plugin 登录的这个用户拥有 "bookinfo" 和 "test" 这两个 `DevSpace` 的权限。 
 
 ![](../../assets/images/concept/user-space-list.png)
