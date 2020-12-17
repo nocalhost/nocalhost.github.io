@@ -6,16 +6,18 @@ title: 快速上手
 
 前置条件:
 
-- 一个 Kubernetes(1.16+) 集群(建议由云平台提供，Minikube 也可以)
-- 配置好 kubectl 可以以管理员身份访问上述集群
-- 集群必须启用 RBAC
-- 安装好 Helm3
-- 安装好 Visual Studio Code(1.31+) 
-- 安装好 Git
+- Kubernetes 1.16+ 集群
+    * 建议使用公有云服务
+    * 支持 Minikube
+    * 已启用 RBAC
+- 安装 kubectl 并已配置管理员身份访问上述集群
+- 安装 Helm3
+- 安装 Visual Studio Code(1.31+) 
+- 安装 Git
 
 ## 第一步: 安装 nhctl 和 VSCode extension
 
-参考这里: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/)
+参考此链接进行安装: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/)
 
 ## 第二步: 初始化集群并且部署 Nocalhost Server
 
@@ -26,7 +28,7 @@ title: 快速上手
 nhctl init -n nocalhost
 ```
 
-- 或者使用 Minikube: 以 docker 模式启动 minikube:
+- 或使用 Minikube: 以 docker 或者 virtualbox 模式启动 minikube:
 
 在 **minikube(docker driver)**(`minikube start --driver=docker`) 启动完毕, 在命令行终端执行初始化:
 ```
@@ -92,13 +94,13 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/before-change.png)
 
-## Step 5: Start DevMode
+## 第五步: 进入开发模式
 
-你可以点击某个工作负载的绿色锤子图标来把工作负载切换到开发模式.
+你可以点击某个工作负载右侧的绿色锤子图标来把工作负载切换到开发模式.
 
 ![](../assets/images/click-green-hammer.png)
 
-你选择 "Clone from Git repo" 并指定一个本地存储目录后，Nocalhost 会把源码 clone 下来.
+选择 "Clone from Git repo" 并指定一个本地存储目录后，Nocalhost 会把源码 clone 下来.
 
 ![](../assets/images/clone-repo.png)
 
@@ -108,7 +110,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/devmode.png)
 
-在开发模式下，开发容器默认没有启动主进程，所以不会响应网页端的请求，此事如果刷新页面，页面将出错。直到你再次启动进程后，页面才会恢复。
+在开发模式下，开发容器默认没有启动主进程，所以不会响应网页端的请求，此时如果刷新页面，页面将出错。直到你再次启动进程后，页面才会恢复。
 
 如果你切换开发模式的工作负载是 productpage 的话，你可以执行 `sh run.sh` 来启动 hot-reload 模式的进程:
 
@@ -126,7 +128,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/after-change.png)
 
-# 恭喜!
+## 恭喜!
 
 通过这个简单的基于 Nocalhost 的教程，你已经体验了云原生开发的便捷和强大。可以开始尝试在真实的项目中配置并使用 Nocalhost 了。
 

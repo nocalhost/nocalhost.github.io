@@ -1,3 +1,5 @@
+## Configuration of Nocalhost
+
 ```yaml linenums="1"
 # Application name
 # type: string(dns1123)
@@ -7,27 +9,29 @@
 # uniq
 name: nocalhost
 
-# Application manifest type
-# type: select，options：helm/rawManiifest
+# Application k8s manifest type
+# type: select，options：helmGit/helmRepo/rawManiifest
 # default value: null
 # required
 # nhctl param: --type,-t
-manifestType: helm
+manifestType: helmGit
 
-# The application manifest or chart path is the relative path of the git repository. If the type is manifest, you can add more paths
+# helmGit: chart path: relative path of git repo root.
+# helmRepo: no meaning
+# rawManifest: manifest files path: multi relative paths of git repo root
 # type: string[]
 # default value: ["."]
 # required
 resourcePath: ["deployments/chart"]
 
-# If the value is true, try use with the least resources when installing (supplement, future support)
+# Install application with minimal replica size (Not currently implemented)
 # type: boolean
 # default value: false
 # optional
 # nhctl param: TODO
 minimalInstall: false
 
-# Before the application installed, per-execute the job
+# The jobs to be executed before application's installation.
 # type: object[]
 # default value: []
 # optional
@@ -42,7 +46,7 @@ onPreInstall:
     # required
     name: xxx-job
 
-    # The order of execution of job, the smaller one is first
+    # Order of execution of job, the smallest be executed firstly.
     # type: integer
     # default value: 0
     # optional
@@ -52,7 +56,7 @@ onPreInstall:
     name: xxx2-job
     priority: 5
 
-# After the application installed, post-execute the job (supplement, future support)
+# The jobs to be executed after application's installation. (Not currently implemented)
 # type: object[]
 # default value: []
 # optional
@@ -67,7 +71,7 @@ onPostInstall:
     # required
     name: xxx-job
 
-    # The order of execution of job, the smaller one is first
+    # Order of execution of job, the smallest be executed firstly.
     # type: integer
     # default value: 0
     # optional
@@ -76,7 +80,7 @@ onPostInstall:
     name: xxx2-job
     priority: 5
 
-# Before the application uninstalled, per-execute the job (supplement, future support)
+# The jobs to be executed before application's uninstallation. (Not currently implemented)
 # type: object[]
 # default value: []
 # optional
@@ -91,7 +95,7 @@ onPreUninstall:
     # required
     name: xxx-job
 
-    # The order of execution of job, the smaller one is first
+    # Order of execution of job, the smallest be executed firstly.
     # type: integer
     # default value: 0
     # optional
@@ -100,7 +104,7 @@ onPreUninstall:
     name: xxx2-job
     priority: 5
 
-# After the application uninstalled, post-execute the job (supplement, future support)
+# The jobs to be executed after application's uninstallation. (Not currently implemented)
 # type: object[]
 # default value: []
 # optional
@@ -115,7 +119,7 @@ onPostUninstall:
     # required
     name: xxx-job
 
-    # The order of execution of job, the smaller one is first
+    # Order of execution of job, the smallest be executed firstly.
     # type: integer
     # default value: 0
     # optional
@@ -124,22 +128,17 @@ onPostUninstall:
     name: xxx2-job
     priority: 5
 
-# The Applicaion's services
+# The Applicaion's micro services
 # type: object[]
 # default value: []
 # optional
 services:
 
-    # Name of service, name and nameRegex must be one of two. If the name and nameRegex are at the same time, only the name takes effect.
+    # Name of service
     # type: string
     # default value: null
     # optional
   - name: service1
-    # Regular expression of service, name and nameRegex must be one of two. If the name and nameRegex are at the same time, only the name takes effect.
-    # type: string
-    # default value: null
-    # optional
-    nameRegex: .*-mariadb
 
     # The Kubernetes Workloads type corresponding to the service
     # type: select, options: deployment/statefulset/pod/job/cronjob/daemonset 大小写不敏感
@@ -153,26 +152,26 @@ services:
     # required
     gitUrl: "https://github.com/nocalhost/nocalhost.git"
 
-    # The docker image's url of the service in dev mode
+    # DevContainer Image of the micro service
     # type: string
-    # default value: codingcorp.coding.net/xxxx/go:latest
+    # default value: null
     # required
     devContainerImage: "codingcorp.coding.net/xxxx/go:latest"
 
-    # The command line shell of the service in dev mode
+    # The default shell of DevContainer (Not currently implemented)
     # type: string
     # default value: "/bin/sh"
     # optional
     devContainerShell: "bash"
 
-    # The synchronization file type of the service (supplement, future support)
-    # "send" means one-way synchronization to the container, "sendreceive" means two-way synchronization
+    # The synchronization file mode of the service (Not currently implemented)
+    # "send" specifies one-way synchronization to the container, "sendreceive" specifies two-way synchronization
     # type: select，send/sendreceive
     # default value: "send"
     # optional
     syncType: send
 
-    # List of files and directories synchronized in dev mode
+    # List of files and directories to be synchronized to DevContainer
     # type: string[]
     # default value: ["."]
     # optional
@@ -180,7 +179,7 @@ services:
       - "./src"
       - "./pkg/fff"
 
-    # List of ignored files and directories synchronized in dev mode
+    # List of ignored files and directories to be synchronized to DevContainer (Not currently implemented)
     # type: string[]
     # default value: []
     # optional
@@ -188,7 +187,7 @@ services:
       - ".git"
       - "./build"
 
-    # The port-forward canfigiure in dev mode
+    # Ports to be forwarded to local
     # localPort:remotePort
     # type: string[]
     # default value: []
@@ -197,7 +196,7 @@ services:
       - 8080:8080
       - :8000  # random localPort, remotePort 8000
 
-    # Pods label selector (The service will wait for the Pods selected by the selector to start before starting)
+    # Dependent Pods label selector (The service will not start until the Pods selected by selector being ready.)
     # type: string[]
     # default value: []
     # optional
@@ -205,7 +204,7 @@ services:
       - "name=mariadb"
       - "app.kubernetes.io/name=mariadb"
 
-    # Jobs label selector (The service will wait for the Jobs selected by the selector to start before starting)
+    # Dependent Jobs label selector (The service will not start until the Jobs selected by selector completed.)
     # type: string[]
     # default value: []
     # optional
@@ -213,62 +212,61 @@ services:
       - "name=init-job"
       - "app.kubernetes.io/name=init-job"
 
-    # The work directory in dev mode (The source code will synchronized to this directory, it will be persisted using PV.) (supplement, future support)
+    # The work directory of DevContainer (Not currently implemented)
     # type: string
     # default value: "/home/nocalhost-dev"
     # optional
     workDir: "/home/nocalhost-dev"
 
-    # The dev mode container directory (This directory will be persisted using PV.) (supplement, future support)
+    # Dirs to be persisted in DevContainer (Not currently implemented)
     # type: string[]
     # default value: ["/home/nocalhost-dev"]
     # optional
     persistentVolumeDir:
       - "/home/nocalhost-dev"
 
-    # The build command of the service (use to build after the code changes)
+    # Build command of the service (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     buildCommand: "./gradlew package"
 
-    # The run command of the service
+    # Run command of the service (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     runCommand: "./gradlew bootRun"
 
-    # The debug command of the service
+    # Debug command of the service (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     debugCommand: "./gradlew bootRun --debug-jvm"
 
-    # The hot reload command of the service
+    # Hot-reload run command of the service (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     hotReloadRunCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"
 
-    # The hot reload debug command of the service
+    # Hot-reload debug command of the service (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     hotReloadDebugCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"
 
-    # The debug port of the service
+    # Ports of remote debugging (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     remoteDebugPort: 5005
 
-    # Use VSCode's dev-container as the dev mode (supplement, future support)
+    # Use .dev-container of VSCode to specify DevContainer Image (Not currently implemented)
     # type: string
     # default value: ""
     # optional
     useDevContainer: false
 
   - name: service2
-    nameRegex:
     ...
 ```

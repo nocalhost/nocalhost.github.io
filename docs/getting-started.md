@@ -122,7 +122,7 @@ Refresh the webpage, here is the outcome: [http://127.0.0.1:39080/productpage](h
 
 ![](../assets/images/after-change.png)
 
-# Congratulations!
+## Congratulations!
 
 You have had a great experience about the Cloud Native development through above Nocalhost simple tutorial. You can start to try to configure and use the Nocalhost in the real project now.
 

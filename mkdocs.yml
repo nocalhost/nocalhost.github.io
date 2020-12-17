@@ -9,6 +9,8 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/home.css
+  - stylesheets/grid.css
 
 markdown_extensions:
   - admonition
@@ -39,6 +41,13 @@ nav:
       - DevMode: zh/Concepts/devmode.md
       - DevSpace: zh/Concepts/devspace.md
       - DevContainer: zh/Concepts/devcontainer.md
+    - 使用教程:
+      - Manifest 应用: zh/Tutorials/nocalhost-with-k8s-manifests.md
+      - Helm Chart 应用: zh/Tutorials/nocalhost-with-helm.md
+    - 参考手册:
+      - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
+      - Nocalhost 架构: zh/References/architecture.md
+      - Nhctl CLI: zh/References/cli-commands.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
@@ -76,7 +85,7 @@ nav:
     - Port Forward: References/port-forward.md
   - FAQ:
     - Work with Helm: FAQ/work-with-helm.md
-    - Dependency Label Selector: FAQ/dep-label-selector.md
+    - Dependency Label Selector: FAQ/dep-label-Selector.md
     - Deployment with HPA: FAQ/deployment-with-hpa.md
     - Multi-container Pods: FAQ/multi-container-pods.md
     - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
