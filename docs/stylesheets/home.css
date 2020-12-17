@@ -10,10 +10,10 @@
 #nocalhost .tx-hero_content .h2 {
   display: flex;
   justify-content: center;
+  padding: 0 20px;
 }
 #nocalhost h2 {
   margin-top: 0;
-  margin-bottom: 28px;
   position: relative;
   z-index: 2;
   font-size: 48px;
@@ -224,48 +224,102 @@
   background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%);
   border-radius: 0 200px 0 0;
 }
+@media (max-width: 1300px) {
+  #nocalhost .tx-hero_content_3 {
+    border-radius: 0 130px 0 0;
+  }
+}
+@media (max-width: 1200px) {
+  #nocalhost .tx-hero_content_3 {
+    border-radius: 0 80px 0 0;
+  }
+}
+@media (max-width: 1000px) {
+  #nocalhost .tx-hero_content_3 {
+    border-radius: 0 60px 0 0;
+  }
+}
+@media (max-width: 600px) {
+  #nocalhost .tx-hero_content_3 {
+    border-radius: 0;
+  }
+}
+#nocalhost .tx-hero_content_3 .h2 h2 {
+  margin-bottom: 140px;
+}
+@media (max-width: 600px) {
+  #nocalhost .tx-hero_content_3 .h2 h2 {
+    margin-bottom: 60px;
+  }
+}
 #nocalhost .tx-hero_content_3 .content {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  max-width: 1400px;
+  justify-content: space-between;
+  max-width: 1200px;
   margin: 0 auto;
 }
-#nocalhost .tx-hero_content_3 .arrow {
-  display: flex;
-}
-@media (max-width: 1100px) {
-  #nocalhost .tx-hero_content_3 .arrow {
-    display: none;
+@media (max-width: 1080px) {
+  #nocalhost .tx-hero_content_3 .content {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
-#nocalhost .tx-hero_content_3 section {
-  width: 500px;
+#nocalhost .tx-hero_content_3 .content .arrow {
+  width: 110px;
+  margin: 0 20px;
+  background: url("/assets/images/home/section3-arrow.svg") no-repeat;
+  background-position: right;
+  background-size: 110px;
 }
-@media (max-width: 1100px) {
-  #nocalhost .tx-hero_content_3 section {
-    margin-top: 20px;
+@media (max-width: 1080px) {
+  #nocalhost .tx-hero_content_3 .content .arrow {
+    width: 60px;
+    height: 60px;
+    margin: 30px 0;
+    transform: rotate(90deg);
   }
 }
-#nocalhost .tx-hero_content_3 section .title {
+#nocalhost .tx-hero_content_3 .content section {
+  max-width: 500px;
+}
+@media (max-width: 1080px) {
+  #nocalhost .tx-hero_content_3 .content section {
+    max-width: 100%;
+  }
+}
+#nocalhost .tx-hero_content_3 .content section .icon {
+  margin-bottom: 26px;
+  height: 120px;
+}
+#nocalhost .tx-hero_content_3 .content section .icon image {
+  height: 100%;
+}
+#nocalhost .tx-hero_content_3 .content section .title {
   font-size: 42px;
   color: rgba(255, 255, 255, 0.5);
   font-family: "nexa_light", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
-#nocalhost .tx-hero_content_3 section .title strong {
+#nocalhost .tx-hero_content_3 .content section .title strong {
   color: #ffffff;
   font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
-#nocalhost .tx-hero_content_3 section p {
+#nocalhost .tx-hero_content_3 .content section p {
   font-size: 14px;
   color: #ffffff;
 }
-@media (max-width: 700px) {
-  #nocalhost .tx-hero_content_3 section {
-    transform: scale(0.9);
-  }
+#nocalhost .tx-hero_content_3 .content section .show-image {
+  padding: 15px;
+  border-radius: 8px;
 }
-#nocalhost .tx-hero_content_3 section .nocalhost-list li::before {
+#nocalhost .tx-hero_content_3 .content section .show-image.localhost-show {
+  border: 1px solid #084d8e;
+}
+#nocalhost .tx-hero_content_3 .content section .show-image.nocalhost-show {
+  border: 1px solid #1f7777;
+}
+#nocalhost .tx-hero_content_3 .content section .nocalhost-list li::before {
   content: "";
   width: 20px;
   height: 20px;
@@ -273,7 +327,7 @@
   display: inline-block;
   margin-right: 10px;
 }
-#nocalhost .tx-hero_content_3 section .localhost-list li::before {
+#nocalhost .tx-hero_content_3 .content section .localhost-list li::before {
   content: "";
   width: 20px;
   height: 20px;
@@ -281,11 +335,11 @@
   display: inline-block;
   margin-right: 10px;
 }
-#nocalhost .tx-hero_content_3 section ul {
+#nocalhost .tx-hero_content_3 .content section ul {
   color: #ffffff;
   margin: 0;
 }
-#nocalhost .tx-hero_content_3 section ul li {
+#nocalhost .tx-hero_content_3 .content section ul li {
   list-style: none;
   font-size: 14px;
   margin: 0;
