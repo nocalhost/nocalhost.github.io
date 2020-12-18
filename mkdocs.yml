@@ -56,6 +56,7 @@ nav:
       - VSCode 插件功能限制: zh/FAQ/vscode-plugin-limits.md
       - 加密的 SSH 私钥: zh/FAQ/ssh-private-keys-passphrase.md
       - 默认管理账户: zh/FAQ/default-account.md
+      - 无可用的 pv: zh/FAQ/pvc-unbound.md
   - Getting started: getting-started.md
   - Installation: installation.md
   - Deployment: deployment.md
