@@ -4,23 +4,23 @@
 
 
 
--Configure the `Nocalhost` `Dev-Mode`, such as which directory after entering the development container, which files are synchronized to the development container, etc.
+- Configure the `Nocalhost` `Dev-Mode`, such as which directory after entering the development container, which files are synchronized to the development container, etc.
 
--Supports `deployment` startup sequence control based on dependencies
-
-
-
-**These configurations are not required! You can create `Application`, `Cluster`, deploy your application, etc. with out any `Service` configuration at all. `Service` only to be configured when you need it.** 
+- Supports `deployment` startup sequence control based on dependencies
 
 
 
-`Service` usually configured in `.nocalhost/config.yaml` in your application's git dir as global default configuration, such as [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml). `User` can modify in local by using `IDE Plugin` or `nhctl`, the changes only take effect locally.
+**You can create `Application`, `Cluster`, deploy your application without any `Service` configuration at all. `Service` only to be configured when you need it.** 
 
 
 
-Modify local config by using `IDE Plugin`:
+`Service` usually configured in `.nocalhost/config.yaml` in the `git` repository specified by `Application`, such as [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml). `User` can modify in local by using `IDE Plugin` or `nhctl`, the changes only take effect locally.
 
-[PIC]
+
+
+If there is not any `Service` configuration specified, click the gear with an exclamation mark, and we will generate a template file for you:
+
+![](../assets/images/concept/service-default.png)
 
 
 
@@ -225,7 +225,7 @@ As mentioned earlier, you can use `Nocalhost` with out any `Service` configurati
 
 Click the gear with an exclamation mark, and we will generate a template file for you:
 
-![](../../assets/images/concept/service-default.png)
+![](../assets/images/concept/service-default.png)
 
 
 
@@ -251,7 +251,7 @@ For example, if you want to use the default image of `java`, you can modify `dev
 
 Before you enter the `Dev-Mode`, `IDE plugin` will let you choose to specify the source directory from the local or check it out from `git`. If you already have the source code of this `deployment` at your disk, you do not need to configure the `gitUrl`,  simply select `Open local derectory`.
 
-![](../../assets/images/concept/enter-dev-mode.png)
+![](../assets/images/concept/enter-dev-mode.png)
 
 
 
@@ -341,6 +341,6 @@ services:
 
 When the user `Install` the `Application`, nocalhost will get these default configurations, such as the `deployment` of 'ratings'. Click the gear to view the current configuration:
 
-![](../../assets/images/concept/modify-service-config.png)
+![](../assets/images/concept/modify-service-config.png)
 
 Users can freely make modifications based on these configurations. **And these modifications only take effect locally. **
