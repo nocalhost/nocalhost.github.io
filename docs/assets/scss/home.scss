@@ -80,86 +80,119 @@
       padding-bottom: 60px;
     }
 
-    h1 {
-      font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
+    .header-content {
+      position: relative;
+      z-index: 3;
+      pointer-events: none;
+
+      h1 {
+        font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
         Helvetica, Arial, sans-serif;
-      color: #fff;
-      font-size: 80px;
-      text-align: center;
-      margin-top: 80px;
-      margin-bottom: 24px;
+        color: #fff;
+        font-size: 80px;
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 24px;
+        
+        @media (max-width: 1420px) {
+          margin-top: 60px;
+        }
+        
+        @media (max-width: 800px) {
+          margin-top: 0;
+        }
+        
+        @media (max-width: 420px) {
+          font-size: 54px;
+        }
+      }
+      
+      p {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        
+        @media (max-width: 500px) {
+          font-size: 18px;
+        }
+      }
+      
+      .tx-hero__content_btns {
+        text-align: center;
+        margin-top: 96px;
+        pointer-events: all;
+        
+        @media (max-width: 800px) {
+          margin-top: 80px;
+        }
+        
+        a {
+          margin: 0 10px 10px;
+          font-size: 16px;
+          height: 48px;
+          width: 160px;
+          line-height: 48px;
+          padding: 0;
+          border: none;
+          
+          @media (max-width: 800px) {
+            margin: 0 5px 10px;
+            height: 56px;
+            line-height: 56px;
+          }
+          
+          @media (max-width: 420px) {
+            width: 80%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      
+      strong {
+        position: relative;
+        
+        @media (max-width: 760px) {
+          color: #ED58ED;
+        }
+        
+        &::before {
+          content: "";
+          background-image: url("/assets/images/home/nocalhost-affix.svg");
+          width: 60px;
+          height: 12px;
+          position: absolute;
+          bottom: -14px;
+          
+          @media (max-width: 760px) {
+            content: none;
+          }
+        }
+      }
+    }
+
+    .header-3d {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: -30px;
+      left: 0;
+      display: flex;
+      justify-content: center;
 
       @media (max-width: 1420px) {
-        margin-top: 60px;
+        top: -50px;
       }
 
       @media (max-width: 800px) {
-        margin-top: 0;
+        top: -110px;
       }
 
-      @media (max-width: 420px) {
-        font-size: 54px;
-      }
-    }
-
-    p {
-      color: #fff;
-      font-size: 20px;
-      text-align: center;
-
-      @media (max-width: 500px) {
-        font-size: 18px;
-      }
-    }
-
-    .tx-hero__content_btns {
-      text-align: center;
-      margin-top: 96px;
-
-      @media (max-width: 800px) {
-        margin-top: 80px;
-      }
-
-      a {
-        margin: 0 10px 10px;
-        font-size: 16px;
-        height: 48px;
-        width: 160px;
-        line-height: 48px;
-        padding: 0;
-        border: none;
-
-        @media (max-width: 800px) {
-          margin: 0 5px 10px;
-          height: 56px;
-          line-height: 56px;
-        }
-
-        @media (max-width: 420px) {
-          width: 80%;
-          margin-bottom: 20px;
-        }
-      }
-    }
-
-    strong {
-      position: relative;
-
-      @media (max-width: 760px) {
-        color: #ED58ED;
-      }
-
-      &::before {
-        content: "";
-        background-image: url("/assets/images/home/nocalhost-affix.svg");
-        width: 60px;
-        height: 12px;
-        position: absolute;
-        bottom: -14px;
-
-        @media (max-width: 760px) {
-          content: none;
-        }
+      #canvas3d {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain;
+        object-position: center;
+        max-width: 1400px;
       }
     }
   }
