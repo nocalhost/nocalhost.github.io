@@ -142,7 +142,7 @@
   }
 }
 #nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button--primary:hover {
-  background-color: #0052cc;
+  background-color: #005fc6;
 }
 #nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button__home_github:hover {
   background-color: #7d29fa;
@@ -161,7 +161,7 @@
   width: 60px;
   height: 12px;
   position: absolute;
-  bottom: -12px;
+  bottom: -14px;
 }
 @media (max-width: 760px) {
   #nocalhost .tx-hero_content_1 strong::before {
@@ -383,6 +383,11 @@
     padding: 0 20px;
   }
 }
+@media (max-width: 700px) {
+  #nocalhost .tx-hero_content_3 .content section {
+    padding: 0 10px;
+  }
+}
 #nocalhost .tx-hero_content_3 .content section .dev-mode-intro .icon {
   margin-bottom: 26px;
   height: 120px;
@@ -402,6 +407,14 @@
     height: 80px;
   }
 }
+@media (max-width: 500px) {
+  #nocalhost .tx-hero_content_3 .content section .dev-mode-intro .icon {
+    float: none;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}
 #nocalhost .tx-hero_content_3 .content section .dev-mode-intro .icon image {
   height: 100%;
 }
@@ -409,6 +422,16 @@
   font-size: 42px;
   color: rgba(255, 255, 255, 0.5);
   font-family: "nexa_light", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+@media (max-width: 700px) {
+  #nocalhost .tx-hero_content_3 .content section .title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 500px) {
+  #nocalhost .tx-hero_content_3 .content section .title {
+    font-size: 26px;
+  }
 }
 #nocalhost .tx-hero_content_3 .content section .title strong {
   color: #ffffff;
@@ -428,17 +451,12 @@
   position: absolute;
   width: 60px;
   height: 12px;
-  bottom: -4px;
+  bottom: -8px;
   left: 0;
 }
 @media (max-width: 1080px) {
   #nocalhost .tx-hero_content_3 .content section .title strong.badge::before {
     content: none;
-  }
-}
-@media (max-width: 700px) {
-  #nocalhost .tx-hero_content_3 .content section .title {
-    font-size: 32px;
   }
 }
 #nocalhost .tx-hero_content_3 .content section p {
@@ -511,39 +529,49 @@
 }
 #nocalhost .tx-hero_content_4 {
   background-image: linear-gradient(-180deg, #e5fefe 0%, #ffffff 100%);
-  padding-top: 120px;
 }
 #nocalhost .tx-hero_content_4 h2 {
   color: #0b0f13;
+  margin-bottom: 28px;
 }
 #nocalhost .tx-hero_content_4 p {
   font-size: 18px;
   color: #0b0f13;
   text-align: center;
+  margin: 0 auto 100px;
+}
+@media (max-width: 700px) {
+  #nocalhost .tx-hero_content_4 p {
+    margin-bottom: 60px;
+  }
 }
 #nocalhost .tx-hero_content_4 .table {
   display: flex;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 @media (max-width: 1200px) {
   #nocalhost .tx-hero_content_4 .table {
     overflow-x: scroll;
     justify-content: start;
+    padding-bottom: 16px;
   }
 }
 #nocalhost .tx-hero_content_4 .table img {
-  max-width: 1200px;
+  min-width: 1200px;
+  width: 1200px;
 }
 #nocalhost .tx-hero_content_4 .table::-webkit-scrollbar {
-  width: 12px;
-  height: 10px;
+  height: 14px;
 }
 #nocalhost .tx-hero_content_4 .table::-webkit-scrollbar-track {
-  background: white;
+  background: #CAE4E4;
 }
 #nocalhost .tx-hero_content_4 .table::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border: 3px solid white;
+  background-color: rgba(11, 15, 19, 0.5);
+  border: 3px solid #CAE4E4;
+  border-radius: 7px;
 }
 #nocalhost .tx-hero_content_4 .bottom-banner {
   max-width: 1200px;
@@ -566,6 +594,11 @@
   margin-right: 150px;
   white-space: nowrap;
 }
+@media (max-width: 960px) {
+  #nocalhost .tx-hero_content_4 .bottom-banner h3 {
+    margin-right: 80px;
+  }
+}
 @media (max-width: 800px) {
   #nocalhost .tx-hero_content_4 .bottom-banner h3 {
     text-align: center;
@@ -580,6 +613,11 @@
 #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo {
   position: relative;
 }
+@media (max-width: 800px) {
+  #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo {
+    color: #ED58ED;
+  }
+}
 #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
   content: "";
   background-image: url("/assets/images/home/nocalhost-affix.svg");
@@ -587,13 +625,12 @@
   position: absolute;
   width: 60px;
   height: 12px;
-  bottom: -2px;
+  bottom: -10px;
   left: 0;
 }
-@media (max-width: 460px) {
+@media (max-width: 800px) {
   #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
-    width: 30px;
-    height: 6px;
+    content: none;
   }
 }
 #nocalhost .tx-hero_content_4 .bottom-banner a {
@@ -625,28 +662,36 @@
   border-bottom: 0;
   border-image: linear-gradient(90deg, #ed58ed 25%, #6f38ff 50%, #1ee7e7 75%, #0080ff 100%) 1;
 }
-@media (max-width: 460px) {
-  #nocalhost-footer {
-    height: auto;
-  }
-}
 #nocalhost-footer .footer-content {
   display: flex;
-  max-width: 1200px;
+  max-width: 1240px;
   justify-content: space-between;
+  padding: 0 20px;
   margin: 40px auto;
+  align-items: center;
 }
-@media (max-width: 460px) {
+@media (max-width: 700px) {
   #nocalhost-footer .footer-content {
-    margin: 0;
-    justify-content: center;
+    margin: 20px auto 0;
+    flex-direction: column;
     flex-wrap: wrap;
   }
 }
 #nocalhost-footer p {
-  line-height: 60px;
-  height: 60px;
+  line-height: 1;
   margin: 0;
+  font-size: 13px;
+  color: #0B0F13;
+}
+@media (max-width: 700px) {
+  #nocalhost-footer p {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 500px) {
+  #nocalhost-footer p {
+    font-size: 11px;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

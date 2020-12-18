@@ -27,10 +27,23 @@
   width: auto;
 }
 
+.md-button--primary {
+  color: #0078F9;
+}
+
+.md-button--primary:hover {
+  background-color: #005fc6;
+}
+
 .md-button__home_github {
   background-color: #9b5bfb;
   color: #fff !important;
   border-radius: 0.1rem !important;
+}
+
+
+.md-button__home_github:hover {
+  background-color: #7d2afa;
 }
 
 .md-button__home_github > img {
