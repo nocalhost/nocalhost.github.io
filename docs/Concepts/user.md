@@ -8,10 +8,10 @@ There are two types of `User` in `Nocalhost`:
  - one is `User`, `User` can only log in IDE Plugin, users can develop under their own `DevSpace`. these `DevSpace` are all created by the system administrator create.
 
 
- - The other is the `Admin User`, such as the initial `admin@admin.com`, the system administrator has the permission to access `Nocalhost-Web`, and the system administrator has all the permissions in `Nocalhost-Web`, such as create and manage  ` Application`, `Cluster`,  `User`,  `DevSpace`, etc. 
+ - The other is the `Administrator`, such as the initial `admin@admin.com`, the system administrator has the permission to access `Nocalhost-Web`, and the system administrator has all the permissions in `Nocalhost-Web`, such as create and manage  ` Application`, `Cluster`,  `User`,  `DevSpace`, etc. 
 
 
-Similarly, `Admin User` also have all the permissions of `User`, such as logging in at `Nocalhost-Plug-In`, develop in their own `DevSpace` list.
+Similarly, `Administrator` also have all the permissions of `User`, such as logging in at `Nocalhost-Plug-In`, develop in their own `DevSpace` list.
 
 
 
