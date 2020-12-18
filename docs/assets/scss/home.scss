@@ -324,9 +324,11 @@
     @media (max-width: 1200px) {
       border-radius: 0 80px 0 0;
     }
+    
     @media (max-width: 1000px) {
       border-radius: 0 60px 0 0;
     }
+
     @media (max-width: 600px) {
       border-radius: 0;
     }
@@ -334,6 +336,10 @@
     .h2 {
       h2 {
         margin-bottom: 140px;
+
+        @media (max-width: 1080px) {
+          margin-bottom: 100px;
+        }
 
         @media (max-width: 600px) {
           margin-bottom: 60px;
@@ -374,17 +380,42 @@
 
         @media (max-width: 1080px) {
           max-width: 100%;
+          padding: 0 100px;
         }
 
-        .icon {
-          margin-bottom: 26px;
-          height: 120px;
+        @media (max-width: 880px) {
+          padding: 0 50px;
+        }
 
-          image {
-            height: 100%;
+        @media (max-width: 700px) {
+          padding: 0 20px;
+        }
+
+        .dev-mode-intro {
+          
+          .icon {
+            margin-bottom: 26px;
+            height: 120px;
+
+            @media (max-width: 1080px) {
+              margin-right: 40px;
+              width: 100px;
+              height: 100px;
+              float: left;
+            }
+
+            @media (max-width: 700px) {
+              margin-right: 30px;
+              width: 80px;
+              height: 80px;
+            }
+            
+            image {
+              height: 100%;
+            }
           }
         }
-
+          
         .title {
           font-size: 42px;
           color: rgba(255, 255, 255, 0.5);
@@ -392,66 +423,113 @@
             Helvetica, Arial, sans-serif;
           strong {
             color: #ffffff;
+            margin-right: 4px;
             font-family: "nexa_bold", "Roboto", -apple-system,
               BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            position: relative;
+
+            @media (max-width: 700px) {
+              margin-right: 4px;
+            }
+
+            &.badge::before {
+              content: '';
+              background-image: url("/assets/images/home/nocalhost-affix.svg");
+              background-size: contain;
+              position: absolute;
+              width: 60px;
+              height: 12px;
+              bottom: -4px;
+              left: 0;
+
+              @media (max-width: 1080px) {
+                content: none;
+              }
+            }
+          }
+
+          @media (max-width: 700px) {
+            font-size: 32px;
           }
         }
         p {
           font-size: 14px;
           color: #ffffff;
-        }
+          height: 48px;
 
-        .show-image {
-          padding: 15px;
-          border-radius: 8px;
-
-          &.localhost-show {
-            border: 1px solid #084d8e;
-          }
-
-          &.nocalhost-show {
-            border: 1px solid #1f7777;
+          @media (max-width: 1080px) {
+            line-height: 1.5;
+            margin-top: 0;
+            height: auto;
           }
         }
 
-        .nocalhost-list {
-          li::before {
-            content: "";
-            min-width: 20px;
-            width: 20px;
-            height: 20px;
-            background-image: url("/assets/images/home/section3-smileface.svg");
-            display: inline-block;
-            margin-right: 10px;
+        .dev-mode-content {
+          margin-top: 36px;
+
+          @media (max-width: 1080px) {
+            margin-top: 30px;
+            padding-left: 140px;
           }
-        }
 
-        .localhost-list {
-          li::before {
-            content: "";
-            width: 20px;
-            min-width: 20px;
-            height: 20px;
-            background-image: url("/assets/images/home/section3-sadface.svg");
-            display: inline-block;
-            margin-right: 10px;
+          @media (max-width: 700px) {
+            margin-top: 30px;
+            padding-left: 0;
           }
-        }
 
-        ul {
-          color: #ffffff;
-          margin: 0;
-
-          li {
-            list-style: none;
-            font-size: 14px;
+          .show-image {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            
+            &.localhost-show {
+              border: 1px solid #084d8e;
+            }
+            
+            &.nocalhost-show {
+              border: 1px solid #1f7777;
+            }
+          }
+          
+          .nocalhost-list {
+            li::before {
+              content: "";
+              min-width: 20px;
+              width: 20px;
+              height: 20px;
+              background-image: url("/assets/images/home/section3-smileface.svg");
+              display: inline-block;
+              margin-right: 12px;
+            }
+          }
+          
+          .localhost-list {
+            li::before {
+              content: "";
+              width: 20px;
+              min-width: 20px;
+              height: 20px;
+              background-image: url("/assets/images/home/section3-sadface.svg");
+              display: inline-block;
+              margin-right: 12px;
+            }
+          }
+          
+          ul {
+            color: #ffffff;
             margin: 0;
-            line-height: 22px;
-            display: flex;
-            margin-top: 10px;
+            
+            li {
+              list-style: none;
+              font-size: 14px;
+              margin: 0;
+              line-height: 22px;
+              display: flex;
+              margin-top: 10px;
+            }
           }
         }
-      }
+        }
     }
   }
 
@@ -479,7 +557,7 @@
       }
 
       img {
-        min-width: 1200px;
+        max-width: 1200px;
       }
 
       &::-webkit-scrollbar {
