@@ -16,7 +16,6 @@
 
   h2 {
     margin-top: 0;
-    position: relative;
     z-index: 2;
     font-size: 48px;
     text-align: center;
@@ -29,22 +28,33 @@
       font-size: 36px;
     }
 
-    &:before {
-      position: absolute;
-      display: block;
-      height: 86px;
-      width: 86px;
-      border-radius: 86px;
-      content: "";
-      background-color: #ed58ed;
-      z-index: -1;
-      top: -20px;
-      left: -38px;
-    }
-
     @media (max-width: 420px) {
       font-size: 36px;
       margin-bottom: 20px;
+    }
+
+    .circle {
+        position: relative;
+        &:before {
+          position: absolute;
+          display: block;
+          height: 86px;
+          width: 86px;
+          border-radius: 86px;
+          content: "";
+          background-color: #ed58ed;
+          z-index: -1;
+          top: -20px;
+          left: -38px;
+
+          @media (max-width: 600px) {
+              width: 65px;
+              height: 65px;
+              border-radius: 65px;
+              top: -15px;
+              left: -28px;
+          }
+      }
     }
   }
 
