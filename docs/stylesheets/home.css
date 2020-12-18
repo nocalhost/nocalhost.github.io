@@ -14,7 +14,6 @@
 }
 #nocalhost h2 {
   margin-top: 0;
-  position: relative;
   z-index: 2;
   font-size: 48px;
   text-align: center;
@@ -27,7 +26,16 @@
     font-size: 36px;
   }
 }
-#nocalhost h2:before {
+@media (max-width: 420px) {
+  #nocalhost h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+#nocalhost h2 .circle {
+  position: relative;
+}
+#nocalhost h2 .circle:before {
   position: absolute;
   display: block;
   height: 86px;
@@ -39,10 +47,13 @@
   top: -20px;
   left: -38px;
 }
-@media (max-width: 420px) {
-  #nocalhost h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+@media (max-width: 600px) {
+  #nocalhost h2 .circle:before {
+    width: 65px;
+    height: 65px;
+    border-radius: 65px;
+    top: -15px;
+    left: -28px;
   }
 }
 #nocalhost .tx-hero_content_1 {
@@ -50,23 +61,46 @@
   width: 100%;
   z-index: 2;
   height: 680px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+@media (max-width: 500px) {
+  #nocalhost .tx-hero_content_1 {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media (max-width: 600px) {
+  #nocalhost .tx-hero_content_1 {
+    padding-top: 140px;
+  }
+}
+@media (max-width: 420px) {
+  #nocalhost .tx-hero_content_1 {
+    padding-bottom: 60px;
+  }
 }
 #nocalhost .tx-hero_content_1 h1 {
   font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
   color: #fff;
-  font-size: 90px;
+  font-size: 80px;
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 0.3em;
+  margin-top: 80px;
+  margin-bottom: 24px;
 }
-@media (max-width: 700px) {
+@media (max-width: 1420px) {
+  #nocalhost .tx-hero_content_1 h1 {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 800px) {
   #nocalhost .tx-hero_content_1 h1 {
     margin-top: 0;
   }
 }
 @media (max-width: 420px) {
   #nocalhost .tx-hero_content_1 h1 {
-    font-size: 60px;
+    font-size: 54px;
   }
 }
 #nocalhost .tx-hero_content_1 p {
@@ -74,20 +108,52 @@
   font-size: 20px;
   text-align: center;
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   #nocalhost .tx-hero_content_1 p {
-    line-height: 40px;
+    font-size: 18px;
   }
 }
 #nocalhost .tx-hero_content_1 .tx-hero__content_btns {
   text-align: center;
+  margin-top: 96px;
+}
+@media (max-width: 800px) {
+  #nocalhost .tx-hero_content_1 .tx-hero__content_btns {
+    margin-top: 80px;
+  }
 }
 #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 0 10px 10px;
+  font-size: 16px;
+  height: 48px;
+  width: 160px;
+  line-height: 48px;
+  padding: 0;
+  border: none;
+}
+@media (max-width: 800px) {
+  #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
+    margin: 0 5px 10px;
+  }
+}
+@media (max-width: 420px) {
+  #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
+    width: 80%;
+  }
+}
+#nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button--primary:hover {
+  background-color: #0052cc;
+}
+#nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button__home_github:hover {
+  background-color: #7d29fa;
 }
 #nocalhost .tx-hero_content_1 strong {
   position: relative;
+}
+@media (max-width: 760px) {
+  #nocalhost .tx-hero_content_1 strong {
+    color: #ED58ED;
+  }
 }
 #nocalhost .tx-hero_content_1 strong::before {
   content: "";
@@ -96,6 +162,11 @@
   height: 12px;
   position: absolute;
   bottom: -12px;
+}
+@media (max-width: 760px) {
+  #nocalhost .tx-hero_content_1 strong::before {
+    content: none;
+  }
 }
 #nocalhost .tx-hero_content_2 {
   position: relative;
@@ -145,7 +216,7 @@
 @media (max-width: 900px) {
   #nocalhost .tx-hero_content_2 .cards-group-container .cards-group section {
     width: 100%;
-    padding: 20px 20px 40px;
+    padding: 20px 20px 60px;
     margin: 7px 0;
   }
 }
@@ -205,6 +276,11 @@
   margin: 0;
   height: 120px;
 }
+@media (max-width: 900px) {
+  #nocalhost .tx-hero_content_2 .cards-group-container .cards-group p.detail {
+    height: 100px;
+  }
+}
 @media (max-width: 600px) {
   #nocalhost .tx-hero_content_2 .cards-group-container .cards-group p.detail {
     font-size: 12px;
@@ -219,6 +295,7 @@
 #nocalhost .tx-hero_content_2 .cards-group-container .cards-group .icon img {
   width: 100%;
   max-width: 300px;
+  max-height: 300px;
 }
 #nocalhost .tx-hero_content_3 {
   background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%);
@@ -364,10 +441,10 @@
 #nocalhost .tx-hero_content_4 .table {
   display: flex;
   justify-content: center;
-  overflow-x: auto;
 }
 @media (max-width: 1200px) {
   #nocalhost .tx-hero_content_4 .table {
+    overflow-x: scroll;
     justify-content: start;
   }
 }
@@ -376,6 +453,7 @@
 }
 #nocalhost .tx-hero_content_4 .table::-webkit-scrollbar {
   width: 12px;
+  height: 10px;
 }
 #nocalhost .tx-hero_content_4 .table::-webkit-scrollbar-track {
   background: white;
@@ -404,25 +482,35 @@
   margin: 0;
   margin-right: 150px;
   white-space: nowrap;
+}
+@media (max-width: 800px) {
+  #nocalhost .tx-hero_content_4 .bottom-banner h3 {
+    text-align: center;
+    margin: 0;
+  }
+}
+@media (max-width: 460px) {
+  #nocalhost .tx-hero_content_4 .bottom-banner h3 {
+    font-size: 17px;
+  }
+}
+#nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo {
   position: relative;
 }
-#nocalhost .tx-hero_content_4 .bottom-banner h3::before {
+#nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
   content: "";
   background-image: url("/assets/images/home/nocalhost-affix.svg");
+  background-size: contain;
   position: absolute;
   width: 60px;
   height: 12px;
   bottom: -2px;
-  left: 282px;
+  left: 0;
 }
-@media (max-width: 420px) {
-  #nocalhost .tx-hero_content_4 .bottom-banner h3 {
-    font-size: 28px;
-    margin: 0;
-    white-space: pre-wrap;
-  }
-  #nocalhost .tx-hero_content_4 .bottom-banner h3::before {
-    display: none;
+@media (max-width: 460px) {
+  #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
+    width: 30px;
+    height: 6px;
   }
 }
 #nocalhost .tx-hero_content_4 .bottom-banner a {

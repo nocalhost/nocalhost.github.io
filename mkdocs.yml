@@ -31,7 +31,7 @@ markdown_extensions:
 
 
 nav:
-  - 中文文档: 
+  - 中文文档:
     - 快速上手: zh/getting-started.md
     - 概念介绍:
       - Cluster: zh/Concepts/cluster.md
