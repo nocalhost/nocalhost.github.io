@@ -1,32 +1,35 @@
 ---
-title: Deploy Nocalhost Server
+title: 部署教程
 ---
 
-## Before start
+## 开始之前
 
-Prerequisites:
+前置条件:
 
-- A Kubernetes(1.16+) Cluster(prefer to be provided by the Cloud platform or Minikube)
-- Configure kubectl for you to be able to access above cluster as admin
-- RBAC must be enabled in above cluster
-- Install Helm3
-- Install Git
+- Kubernetes 1.16+ 集群
+    * 建议使用公有云服务
+    * 支持 Minikube
+    * 已启用 RBAC
+- 安装 kubectl 并已配置管理员身份访问上述集群
+- 安装 Helm3
+- 安装 Visual Studio Code(1.31+) 
+- 安装 Git
 
 
-!!! note "Kubernetes provided"
-	This document requires Kubernetes provided by Cloud Platform, such as Tencent TKE. <br />
-	If you ues Minikube, please see [here](/Tutorials/nocalhost-with-minikube/)
+!!! note "Kubernetes 集群要求"
+	本文档主要描述与在云服务商提供的 Kubernetes 集群中使用。 <br />
+	如果您使用的是 Minikube, 可以参照 [这里](/Tutorials/nocalhost-with-minikube/)
 
-## Deploy Nocalhost Server with Helm
+## 使用 Helm 部署 Nocalhost 服务
 
-Use the helm method to deploy Nocalhost, you can make some custom changes to the deployed components.
+在使用 helm 方法部署 Nocalhost 服务时，您可以对部署的组件进行一些自定义更改。
 
-The helm chart content is:
+helm chart 内容如下:
 
 ```yaml
-# Default values for nocalhost-api.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# nocalhost 服务的默认变量。
+# 这是YAML格式的文件。
+
 
 replicaCount: 1
 
@@ -61,16 +64,13 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-#Service type, if your Kubernetes cluster does not have a LoadBalancer service, you can change it to a NodePort service
+#服务类型，如果您的Kubernetes集群没有LoadBalancer服务，则可以将其更改为NodePort服务
 service:
   type: LoadBalancer
   port: 80
 
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # 资源默认值，通常不需要理会，如需指定或调整，可以取消注释以下内容，并且删除 resource: 后的花括号
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -120,7 +120,7 @@ mariadb:
 
 ```
 
-### Step 1: Clone the nocalhost git repository
+### 第一步：克隆 nocalhost 的代码仓库到本地
 
 ```bash
 git clone https://github.com/nocalhost/nocalhost.git
@@ -128,63 +128,62 @@ git clone https://github.com/nocalhost/nocalhost.git
 
 ![](../assets/images/deployment-1.png)
 
-### Step 2: Install nocalhost server with helm
+### 第二步：使用 helm 命令进行安装
 
 ```bash
 helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=./cls-pc5oy0lu-config
 ```
 
-Waiting for the initialization process:
+等待初始化过程：
 ![](../assets/images/deployment-2.png)
 
-Get the public network address of nocalhost-web service
+获取 nocalhost-web 服务的公网地址。
 
 ![](../assets/images/deployment-3.png)
 
-And then, you can access nocalhost web in your bowser.
+最后，您就可以在浏览器中访问 Nocalhost 了。
 
-
-The default account's Email is:
+默认的邮箱地址为：
 ```
 admin@admin.com
 ```
 
-The default account's password is:
+默认的密码为：
 ```
 123456
 ```
 
 
-## Deploy Nocalhost Server with nhctl init
+## 使用 nhctl init 命令部署 Nocalhost 服务
 
 
-### Step 1: Install nocalhost command-line tool(nhctl)
+### 第一步：安装 Nocalhost 命令行工具 nhctl
 
-See [installation](/installation) to install nhctl.
+查看如何 [安装](/zh/installation) nhctl.
 
-### Step 2: Install nocalhost server with nhctl
+### 第二步：使用命令部署 Nocalhost 服务
 
 ```bash
 nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 ```
 
-Waiting for the initialization process:
+等待初始化过程：
 ![](../assets/images/deployment-4.png)
 
 ![](../assets/images/deployment-5.png)
 
-Get the nocalhost-web service's public network address
+获取 nocalhost-web 服务的公网地址。
 
 ![](../assets/images/deployment-3.png)
 
-And then, you can access nocalhost web in your bowser.
+最后，您就可以在浏览器中访问 Nocalhost 了。
 
-The default account's Email is:
+默认的邮箱地址为：
 ```
 admin@admin.com
 ```
 
-The default account's password is:
+默认的密码为：
 ```
 123456
 ```
