@@ -38,6 +38,20 @@
                     @media (min-width: 1920px) {
                         left: calc(350px - 25%);
                     }
+
+                    @media (max-width: 1440px) {
+                        position: absolute;
+                        left: auto;
+                        right: 20px;
+                    }
+
+                    @media (max-width: 600px) {
+                        right: 10px;
+                    }
+
+                    @media (max-width: 540px) {
+                        position: relative;
+                    }
                 }
 
                 .tx-hero__header_bg_blue {
@@ -93,6 +107,25 @@
                   position: relative;
                   top: 725px;
                   left: -665px;
+
+                  @media (max-width: 1550px) {
+                    position: absolute;
+                    left: -40px;
+                  }
+
+                  @media (max-width: 1400px) {
+                    top: 520px;
+                  }
+
+                  @media (max-width: 1200px) {
+                    transform: scale(0.8);
+                    top: 500px;
+                    left: -50px;
+                  }
+
+                  @media (max-width: 900px) {
+                    display: none;
+                  }
                 }
             }
 

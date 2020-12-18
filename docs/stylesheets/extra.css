@@ -28,22 +28,24 @@
 }
 
 .md-button--primary {
-  color: #0078F9;
+  background:#0078F9 !important;
+  border: none !important;
 }
 
 .md-button--primary:hover {
-  background-color: #005fc6;
+  background: #005fc6 !important;
+  border: none;
 }
 
 .md-button__home_github {
-  background-color: #9b5bfb;
+  background: #9b5bfb;
   color: #fff !important;
   border-radius: 0.1rem !important;
 }
 
 
 .md-button__home_github:hover {
-  background-color: #7d2afa;
+  background: #7d2afa;
 }
 
 .md-button__home_github > img {
@@ -51,9 +53,9 @@
   fill: currentColor;
   height: 20px;
   margin-right: 8px;
-  vertical-align: top;
+  vertical-align: text-top;
   position: relative;
-  top: 13px;
+  top: -1px;
 }
 
 @media screen and (max-width: 76.1875em) {

@@ -134,18 +134,15 @@
 @media (max-width: 800px) {
   #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
     margin: 0 5px 10px;
+    height: 56px;
+    line-height: 56px;
   }
 }
 @media (max-width: 420px) {
   #nocalhost .tx-hero_content_1 .tx-hero__content_btns a {
     width: 80%;
+    margin-bottom: 20px;
   }
-}
-#nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button--primary:hover {
-  background-color: #005fc6;
-}
-#nocalhost .tx-hero_content_1 .tx-hero__content_btns a.md-button__home_github:hover {
-  background-color: #7d29fa;
 }
 #nocalhost .tx-hero_content_1 strong {
   position: relative;

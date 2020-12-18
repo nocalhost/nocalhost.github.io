@@ -131,18 +131,13 @@
 
         @media (max-width: 800px) {
           margin: 0 5px 10px;
+          height: 56px;
+          line-height: 56px;
         }
 
         @media (max-width: 420px) {
           width: 80%;
-        }
-
-        &.md-button--primary:hover {
-          background-color: darken(#0078F9, 10%);
-        }
-
-        &.md-button__home_github:hover {
-          background-color: darken(#9b5bfb, 10%);
+          margin-bottom: 20px;
         }
       }
     }
