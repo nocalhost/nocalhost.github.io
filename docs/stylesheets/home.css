@@ -398,6 +398,7 @@
 }
 #nocalhost .tx-hero_content_3 .content section .nocalhost-list li::before {
   content: "";
+  min-width: 20px;
   width: 20px;
   height: 20px;
   background-image: url("/assets/images/home/section3-smileface.svg");
@@ -407,6 +408,7 @@
 #nocalhost .tx-hero_content_3 .content section .localhost-list li::before {
   content: "";
   width: 20px;
+  min-width: 20px;
   height: 20px;
   background-image: url("/assets/images/home/section3-sadface.svg");
   display: inline-block;
