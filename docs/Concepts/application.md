@@ -1,6 +1,6 @@
 ## What is Application
 
-`Application` is a concept of `Nocalhost`, it is mainly used to manage a set of manifest files you want to create for local development, it supports both k8s manifest and helm chart. In other words, these manifests usually contain all the k8s resources that your own application depends on. If possible, we should try to keep it to a minimum.
+`Application` is a concept of `Nocalhost`, it is mainly used to manage a set of manifest files you want to apply for local development, it supports both k8s manifest and helm chart. In other words, these manifests usually contain all the k8s resources that your own application depends on. If possible, we should try to keep it to a minimum.
 
 ![](../assets/images/concept/what-is-application.png)
 
@@ -41,7 +41,7 @@ helm install helloworld /chart/dir/ \
 
 
 
-It only takes a moment to push your Helm Chart to any git repository that you have permission to access. We will use the git clone command to get the latest `Application` information, for example:
+It only takes a moment to push your `Helm Chart` to any git repository that you have permission to access. We will use the git clone command to get the latest `Application` information, for example:
 
 ```
 https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git

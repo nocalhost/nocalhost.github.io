@@ -15,7 +15,7 @@
 
 
 `Service` usually configured in `.nocalhost/config.yaml` in the `git` repository specified by `Application`, such as [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml). `User` can modify in local by using `IDE Plugin` or `nhctl`, the changes only take effect locally.
-
+> See [Application-nocalhost-enhancement](https://nocalhost.dev/Concepts/application/#nocalhost-enhancements) for more information about `config.yaml`
 
 
 If there is not any `Service` configuration specified, click the gear with an exclamation mark, and we will generate a template file for you:
