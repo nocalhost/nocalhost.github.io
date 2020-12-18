@@ -127,6 +127,10 @@
         .md-logo {
             img {
                 height: 60px;
+
+                @media (max-width: 330px) {
+                    height: 40px;
+                }
             }
         }
 
@@ -139,6 +143,10 @@
                 align-items: center;
                 padding: 0;
                 margin-left: 14px;
+
+                @media (max-width: 330px) {
+                    height: 40px;
+                }
 
                 a.md-tabs__link {
                     line-height: 36px;
