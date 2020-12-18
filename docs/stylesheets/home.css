@@ -172,7 +172,8 @@
         justify-content: center; }
         #nocalhost .tx-hero_content_2 .cards-group-container .cards-group .icon img {
           width: 100%;
-          max-width: 300px; }
+          max-width: 300px;
+          max-height: 300px; }
 #nocalhost .tx-hero_content_3 {
   background-image: linear-gradient(-180deg, #2d0777 0%, #200847 57%, #160823 100%);
   border-radius: 0 200px 0 0; }
@@ -310,23 +311,29 @@
       color: #ffffff;
       margin: 0;
       margin-right: 150px;
-      white-space: nowrap;
-      position: relative; }
-      #nocalhost .tx-hero_content_4 .bottom-banner h3::before {
-        content: "";
-        background-image: url("/assets/images/home/nocalhost-affix.svg");
-        position: absolute;
-        width: 60px;
-        height: 12px;
-        bottom: -2px;
-        left: 282px; }
-      @media (max-width: 420px) {
+      white-space: nowrap; }
+      @media (max-width: 800px) {
         #nocalhost .tx-hero_content_4 .bottom-banner h3 {
-          font-size: 28px;
-          margin: 0;
-          white-space: pre-wrap; }
-          #nocalhost .tx-hero_content_4 .bottom-banner h3::before {
-            display: none; } }
+          text-align: center;
+          margin: 0; } }
+      @media (max-width: 460px) {
+        #nocalhost .tx-hero_content_4 .bottom-banner h3 {
+          font-size: 17px; } }
+      #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo {
+        position: relative; }
+        #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
+          content: "";
+          background-image: url("/assets/images/home/nocalhost-affix.svg");
+          background-size: contain;
+          position: absolute;
+          width: 60px;
+          height: 12px;
+          bottom: -2px;
+          left: 0; }
+          @media (max-width: 460px) {
+            #nocalhost .tx-hero_content_4 .bottom-banner h3 .sm-logo::before {
+              width: 30px;
+              height: 6px; } }
     #nocalhost .tx-hero_content_4 .bottom-banner a {
       white-space: nowrap; }
     @media (max-width: 1200px) {

@@ -242,6 +242,7 @@
           img {
             width: 100%;
             max-width: 300px;
+            max-height: 300px;
           }
         }
       }
@@ -255,7 +256,7 @@
       #160823 100%
     );
 	border-radius: 0 200px 0 0;
-	
+
 	@media (max-width: 1300px) {
 		border-radius: 0 130px 0 0;
 	}
@@ -285,7 +286,7 @@
       justify-content: space-between;
       max-width: 1200px;
 	  margin: 0 auto;
-	  
+
 	  @media (max-width: 1080px) {
 		  flex-wrap: wrap;
 		  flex-direction: column;
@@ -306,7 +307,7 @@
 		  margin: 30px 0;
 		  transform: rotate(90deg);
 		}
-		
+
       }
 
       section {
@@ -315,7 +316,7 @@
 		@media (max-width: 1080px) {
 			max-width: 100%;
 		  }
-		
+
 		.icon {
 			margin-bottom: 26px;
 			height: 120px;
@@ -435,39 +436,45 @@
     }
 
     .bottom-banner {
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 120px;
-      font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
-        Helvetica, Arial, sans-serif;
-      h3 {
-        font-size: 34px;
-        color: #ffffff;
-        margin: 0;
-        margin-right: 150px;
-        white-space: nowrap;
-        position: relative;
+       max-width: 1200px;
+       margin: 0 auto;
+       margin-top: 120px;
+       font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont,
+       Helvetica, Arial, sans-serif;
+       h3 {
+           font-size: 34px;
+           color: #ffffff;
+           margin: 0;
+           margin-right: 150px;
+           white-space: nowrap;
 
-        &::before {
-          content: "";
-          background-image: url("/assets/images/home/nocalhost-affix.svg");
-          position: absolute;
-          width: 60px;
-          height: 12px;
-          bottom: -2px;
-          left: 282px;
-        }
+           @media (max-width: 800px) {
+               text-align: center;
+               margin: 0;
+           }
+           @media (max-width: 460px) {
+               font-size: 17px;
+           }
 
-        @media (max-width: 420px) {
-          font-size: 28px;
-          margin: 0;
-          white-space: pre-wrap;
+           .sm-logo {
+               position: relative;
+               &::before {
+                   content: "";
+                   background-image: url("/assets/images/home/nocalhost-affix.svg");
+                   background-size: contain;
+                   position: absolute;
+                   width: 60px;
+                   height: 12px;
+                   bottom: -2px;
+                   left: 0;
+                   @media (max-width: 460px) {
+                       width: 30px;
+                       height: 6px;
 
-          &::before {
-            display: none;
-          }
-        }
-      }
+                   }
+               }
+           }
+       }
       background-image: linear-gradient(-180deg, #0f2b34 0%, #000000 100%);
       border-radius: 20px;
       box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
