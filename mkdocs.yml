@@ -91,3 +91,4 @@ nav:
     - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
     - SSH Private Keys Passphrase: FAQ/ssh-private-keys-passphrase.md
     - Default admin account: FAQ/default-account.md
+    - No persistent volumes available: FAQ/pvc-unbound.md
