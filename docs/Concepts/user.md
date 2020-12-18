@@ -5,26 +5,26 @@ When you use `Nocalhost-Server` and `Nocalhost-Plug-In`, `User` is used to ident
 
 There are two types of `User` in `Nocalhost`:
 
- - one is `User`, `User` can only log in IDE Plugin, users can develop under their own `DevSpace`. these `DevSpace` are all created by the system administrator create.
+ - One is `User`, `User` can only log in IDE Plugin, users can develop under their own `DevSpace`. these `DevSpace` are all created by `Administrator`.
 
 
- - The other is the `Administrator`, such as the initial `admin@admin.com`, the system administrator has the permission to access `Nocalhost-Web`, and the system administrator has all the permissions in `Nocalhost-Web`, such as create and manage  ` Application`, `Cluster`,  `User`,  `DevSpace`, etc. 
+ - The other is `Administrator`, such as the initial `admin@admin.com`, `Administrator` has the permission to access `Nocalhost-Web`, and `Administrator` has all the permissions in `Nocalhost-Web`, such as create and manage  ` Application`, `Cluster`,  `User`,  `DevSpace`, etc. 
 
 
-Similarly, `Administrator` also have all the permissions of `User`, such as logging in at `Nocalhost-Plug-In`, develop in their own `DevSpace` list.
+Similarly, `Administrator` also have all the permissions of `User`, such as logging in at `IDE Plugin`, develop in their own `DevSpace` list.
 
 
 
 ## User's permissions
 
-`User` can only see their own `DevSpace`, and have all the permissions under these `DevSpace`, such as `install`, `unInstall` deployed, uninstalled, developed, debugged, etc. of corresponding `Application` under `DevSpace`.
+`User` can only see their own `DevSpace`, and have all the permissions under these `DevSpace`, such as `install`, `unInstall` deployed, uninstalled, developed, debugged, etc of corresponding `Application` under `DevSpace`.
 
 
 In fact, we will also create a `kubeconfig` of the `namespace` corresponding to each `DevSpace` for this `User` to access all resources under `namespace`.
 
 
 
-For example, the user currently logged in VSCode Plugin has the permissions of "bookinfo" and "test".
+For example, this `User` sign in `IDE Plugin` currently, and he can see two `DevSpace` created by `Administrator` in `Nocalhost-Web` named 'bookinfo' and 'test':
 
 ![](../assets/images/concept/user-space-list.png)
 
