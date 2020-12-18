@@ -81,6 +81,14 @@ nhctl version
 
 ## Install nhctl on Windows
 
+### Install nhctl with installer
+1. Download the installer file from [this link](https://github.com/nocalhost/nocalhost/releases/latest/download/NocalhostInstaller.exe).
+2. Use the installer to install nhctl, kubectl and helm. It will automatically add the installation directory to your PATH.
+3. Open the CMD or PowerShell, test you installed.
+```bash
+nhctl version
+```
+
 ### Install nhctl binary on Windows
 
 1. Download the latest release from [this link](https://github.com/nocalhost/nocalhost/releases/latest){:target="_blank"}. <br />
