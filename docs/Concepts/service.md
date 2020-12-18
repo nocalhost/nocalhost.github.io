@@ -18,33 +18,10 @@
 > See [Application-nocalhost-enhancement](https://nocalhost.dev/Concepts/application/#nocalhost-enhancements) for more information about `config.yaml`
 
 
-If there is not any `Service` configuration specified, click the gear with an exclamation mark, and we will generate a template file for you:
+If there is not any `Service` configuration specified, click the gear with an exclamation mark in the `IDE Plugin`, the plugin will generate a template file for you:
 
 ![](../assets/images/concept/service-default.png)
 
-
-
-
-For example, `Nocalhost` supports controlling the startup sequence of a resource. For example, a `deployment` depend on the completion of a `k8s job`, then the following configuration can be done:
-
-```
-services:
-  -name: details
-    type: deployment
-    dependJobsLabelSelector:
-    -"dep-job"
-```
-
-
-
-This means that your `kind: Deployment` `name: Deployment` resource [detail.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/detail.yaml) will depend on A `name: dep-job` task [dep-job.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/bookinfo/dep-job.yaml) is executed.
-
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: details
-```
 
 
 
@@ -81,7 +58,7 @@ metadata:
   name: details
 ```
 
-To configure it, you need to configure the following under `services` in **config.yaml**:
+To configure it, you need to configure the following under `services`:
 
 ```
   -name: productpage
