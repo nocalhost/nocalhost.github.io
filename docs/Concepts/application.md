@@ -177,7 +177,7 @@ services:
     -"productpage"
 ```
 
-You can click [Start Dependency Management](https://nocalhost.dev/zh/Concepts/service/#2) to see more.
+You can click [Start Dependency Management](https://nocalhost.dev/Concepts/service/#2-specify-the-startup-sequence-dependency) to see more.
 
 
 
@@ -189,7 +189,7 @@ In the above configuration, `devContainerImage: codingcorp-docker.pkg.coding.net
 
 ### More
 
-If you want to know more configuration information of `.nocalhost/`, click: [/zh/References/nocalhost-config-yaml-spec/](/zh/References/nocalhost-config-yaml-spec/).
+If you want to know more configuration information of `.nocalhost/`, click: [config-yaml-spec](/References/nocalhost-config-yaml-spec/).
 
 
 
