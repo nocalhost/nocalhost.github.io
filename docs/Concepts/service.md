@@ -48,11 +48,11 @@ metadata:
 
 
 
-## Feature provided by Service
+## Features provided by Service
 
 
 
-### 1. Support for `Dev-Mode`
+### 1. Configure the `Dev-Mode`
 
 As mentioned earlier, `Service` assumes two roles. One is to support the `Dev-Mode`. Let's take the following configuration as an example to explain one by one:
 
