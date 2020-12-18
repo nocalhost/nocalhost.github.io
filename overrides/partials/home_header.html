@@ -18,7 +18,7 @@
     </div>
 
     <!-- Button to open search dialogue -->
-    {% if page and not page.is_homepage and "search" in config["plugins"] %}
+    {% if page and page.title != 'Nocalhost' and "search" in config["plugins"] %}
       <label class="md-header-nav__button md-icon" for="__search">
         {% include ".icons/material/magnify.svg" %}
       </label>
