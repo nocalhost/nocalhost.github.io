@@ -1,57 +1,47 @@
 <div class="tx-hero__header_bg">
-  <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_lavender"></div></div>
-  <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_blue"></div></div>
-  <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_black"></div></div>
-  <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_white"></div></div>
-  <div class="tx-hero__header_bg_container"><div class="tx-hero__element_bubbles"></div></div>
+    <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_lavender"></div></div>
+    <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_blue"></div></div>
+    <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_black"></div></div>
+    <div class="tx-hero__header_bg_container"><div class="tx-hero__header_bg_white"></div></div>
+    <div class="tx-hero__header_bg_container"><div class="tx-hero__element_bubbles"></div></div>
 </div>
 
 <div class="tx-hero_content tx-hero_content_1">
-  <div class="header-content">
-    <h1>Goodbye, localhost!</h1>
-    <p><strong>Nocalhost</strong> is a cloud native development environment based on Kubernetes.</p>
-    <div class="tx-hero__content_btns">
-      <a
-        href="{{ 'getting-started/' | url }}"
-        title="{{ 'Getting Started' | e }}"
-        class="md-button md-button--primary"
-      >
-        Quick start
-      </a>
-      <a
-        href="https://github.com/nocalhost/nocalhost"
-        target="_blank"
-        title="Material for MkDocs Insiders"
-        class="md-button md-button__home_github"
-      >
-        <img src="/assets/images/mark-github.svg" alt="github" />
-        GitHub
-      </a>
+    <div class="header-content">
+        <h1>Goodbye, localhost!</h1>
+        <p><strong>Nocalhost</strong> is a cloud native development environment based on Kubernetes.</p>
+        <div class="tx-hero__content_btns">
+            <a
+                href="{{ 'getting-started/' | url }}"
+                title="{{ 'Getting Started' | e }}"
+                class="md-button md-button--primary"
+                >
+                Quick start
+            </a>
+            <a
+                href="https://github.com/nocalhost/nocalhost"
+                target="_blank"
+                title="Material for MkDocs Insiders"
+                class="md-button md-button__home_github"
+                >
+                <img src="/assets/images/mark-github.svg" alt="github" />
+                GitHub
+            </a>
+        </div>
     </div>
-  </div>
 
-  <div class='header-3d'>                
-    <canvas id="canvas3d"></canvas>
-  </div>
-  
-  <script>
-      // Global namespace (backwards-compatibility)
-      var SPE = {};
-  </script>
-  <script src="/assets/scripts/home-3d/three.min.js"></script>
-  <script src="/assets/scripts/home-3d/anime.min.js"></script>
-  <script src="/assets/scripts/home-3d/spline.runtime.min.js"></script>
-  <script src="/assets/scripts/home-3d/assets.js"></script>
-  <script src="/assets/scripts/home-3d/scene.js"></script>
-  <script src="/assets/scripts/home-3d/main.js"></script>
-  
-  <script>
-    const mql = window.matchMedia("(max-width:1200px)");
-    const cb = e => {
-      if (e.matches) console.log("屏幕宽度小于1200px");
-      else console.log("屏幕宽度大于1200px");
-    };
-    addEventListener("change", cb);
-  </script>
+    <div class='header-3d'>
+        <canvas id="canvas3d"></canvas>
+    </div>
 
+    <script>
+        // Global namespace (backwards-compatibility)
+        var SPE = {};
+    </script>
+    <script src="/assets/scripts/home-3d/three.min.js"></script>
+    <script src="/assets/scripts/home-3d/anime.min.js"></script>
+    <script src="/assets/scripts/home-3d/spline.runtime.min.js"></script>
+    <script src="/assets/scripts/home-3d/assets.js"></script>
+    <script src="/assets/scripts/home-3d/scene.js"></script>
+    <script src="/assets/scripts/home-3d/main.js"></script>
 </div>
