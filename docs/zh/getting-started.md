@@ -17,11 +17,11 @@ title: 快速上手
 
 ## 第一步: 安装 nhctl 和 VSCode extension
 
-参考此链接进行安装: [https://nocalhost.dev/installation/](https://nocalhost.dev/installation/)
+参考此链接进行安装: [https://nocalhost.dev/zh/installation/](https://nocalhost.dev/zh/installation/){:target="_blank"}
 
 ## 第二步: 初始化集群并且部署 Nocalhost Server
 
-- 可选由云平台提供的 Kubernetes: 如 [腾讯 TKE](https://cloud.tencent.com/product/tke) :
+- 可选由云平台提供的 Kubernetes: 如 [腾讯 TKE](https://cloud.tencent.com/product/tke){:target="_blank"} :
 
 在命令行终端执行初始化:
 ```
@@ -90,7 +90,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 现在，你可以访问安装的应用的 web 页面了：
 
-[http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage)
+[http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}
 
 ![](../assets/images/before-change.png)
 
@@ -124,7 +124,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 ![](../assets/images/code-changes.png)
 
-刷新网页，即可立即看到效果。 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) 😄
+刷新网页，即可立即看到效果。 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"} 😄
 
 ![](../assets/images/after-change.png)
 
@@ -132,4 +132,4 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 通过这个简单的基于 Nocalhost 的教程，你已经体验了云原生开发的便捷和强大。可以开始尝试在真实的项目中配置并使用 Nocalhost 了。
 
-Nocalhost 欢迎您的意见和建议. GitHub Issues: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost)
+Nocalhost 欢迎您的意见和建议. GitHub Issues: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost){:target="_blank"}

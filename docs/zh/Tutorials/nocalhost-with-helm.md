@@ -6,8 +6,8 @@
  - 安装好 Helm3
  - 安装好 Visual Studio Code(1.31+)
  - 安装好 Git
- - 安装 Nocalhost 客户端 (nhctl, IDE plugin) , [安装教程](https://nocalhost.dev/installation/)
- - 安装 Nocalhost 服务端 (nocalhost-api, nocalhost-web) [参考快速上手的第二步](https://nocalhost.dev/zh/getting-started/)
+ - 安装 Nocalhost 客户端 (nhctl, IDE plugin) , [安装教程](https://nocalhost.dev/zh/installation/){:target="_blank"}
+ - 安装 Nocalhost 服务端 (nocalhost-api, nocalhost-web) [参考快速上手的第二步](https://nocalhost.dev/zh/getting-started/#nocalhost-server){:target="_blank"}
 
 ## 1.应用配置
  

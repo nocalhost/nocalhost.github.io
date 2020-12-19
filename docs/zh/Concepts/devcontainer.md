@@ -1,7 +1,7 @@
 ## 什么是 DevContainer
 
 DevContainer 是一个用户支撑开发、调试某个特定微服务组件的基础环境，此环境被封装成一个容器，内常含有开发该微服务组件的全套 SDK，开发调试工具，以及其他辅助工具。
-在服务的工作负载被切换到 [DevMode](https://nocalhost.dev/Concepts/devmode/){:target="_blank"} 的时候，Nocalhost 会使用 DevContainer 替换原本工作负载的容器。
+在服务的工作负载被切换到 [DevMode](https://nocalhost.dev/zh/Concepts/devmode/){:target="_blank"} 的时候，Nocalhost 会使用 DevContainer 替换原本工作负载的容器。
 
 ## 如何配置 DevContainer
 
@@ -11,7 +11,7 @@ DevContainer 是一个用户支撑开发、调试某个特定微服务组件的�
 
 在 Nocalhost 控制 Pod 进入 DevMode 的时候，设置的 devContainerImage 会被启动成为 DevContainer 替代原本的容器。之后，开发者可以在 DevContainer 中构建，运行，调试自己的程序了。
 
-Nocalhost 会将 DevContainer 的启动命令覆盖为 `/bin/sh -c tail -f /dev/null` 以确保 DevContainer 不会意外退出。关于 DevMode 下，Nocalhost 做的其他变动，请查看：[DevMode](https://nocalhost.dev/Concepts/devmode/){:target="_blank"}
+Nocalhost 会将 DevContainer 的启动命令覆盖为 `/bin/sh -c tail -f /dev/null` 以确保 DevContainer 不会意外退出。关于 DevMode 下，Nocalhost 做的其他变动，请查看：[DevMode](https://nocalhost.dev/zh/Concepts/devmode/){:target="_blank"}
 
 ## Nocalhost 提供的 DevContainer Image
 

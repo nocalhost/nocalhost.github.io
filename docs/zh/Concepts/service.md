@@ -24,7 +24,7 @@ services:
 
 
 
-这表示你 `kind: Deployment` `name: Deployment` 的这个资源 [detail.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/detail.yaml)，将依赖于一个 `name: dep-job` 的任务 [dep-job.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/bookinfo/dep-job.yaml) 执行完毕。
+这表示你 `kind: Deployment` `name: Deployment` 的这个资源 [detail.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/detail.yaml){:target="_blank"}，将依赖于一个 `name: dep-job` 的任务 [dep-job.yaml](https://github.com/nocalhost/bookinfo/blob/main/manifest/templates/bookinfo/dep-job.yaml){:target="_blank"} 执行完毕。
 
 ```
 apiVersion: apps/v1

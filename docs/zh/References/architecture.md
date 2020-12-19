@@ -17,7 +17,7 @@ Nocalhost 是云原生开发环境，支持开发基于 Kubernetes 的应用：
 
 * 对于开发人员：
 
-    - 1.安装 Nocalhost 客户端 [nhctl 和 IDE 插件](https://nocalhost.dev/installation/) 。
+    - 1.安装 Nocalhost 客户端 [nhctl 和 IDE 插件](https://nocalhost.dev/zh/installation/){:target="_blank"} 。
     - 2.插件中配置 nocalhost-api 服务地址(如：http://localhost:8080), 并用账号密码登录.
     - 3.应用程序一键化部署到 kubernetes 集群。
     - 4.选定服务开启 DevMode ，当该服务切换到 DevMode, Nocalhost 将该微服务的容器替换为配置指定的 DevContainer ，将源代码同步到 DevContainer，并将 DevContainer 的端口转发到本地。

@@ -10,7 +10,7 @@ TODO 补一个配图
 
 - 工作负载的副本数量会被调整为 1，方便开发
 - Pod 的健康检查探针会被禁用（方便开发过程中不断尝试重启进程进行调试）
-- Pod 的容器会被替换成 [DevContainer](https://nocalhost.dev/Concepts/devcontainer/){:target="_blank"}
+- Pod 的容器会被替换成 [DevContainer](https://nocalhost.dev/zh/Concepts/devcontainer/){:target="_blank"}
 - SecurityContext 会被禁用以方便开发
 - Pod 会被注入一个 Nocalhost-Sidecar 容器以支持远程文件同步等
 - Pod 会被增加一个 Volume 以支持 DevContainer 和 Nocalhost-Sidecar 间共享文件

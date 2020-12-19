@@ -159,7 +159,7 @@ admin@admin.com
 
 ### 第一步：安装 Nocalhost 命令行工具 nhctl
 
-查看如何 [安装](/zh/installation) nhctl.
+查看如何 [安装](/zh/installation){:target="_blank"} nhctl.
 
 ### 第二步：使用命令部署 Nocalhost 服务
 

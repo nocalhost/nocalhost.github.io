@@ -1,9 +1,9 @@
 `Service-dependencey` is a `Service` configuration, and it depends on a `Nocalhost` component called `nocalhost-dep`. 
 
-Caution: `nocalhost-dep` depends on k8s [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/), so please ensure that the Kubernetes cluster is at least as new as v1.16.0 and ensure that MutatingAdmissionWebhook and ValidatingAdmissionWebhook admission controllers are enabled.
+Caution: `nocalhost-dep` depends on k8s [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/){:target="_blank"}, so please ensure that the Kubernetes cluster is at least as new as v1.16.0 and ensure that MutatingAdmissionWebhook and ValidatingAdmissionWebhook admission controllers are enabled.
 
 
-You can click [Service](https://nocalhost.dev/Concepts/service) to see more about `Service` and `Service`'s configuration.
+You can click [Service](https://nocalhost.dev/Concepts/service){:target="_blank"} to see more about `Service` and `Service`'s configuration.
 
 
 

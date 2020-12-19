@@ -134,12 +134,12 @@ nhctl install applicationNameFooBar \
 
 ## `Nocalhost` 对原生 Application 的增强
 
-`Nocalhost` 对用户的 k8s manifest 配置无侵入，如果你需要使用一些增强功能，例如 `Pre-Install`、例如依赖管理等。在你的仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml) 。
+`Nocalhost` 对用户的 k8s manifest 配置无侵入，如果你需要使用一些增强功能，例如 `Pre-Install`、例如依赖管理等。在你的仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml){:target="_blank"} 。
 
 
 ### Pre-Install
 
-我们允许用户在安装部署应用之前，进行一些额外的操作。以 [bookinfo](https://github.com/nocalhost/bookinfo) 为例，在安装应用前，我们会执行如下声明的几个 Job，等待 Job 执行结束才安装应用，
+我们允许用户在安装部署应用之前，进行一些额外的操作。以 [bookinfo](https://github.com/nocalhost/bookinfo){:target="_blank"} 为例，在安装应用前，我们会执行如下声明的几个 Job，等待 Job 执行结束才安装应用，
 
 ```
 onPreInstall:
@@ -168,7 +168,7 @@ services:
     - "productpage"
 ```
 
-可以点击 [启动依赖管理](https://nocalhost.dev/zh/Concepts/service/#2) 来查看更多。
+可以点击 [启动依赖管理](https://nocalhost.dev/zh/Concepts/service/#2){:target="_blank"} 来查看更多。
 
 ### 开发镜像配置
 
@@ -176,7 +176,7 @@ services:
 
 ### 更多
 
-如果你想了解 `.nocalhost/` 的更多配置信息，点击：[/zh/References/nocalhost-config-yaml-spec/](/zh/References/nocalhost-config-yaml-spec/)。
+如果你想了解 `.nocalhost/` 的更多配置信息，点击 [此处](/zh/References/nocalhost-config-yaml-spec/){:target="_blank"} 查看。
 
 ## Application 的最佳实践
 
