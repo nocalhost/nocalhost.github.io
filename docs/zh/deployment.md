@@ -64,13 +64,13 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-#服务类型，如果您的Kubernetes集群没有LoadBalancer服务，则可以将其更改为NodePort服务
+#服务类型，如果您的 Kubernetes 集群没有 LoadBalancer 服务，则可以将其更改为 NodePort 服务
 service:
   type: LoadBalancer
   port: 80
 
 resources: {}
-  # 资源默认值，通常不需要理会，如需指定或调整，可以取消注释以下内容，并且删除 resource: 后的花括号
+  # 资源默认值，通常不需要理会，如需指定或调整，可以取消注释以下内容，并且删除 “resource:” 后的花括号
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
