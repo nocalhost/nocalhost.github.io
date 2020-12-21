@@ -112,26 +112,6 @@ nhctl: Nocalhost CLI
     OS/Arch: linux/amd64
     Go version: go1.14.4
 ```
-
-### Install nhctl using package management
-
-<!-- === "Snap"
-	If you are on Ubuntu or another Linux distribution that support [snap](https://snapcraft.io/docs/installing-snapd) package manager, nhctl is available as a [snap](https://snapcraft.io/) application.
-	```bash
-	snap install nhctl --classic
-
-	nhctl version
-	``` -->
-=== "baulk"
-	If you are on Windows and using [baulk](https://github.com/baulk/baulk){:target="_blank"} package manager, nhctl is available for installation. Open CMD with Administrators.
-	```bash
-	baulk install nocalhost
-
-	baulk-exec cmd
-
-	nhctl version
-	```
-
 ## Install Nocalhost VScode Plugin
 
 The Nocalhost VScode Plugin allows you to use Nocalhost on VSCode Editor.

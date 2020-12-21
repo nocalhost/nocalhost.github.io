@@ -106,19 +106,6 @@ nhctl: Nocalhost CLI
     Go version: go1.14.4
 ```
 
-### 使用包管理器安装 nhctl
-
-=== "baulk"
-	如果您在 Windows 上使用 [baulk](https://github.com/baulk/baulk){:target="_blank"} 包管理器，则可以用其进行安装。
-	使用管理员权限打开您的 CMD 程序，输入以下命令：
-	```bash
-	baulk install nocalhost
-
-	baulk-exec cmd
-
-	nhctl version
-	```
-
 ## 安装 Nocalhost VScode 编辑器插件
 
 Nocalhost 的 VScode 编辑器插可以让您在 VScode 编辑器上轻松方便的使用 Nocalhost。
