@@ -14,6 +14,7 @@ title: 快速上手
 - 安装 Helm3
 - 安装 Visual Studio Code(1.31+) 
 - 安装 Git
+- 集群内和集群外都能访问 Kubernetes api-server
 
 ## 第一步: 安装 nhctl 和 VSCode extension
 
@@ -22,6 +23,8 @@ title: 快速上手
 ## 第二步: 初始化集群并且部署 Nocalhost Server
 
 - 可选由云平台提供的 Kubernetes: 如 [腾讯 TKE](https://cloud.tencent.com/product/tke){:target="_blank"} :
+
+> 对于 TKE 集群，配置开放外网访问：0.0.0.0/0 或集群出口 IP 来实现集群内外可访问 Kubernetes api-server。
 
 在命令行终端执行初始化:
 ```

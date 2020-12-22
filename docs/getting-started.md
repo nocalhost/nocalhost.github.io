@@ -12,6 +12,7 @@ Prerequisites:
 - Install Helm3
 - Install Visual Studio Code(1.31+)
 - Install Git
+- Kubernetes api-server can be accessed internal and external
 
 ## Step 1: Install nhctl and VSCode extension
 
@@ -20,6 +21,9 @@ Reference link: [https://nocalhost.dev/installation/](https://nocalhost.dev/inst
 ## Step 2: Initialize the cluster and setup Nocalhost Server
 
 - Option 1: Kubernetes provided by the Cloud platform, such as Tencent [TKE](https://cloud.tencent.com/product/tke){:target="_blank"} 
+
+> For TKE clusters, configure open external network access: 0.0.0.0/0 or cluster egress IP to achieve access to the Kubernetes api-server internal and external.
+
 Initialize at terminal:
 
 ```
