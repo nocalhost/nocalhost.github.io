@@ -172,4 +172,4 @@ Click the bin to uninstall `Application` that all k8s resources in this `Applica
 
 You have had a great experience about the Cloud Native development through above Nocalhost simple tutorial. You can start to try to configure and use the Nocalhost in the real project now.
 
-Any feedback is welcomed. Github Issues: https://github.com/nocalhost/nocalhost
+Any feedback is welcomed. Github Issues: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost)
