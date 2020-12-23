@@ -61,7 +61,12 @@ nav:
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
   - Getting started: getting-started.md
   - Installation: installation.md
-  - Deployment: deployment.md
+  - Deployment:
+    - Minikube: Deployment/deployment-minikube.md
+    - TKE: Deployment/deployment-tke.md
+    - kubernetes: Deployment/deployment-kubernetes.md
+    - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
+  - BestPractieces: Tutorials/plugin-best-practices.md
   - Concepts:
     - Cluster: Concepts/cluster.md
     - Application: Concepts/application.md
@@ -73,10 +78,6 @@ nav:
   - Tutorials:
     - Docker: Tutorials/nocalhost-with-docker-desktop.md
     - Helm: Tutorials/nocalhost-with-helm.md
-    - Kubernetes: Tutorials/nocalhost-with-k8s-manifests.md
-    - MiniKube: Tutorials/nocalhost-with-minikube.md
-    - TKE: Tutorials/nocalhost-with-tke.md
-    - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
     - CLI: Tutorials/nocalhost-without-ide-plugin.md
     - VScode Plugin: Tutorials/vscode-plugin.md
   - References:
