@@ -187,12 +187,12 @@ services:
       - ".git"
       - "./build"
 
-    # Ports to be forwarded to local
+    # Ports to be forwarded to local when enter devMode
     # localPort:remotePort
     # type: string[]
     # default value: []
     # optional
-    devPort:
+    devPorts:
       - 8080:8080
       - :8000  # random localPort, remotePort 8000
 
