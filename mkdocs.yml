@@ -65,7 +65,7 @@ nav:
   - Deployment:
     - Minikube: Deployment/deployment-minikube.md
     - TKE: Deployment/deployment-tke.md
-    - kubernetes: Deployment/deployment-kubernetes.md
+    - Kubernetes: Deployment/deployment-kubernetes.md
     - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
   - Best practieces: Tutorials/plugin-best-practices.md
   - Concepts:
