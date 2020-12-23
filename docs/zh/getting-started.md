@@ -28,7 +28,7 @@ title: 快速上手
 
 在命令行终端执行初始化:
 ```
-nhctl init -n nocalhost
+nhctl init -n nocalhost -p 7000
 ```
 
 - 或使用 Minikube: 以 docker 或者 virtualbox 模式启动 minikube:

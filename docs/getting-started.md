@@ -27,7 +27,7 @@ Reference link: [https://nocalhost.dev/installation/](https://nocalhost.dev/inst
 Initialize at terminal:
 
 ```
-nhctl init -n nocalhost
+nhctl init -n nocalhost -p 7000
 ```
 
 - Option 2: startup minikube derived by docker:
