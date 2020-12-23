@@ -59,6 +59,7 @@ nav:
       - 加密的 SSH 私钥: zh/FAQ/ssh-private-keys-passphrase.md
       - 默认管理账户: zh/FAQ/default-account.md
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
+      - 支持的版本: zh/FAQ/support-version.md
   - Getting started: getting-started.md
   - Installation: installation.md
   - Deployment:
@@ -97,5 +98,6 @@ nav:
     - SSH Private Keys Passphrase: FAQ/ssh-private-keys-passphrase.md
     - Default admin account: FAQ/default-account.md
     - No persistent volumes available: FAQ/pvc-unbound.md
+    - Version Support: FAQ/support-version.md
 
 google_analytics: ['G-5MSJE3N1YD', 'nocalhost.dev']
