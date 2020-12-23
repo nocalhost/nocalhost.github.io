@@ -34,7 +34,7 @@ Switch to the `Nocalhost` tab
 
 Specify your `nocalhost-web` endpoint, and type in the address to access `Nocalhost-Server` current used.
 
-> Do not know the site of nocalhost-server url? 
+> Do not know the site of `Nocalhost-Server` url? 
 >
 > Back to the top of this doc and choose your kubernetes cluster type's deployment tutorial.
 
@@ -47,7 +47,7 @@ Sign in with email `foo@nocalhost.dev` and pwd `123456`
 
 > Why not login with `admin@admin.com`? 
 
-> You can enter the `Nocalhost` homepage, switch to the tab `Application`, and there is a `Application` sample named 'bookinfo'.
+> You can enter the `Nocalhost-Server` homepage, switch to the tab `Application`, and there is a `Application` sample named 'bookinfo'.
 
 > click `SPACE LIST`, then you can see `Nocalhost` created a `DevSpace` for User `Nocalhost`. That can be simply understood as `DevSpace` under `Application` is the workspace user can access in the `VSCode Nocalhost Plug-in`.
 
