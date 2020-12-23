@@ -48,18 +48,27 @@
 
 <!-- Analytics -->
 {% block analytics %}
-  {{ super() }}
+{{ super() }}
 
-  <!-- Track external links -->
-  <script>
+<!-- Track external links -->
+<script>
     document.addEventListener("DOMContentLoaded", function() {
-      document.body.addEventListener("click", function(ev) {
-        if (ev.target instanceof HTMLElement) {
-          var el = ev.target.closest("a[href^=http]")
-          if (el)
-            ga("send", "event", "outbound", "click", el.href)
-        }
-      })
+        document.body.addEventListener("click", function(ev) {
+                if (ev.target instanceof HTMLElement) {
+                        var el = ev.target.closest("a[href^=http]")
+                        if (el)
+                            ga("send", "event", "outbound", "click", el.href)
+                    }
+            })
     })
-  </script>
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+{% set analytics = config.google_analytics %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ analytics[0] }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "{{ analytics[0] }}");
+</script>
 {% endblock %}
