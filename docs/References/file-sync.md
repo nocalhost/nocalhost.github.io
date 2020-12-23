@@ -28,5 +28,4 @@ Global Flags:
 `File Sync` automatically enabled while using `IDE Plugin` to start `Dev-Mode`, and we can specify the directory able to synchronize in `IDE Plugin`. The default `File Sync` enabled by `IDE Plugin` is run as daemon and double side sync.
 
 
-
-
+> NOTE: Because of platform differences, file sync will lost execution bit when sync from windows to devContainer, such as shell script and other file can't execute in windows.
