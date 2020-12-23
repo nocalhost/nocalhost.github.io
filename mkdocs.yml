@@ -66,7 +66,7 @@ nav:
     - TKE: Deployment/deployment-tke.md
     - kubernetes: Deployment/deployment-kubernetes.md
     - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
-  - BestPractieces: Tutorials/plugin-best-practices.md
+  - Best practieces: Tutorials/plugin-best-practices.md
   - Concepts:
     - Cluster: Concepts/cluster.md
     - Application: Concepts/application.md
@@ -76,6 +76,7 @@ nav:
     - DevContainer: Concepts/devcontainer.md
     - DevMode: Concepts/devmode.md
   - Tutorials:
+    - Nocalhost Web: Tutorials/nocalhost-web-configuration.md
     - Docker: Tutorials/nocalhost-with-docker-desktop.md
     - Helm: Tutorials/nocalhost-with-helm.md
     - CLI: Tutorials/nocalhost-without-ide-plugin.md

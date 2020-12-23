@@ -90,4 +90,8 @@ So entering `http://159.75.142.135:8080`:
 
 
 
-You can login the `nocalhost-server` with email `admin@admin.com` pwd `123456` and there is an application sample for Quick-Experience created by `Nocalhost` using the `kubeconfig` you specified when the `Nocalhost` was inited.
+You can login the `nocalhost-server` with email `admin@admin.com` pwd `123456` and there is an application sample for Quick-Experience created by `Nocalhost` using the `kubeconfig` you specified when the `Nocalhost` init.
+
+## What next?
+
+[Next, take an experience with IDE-plug-ins to get best practices for `Nocalhost`](/Tutorials/plugin-best-practices)

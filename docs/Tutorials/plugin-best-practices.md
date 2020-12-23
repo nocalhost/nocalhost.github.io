@@ -10,9 +10,9 @@ Make sure you have been deploy `Nocalhost` and can access `Nocalhost-server` cor
 
 **Here are some tutorials for deploying `Nocalhost` and getting `Nocalhost-server-url` by using different technologie:**
 
-- Minikube
-- Kubernetes Cluster
-- TKE
+- [Minikube](/Deployment/deployment-minikube/)
+- [Kubernetes Cluster](/Deployment/deployment-kubernetes/)
+- [TKE](/Deployment/deployment-tke/)
 
 
 
@@ -45,13 +45,11 @@ Specify your `nocalhost-web` endpoint, and type in the address to access `Nocalh
 Sign in with email `foo@nocalhost.dev` and pwd `123456` 
 
 
-> Why not login with`admin@admin.com`? 
+> Why not login with `admin@admin.com`? 
 
-> You can enter the `Nocalhost` homepage, switch to the tab `Application`, and there is a `Application` sample named bookinfo.
+> You can enter the `Nocalhost` homepage, switch to the tab `Application`, and there is a `Application` sample named 'bookinfo'.
 
-> click `SPACE LIST`, then you can see `Nocalhost` created a `DevSpace` for User `Nocalhost`. That  can be simply understood as `DevSpace` under `Application` is the workspace user can access in the `VSCode Nocalhost Plug-in`.
->
-> Of cause you can create a `DevSpace` for user 'admin' manually and sign in with it.
+> click `SPACE LIST`, then you can see `Nocalhost` created a `DevSpace` for User `Nocalhost`. That can be simply understood as `DevSpace` under `Application` is the workspace user can access in the `VSCode Nocalhost Plug-in`.
 
 
 
@@ -60,6 +58,8 @@ Sign in with email `foo@nocalhost.dev` and pwd `123456`
 
 
 Here show all the `DevSpace` hold by the user you sign in. Each spaces can be installed according to your configuration in `Nocalhost-Web`.
+
+> Don't see any DevSpace after sign in? see [how to config nocalhost-web](/Tutorials/nocalhost-web-configuration)
 
 ![](../assets/images/tutorials/plugin-space-list.png)
 
