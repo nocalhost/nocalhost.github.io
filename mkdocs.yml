@@ -67,7 +67,7 @@ nav:
     - TKE: Deployment/deployment-tke.md
     - Kubernetes: Deployment/deployment-kubernetes.md
     - Serverless Kubernetes: Tutorials/nocalhost-with-serverless-kubernetes.md
-  - Best practieces: Tutorials/plugin-best-practices.md
+  - Best practices: Tutorials/plugin-best-practices.md
   - Concepts:
     - Cluster: Concepts/cluster.md
     - Application: Concepts/application.md
