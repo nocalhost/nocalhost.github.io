@@ -38,7 +38,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 ```
 
 !!! note "About Kubernetes without LoadBalancer and PV"
-    Use NodePort instead of LoadBalancer, close DB persistence
+    Use NodePort instead of LoadBalancer, close DB persistence(DO NOT USE FOR PRODUCTION)
     ```
     nhctl init -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
     ```
