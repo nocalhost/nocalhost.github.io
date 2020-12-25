@@ -6,7 +6,7 @@ title: Getting started
 
 Prerequisites:
 
-- A Kubernetes(1.16+) Cluster(prefer to be provided by the Cloud platform or Minikube)
+- A Kubernetes(1.16+) Cluster(prefer to be provided by the Cloud platform or Minikube, 2 Core 4 Gi memory)
 - Configure kubectl for you to be able to access above cluster as admin
 - RBAC must be enabled in above cluster
 - Install Helm3

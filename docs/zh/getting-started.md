@@ -10,6 +10,7 @@ title: 快速上手
     * 建议使用公有云服务
     * 支持 Minikube
     * 已启用 RBAC
+    * Node 节点 2 核 4G 或以上
 - 安装 kubectl 并已配置管理员身份访问上述集群
 - 安装 Helm3
 - 安装 Visual Studio Code(1.31+) 
