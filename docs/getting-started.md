@@ -37,6 +37,12 @@ After **minikube(docker driver)**(`minikube start --driver=docker`) is started, 
 nhctl init -n nocalhost -t nodeport -p 80
 ```
 
+!!! note "About Kubernetes without LoadBalancer and PV"
+    Use NodePort instead of LoadBalancer, close DB persistence
+    ```
+    nhctl init -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
+    ```
+
 Waiting for the initialization process:
 
 ![](../assets/images/initializing.png)
