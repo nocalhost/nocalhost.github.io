@@ -39,6 +39,12 @@ nhctl init -n nocalhost -p 7000
 nhctl init -n nocalhost -t nodeport -p 80
 ```
 
+!!! note "关于使用无法提供 LoadBalancer 和 PV 支持的 Kubernetes 发行版"
+    可以使用 NodePort 替代 LoadBalancer，关闭数据库持久化（仅用于体验环境）
+    ```
+    nhctl init -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
+    ```
+
 等待初始化过程:
 
 ![](../assets/images/initializing.png)
