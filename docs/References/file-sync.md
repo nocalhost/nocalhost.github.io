@@ -29,3 +29,5 @@ Global Flags:
 
 
 > NOTE: Because of platform differences, file sync will lost execution bit when sync from windows to devContainer, such as shell script and other file can't execute in windows.
+
+`File Sync` use `Syncthing`, web interface default username and password is `nocalhost`, you can get `Syncthing` web interface URL by using `nhctl list` command.
