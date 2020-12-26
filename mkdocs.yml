@@ -60,6 +60,7 @@ nav:
       - 默认管理账户: zh/FAQ/default-account.md
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
       - 支持的版本: zh/FAQ/support-version.md
+      - 换行符: zh/FAQ/line-endings.md
   - Getting started: getting-started.md
   - Installation: installation.md
   - Deployment:
@@ -99,5 +100,6 @@ nav:
     - Default admin account: FAQ/default-account.md
     - No persistent volumes available: FAQ/pvc-unbound.md
     - Version Support: FAQ/support-version.md
+    - Line Endings: FAQ/line-endings.md
 
 google_analytics: ['G-5MSJE3N1YD', 'nocalhost.dev']
