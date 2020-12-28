@@ -1,0 +1,7 @@
+#### Why does my code fail to compile in the DevMode under Windows?
+
+The problem may be caused by differences of line endings between different operating systems. For example, the code is compiled for Linux with line endings of `\n`, and you checkout, edit or reformat the code under Windows may convert line endings to `\r\n`. The conversion of line endings will lead to failures on some build tools (like Gradle). Therefore, before entering the DevMode, you should configure the local development environment as needed.
+
+- git: In default, line ending conversions are enabled. It means that `git checkout` will convert `\n` to `\r\n` and `git commit` will convert `\r\n` to `\n`. Please refer to [Git Docs](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_autocrlf) if you have to configure it.
+- Visual Studio Code: In default, line ending is `\r\n` under Windows. Configure it globally by entering File -> Preferences -> Settings -> Text Editor -> Files -> Eol, or click the `CRLF` or `LF` on the right of the status bar when converting for a single file.
+- IntelliJ IDEA: In default, line ending is `\r\n` under Windows. Configure it by entering File -> Settings -> Editor -> Code Style -> Line seperator.
