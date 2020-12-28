@@ -16,7 +16,7 @@ and the flags:
 Flags:
   -m, --daemon              if file sync run as daemon, default true (default true)
   -d, --deployment string   k8s deployment which your developing service exists
-  -b, --double              if use double side sync, default true
+  -b, --double              if use double side sync, default false
   
 Global Flags:
       --debug               enable debug level log
@@ -25,9 +25,9 @@ Global Flags:
 
 
 
-`File Sync` automatically enabled while using `IDE Plugin` to start `Dev-Mode`, and we can specify the directory able to synchronize in `IDE Plugin`. The default `File Sync` enabled by `IDE Plugin` is run as daemon and double side sync.
+`File Sync` automatically enabled while using `IDE Plugin` to start `Dev-Mode`, and we can specify the directory able to synchronize in `IDE Plugin`. The default `File Sync` enabled by `IDE Plugin` is run as daemon and single side sync.
 
 
-> NOTE: Because of platform differences, file sync will lost execution bit when sync from windows to devContainer, such as shell script and other file can't execute in windows. you can use `chmod +x filename` in devContainer to fix that.
+> NOTE: Because of platform differences, file sync will lost execution bit when sync from windows to devContainer, such as shell script and other file can't execute in windows. you can run `chmod +x filename` command manually in devContainer to fix that.
 
-`File Sync` use `Syncthing`, web interface default username and password is `nocalhost`, you can get `Syncthing` web interface URL by using `nhctl list` command.
+`File Sync` use [Syncthing](https://github.com/syncthing/syncthing), web interface default username and password is `nocalhost`, you can get `Syncthing` web interface URL by using `nhctl list` command.

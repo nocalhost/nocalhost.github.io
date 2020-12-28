@@ -50,6 +50,7 @@ nav:
       - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
       - Nocalhost 架构: zh/References/architecture.md
       - Nhctl CLI: zh/References/cli-commands.md
+      - 文件同步: zh/References/file-sync.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
