@@ -163,6 +163,18 @@
 #home .md-grid .md-tabs-block {
   height: 60px;
 }
+@media (max-width: 1280px) {
+  #home .md-grid .md-tabs-block {
+    position: absolute;
+    right: 40px;
+  }
+}
+@media (max-width: 600px) {
+  #home .md-grid .md-tabs-block {
+    position: relative;
+    right: 0;
+  }
+}
 #home .md-grid .md-tabs-block .md-tabs__item {
   height: 60px;
   display: flex;

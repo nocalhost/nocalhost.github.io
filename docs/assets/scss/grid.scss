@@ -170,6 +170,16 @@
         .md-tabs-block {
             height: 60px;
 
+            @media (max-width: 1280px) {
+                position: absolute;
+                right: 40px;
+            }
+
+            @media (max-width: 600px) {
+                position: relative;
+                right: 0;
+            }
+
             .md-tabs__item {
                 height: 60px;
                 display: flex;
