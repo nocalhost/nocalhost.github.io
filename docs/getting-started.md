@@ -71,7 +71,7 @@ Input the access address from Step Two, press Enter to save
 Input the username and password respectively, press Enter to save:
 
 - Username: foo@nocalhost.dev
-- assword: 123456
+- Password: 123456
 
 After login, you can find:
 
