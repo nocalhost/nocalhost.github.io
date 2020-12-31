@@ -13,7 +13,7 @@ title: 快速上手
     * Node 节点 2 核 4G 或以上
 - 安装 kubectl 并已配置管理员身份访问上述集群
 - 安装 Helm3
-- 安装 Visual Studio Code(1.31+) 
+- 安装 Visual Studio Code(1.52+) 
 - 安装 Git
 - 集群内和集群外都能访问 Kubernetes api-server
 

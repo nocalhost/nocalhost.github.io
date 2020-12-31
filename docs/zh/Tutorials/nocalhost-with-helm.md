@@ -4,7 +4,7 @@
  - 配置好 kubectl 以管理员身份访问上述集群
  - 集群必须启用 RBAC
  - 安装好 Helm3
- - 安装好 Visual Studio Code(1.31+)
+ - 安装好 Visual Studio Code(1.52+)
  - 安装好 Git
  - 安装 Nocalhost 客户端 (nhctl, IDE plugin) , [安装教程](https://nocalhost.dev/zh/installation/){:target="_blank"}
  - 安装 Nocalhost 服务端 (nocalhost-api, nocalhost-web) [参考快速上手的第二步](https://nocalhost.dev/zh/getting-started/#nocalhost-server){:target="_blank"}

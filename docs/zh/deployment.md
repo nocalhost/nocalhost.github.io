@@ -12,7 +12,7 @@ title: 部署教程
     * 已启用 RBAC
 - 安装 kubectl 并已配置管理员身份访问上述集群
 - 安装 Helm3
-- 安装 Visual Studio Code(1.31+) 
+- 安装 Visual Studio Code(1.52+) 
 - 安装 Git
 
 
