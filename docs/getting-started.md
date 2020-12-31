@@ -10,7 +10,7 @@ Prerequisites:
 - Configure kubectl for you to be able to access above cluster as admin
 - RBAC must be enabled in above cluster
 - Install Helm3
-- Install Visual Studio Code(1.31+)
+- Install Visual Studio Code(1.52+)
 - Install Git
 - Kubernetes api-server can be accessed internal and external
 
