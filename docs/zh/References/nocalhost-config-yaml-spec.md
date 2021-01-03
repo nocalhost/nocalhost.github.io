@@ -173,15 +173,16 @@ services:
     # 类型: 字符串[]
     # 默认值: ["."]
     # 可选
-    syncDirs:
+    syncFilePattern:
       - "./src"
       - "./pkg/fff"
 
-    # 在开发模式下要忽略同步的目录列表 (暂未实现，未来支持)
+
+    # 在开发模式下要忽略同步的目录列表
     # 类型: 字符串[]
     # 默认值: []
     # 可选
-    ignoreDirs:
+    ignoreFilePattern:
       - ".git"
       - "./build"
 
@@ -207,51 +208,62 @@ services:
     # 默认值: []
     # 可选
     dependJobsLabelSelector:
-      - "name=init-job"
+      - "job-name=init-job"
       - "app.kubernetes.io/name=init-job"
 
-    # 指定 DevContainer 的工作目录，源码会被传输到此目录 (暂未实现，未来支持)
+    # 指定 DevContainer 的工作目录，源码会被传输到此目录
     # 类型: 字符串
     # 默认值: "/home/nocalhost-dev"
     # 可选
-    workDir: "/home/nocalhost-dev"
+    workDir: "/root/nocalhost-dev"
 
-    # DevContainer 中需要持久化存储的目录列表 (暂未实现，未来支持)
+    # DevContainer 中需要持久化存储的目录列表
     # 类型: 字符串[]
     # 默认值: ["/home/nocalhost-dev"]
     # 可选
     persistentVolumeDir:
-      - "/home/nocalhost-dev"
+ 
+      # 开发容器中要持久化的目录路径
+      # 类型: 字符串
+      # 默认值: null
+      # 必填
+      - path: "/root"
 
-    # 在源码根目录下执行的构建编译命令 (暂未实现，未来支持)
+        # 目录的容量
+        # 类型: 字符串
+        # 默认值: 10Gi
+        # 可选
+        capacity: 100Gi
+
+    # 在源码根目录下执行的构建编译命令
     # 类型: 字符串
     # 默认值: ""
     # 可选
-    buildCommand: "./gradlew package"
+    buildCommand: ["./gradlew", "package"]
 
-    # 在源码根目录下执行的启动服务命令 (暂未实现，未来支持)
+    # 在源码根目录下执行的启动服务命令
     # 类型: 字符串
     # 默认值: ""
     # 可选
-    runCommand: "./gradlew bootRun"
+    runCommand: ["./gradlew", "bootRun"]
 
-    # 在源码根目录下执行的启动调试服务命令 (暂未实现，未来支持)
+    # 在源码根目录下执行的启动调试服务命令
     # 类型: 字符串
     # 默认值: ""
     # 可选
-    debugCommand: "./gradlew bootRun --debug-jvm"
+    debugCommand: ["./gradlew", "bootRun", "--debug-jvm"]
 
-    # 在源码根目录下执行的支持热加载的启动服务命令 (暂未实现，未来支持)
+    # 在源码根目录下执行的支持热加载的启动服务命令
     # 类型: 字符串
     # 默认值: ""
     # 可选
-    hotReloadRunCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"
+    hotReloadRunCommand: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"]
 
-    # 在源码根目录下执行的支持热加载的启动调试服务命令 (暂未实现，未来支持)
+    # 在源码根目录下执行的支持热加载的启动调试服务命令
     # 类型: 字符串
     # 默认值: ""
     # 可选
-    hotReloadDebugCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"
+    hotReloadDebugCommand: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"]
 
     # 该服务的远程调试端口
     # 类型: 字符串

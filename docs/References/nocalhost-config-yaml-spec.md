@@ -141,7 +141,7 @@ services:
   - name: service1
 
     # The Kubernetes Workloads type corresponding to the service
-    # type: select, options: deployment/statefulset/pod/job/cronjob/daemonset 大小写不敏感
+    # type: select, options: deployment/statefulset/pod/job/cronjob/daemonset case insensitive 
     # default value: deployment
     # required
     serviceType: deployment
@@ -175,15 +175,15 @@ services:
     # type: string[]
     # default value: ["."]
     # optional
-    syncDirs:
+    syncFilePattern:
       - "./src"
       - "./pkg/fff"
 
-    # List of ignored files and directories to be synchronized to DevContainer (Not currently implemented)
+    # List of ignored files and directories to be synchronized to DevContainer
     # type: string[]
     # default value: []
     # optional
-    ignoreDirs:
+    ignoreFilePattern:
       - ".git"
       - "./build"
 
@@ -209,51 +209,62 @@ services:
     # default value: []
     # optional
     dependJobsLabelSelector:
-      - "name=init-job"
+      - "job-name=init-job"
       - "app.kubernetes.io/name=init-job"
 
-    # The work directory of DevContainer (Not currently implemented)
+    # The work directory of DevContainer
     # type: string
     # default value: "/home/nocalhost-dev"
     # optional
-    workDir: "/home/nocalhost-dev"
+    workDir: "/root/nocalhost-dev"
 
-    # Dirs to be persisted in DevContainer (Not currently implemented)
+    # Dirs to be persisted in DevContainer
     # type: string[]
     # default value: ["/home/nocalhost-dev"]
     # optional
     persistentVolumeDir:
-      - "/home/nocalhost-dev"
 
-    # Build command of the service (Not currently implemented)
-    # type: string
-    # default value: ""
-    # optional
-    buildCommand: "./gradlew package"
+      # Dir to be persisted in DevContainer
+      # type: string
+      # default value: null
+      # required
+      - path: "/root"
 
-    # Run command of the service (Not currently implemented)
-    # type: string
-    # default value: ""
-    # optional
-    runCommand: "./gradlew bootRun"
+        # Capability of the dir
+        # type: string
+        # default value: 10Gi
+        # optional
+        capacity: 100Gi
 
-    # Debug command of the service (Not currently implemented)
-    # type: string
-    # default value: ""
+    # Build command of the service
+    # type: string[]
+    # default value: [""]
     # optional
-    debugCommand: "./gradlew bootRun --debug-jvm"
+    buildCommand: ["./gradlew", "package"]
 
-    # Hot-reload run command of the service (Not currently implemented)
-    # type: string
-    # default value: ""
+    # Run command of the service
+    # type: string[]
+    # default value: [""]
     # optional
-    hotReloadRunCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"
+    runCommand: ["./gradlew", "bootRun"]
 
-    # Hot-reload debug command of the service (Not currently implemented)
-    # type: string
-    # default value: ""
+    # Debug command of the service
+    # type: string[]
+    # default value: [""]
     # optional
-    hotReloadDebugCommand: "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"
+    debugCommand: ["./gradlew", "bootRun", "--debug-jvm"]
+
+    # Hot-reload run command of the service
+    # type: string[]
+    # default value: [""]
+    # optional
+    hotReloadRunCommand: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"]
+
+    # Hot-reload debug command of the service
+    # type: string[]
+    # default value: [""]
+    # optional
+    hotReloadDebugCommand: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"]
 
     # Ports of remote debugging (Not currently implemented)
     # type: string
