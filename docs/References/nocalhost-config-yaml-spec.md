@@ -222,7 +222,7 @@ services:
     # type: string[]
     # default value: ["/home/nocalhost-dev"]
     # optional
-    persistentVolumeDir:
+    persistentVolumeDirs:
 
       # Dir to be persisted in DevContainer
       # type: string
