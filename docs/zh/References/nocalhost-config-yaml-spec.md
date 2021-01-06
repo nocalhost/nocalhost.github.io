@@ -132,10 +132,10 @@ onPostUninstall:
 # 可选
 services:
 
-    # 微服务的名字
+    # 微服务的名字,对应 Kubernetes 集群中的工作负载名称
     # 类型: 字符串
     # 默认值: null
-    # 可选
+    # 必须提供
   - name: service1
 
     # 微服务对应的 k8s 工作负载类型

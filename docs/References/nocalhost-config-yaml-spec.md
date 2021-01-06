@@ -134,10 +134,10 @@ onPostUninstall:
 # optional
 services:
 
-    # Name of service
+    # Name of service, the name of workload in cluster
     # type: string
     # default value: null
-    # optional
+    # required
   - name: service1
 
     # The Kubernetes Workloads type corresponding to the service
