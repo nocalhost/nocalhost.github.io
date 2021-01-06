@@ -10,7 +10,7 @@
 name: nocalhost
 
 # 应用 manifest 类型
-# 类型: 单选，可选项：helmGit/helmRepo/rawManiifest
+# 类型: 单选，可选项：helmGit/helmRepo/rawManifest
 # 默认值: null
 # 必须提供
 # 对应 nhctl 参数: --type,-t

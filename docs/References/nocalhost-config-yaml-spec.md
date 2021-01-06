@@ -10,7 +10,7 @@
 name: nocalhost
 
 # Application k8s manifest type
-# type: select，options：helmGit/helmRepo/rawManiifest
+# type: select，options：helmGit/helmRepo/rawManifest
 # default value: null
 # required
 # nhctl param: --type,-t
