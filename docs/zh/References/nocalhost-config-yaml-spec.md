@@ -14,7 +14,7 @@ name: nocalhost
 # 默认值: null
 # 必须提供
 # 对应 nhctl 参数: --type,-t
-manifest类型: helmGit
+manifestType: helmGit
 
 # helmGit类型此字段代表 Chart 相对于 Git 仓库根目录的位置。helmRepo 类型，此字段无意义。rawManifest 类型，此字段可以设置为 k8s manifest 文件夹相对于 Git 仓库的位置。
 # 类型: 字符串[]
