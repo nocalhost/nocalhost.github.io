@@ -108,7 +108,7 @@ Then entering `Nocalhost` homepage with http://`minikube ip`:`nocalhost-web-expo
 
 So entering `http://192.168.49.2:30265`:
 
-![](../assets/images/tutorials/login-web.png)
+[ ![](../assets/images/tutorials/login-web.png) ](../assets/images/tutorials/login-web.png){:target="_blank"}
 
 
 
@@ -124,19 +124,19 @@ This section show how to install your k8s application by using Quick-Experience 
 
 First make sure your plugin has been installed
 
-![](../assets/images/tutorials/plugin-how-to-install.png)
+[ ![](../assets/images/tutorials/plugin-how-to-install.png) ](../assets/images/tutorials/plugin-how-to-install.png){:target="_blank"}
 
 
 
 Switch to the `Nocalhost` tab
 
-![](../assets/images/tutorials/plugin.png)
+[ ![](../assets/images/tutorials/plugin.png) ](../assets/images/tutorials/plugin.png){:target="_blank"}
 
 
 
 Specify your `nocalhost-web` endpoint, and type in the address http://`minikube ip`:`nocalhost-web-expose-port` current used to access `Nocalhost` homepage.
 
-![](../assets/images/tutorials/plugin-web-config.png)
+[ ![](../assets/images/tutorials/plugin-web-config.png) ](../assets/images/tutorials/plugin-web-config.png){:target="_blank"}
 
 
 
@@ -155,29 +155,29 @@ Sign in with email `foo@nocalhost.dev` and pwd `123456`
 
 Here show all the `Spaces` hold by the user you sign in. Each spaces can be installed according to your configuration in `Nocalhost-Web`.
 
-![](../assets/images/tutorials/plugin-space-list.png)
+[ ![](../assets/images/tutorials/plugin-space-list.png) ](../assets/images/tutorials/plugin-space-list.png){:target="_blank"}
 
 Now click the rocket to install it:
 
-![](../assets/images/tutorials/plugin-install-app.png)
+[ ![](../assets/images/tutorials/plugin-install-app.png) ](../assets/images/tutorials/plugin-install-app.png){:target="_blank"}
 
 Waiting for Application startup. 
 
-![](../assets/images/tutorials/plugin-waiting-app-up.png)
+[ ![](../assets/images/tutorials/plugin-waiting-app-up.png) ](../assets/images/tutorials/plugin-waiting-app-up.png){:target="_blank"}
 
 The cycle icon means the resources is already running.
 
-![](../assets/images/tutorials/plugin-cycle-status.png)
+[ ![](../assets/images/tutorials/plugin-cycle-status.png) ](../assets/images/tutorials/plugin-cycle-status.png){:target="_blank"}
 
 Wait until all pods start up, now forward the port of `Deployment` 'productpage' by right clicking it and select `Port Forward` to access this application on site.
 
-![](../assets/images/tutorials/plugin-ports-forward.png)
+[ ![](../assets/images/tutorials/plugin-ports-forward.png) ](../assets/images/tutorials/plugin-ports-forward.png){:target="_blank"}
 
 
 
 Type in 9080:9080 and press `Enter`
 
-![](../assets/images/tutorials/plugin-type-in-port-forward.png)
+[ ![](../assets/images/tutorials/plugin-type-in-port-forward.png) ](../assets/images/tutorials/plugin-type-in-port-forward.png){:target="_blank"}
 
 
 
@@ -189,7 +189,7 @@ Then we can access 'bookinfo' on site http://localhost:9080
 
 Start develop and entering `Dev-Mode` by clicking one of `Deployment`'s hammer, 'productpage' for example.
 
-![](../assets/images/tutorials/plugin-start-develop.png)
+[ ![](../assets/images/tutorials/plugin-start-develop.png) ](../assets/images/tutorials/plugin-start-develop.png){:target="_blank"}
 
 
 You can specify your source code dir both local directory or git repo, here we use git repo, and 'productpage''s source code is on  `https://github.com/nocalhost/bookinfo-productpage`, then choose a local directory to clone source code.
@@ -207,7 +207,7 @@ Waiting for the dev mode complete startup, `Nocalhost-Plug-In` will open a new w
 
 Let's modify the `templates/index.html` or something else. **Don't forget to saving the change because nocalhost do not synchronize your change in memory!**
 
-![](../assets/images/tutorials/plugin-dev-mode-modify.png)
+[ ![](../assets/images/tutorials/plugin-dev-mode-modify.png) ](../assets/images/tutorials/plugin-dev-mode-modify.png){:target="_blank"}
 
 
 
@@ -221,13 +221,13 @@ Then run `./run.sh` in the terminal, wait for the app up.
 >
 > python helloworld.py
 
-![](../assets/images/tutorials/plugin-dev-mode-terminal.png)
+[ ![](../assets/images/tutorials/plugin-dev-mode-terminal.png) ](../assets/images/tutorials/plugin-dev-mode-terminal.png){:target="_blank"}
 
 
 
 Access bookinfo on site http://localhost:9080 again, our changes is take effect:
 
-![](../assets/images/tutorials/plugin-dev-mode-after-modify.png)
+[ ![](../assets/images/tutorials/plugin-dev-mode-after-modify.png) ](../assets/images/tutorials/plugin-dev-mode-after-modify.png){:target="_blank"}
 
 
 
@@ -239,19 +239,19 @@ Access bookinfo on site http://localhost:9080 again, our changes is take effect:
 
 Now return to the `Nocalhost-Plug-In`, click the red hammer to end dev mode (may click the `Reresh` icon to synchronize the latest status).
 
-![](../assets/images/tutorials/plugin-dev-mode-end.png)
+[ ![](../assets/images/tutorials/plugin-dev-mode-end.png) ](../assets/images/tutorials/plugin-dev-mode-end.png){:target="_blank"}
 
 
 
 While dev mode end, current container replaced before will be restored. Let's access 'bookinfo' on site http://localhost:9080:
 
-![](../assets/images/tutorials/plugin-dev-mode-end1.png)
+[ ![](../assets/images/tutorials/plugin-dev-mode-end1.png) ](../assets/images/tutorials/plugin-dev-mode-end1.png){:target="_blank"}
 
 
 
 Click the bin to uninstall `Application` that all k8s resources in this `Application` will be removed.
 
-![](../assets/images/tutorials/plugin-app-uninstall.png)
+[ ![](../assets/images/tutorials/plugin-app-uninstall.png) ](../assets/images/tutorials/plugin-app-uninstall.png){:target="_blank"}
 
 
 

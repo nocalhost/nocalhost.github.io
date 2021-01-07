@@ -204,7 +204,7 @@ services:
 
 点击带有感叹号的齿轮，我们会为你生成一个模板文件：
 
-![](../../assets/images/concept/service-default.png)
+[ ![](../../assets/images/concept/service-default.png) ](../../assets/images/concept/service-default.png){:target="_blank"}
 
 
 
@@ -230,7 +230,7 @@ codingcorp-docker.pkg.coding.net/nocalhost/dev-images/LANGUAGE:latest
 
 当你进入开发模式之前，`Nocalhost-Plug-In` 会让你选择从本地指定源码目录或者从 `git` 检出，如果你本地已有此 `deployment` 的源码，则不需要进行 `gitUrl` 配置，直接选择 `Open local derectory` 即可。
 
-![](../../assets/images/concept/enter-dev-mode.png)
+[ ![](../../assets/images/concept/enter-dev-mode.png) ](../../assets/images/concept/enter-dev-mode.png){:target="_blank"}
 
 
 
@@ -324,7 +324,7 @@ services:
 
  `Deployment` 进行了 `service`  的配置，当用户 `Install` 此 `Application` 时，会拿到这些默认配置，如 'ratings' 这个 `deployment`，点击齿轮查看当前的配置：
 
-![](../../assets/images/concept/modify-service-config.png)
+[ ![](../../assets/images/concept/modify-service-config.png) ](../../assets/images/concept/modify-service-config.png){:target="_blank"}
 
 用户可以自由的基于这些配置做修改，**这些修改仅在本地生效。**
 

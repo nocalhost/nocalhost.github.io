@@ -16,6 +16,6 @@
 
 例如当前在 VSCode Plugin 登录的这个用户拥有 "bookinfo" 和 "test" 这两个 `DevSpace` 的权限。 
 
-![](../../assets/images/concept/user-space-list.png)
+[ ![](../../assets/images/concept/user-space-list.png) ](../../assets/images/concept/user-space-list.png){:target="_blank"}
 
 不过普通用户无法进入 `Nocalhost-Web`，也无法删除这个 `DevSpace` 本身，或者与这个 `DevSpace` 解除关系，这很像 k8s 某个 `namespace` 下的 `admin` 权限。

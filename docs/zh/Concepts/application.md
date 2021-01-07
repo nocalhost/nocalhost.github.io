@@ -2,11 +2,11 @@
 
 `Application` 是 `Nocalhost` 的一个概念，它主要用于管理你想用于本地开发的一组 manifest 文件，同时支持 k8s manifest 和 helm chart。也就是说，这些 manifest 通常包含你的应用所依赖的所有 k8s 资源，如果可能，我们应该尽量保持它的最小化。
 
-![](../../assets/images/concept/what-is-application.png)
+[ ![](../../assets/images/concept/what-is-application.png) ](../../assets/images/concept/what-is-application.png){:target="_blank"}
 
 `Application` 支持放置在 `git` 的 `k8s manifest`，放置在 `git` 的 `helm chart` 和直接放置在 `Helm Repo` 几种方式，未来会添加对 `kustomize` 的支持。 
 
-![](../../assets/images/concept/diffrent-type-of-application.png)
+[ ![](../../assets/images/concept/diffrent-type-of-application.png) ](../../assets/images/concept/diffrent-type-of-application.png){:target="_blank"}
 
 ## Application 是做什么的
 
@@ -16,11 +16,11 @@
 
 在被分配`DevSpace` 后，会得到一个用以访问这个 `DevSpace` 的 `kubeconfig`，`nhctl` 或者插件可以根据应用的 `manifest` 文件和 `kubeconfig` 来启动应用。
 
-![](../../assets/images/concept/manifest-and-kubeconfig.png)
+[ ![](../../assets/images/concept/manifest-and-kubeconfig.png) ](../../assets/images/concept/manifest-and-kubeconfig.png){:target="_blank"}
 
 `Application` 也是这样被使用的，`DevSpace` 其实可以近似看作 `Application` + `kubeconfig`：
 
-![](../../assets/images/concept/application-and-space.png)
+[ ![](../../assets/images/concept/application-and-space.png) ](../../assets/images/concept/application-and-space.png){:target="_blank"}
 
 ## Application 与 Manifest
 
@@ -185,11 +185,11 @@ services:
 
 用上面这个例子为例，直接进入 `Nocalhost-Web` 来进行创建。进入主页后，切换到 Applications 这一栏，点击右上角进行创建：
 
-![](../../assets/images/concept/create-application.png)
+[ ![](../../assets/images/concept/create-application.png) ](../../assets/images/concept/create-application.png){:target="_blank"}
 
 支持前面分别提到的三种形式，这里以 `kubernetes manifest` 为例：
 
-![](../../assets/images/concept/create-application-detail.png)
+[ ![](../../assets/images/concept/create-application-detail.png) ](../../assets/images/concept/create-application-detail.png){:target="_blank"}
 
 ## Advance
 

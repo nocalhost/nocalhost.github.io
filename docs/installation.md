@@ -125,4 +125,4 @@ Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost
 2. Type "nocalhost" in the search input box.
 3. Select the "nocalhost-vscode-plugin", and the click install button to install.
 
-![](../assets/images/extension-market.png)
+[ ![](../assets/images/extension-market.png) ](../assets/images/extension-market.png){:target="_blank"}

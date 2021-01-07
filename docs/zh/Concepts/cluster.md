@@ -4,7 +4,7 @@
 
 `Nocalhost` 支持同时管理多个 `Cluster`，这些集群可以是 `GKE`、 `minikube`、`microK8s` 等等。
 
-![](../../assets/images/concept/cluster.png)
+[ ![](../../assets/images/concept/cluster.png) ](../../assets/images/concept/cluster.png){:target="_blank"}
 
 ## Cluster 是做什么的
 
@@ -16,7 +16,7 @@
 
 首先进入 `Nocalhost-Web` ，切换到 `Clusters` 这一栏，这里会展示所有的 `Cluster` 列表。
 
-![](../../assets/images/concept/cluster-list.png)
+[ ![](../../assets/images/concept/cluster-list.png) ](../../assets/images/concept/cluster-list.png){:target="_blank"}
 
 点击右上角的 `CREATE` 进行 `Cluster` 的创建。这里要注意，确认此 `kubeconfig` 是否拥有集群管理权限，可使用如下命令进行确认：
 

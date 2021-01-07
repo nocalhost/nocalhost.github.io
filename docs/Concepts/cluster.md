@@ -4,7 +4,7 @@
 
 `Nocalhost` supports managing multiple `Clusters`. These clusters can be `GKE`, `minikube`, `microK8s`, etc.
 
-![](../assets/images/concept/cluster.png)
+[ ![](../assets/images/concept/cluster.png) ](../assets/images/concept/cluster.png){:target="_blank"}
 
 
 
@@ -20,7 +20,7 @@
 
 First enter `Nocalhost-Web`, switch to the tag named `Clusters`, here will show all `Cluster` list.
 
-![](../assets/images/concept/cluster-list.png)
+[ ![](../assets/images/concept/cluster-list.png) ](../assets/images/concept/cluster-list.png){:target="_blank"}
 
 
 

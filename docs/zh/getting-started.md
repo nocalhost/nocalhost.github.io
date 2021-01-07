@@ -47,11 +47,11 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 等待初始化过程:
 
-![](../assets/images/initializing.png)
+[ ![](../assets/images/initializing.png) ](../assets/images/initializing.png){:target="_blank"}
 
 初始化完毕后:
 
-![](../assets/images/init-completed.png)
+[ ![](../assets/images/init-completed.png) ](../assets/images/init-completed.png){:target="_blank"}
 
 **[MINIKUBE 方案注意]: 为了保持端口转发，请不要关闭上述 Terminal**
 
@@ -68,7 +68,7 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 在 VSCode 中进入插件页面, 在左侧面板中点击 "Config Server URL" 按钮:
 
-![](../assets/images/config-server-url.png)
+[ ![](../assets/images/config-server-url.png) ](../assets/images/config-server-url.png){:target="_blank"}
 
 
 输入从 **第二步** 获得的访问地址, 如果你使用的是 `Minikube`，那么可以输入固定地址 `http://127.0.0.1:31219`，按下回车键保存.
@@ -80,51 +80,51 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 在登录之后，你可以看到:
 
-![](../assets/images/signedin.png)
+[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
 
 ## 第四步: 安装示例应用: bookinfo
 
 点击左侧面板上的安装图标，安装应用: bookinfo.
 
-![](../assets/images/signedin.png)
+[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
 
 点击之后，Nocalhost 会开始执行安装过程.
 
-![](../assets/images/wait-for-start.png)
+[ ![](../assets/images/wait-for-start.png) ](../assets/images/wait-for-start.png){:target="_blank"}
 
 你可以点击刷新图标来查看应用安装和启动过程中的状态变化。
 
 在所有微服务都启动完毕后，你可以看到：
 
-![](../assets/images/app-started.png)
+[ ![](../assets/images/app-started.png) ](../assets/images/app-started.png){:target="_blank"}
 
 现在，你可以访问安装的应用的 web 页面了：
 
 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}
 
-![](../assets/images/before-change.png)
+[ ![](../assets/images/before-change.png) ](../assets/images/before-change.png){:target="_blank"}
 
 ## 第五步: 进入开发模式
 
 你可以点击某个工作负载右侧的绿色锤子图标来把工作负载切换到开发模式.
 
-![](../assets/images/click-green-hammer.png)
+[ ![](../assets/images/click-green-hammer.png) ](../assets/images/click-green-hammer.png){:target="_blank"}
 
 选择 "Clone from Git repo" 并指定一个本地存储目录后，Nocalhost 会把源码 clone 下来.
 
-![](../assets/images/clone-repo.png)
+[ ![](../assets/images/clone-repo.png) ](../assets/images/clone-repo.png){:target="_blank"}
 
 源代码检出后, Nocalhost 会打开一个新 VSCode 窗口，并继续切换到开发模式.
 
 在开发模式切换（初次使用，时间可能较长）完毕后，你会看到:
 
-![](../assets/images/devmode.png)
+[ ![](../assets/images/devmode.png) ](../assets/images/devmode.png){:target="_blank"}
 
 在开发模式下，开发容器默认没有启动主进程，所以不会响应网页端的请求，此时如果刷新页面，页面将出错。直到你再次启动进程后，页面才会恢复。
 
 如果你切换开发模式的工作负载是 productpage 的话，你可以执行 `sh run.sh` 来启动 hot-reload 模式的进程:
 
-![](../assets/images/run-sh.png)
+[ ![](../assets/images/run-sh.png) ](../assets/images/run-sh.png){:target="_blank"}
 
 ## 第六步: 改动一些代码，并查看运行结果
 
@@ -132,11 +132,11 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 例如, 在文件 **productpage.py** 的 355 行添加 **Hello Nocalhost!** . 别忘了保存文件.
 
-![](../assets/images/code-changes.png)
+[ ![](../assets/images/code-changes.png) ](../assets/images/code-changes.png){:target="_blank"}
 
 刷新网页，即可立即看到效果。 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"} 😄
 
-![](../assets/images/after-change.png)
+[ ![](../assets/images/after-change.png) ](../assets/images/after-change.png){:target="_blank"}
 
 ## 恭喜!
 

@@ -16,7 +16,7 @@ Nocalhost is Cloud Native Development Environment. Currently, it support develop
 
 Here's the diagram of Nocalhost with all the components tied together.
 
-![](../assets/images/architecture.png)
+[ ![](../assets/images/architecture.png) ](../assets/images/architecture.png){:target="_blank"}
 
 
 ### Component

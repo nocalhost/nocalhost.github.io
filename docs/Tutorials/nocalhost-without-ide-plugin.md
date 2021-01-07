@@ -4,7 +4,7 @@
 
 2. Get "kubeconfig" file from Kubernetes Administrator or download from Nocalhost Web and save to local machine.
 
-![](../assets/images/download-kubeconfig.png)
+[ ![](../assets/images/download-kubeconfig.png) ](../assets/images/download-kubeconfig.png){:target="_blank"}
 
 
 3. Install an application that you want to develop via nhctl:

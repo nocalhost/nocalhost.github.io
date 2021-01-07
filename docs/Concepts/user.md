@@ -26,7 +26,7 @@ In fact, we will also create a `kubeconfig` of the `namespace` corresponding to 
 
 For example, this `User` sign in `IDE Plugin` currently, and he can see two `DevSpace` created by `Administrator` in `Nocalhost-Web` named 'bookinfo' and 'test':
 
-![](../assets/images/concept/user-space-list.png)
+[ ![](../assets/images/concept/user-space-list.png) ](../assets/images/concept/user-space-list.png){:target="_blank"}
 
 
 
