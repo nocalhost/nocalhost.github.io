@@ -89,19 +89,12 @@ onPreUninstall:
     # type: string
     # required
   - path: "job-1.yaml"
-
-    # Job name
-    # type: string
-    # required
-    name: xxx-job
-
     # Order of execution of job, the smallest be executed firstly.
     # type: integer
     # default value: 0
     # optional
     priority: -1
   - path: "job-2.yaml"
-    name: xxx2-job
     priority: 5
 
 # The jobs to be executed after application's uninstallation. (Not currently implemented)
