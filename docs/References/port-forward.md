@@ -26,4 +26,4 @@ nhctl port-forward bookinfo :8080
 
 And you can also use `Port Forward` by using **IDE Plugin**:
 
-![](../assets/images/port-forward.png)
+[ ![](../assets/images/port-forward.png) ](../assets/images/port-forward.png){:target="_blank"}

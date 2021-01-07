@@ -45,11 +45,11 @@ nhctl init -n nocalhost -t nodeport -p 80
 
 Waiting for the initialization process:
 
-![](../assets/images/initializing.png)
+[ ![](../assets/images/initializing.png) ](../assets/images/initializing.png){:target="_blank"}
 
 After the initialization:
 
-![](../assets/images/init-completed.png)
+[ ![](../assets/images/init-completed.png) ](../assets/images/init-completed.png){:target="_blank"}
 
 **[MINIKUBE WARN]: Please do not close above terminal for the port to be able to keep forwarding**
 
@@ -64,7 +64,7 @@ After the initialization:
 
 Open the VSCode extension page, click on the “Config Server URL” button at left:
 
-![](../assets/images/config-server-url.png)
+[ ![](../assets/images/config-server-url.png) ](../assets/images/config-server-url.png){:target="_blank"}
 
 
 Input the access address from Step Two, press Enter to save
@@ -75,62 +75,62 @@ Input the username and password respectively, press Enter to save:
 
 After login, you can find:
 
-![](../assets/images/signedin.png)
+[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
 
 ## Step 4: Install demo application: bookinfo
 
 Click the installation icon at the left to install application  bookinfo
 
-![](../assets/images/signedin.png)
+[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
 
 After it, Nocalhost starts to execute the installation.
 
-![](../assets/images/wait-for-start.png)
+[ ![](../assets/images/wait-for-start.png) ](../assets/images/wait-for-start.png){:target="_blank"}
 
 You can click on the refresh icon to check the status of installation and startup process
 
 After all microservices startup, you will find
 
-![](../assets/images/app-started.png)
+[ ![](../assets/images/app-started.png) ](../assets/images/app-started.png){:target="_blank"}
 
 Now, you can visit the appliction website: 
 
 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage)
 
-![](../assets/images/before-change.png)
+[ ![](../assets/images/before-change.png) ](../assets/images/before-change.png){:target="_blank"}
 
 ## Step 5: Start DevMode
 
 Switch the service to the DevMode by clicking on the green hammer icon.
 
-![](../assets/images/click-green-hammer.png)
+[ ![](../assets/images/click-green-hammer.png) ](../assets/images/click-green-hammer.png){:target="_blank"}
 
 Select “Clone from Git repo” and specify a local address for Nocalhost to clone the source code.
 
-![](../assets/images/clone-repo.png)
+[ ![](../assets/images/clone-repo.png) ](../assets/images/clone-repo.png){:target="_blank"}
 
 After the source code is checked out, Nocalhost will open a new VSCode window, and continue to switch to the DevMode.
 
 When it is completed (it will take long time when it is the first time to run it), you will find:
 
-![](../assets/images/devmode.png)
+[ ![](../assets/images/devmode.png) ](../assets/images/devmode.png){:target="_blank"}
 
 Under the DevMode, the main process will not startup by default for the DevContainer, and therefore it will not respond the request from the website. While refresh the webpage, the webpage will be on error and will be recovered, until you start up again.
 
 You can execute `sh run.sh` to start your process.
 
-![](../assets/images/run-sh.png)
+[ ![](../assets/images/run-sh.png) ](../assets/images/run-sh.png){:target="_blank"}
 
 ## Step 6: Change the code and check the result
 
 You can try to change a piece of code, refresh and check the result.
 For example: add "Hello Nocalhost!" at line 355 in the file productpage.py. Do not forget to save the file. 😎 
 
-![](../assets/images/code-changes.png)
+[ ![](../assets/images/code-changes.png) ](../assets/images/code-changes.png){:target="_blank"}
 
 Refresh the webpage, here is the outcome: [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}  😄
 
-![](../assets/images/after-change.png)
+[ ![](../assets/images/after-change.png) ](../assets/images/after-change.png){:target="_blank"}
 
 ## Congratulations!
 

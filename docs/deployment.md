@@ -126,7 +126,7 @@ mariadb:
 git clone https://github.com/nocalhost/nocalhost.git
 ```
 
-![](../assets/images/deployment-1.png)
+[ ![](../assets/images/deployment-1.png) ](../assets/images/deployment-1.png){:target="_blank"}
 
 ### Step 2: Install nocalhost server with helm
 
@@ -135,11 +135,11 @@ helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=./cls-p
 ```
 
 Waiting for the initialization process:
-![](../assets/images/deployment-2.png)
+[ ![](../assets/images/deployment-2.png) ](../assets/images/deployment-2.png){:target="_blank"}
 
 Get the public network address of nocalhost-web service
 
-![](../assets/images/deployment-3.png)
+[ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
 And then, you can access nocalhost web in your bowser.
 
@@ -169,13 +169,13 @@ nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 ```
 
 Waiting for the initialization process:
-![](../assets/images/deployment-4.png)
+[ ![](../assets/images/deployment-4.png) ](../assets/images/deployment-4.png){:target="_blank"}
 
-![](../assets/images/deployment-5.png)
+[ ![](../assets/images/deployment-5.png) ](../assets/images/deployment-5.png){:target="_blank"}
 
 Get the nocalhost-web service's public network address
 
-![](../assets/images/deployment-3.png)
+[ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
 And then, you can access nocalhost web in your bowser.
 

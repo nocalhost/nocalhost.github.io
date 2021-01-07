@@ -20,7 +20,7 @@
 
 If there is not any `Service` configuration specified, click the gear with an exclamation mark in the `IDE Plugin`, the plugin will generate a template file for you:
 
-![](../assets/images/concept/service-default.png)
+[ ![](../assets/images/concept/service-default.png) ](../assets/images/concept/service-default.png){:target="_blank"}
 
 
 
@@ -202,7 +202,7 @@ As mentioned earlier, you can use `Nocalhost` with out any `Service` configurati
 
 Click the gear with an exclamation mark, and we will generate a template file for you:
 
-![](../assets/images/concept/service-default.png)
+[ ![](../assets/images/concept/service-default.png) ](../assets/images/concept/service-default.png){:target="_blank"}
 
 
 
@@ -228,7 +228,7 @@ For example, if you want to use the default image of `java`, you can modify `dev
 
 Before you enter the `Dev-Mode`, `IDE plugin` will let you choose to specify the source directory from the local or check it out from `git`. If you already have the source code of this `deployment` at your disk, you do not need to configure the `gitUrl`,  simply select `Open local derectory`.
 
-![](../assets/images/concept/enter-dev-mode.png)
+[ ![](../assets/images/concept/enter-dev-mode.png) ](../assets/images/concept/enter-dev-mode.png){:target="_blank"}
 
 
 
@@ -318,6 +318,6 @@ services:
 
 When the user `Install` the `Application`, nocalhost will get these default configurations, such as the `deployment` of 'ratings'. Click the gear to view the current configuration:
 
-![](../assets/images/concept/modify-service-config.png)
+[ ![](../assets/images/concept/modify-service-config.png) ](../assets/images/concept/modify-service-config.png){:target="_blank"}
 
 Users can freely make modifications based on these configurations. **And these modifications only take effect locally. **

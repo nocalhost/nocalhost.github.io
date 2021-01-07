@@ -126,7 +126,7 @@ mariadb:
 git clone https://github.com/nocalhost/nocalhost.git
 ```
 
-![](../assets/images/deployment-1.png)
+[ ![](../assets/images/deployment-1.png) ](../assets/images/deployment-1.png){:target="_blank"}
 
 ### 第二步：使用 helm 命令进行安装
 
@@ -135,11 +135,11 @@ helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=./cls-p
 ```
 
 等待初始化过程：
-![](../assets/images/deployment-2.png)
+[ ![](../assets/images/deployment-2.png) ](../assets/images/deployment-2.png){:target="_blank"}
 
 获取 nocalhost-web 服务的公网地址。
 
-![](../assets/images/deployment-3.png)
+[ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
 最后，您就可以在浏览器中访问 Nocalhost 了。
 
@@ -168,13 +168,13 @@ nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 ```
 
 等待初始化过程：
-![](../assets/images/deployment-4.png)
+[ ![](../assets/images/deployment-4.png) ](../assets/images/deployment-4.png){:target="_blank"}
 
-![](../assets/images/deployment-5.png)
+[ ![](../assets/images/deployment-5.png) ](../assets/images/deployment-5.png){:target="_blank"}
 
 获取 nocalhost-web 服务的公网地址。
 
-![](../assets/images/deployment-3.png)
+[ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
 最后，您就可以在浏览器中访问 Nocalhost 了。
 

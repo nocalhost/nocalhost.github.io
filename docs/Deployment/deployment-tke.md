@@ -31,9 +31,9 @@ nhctl version && helm version && kubectl version
 
  **Open external network access: 0.0.0.0/0 or cluster egress IP to achieve access to the Kubernetes api-server internal and external. **
 
-![](../assets/images/deployment/tke1.png)
+[ ![](../assets/images/deployment/tke1.png) ](../assets/images/deployment/tke1.png){:target="_blank"}
 
-![](../assets/images/deployment/tke2.png)
+[ ![](../assets/images/deployment/tke2.png) ](../assets/images/deployment/tke2.png){:target="_blank"}
 
 
 

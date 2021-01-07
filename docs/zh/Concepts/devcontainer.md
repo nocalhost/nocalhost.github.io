@@ -7,7 +7,7 @@ DevContainer 是一个用户支撑开发、调试某个特定微服务组件的�
 
 在 Nocalhost 的配置文件中，给对应的 service 添加 devContainerImage 字段即可。
 
-![](../../assets/images/devcontainerimage.png)
+[ ![](../../assets/images/devcontainerimage.png) ](../../assets/images/devcontainerimage.png){:target="_blank"}
 
 在 Nocalhost 控制 Pod 进入 DevMode 的时候，设置的 devContainerImage 会被启动成为 DevContainer 替代原本的容器。之后，开发者可以在 DevContainer 中构建，运行，调试自己的程序了。
 

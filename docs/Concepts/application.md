@@ -2,11 +2,11 @@
 
 `Application` is a concept of `Nocalhost`, it is mainly used to manage a set of manifest files you want to apply for local development, it supports both k8s manifest and helm chart. In other words, these manifests usually contain all the k8s resources that your own application depends on. If possible, we should try to keep it to a minimum.
 
-![](../assets/images/concept/what-is-application.png)
+[ ![](../assets/images/concept/what-is-application.png) ](../assets/images/concept/what-is-application.png){:target="_blank"}
 
 `Application` supports the `k8s manifest` or `helm chart` stored in `git` repository, and supports `helm chart` stored in `Helm Repo`. Support for `kustomize` will be added in the future.
 
-![](../assets/images/concept/diffrent-type-of-application.png)
+[ ![](../assets/images/concept/diffrent-type-of-application.png) ](../assets/images/concept/diffrent-type-of-application.png){:target="_blank"}
 
 ## What does Application do
 
@@ -16,11 +16,11 @@
 
 After being assigned a `DevSpace`, you will get a `kubeconfig` to access this `DevSpace`, `nhctl` or plug-in can deploy the application based on the application's `manifest` file and `kubeconfig`.
 
-![](../assets/images/concept/manifest-and-kubeconfig.png)
+[ ![](../assets/images/concept/manifest-and-kubeconfig.png) ](../assets/images/concept/manifest-and-kubeconfig.png){:target="_blank"}
 
 So `DevSpace` can actually be approximated as `Application` + `kubeconfig`:
 
-![](../assets/images/concept/application-and-space.png)
+[ ![](../assets/images/concept/application-and-space.png) ](../assets/images/concept/application-and-space.png){:target="_blank"}
 
 
 
@@ -201,12 +201,12 @@ Generally, we recommend using `Nocalhost-Server` + IDE plug-in together. Althoug
 Take the above example as an example, go directly to `Nocalhost-Web` to create it. After entering the homepage, switch to the tag named `Applications` and click on the upper right corner to create:
 
 
-![](../assets/images/concept/create-application.png)
+[ ![](../assets/images/concept/create-application.png) ](../assets/images/concept/create-application.png){:target="_blank"}
 
 
 The three manifest types mentioned above are supported, here is `kubernetes manifest` as an example:
 
-![](../assets/images/concept/create-application-detail.png)
+[ ![](../assets/images/concept/create-application-detail.png) ](../assets/images/concept/create-application-detail.png){:target="_blank"}
 
 ## Advance
 

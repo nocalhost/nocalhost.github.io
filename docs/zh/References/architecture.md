@@ -23,7 +23,7 @@ Nocalhost 是云原生开发环境，支持开发基于 Kubernetes 的应用：
     - 4.选定服务开启 DevMode ，当该服务切换到 DevMode, Nocalhost 将该微服务的容器替换为配置指定的 DevContainer ，将源代码同步到 DevContainer，并将 DevContainer 的端口转发到本地。
 
 * Nocalhost 的工作示意图，如下图所示：
-![](../../assets/images/architecture.png)
+[ ![](../../assets/images/architecture.png) ](../../assets/images/architecture.png){:target="_blank"}
 
 
 ## 组件简介

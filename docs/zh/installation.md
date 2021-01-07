@@ -119,4 +119,4 @@ Nocalhost 的 VScode 编辑器插可以让您在 VScode 编辑器上轻松方便
 2. 在搜索框中输入 “nocalhost” 进行搜索。
 3. 选择 “nocalhost-vscode-plugin”, 点击 “install” 按钮进行安装。
 
-![](../assets/images/extension-market.png)
+[ ![](../assets/images/extension-market.png) ](../assets/images/extension-market.png){:target="_blank"}
