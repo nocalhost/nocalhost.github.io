@@ -50,7 +50,7 @@ nav:
       - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
       - Nocalhost 架构: zh/References/architecture.md
       - Nhctl CLI: zh/References/cli-commands.md
-      - 文件同步: zh/References/file-sync.md
+      - 文件同步与忽略: zh/References/syncfilepattern-ignorefilepattern.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
@@ -76,7 +76,7 @@ nav:
     - Architecture : References/architecture.md
     - Config Specs: References/nocalhost-config-yaml-spec.md
     - CLI Commands: References/cli-commands.md
-    - File sync: References/file-sync.md
+    - Sync/Ignore File Pattern: References/syncfilepattern-ignorefilepattern.md
     - Service Dependency: References/service-dependency.md
     - Port Forward: References/port-forward.md
   - FAQ:
