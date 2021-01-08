@@ -95,8 +95,8 @@ bar2/         # ignored, matches IgnoreFilePattern "*2"
     frobble   # ignored, due to dir parent being ignored
 My Pictures/  # ignored, matched IgnoreFilePattern case insensitive "(?i)my pictures" pattern
     Img15.PNG # ignored, due to parent being ignored
-nocalhost/		# synced, no such config, so synced
-		hello			# synced, no such config, so synced
-		test/			# ignored, matches IgnoreFilePattern "nocalhost/t**"
-		team/			# ignored, matches IgnoreFilePattern "nocalhost/t**"
+nocalhost/    # synced, no such config, so synced
+    hello     # synced, no such config, so synced
+    test/     # ignored, matches IgnoreFilePattern "nocalhost/t**"
+    team/     # ignored, matches IgnoreFilePattern "nocalhost/t**"
 ```

@@ -64,9 +64,9 @@ nocalhost/
 
 ```
 SyncFilePattern:
-	- frobble
-	- quuz
-	- ./nocalhost
+  - frobble
+  - quuz
+  - ./nocalhost
   
 IgnoreFilePattern:
 	- foo
@@ -90,9 +90,9 @@ bar2/         # 忽略, 符合 IgnoreFilePattern "*2"
     frobble   # 忽略, 父目录被忽略了
 My Pictures/  # 忽略, 符合不计大小写的 IgnoreFilePattern "(?i)my pictures" pattern
     Img15.PNG # 忽略, 父目录被忽略了
-nocalhost/		# 同步, 没这个配置
-		hello			# 同步, 没这个配置
-		test/			# 忽略, 符合 IgnoreFilePattern "nocalhost/t**"
-		team/			# 忽略, 符合 IgnoreFilePattern "nocalhost/t**"
+nocalhost/    # 同步, 没这个配置
+    hello     # 同步, 没这个配置
+    test/     # 忽略, 符合 IgnoreFilePattern "nocalhost/t**"
+    team/     # 忽略, 符合 IgnoreFilePattern "nocalhost/t**"
 ```
 
