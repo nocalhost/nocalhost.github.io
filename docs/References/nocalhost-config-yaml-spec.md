@@ -271,6 +271,18 @@ services:
     # optional
     useDevContainer: false
 
+    # Specify reources requests and limits for DevContainer, same format to Kubernetes's resources (Not currently implemented)
+    # 类型: 对象
+    # 默认值: {}
+    # 可选
+    devContainerResources:
+      limits:
+        cpu: "1"
+        memory: 1g
+      requests:
+        cpu: "0.5"
+        memory: 200m
+
   - name: service2
     ...
 ```

@@ -277,6 +277,18 @@ services:
     # 可选
     useDevContainer: false
 
+    # 指定 DevContainer 的资源申请和限制,配置信息符合 Kubernetes 对资源限定的约定 (暂未实现，未来支持)
+    # 类型: 对象
+    # 默认值: {}
+    # 可选
+    devContainerResources:
+      limits:
+        cpu: "1"
+        memory: 1g
+      requests:
+        cpu: "0.5"
+        memory: 200m
+
   - name: service2
     ...
 ```
