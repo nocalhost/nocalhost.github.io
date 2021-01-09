@@ -60,21 +60,21 @@ bar2/
 My Pictures/
     Img15.PNG
 nocalhost/
-		hello
-		test/
-		team/
+    hello
+    test/
+    team/
 ```
 
 and with following config:
 
 ```
 SyncFilePattern:
-	- frobble
-	- quuz
-	- ./nocalhost
+  - frobble
+  - quuz
+  - ./nocalhost
   
 IgnoreFilePattern:
-	- foo
+  - foo
   - *2
   - qu*
   - (?i)my pictures

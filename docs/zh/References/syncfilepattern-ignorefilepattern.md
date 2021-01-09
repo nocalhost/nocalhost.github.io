@@ -20,9 +20,9 @@
 
 - 常规文件名相互匹配，即 `foo` 与 `foo`，`subdir/foo` 以及任何名为 `foo` 的目录或文件匹配。空格被视为常规字符，但 prefix 和 suffix 的空格会自动忽略掉。
 
-- **星号**（*）与文件名中的零个或多个字符匹配，但与目录分隔符不匹配。 `te\*ne` 匹配 `telephone`，`subdir/telephone`，但不匹配 `tele/phone`。
+- **星号**（*）与文件名中的零个或多个字符匹配，但与目录分隔符不匹配。 `te*ne` 匹配 `telephone`，`subdir/telephone`，但不匹配 `tele/phone`。
 
-- **双星号**（`**`）与上述匹配，但同时也与目录分隔符匹配。 `te\*\*ne` 匹配 `telephone`，`subdir/telephone` 和 “`tele/sub/dir/phone`。
+- **双星号**（`**`）与上述匹配，但同时也与目录分隔符匹配。 `te**ne` 匹配 `telephone`，`subdir/telephone` 和 “`tele/sub/dir/phone`。
 
 - **问号**（`？`）匹配不是目录分隔符的单个字符。 `te??st` 匹配  `tebest`，但不匹配 `teb/st` 或 `test`。
 
@@ -55,9 +55,9 @@ bar2/
 My Pictures/
     Img15.PNG
 nocalhost/
-		hello
-		test/
-		team/
+    hello
+    test/
+    team/
 ```
 
 并使用以下配置：
@@ -69,7 +69,7 @@ SyncFilePattern:
   - ./nocalhost
   
 IgnoreFilePattern:
-	- foo
+  - foo
   - *2
   - qu*
   - (?i)my pictures
