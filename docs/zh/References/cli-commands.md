@@ -14,14 +14,20 @@ nhctl 可以用来部署应用和开发基于 Kubernetes 的应用，nhctl 跟 K
 synx: nhctl init [flags]
 [flags]
       --force                         强制初始化服务端，注意：会清空服务端所有的数据
+  -h, --help                          init 帮助
+      --inject-user-amount int        inject user amount, example 10, max is 999
+      --inject-user-offset int        inject user id offset, default is 1 (default 1)
+      --inject-user-template string   inject users template, example Techo%d, max length is 15
   -n, --namespace string              设置 DevSpace 名字，默认：nocalhost
-  -t, --type string                   服务端暴露外网的方式：[NodePort|LoadBalancer]
   -p, --port int                      type = NodePort 方式，需要设置暴露端口，默认是 80
-  
+      --set strings                   set values of helm
+  -s, --source string                 bookinfo 源, 参数是 github 或 coding, 默认是 github
+  -t, --type string                   服务端暴露外网的方式：[NodePort|LoadBalancer]
 
 [usage]
 nhctl init -n [DevSpace Name] -t nodeport -p [port]
 nhctl init -n [DevSpace Name]
+nhctl init -n [DevSpace Name] -s coding
 ```
 
 #### nhctl config
