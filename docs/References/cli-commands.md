@@ -13,11 +13,16 @@ Syntax：nhctl [commond] [Name] [flags]
 Description: Nocalhost Server（nocalhost-api, nocalhost-web, nocalhost-dep）initialization
 synx: nhctl init [flags]
 [flags]
-      --force                         Force to initialize the server, note: all data be cleared
-  -n, --namespace string              Set DevSpace name, default: nocalhost
-  -t, --type string                   How the server exposes the external network: [NodePort|LoadBalancer]
-  -p, --port int                      When type = NodePort，the exposes port, default: 80
-  
+      --force                         force to init, warning: it will remove all nocalhost old data
+  -h, --help                          help for init
+      --inject-user-amount int        inject user amount, example 10, max is 999
+      --inject-user-offset int        inject user id offset, default is 1 (default 1)
+      --inject-user-template string   inject users template, example Techo%d, max length is 15
+  -n, --namespace string              set init nocalhost namesapce (default "nocalhost")
+  -p, --port int                      for NodePort usage set ports (default 80)
+      --set strings                   set values of helm
+  -s, --source string                 bookinfo source, github or coding, default is github
+  -t, --type string                   set NodePort or LoadBalancer to expose nocalhost service
 
 [usage]
 nhctl init -n [DevSpace Name] -t nodeport -p [port]
