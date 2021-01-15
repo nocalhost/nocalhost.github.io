@@ -32,11 +32,10 @@ title: 快速上手
 nhctl init -n nocalhost -p 7000
 ```
 
-- 或使用 Minikube: 以 docker 或者 virtualbox 模式启动 minikube:
+- 如果你使用 minikube, kind, k3s, microk8s 等 Kubernetes 集群，使用如下命令来初始化:
 
-在 **minikube(docker driver)**(`minikube start --driver=docker`) 启动完毕, 在命令行终端执行初始化:
 ```
-nhctl init -n nocalhost -t nodeport -p 80
+nhctl init -n nocalhost -t nodeport
 ```
 
 !!! note "关于使用无法提供 LoadBalancer 和 PV 支持的 Kubernetes 发行版"

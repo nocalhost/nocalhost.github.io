@@ -30,11 +30,10 @@ Initialize at terminal:
 nhctl init -n nocalhost -p 7000
 ```
 
-- Option 2: startup minikube derived by docker:
+- Option 2: If you use a Kubernetes cluster such as minikube, kind, k3s, microk8s, etc., use the following command to initialize:
 
-After **minikube(docker driver)**(`minikube start --driver=docker`) is started, execute the initialization in terminal:
 ```
-nhctl init -n nocalhost -t nodeport -p 80
+nhctl init -n nocalhost -t nodeport
 ```
 
 !!! note "About Kubernetes without LoadBalancer and PV"
