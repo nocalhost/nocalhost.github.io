@@ -278,10 +278,10 @@ services:
     devContainerResources:
       limits:
         cpu: "1"
-        memory: 1g
+        memory: 1Gi
       requests:
         cpu: "0.5"
-        memory: 200m
+        memory: 512Mi
 
   - name: service2
     ...
