@@ -51,6 +51,7 @@ nav:
       - Nocalhost 架构: zh/References/architecture.md
       - Nhctl CLI: zh/References/cli-commands.md
       - 文件同步与忽略: zh/References/syncfilepattern-ignorefilepattern.md
+      - k8s 资源管理: zh/References/resource-management.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
