@@ -56,7 +56,8 @@ nav:
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
       - HPA 控制的 Deployment: zh/FAQ/deployment-with-hpa.md
       - 多容器 Pod: zh/FAQ/multi-container-pods.md
-      - VSCode 插件功能限制: zh/FAQ/vscode-plugin-limits.md
+      - VSCode:
+        - VSCode 插件功能限制: zh/FAQ/vscode/vscode-plugin-limits.md
       - 加密的 SSH 私钥: zh/FAQ/ssh-private-keys-passphrase.md
       - 默认管理账户: zh/FAQ/default-account.md
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
@@ -85,6 +86,8 @@ nav:
     - Deployment with HPA: FAQ/deployment-with-hpa.md
     - Multi-container Pods: FAQ/multi-container-pods.md
     - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
+    - VSCode:
+      - VSCode Plugin Limits: FAQ/vscode-plugin-limits.md
     - SSH Private Keys Passphrase: FAQ/ssh-private-keys-passphrase.md
     - Default admin account: FAQ/default-account.md
     - No persistent volumes available: FAQ/pvc-unbound.md
