@@ -76,6 +76,12 @@ nav:
     - DevMode: Concepts/devmode.md
   - References:
     - Architecture : References/architecture.md
+    - Nocalhost vs. Other Software : 
+      - Overview: References/compare/overview.md
+      - Tilt: References/compare/tilt.md
+      - Skaffold: References/compare/skaffold.md
+      - Google Cloud Code: References/compare/cloud-code.md
+      - Telepresence: References/compare/telepresence.md
     - Config Specs: References/nocalhost-config-yaml-spec.md
     - CLI Commands: References/cli-commands.md
     - Sync/Ignore File Pattern: References/syncfilepattern-ignorefilepattern.md
