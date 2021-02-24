@@ -47,12 +47,8 @@ nav:
       - Manifest 应用: zh/Tutorials/nocalhost-with-k8s-manifests.md
       - Helm Chart 应用: zh/Tutorials/nocalhost-with-helm.md
     - 参考手册:
-      - Nocalhost 架构: zh/References/architecture.md
-      - Nocalhost 和其他软件对比 : 
-        - 概述: zh/References/compare/overview.md
-        - Tilt, Skaffold, Google Cloud Code: zh/References/compare/tilt-and-other.md
-        - Telepresence: zh/References/compare/telepresence.md
       - Nocalhost 配置说明: zh/References/nocalhost-config-yaml-spec.md
+      - Nocalhost 架构: zh/References/architecture.md
       - Nhctl CLI: zh/References/cli-commands.md
       - 文件同步与忽略: zh/References/syncfilepattern-ignorefilepattern.md
       - k8s 资源管理: zh/References/resource-management.md
@@ -68,8 +64,6 @@ nav:
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
       - 支持的版本: zh/FAQ/support-version.md
       - 换行符: zh/FAQ/line-endings.md
-    - 博客:
-      - Nocalhost - 重新定义云原生开发环境: zh/Blog/redefine-cloud-native-dev-environment.md
   - Getting started: getting-started.md
   - Installation: installation.md
   - Concepts:
@@ -82,10 +76,6 @@ nav:
     - DevMode: Concepts/devmode.md
   - References:
     - Architecture : References/architecture.md
-    - Nocalhost vs. Other Software : 
-      - Overview: References/compare/overview.md
-      - Tilt, Skaffold, Google Cloud Code: References/compare/tilt-and-other.md
-      - Telepresence: References/compare/telepresence.md
     - Config Specs: References/nocalhost-config-yaml-spec.md
     - CLI Commands: References/cli-commands.md
     - Sync/Ignore File Pattern: References/syncfilepattern-ignorefilepattern.md
@@ -103,7 +93,5 @@ nav:
     - No persistent volumes available: FAQ/pvc-unbound.md
     - Version Support: FAQ/support-version.md
     - Line Endings: FAQ/line-endings.md
-  - Blog:
-      - Nocalhost - Redefine Cloud Native Dev Environment: Blog/redefine-cloud-native-dev-environment.md
 
 google_analytics: ['G-5MSJE3N1YD', 'nocalhost.dev']
