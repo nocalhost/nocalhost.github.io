@@ -1,3 +1,0 @@
-# Google Cloud Code
-
-WIP

@@ -1,26 +1,26 @@
 # Nocalhsot vs. Other Software
 
-要对比不同软件之间的差别是困难的，尤其是当问到是否可以用其他软件来替代？以及不同的软件之间可以相互协同吗？
+It is difficult to compare the differences between different software, especially when asked whether it can be replaced by other software? And can different software be related to each other?
 
-在本章节中，我们将 Nocalhost 与其他的软件进行比较.
+In this chapter, we compare Nocalhost with other software.
 
-建议先阅读[“什么是 Nocalhost”](https://github.com/nocalhost/nocalhost#nocalhost) 以及 [“为什么要 Nocalhost”](https://github.com/nocalhost/nocalhost#why-we-make-nocalhost)，他们有助于理解 Nocalhost 试图解决的问题。
+It is recommended to read[“Nocalhost-Redefining the Development Environment”](/Blog/redefine-cloud-native-dev-environment/) first, which helps to understand the problem that Nocalhost is trying to solve.
 
-总结来说，要加速在 Kubernetes 环境下的开发目前有三种思路：
+In summary, there are currently three ideas for accelerating development in the Kubernetes environment:
 
-1. 监听本地代码变更，发生修改后立即在本地执行 CI/CD 流水线，重新构建微服务镜像并且自动部署到 Kubernetes 集群。这是 `Google Cloud Code`、`Skaffold`、`Tilt` 的做法。
+1. Monitor local code changes, execute the CI/CD pipeline locally immediately after the modification, rebuild the microservice image and automatically deploy it to the Kubernetes cluster. This is the practice of `Google Cloud Code`, `Skaffold`, and `Tilt`:
 
     [ ![](../../assets/images/reference/way-1.png) ](../../assets/images/reference/way-1.png)
 
-2. 将要开发的工作负载替换为 `Proxy` 网络代理容器，转发集群内的流量到本地，以及转发本地的流量到集群。本地使用 `docker run` 运行微服务容器。这是 `Telepresence` 的做法。
+2. Replace the workload to be developed with the `Proxy` network proxy container, forwarding the traffic in the cluster to the local, and forwarding the local traffic to the cluster. Use `docker run` locally to run the microservice container. This is how `Telepresence` does:
 
     [ ![](../../assets/images/reference/way-2.png) ](../../assets/images/reference/way-2.png)
 
-3. 将要开发的工作负载替换为开发容器，并将本地代码和远端目录映射，构建和运行微服务都在远端容器内。这是 `Nocalhost` 的做法。
+3. Replace the workload to be developed with a development container, map local code to a remote directory, build and run microservices in the remote container. This is how `Nocalhost` does:
     [ ![](../../assets/images/reference/way-3.png) ](../../assets/images/reference/way-3.png)
 
-此外，`Nocalhost` 还提供了应用管理、开发环境管理、VS Code 插件、IDEA 插件等有利于标准化以及加速开发的能力。
+In addition, `Nocalhost` also provides application management, development environment management, VS Code plug-in, IDEA plug-in, etc. which are conducive to standardization and accelerate development.
 
-您可以点击左侧的菜单浏览 Nocalhost 与特定软件的对比。
+You can click the menu on the left to browse the comparison between Nocalhost and specific software.
 
-> 这些比较并不是说服您使用 Nocalhost，也不是有意贬低其他的软件。我们的目标只是为了更好地了解 Nocalhost 与其他软件在功能上的差异，如果您认为任何陈述的事实不正确，欢迎提交 PR 改进。
+> These comparisons are not to convince you to use Nocalhost, nor are they intended to belittle other software. Our goal is only to better understand the functional differences between Nocalhost and other software. If you think any stated facts are incorrect, please submit a PR for improvement.
