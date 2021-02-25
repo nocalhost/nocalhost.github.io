@@ -272,9 +272,9 @@ services:
     useDevContainer: false
 
     # Specify reources requests and limits for DevContainer, same format to Kubernetes's resources (Not currently implemented)
-    # 类型: 对象
-    # 默认值: {}
-    # 可选
+    # type: object
+    # default alue: {}
+    # optional
     devContainerResources:
       limits:
         cpu: "1"
