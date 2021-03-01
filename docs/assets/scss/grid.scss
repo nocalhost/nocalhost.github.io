@@ -170,6 +170,10 @@
         .md-tabs-block {
             height: 60px;
 
+            .md-tabs__list {
+                contain: none;
+            }
+
             @media (max-width: 1280px) {
                 position: absolute;
                 right: 40px;
@@ -194,11 +198,15 @@
                 a.md-tabs__link {
                     line-height: 36px;
                     height: 36px;
-                    padding: 0 20px;
+                    padding: 0 18px;
                     margin-top: 0;
                     opacity: 1;
                     font-family: "nexa_bold", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
                     border-radius: 4px;
+
+                    @media (max-width: 800px) {
+                        padding: 0 12px;
+                    }
 
                     &:hover {
                         background: rgba(#0080FF, 0.5);
@@ -208,10 +216,46 @@
                         background: #0080FF;
                     }
 
-                    img {
+                    img.github-icon {
                         width: 20px;
                         height: 20px;
                         margin-top: 8px;
+                    }
+
+                    img.coding-icon {
+                        height: 18px;
+                        margin-top: 9px;
+                        margin-right: -2px;
+                        margin-left: -2px;
+                    }
+                }
+
+                &.coding-entry a {
+                    position: relative;
+
+                    &:hover {
+                        p {
+                            visibility: visible;
+                            bottom: -50px;
+                            transition: all 0.2s ease-in-out;
+                            opacity: 1;
+                        }
+                    }
+
+                    p {
+                        position: absolute;
+                        background: #005fc6;
+                        padding: 4px;
+                        font-size: 14px;
+                        line-height: 32px;
+                        padding: 0 12px;
+                        right: 0;
+                        bottom: -60px;
+                        border-radius: 4px;
+                        color: #fff;
+                        visibility: hidden;
+                        box-shadow: 0 2px 4px #05090c;
+                        opacity: 0;
                     }
                 }
             }
