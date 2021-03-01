@@ -80,3 +80,45 @@
 .md-header {
   background: #0b0f13;
 }
+
+.md-header-nav img.github-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: -1px;
+}
+
+.md-header-nav img.coding-icon {
+  height: 18px;
+  /* margin-top: 1px; */
+}
+
+.md-header-nav .md-tabs__list {
+  contain: none;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a {
+  position: relative;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a p {
+  position: absolute;
+  background: var(--md-primary-fg-color);
+  padding: 4px;
+  font-size: 14px;
+  line-height: 32px;
+  padding: 0 12px;
+  right: 0;
+  bottom: -60px;
+  border-radius: 4px;
+  color: #fff;
+  visibility: hidden;
+  box-shadow: 0 2px 4px rgba(5,9,12,0.2);
+  opacity: 0;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a:hover p{
+  visibility: visible;
+  bottom: -50px;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
