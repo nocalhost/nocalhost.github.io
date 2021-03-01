@@ -718,6 +718,7 @@
       #1ee7e7 75%,
       #0080ff 100%
     ) 1;
+  z-index: 1;
 
   .footer-content {
     display: flex;
@@ -745,6 +746,10 @@
 
     @media (max-width: 500px) {
       font-size: 11px;
+    }
+
+    a {
+      color: #0078f9;
     }
   }
 }

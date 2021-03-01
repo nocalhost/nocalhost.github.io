@@ -690,6 +690,7 @@
   border-right: 0;
   border-bottom: 0;
   border-image: linear-gradient(90deg, #ed58ed 25%, #6f38ff 50%, #1ee7e7 75%, #0080ff 100%) 1;
+  z-index: 1;
 }
 #nocalhost-footer .footer-content {
   display: flex;
@@ -721,6 +722,9 @@
   #nocalhost-footer p {
     font-size: 11px;
   }
+}
+#nocalhost-footer p a {
+  color: #0078f9;
 }
 
 /*# sourceMappingURL=home.css.map */
