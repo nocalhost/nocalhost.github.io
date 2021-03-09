@@ -20,9 +20,9 @@ title: 部署教程
 	本文档主要描述与在云服务商提供的 Kubernetes 集群中使用。 <br />
 	如果您使用的是 Minikube, 可以参照 [这里](/Tutorials/nocalhost-with-minikube/)
 
-## 使用 Helm 部署 Nocalhost 服务
+## 使用 Helm 部署 Nocalhost 服务端
 
-在使用 helm 方法部署 Nocalhost 服务时，您可以对部署的组件进行一些自定义更改。
+在使用 helm 方法部署 Nocalhost 服务端时，您可以对部署的组件进行一些自定义更改。
 
 helm chart 内容如下:
 
@@ -141,9 +141,9 @@ helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=./cls-p
 
 [ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
-最后，您就可以在浏览器中访问 Nocalhost 了。
+最后，您就可以在浏览器中访问 Nocalhost Web 控制台了。
 
-默认的邮箱地址为：
+默认的管理员邮箱地址为：
 ```
 admin@admin.com
 ```
@@ -154,14 +154,14 @@ admin@admin.com
 ```
 
 
-## 使用 nhctl init 命令部署 Nocalhost 服务
+## 使用 nhctl init 命令部署 Nocalhost 服务端
 
 
 ### 第一步：安装 Nocalhost 命令行工具 nhctl
 
 查看如何 [安装](/zh/installation){:target="_blank"} nhctl.
 
-### 第二步：使用命令部署 Nocalhost 服务
+### 第二步：使用命令部署 Nocalhost 服务端
 
 ```bash
 nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
@@ -172,13 +172,13 @@ nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 
 [ ![](../assets/images/deployment-5.png) ](../assets/images/deployment-5.png){:target="_blank"}
 
-获取 nocalhost-web 服务的公网地址。
+获取 nocalhost-web 控制台的公网地址。
 
 [ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
-最后，您就可以在浏览器中访问 Nocalhost 了。
+最后，您就可以在浏览器中访问 Nocalhost Web 控制台了。
 
-默认的邮箱地址为：
+默认的管理员邮箱地址为：
 ```
 admin@admin.com
 ```

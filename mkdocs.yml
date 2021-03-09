@@ -33,8 +33,8 @@ markdown_extensions:
 nav:
   - 中文文档:
     - 快速上手: zh/getting-started.md
-    - 安装教程: zh/installation.md
-    - 部署教程: zh/deployment.md
+    - 客户端安装教程: zh/installation.md
+    - 服务端部署教程: zh/deployment.md
     - 概念介绍:
       - Cluster: zh/Concepts/cluster.md
       - Application: zh/Concepts/application.md
@@ -71,7 +71,8 @@ nav:
     - 博客:
       - Nocalhost - 重新定义云原生开发环境: zh/Blog/redefine-cloud-native-dev-environment.md
   - Getting started: getting-started.md
-  - Installation: installation.md
+  - Client Installation: installation.md
+  - Server deployment: deployment.md
   - Concepts:
     - Cluster: Concepts/cluster.md
     - Application: Concepts/application.md

@@ -141,7 +141,7 @@ Get the public network address of nocalhost-web service
 
 [ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
-And then, you can access nocalhost web in your bowser.
+And then, you can access nocalhost web dashboard in your bowser.
 
 
 The default account's Email is:
@@ -177,7 +177,7 @@ Get the nocalhost-web service's public network address
 
 [ ![](../assets/images/deployment-3.png) ](../assets/images/deployment-3.png){:target="_blank"}
 
-And then, you can access nocalhost web in your bowser.
+And then, you can access nocalhost web dashboard in your bowser.
 
 The default account's Email is:
 ```
