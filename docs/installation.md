@@ -126,3 +126,21 @@ Follow this link: [https://marketplace.visualstudio.com/items?itemName=nocalhost
 3. Select the "nocalhost-vscode-plugin", and the click install button to install.
 
 [ ![](../assets/images/extension-market.png) ](../assets/images/extension-market.png){:target="_blank"}
+
+## Install Nocalhost IntelliJ Plugin
+Follow this link: [https://plugins.jetbrains.com/plugin/16058-nocalhost](https://plugins.jetbrains.com/plugin/16058-nocalhost){:target="_blank"}.
+
+
+- Using Jetbrains IDE built-in plugin system on Windows:
+    - <kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+
+- Using Jetbrains IDE built-in plugin system on MacOs:
+    - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+
+[ ![](../assets/images/jetbrains-market-01.png) ](../assets/images/jetbrains-market-01.png){:target="_blank"}
+
+
+- Manually:
+    - Download the [latest release](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest){:target="_blank"} and install it manually using <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install plugin from disk...</kbd>
+
+[ ![](../assets/images/jetbrains-market-02.png) ](../assets/images/jetbrains-market-02.png){:target="_blank"}

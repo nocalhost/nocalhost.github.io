@@ -120,3 +120,21 @@ Nocalhost 的 VScode 编辑器插可以让您在 VScode 编辑器上轻松方便
 3. 选择 “nocalhost-vscode-plugin”, 点击 “install” 按钮进行安装。
 
 [ ![](../assets/images/extension-market.png) ](../assets/images/extension-market.png){:target="_blank"}
+
+## 安装 Nocalhost IntelliJ 插件
+点击此链接查看: [https://plugins.jetbrains.com/plugin/16058-nocalhost](https://plugins.jetbrains.com/plugin/16058-nocalhost){:target="_blank"}.
+
+
+- 在 Windows 上使用 Jetbrains 系列 IDE 内置插件系统：
+    - <kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+
+- 在 MacOS 上使用 Jetbrains 系列 IDE 内置插件系统：
+    - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+
+[ ![](../assets/images/jetbrains-market-01.png) ](../assets/images/jetbrains-market-01.png){:target="_blank"}
+
+
+- 手动安装：
+    - 下载 [最新版本](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest){:target="_blank"} 并手动安装 <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install plugin from disk...</kbd>
+
+[ ![](../assets/images/jetbrains-market-02.png) ](../assets/images/jetbrains-market-02.png){:target="_blank"}
