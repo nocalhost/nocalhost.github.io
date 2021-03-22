@@ -27,19 +27,19 @@ Reference link: [https://nocalhost.dev/installation/](https://nocalhost.dev/inst
 Initialize at terminal:
 
 ```
-nhctl init -n nocalhost -p 7000
+nhctl init demo -n nocalhost -p 7000
 ```
 
 - Option 2: If you use a Kubernetes cluster such as minikube, kind, k3s, microk8s, etc., use the following command to initialize:
 
 ```
-nhctl init -n nocalhost -t nodeport
+nhctl init demo -n nocalhost -t nodeport
 ```
 
 !!! note "About Kubernetes without LoadBalancer and PV"
     Use NodePort instead of LoadBalancer, close DB persistence(DO NOT USE FOR PRODUCTION)
     ```
-    nhctl init -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
+    nhctl init demo -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
     ```
 
 Waiting for the initialization process:
@@ -52,7 +52,7 @@ After the initialization:
 
 **[MINIKUBE WARN]: Please do not close above terminal for the port to be able to keep forwarding**
 
-!!! note " `nhctl init` command flags"
+!!! note " `nhctl init demo` command flags"
     - --namespace: to specify which namespace to install.(create automately)
     - --port: to specify which port Nocalhost Web to listen.(Default 80)
     - --set: to overide values for Nocalhost's Helm Chart

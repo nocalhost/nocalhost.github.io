@@ -9,9 +9,21 @@ Syntax：nhctl [commond] [Name] [flags]
 * flags indicate optional parameters，e.g: --kubeconfig specifies the kubeconfig file
 
 #### nhctl init
+
+##### nhctl init dep
+Description: Nocalhost Server（nocalhost-dep only）initialization
+
+```
+[usage]
+nhctl init dep
+nhctl init dep
+```
+
+##### nhctl init demo
+
 ```
 Description: Nocalhost Server（nocalhost-api, nocalhost-web, nocalhost-dep）initialization
-synx: nhctl init [flags]
+synx: nhctl init demo [flags]
 [flags]
       --force                         force to init, warning: it will remove all nocalhost old data
   -h, --help                          help for init
@@ -25,8 +37,8 @@ synx: nhctl init [flags]
   -t, --type string                   set NodePort or LoadBalancer to expose nocalhost service
 
 [usage]
-nhctl init -n [DevSpace Name] -t nodeport -p [port]
-nhctl init -n [DevSpace Name]
+nhctl init demo -n [DevSpace Name] -t nodeport -p [port]
+nhctl init demo -n [DevSpace Name]
 ```
 
 #### nhctl config

@@ -51,7 +51,7 @@ nocalhostNs=nocalhost
 First initial the `Nocalhost` with following command:
 
 ```
-nhctl init -n ${nocalhostNs} -t 8080
+nhctl init demo -n ${nocalhostNs} -t 8080
 ```
 
 

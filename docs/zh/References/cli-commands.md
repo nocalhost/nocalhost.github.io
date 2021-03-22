@@ -9,9 +9,20 @@ nhctl 可以用来部署应用和开发基于 Kubernetes 的应用，nhctl 跟 K
 * flags 表示可选参数，如：--kubeconfig 指定使用的 kubeconfig 文件
 
 #### nhctl init
+
+##### nhctl init dep
+功能描述：Nocalhost（nocalhost-dep）组件初始化
+
+```
+[usage]
+nhctl init dep
+nhctl init dep
+```
+
+##### nhctl init demo
 ```
 功能描述：Nocalhost 服务端（nocalhost-api, nocalhost-web, nocalhost-dep）初始化
-synx: nhctl init [flags]
+synx: nhctl init demo [flags]
 [flags]
       --force                         强制初始化服务端，注意：会清空服务端所有的数据
   -n, --namespace string              设置 DevSpace 名字，默认：nocalhost
@@ -20,8 +31,8 @@ synx: nhctl init [flags]
   
 
 [usage]
-nhctl init -n [DevSpace Name] -t nodeport -p [port]
-nhctl init -n [DevSpace Name]
+nhctl init demo -n [DevSpace Name] -t nodeport -p [port]
+nhctl init demo -n [DevSpace Name]
 ```
 
 #### nhctl config

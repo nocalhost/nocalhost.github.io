@@ -29,19 +29,19 @@ title: 快速上手
 
 在命令行终端执行初始化:
 ```
-nhctl init -n nocalhost -p 7000
+nhctl init demo -n nocalhost -p 7000
 ```
 
 - 如果你使用 minikube, kind, k3s, microk8s 等 Kubernetes 集群，使用如下命令来初始化:
 
 ```
-nhctl init -n nocalhost -t nodeport
+nhctl init demo -n nocalhost -t nodeport
 ```
 
 !!! note "关于使用无法提供 LoadBalancer 和 PV 支持的 Kubernetes 发行版"
     可以使用 NodePort 替代 LoadBalancer，关闭数据库持久化（仅用于体验环境）
     ```
-    nhctl init -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
+    nhctl init demo -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
     ```
 
 等待初始化过程:
@@ -54,7 +54,7 @@ nhctl init -n nocalhost -t nodeport
 
 **[MINIKUBE 方案注意]: 为了保持端口转发，请不要关闭上述 Terminal**
 
-!!! note " `nhctl init` 命令行参数"
+!!! note " `nhctl init demo` 命令行参数"
     - --namespace: 指定安装在哪个集群.(会自动创建不存在的集群)
     - --port: 指定 Nocalhost Web 监听的端口.(默认是 80)
     - --set: 指定覆盖 Nocalhost Helm Chart 的 value
