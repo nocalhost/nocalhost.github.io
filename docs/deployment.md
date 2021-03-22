@@ -165,7 +165,7 @@ See [installation](/installation) to install nhctl.
 ### Step 2: Install nocalhost server with nhctl
 
 ```bash
-nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
+nhctl init demo -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 ```
 
 Waiting for the initialization process:

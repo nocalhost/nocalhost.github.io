@@ -41,7 +41,7 @@ First initial the `Nocalhost` with following command:
 ​		 `-n` is the namespace `nocalhost` used and it will be auto created
 
 ```
-nhctl init -n nocalhost
+nhctl init demo -n nocalhost
 ```
 
 Waiting for 5 minutes, the `Nocalhost-Server` and `Nocalhost-Dep` will start and create a Quick-Experience `Application` automatic.

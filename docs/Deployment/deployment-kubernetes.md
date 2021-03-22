@@ -47,8 +47,8 @@ We won‘t create a pv for you automatically, before installation, make sure you
 
 First initial the `Nocalhost` with following command, There is two selection for you to install `Nocalhost`
 
-- use `nhctl init -n ${nocalhostNs} -t nodeport -p 8080` to install `Nocalhost` and expose the `Nocalhost` service as nodeport.
-- use `nhctl init -n ${nocalhostNs} -p 8080`  to install `Nocalhost` if you have an **External Load Balancer**.
+- use `nhctl init demo -n ${nocalhostNs} -t nodeport -p 8080` to install `Nocalhost` and expose the `Nocalhost` service as nodeport.
+- use `nhctl init demo -n ${nocalhostNs} -p 8080`  to install `Nocalhost` if you have an **External Load Balancer**.
 
 
 

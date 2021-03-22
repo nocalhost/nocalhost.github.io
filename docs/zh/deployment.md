@@ -154,7 +154,7 @@ admin@admin.com
 ```
 
 
-## 使用 nhctl init 命令部署 Nocalhost 服务端
+## 使用 nhctl init demo 命令部署 Nocalhost 服务端
 
 
 ### 第一步：安装 Nocalhost 命令行工具 nhctl
@@ -164,7 +164,7 @@ admin@admin.com
 ### 第二步：使用命令部署 Nocalhost 服务端
 
 ```bash
-nhctl init -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
+nhctl init demo -n nocalhost --kubeconfig=./cls-pc5oy0lu-config
 ```
 
 等待初始化过程：
