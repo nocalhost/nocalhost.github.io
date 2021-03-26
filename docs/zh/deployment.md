@@ -11,7 +11,7 @@ title: 部署教程
     * 支持 Minikube
     * 已启用 RBAC
 - 安装 kubectl 并已配置管理员身份访问上述集群
-- 安装 Helm3
+- 安装 Helm3 (推荐 Helm3.3+)
 - 安装 Visual Studio Code(1.52+) 
 - 安装 Git
 

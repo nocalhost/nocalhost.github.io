@@ -9,7 +9,7 @@ Prerequisites:
 - A Kubernetes(1.16+) Cluster(prefer to be provided by the Cloud platform or Minikube)
 - Configure kubectl for you to be able to access above cluster as admin
 - RBAC must be enabled in above cluster
-- Install Helm3
+- Install Helm3 (Recommend Helm 3.3+)
 - Install Git
 
 

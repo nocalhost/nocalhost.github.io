@@ -9,7 +9,7 @@ To successfully and correctly ensure the use of `Nocalhost` , the following prer
 1. [kubernetes 1.16+ ](https://minikube.sigs.k8s.io/docs/start/)(1.12+ is supported but you can't use service-dependency provide by `Nocalhost` )
    - Your `TKE` should use docker as runtime container
    - configure open external network access: 0.0.0.0/0 
-2. [helm3](https://github.com/helm/helm/releases)
+2. [helm3 (Recommend Helm 3.3+)](https://github.com/helm/helm/releases)
 3. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 4. [Nhctl v0.1.0+](https://nocalhost.dev/installation/)
 

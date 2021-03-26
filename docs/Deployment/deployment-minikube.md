@@ -8,7 +8,7 @@ To successfully and correctly ensure the use of `Nocalhost` , the following prer
 
 1. [minikube](https://minikube.sigs.k8s.io/docs/start/)
 2. [docker](https://www.docker.com/get-started) (we suggest to use docker as driver though `minikube` support dirrent type of driver)
-3. [helm3](https://github.com/helm/helm/releases)
+3. [helm3 (Recommend Helm 3.3+)](https://github.com/helm/helm/releases)
 4. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 5. [Nhctl v0.1.0+](https://nocalhost.dev/installation/)
 
