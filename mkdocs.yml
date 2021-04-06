@@ -46,6 +46,7 @@ nav:
     - 使用教程:
       - Manifest 应用: zh/Tutorials/nocalhost-with-k8s-manifests.md
       - Helm Chart 应用: zh/Tutorials/nocalhost-with-helm.md
+      - Kustomize 应用: zh/Tutorials/nocalhost-with-kustomize.md
     - 参考手册:
       - Nocalhost 架构: zh/References/architecture.md
       - Nocalhost 和其他软件对比 : 
