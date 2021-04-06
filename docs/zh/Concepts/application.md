@@ -2,6 +2,11 @@
 
 `Application` 是 `Nocalhost` 的一个概念，它主要用于管理你想用于本地开发的一组 manifest 文件，同时支持 k8s manifest 和 helm chart。也就是说，这些 manifest 通常包含你的应用所依赖的所有 k8s 资源，如果可能，我们应该尽量保持它的最小化。
 
+Nocalhost 支持三种类型的应用：
+* Manifest
+* Helm
+* Kustomize
+
 [ ![](../../assets/images/concept/what-is-application.png) ](../../assets/images/concept/what-is-application.png){:target="_blank"}
 
 `Application` 支持放置在 `git` 的 `k8s manifest`，放置在 `git` 的 `helm chart` 和直接放置在 `Helm Repo` 几种方式，未来会添加对 `kustomize` 的支持。 

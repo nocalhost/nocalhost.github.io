@@ -88,7 +88,7 @@ After it, Nocalhost starts to execute the installation.
 
 You can click on the refresh icon to check the status of installation and startup process
 
-After all microservices startup, you will find
+After all microservices startup, You can click "GO" to open browser.
 
 [ ![](../assets/images/app-started.png) ](../assets/images/app-started.png){:target="_blank"}
 

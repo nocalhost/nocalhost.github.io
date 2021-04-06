@@ -83,7 +83,7 @@ nhctl init demo -n nocalhost -t nodeport
 
 ## 第四步: 安装示例应用: bookinfo
 
-点击左侧面板上的安装图标，安装应用: bookinfo.
+点击左侧面板上的安装图标，在弹出的下拉框中选择应用: bookinfo.
 
 [ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
 
@@ -93,11 +93,11 @@ nhctl init demo -n nocalhost -t nodeport
 
 你可以点击刷新图标来查看应用安装和启动过程中的状态变化。
 
-在所有微服务都启动完毕后，你可以看到：
+在所有微服务都启动完毕后，将会弹出打开浏览器的对话框，点击 “GO” ：
 
 [ ![](../assets/images/app-started.png) ](../assets/images/app-started.png){:target="_blank"}
 
-现在，你可以访问安装的应用的 web 页面了：
+现在，将会自动打开浏览器，你也可以手动打开 web 页面：
 
 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}
 
