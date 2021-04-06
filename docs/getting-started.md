@@ -80,7 +80,7 @@ After login, you can find:
 
 Click the installation icon at the left to install application  bookinfo
 
-[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
+[ ![](../assets/images/signedin-2.png) ](../assets/images/signedin.png){:target="_blank"}
 
 After it, Nocalhost starts to execute the installation.
 
