@@ -85,7 +85,7 @@ nhctl init demo -n nocalhost -t nodeport
 
 点击左侧面板上的安装图标，在弹出的下拉框中选择应用: bookinfo.
 
-[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
+[ ![](../assets/images/signedin-2.png) ](../assets/images/signedin.png){:target="_blank"}
 
 点击之后，Nocalhost 会开始执行安装过程.
 
