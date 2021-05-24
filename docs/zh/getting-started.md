@@ -2,143 +2,127 @@
 title: 快速上手
 ---
 
-## 开始之前
+欢迎使用 Nocalhost! 在这篇指南里，我们将引导您完成安装 Nocalhost 以及使用 Nocalhost 在 Kubernetes 上体验便捷的云原生微服务应用的开发过程。
 
-前置条件:
+## 前置条件
 
-- Kubernetes 1.16+ 集群
-    * 建议使用公有云服务
-    * 支持 Minikube
-    * 已启用 RBAC
-    * Node 节点 2 核 4G 或以上
-- 安装 kubectl 并已配置管理员身份访问上述集群
-- 安装 Helm3 (推荐 Helm3.3+)
-- 安装 Visual Studio Code(1.52+) 
-- 安装 Git
-- 集群内和集群外都能访问 Kubernetes api-server
+* **配置好的 Kubernetes Cluster (2核CPU 和 4G 内存)** 可以是本地集群, 如 [minikube](https://minikube.sigs.k8s.io/docs/start/) 或 [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) 集群, 或远端集群, 比如[腾讯的 TKE](https://cloud.tencent.com/product/tke). 
+* **RBAC** 在上述集群中已经启用
+* **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** 具备命名空间的管理员权限
+* **[kubectl (1.6+)](https://kubernetes.io/docs/home/)** 已安装
+* Visual Studio Code (1.52+)
+* Kubernetes API 服务可以在内部和外部访问
 
-## 第一步: 安装 nhctl 和 VSCode extension
+!!!tip 示例应用
+    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app)** 在Kubernetes集群中部署bookinfo应用程序。
 
-参考此链接进行安装: [https://nocalhost.dev/zh/installation/](https://nocalhost.dev/zh/installation/){:target="_blank"}
+## 步骤1：安装
 
-## 第二步: 初始化集群并且部署 Nocalhost Server
+* 确保已经根据[客户端安装教程](https://nocalhost.dev/installation/) 完成 nhctl 和 Nocalhost VSCode 插件的安装
 
-- 可选由云平台提供的 Kubernetes: 如 [腾讯 TKE](https://cloud.tencent.com/product/tke){:target="_blank"} :
 
-> 对于 TKE 集群，配置开放外网访问：0.0.0.0/0 或集群出口 IP 来实现集群内外可访问 Kubernetes api-server。
+## 步骤2：在 VSCode 中安装和配置 Nocalhost
 
-在命令行终端执行初始化:
+### 启用插件
+
+打开 VSCode, 在左边工具栏点击 Nocalhost 的图标<img src="../../assets/images/icons/nocalhost-plugin-icon.png" width="20"/> , 启用 Nocalhost 插件
+
+![Nocalhost VSCode Plugin](../assets/images/installation/nocal-vs-plugin.jpg)
+
+### 添加 Kubernetes 集群
+
+你可以通过两种方式添加 Kubernetes 集群:
+
+**- 选择 kubeconfig 文件** 在你的本地文件夹中选择一个 kubeconfig 文件.
+
+!!!note 
+    在插件启动的时候, Nocalhost 会默认从``~/.kube/config``自动读取你的 kubeconfig
+
+
+**- 粘贴为文本** 粘贴 kubeconfig 的文本内容.
+
+!!!tip
+    你可以通过此命令 ```kubectl config view --minify --raw --flatten``` 查看并复制你的 kubeconfig
+
+
+在 kubeconfig 成功读取后，选择需要访问的内容，然后添加集群
+
+当成功添加集群后，**Nocalhost** 会自动显示您的集群列表
+
+![Cluster List](../assets/images/installation/nocal-success-load-cluster.png)
+
+## 步骤3：进入 DevMode
+
+选择一个你想开发的应用，在这里我们用 **bookinfo** 应用举例
+
+选择 **productpage** 服务，点击 <img src="../../assets/images/icons/nocal-devmode-icon.jpg" /> 进入 **DevMode** 模式，然后指定源代码目录（从 Git 仓库克隆或使用现有的本地目录）
+
+![Select Service](../assets/images/installation/select-service.jpg)
+
+:::note 更改远程 Git 仓库地址
+如果要在设置了 Git 仓库需要更改地址，可以单击  <img src="../../assets/images/icons/nocalhost-config-icon.jpg" /> 打开 yaml 文件，修改其中的 ``gitUrl`` 内容
+:::
+
+指定源代码目录（或成功克隆代码）后，Nocalhost 将打开一个新的VSCode窗口，然后将自动进入 DevMode。
+
+![Nocalhost on DevMode](../../assets/images/installation/nocal-on-devmode.png)
+
+当成功进入 DevMode 后，你应该看到以下提示信息：
+
 ```
-nhctl init demo -n nocalhost -p 7000
+Starting DevMode...
+
+...
+
+Waiting pod to start...
+Forwarding 39080:9080
+Response: {"errInfo":""}
+Port-forward 39080:9080 has been started
+
+ ✓  Dev container has been updated
+
+...
 ```
 
-- 如果你使用 minikube, kind, k3s, microk8s 等 Kubernetes 集群，使用如下命令来初始化:
+:::tip 端口转发
+Nocalhost 将自动将端口转发到 Kubernetes 集群中的 Pod上。 在当前示例中，本地端口 **39080** 将数据转发到定义 Pod 上的端口 **9080**。 在主要进程成功启用后，您可以通过```http：//127.0.0.1：39080`访问此 Pod。
+:::
+
+## 步骤4：更改代码并检查结果
+
+让我们进行一些代码更改，看看 Nocalhost 是如何工作的
+
+#### 执行 sh 命令启动 python 进程
 
 ```
-nhctl init demo -n nocalhost -t nodeport
+sh run.sh
 ```
 
-!!! note "关于使用无法提供 LoadBalancer 和 PV 支持的 Kubernetes 发行版"
-    可以使用 NodePort 替代 LoadBalancer，关闭数据库持久化（仅用于体验环境）
-    ```
-    nhctl init demo -n nocalhost -t nodeport -p 7000 --force --set mariadb.primary.persistence.enabled=false
-    ```
+![APP Main Process](../../assets/images/installation/nocal-app-main-process.png)
 
-等待初始化过程:
+!!!note 容器内的主进程
+    在默认情况下，在 DevMo de 下，应用中的主进程不会自动在 DevContainer 中启动，因此应用将不响应任何请求。 您需要先手动启动主进程，然后才正常能访问该应用。
 
-[ ![](../assets/images/initializing.png) ](../assets/images/initializing.png){:target="_blank"}
+打开您的浏览器并输入该地址 [http://127.0.0.1:39080](http://127.0.0.1:39080)，查看应用运行结果
 
-初始化完毕后:
+![APP Started](../../assets/images/installation/nocal-app-started.png)
 
-[ ![](../assets/images/init-completed.png) ](../assets/images/init-completed.png){:target="_blank"}
+#### 修改代码
 
-**[MINIKUBE 方案注意]: 为了保持端口转发，请不要关闭上述 Terminal**
-
-!!! note " `nhctl init demo` 命令行参数"
-    - --namespace: 指定安装在哪个集群.(会自动创建不存在的集群)
-    - --port: 指定 Nocalhost Web 监听的端口.(默认是 80)
-    - --set: 指定覆盖 Nocalhost Helm Chart 的 value
-    - --type: 指定 Nocalhost Web 的 Service Type(nodeport or loadbalaner)
-    --force: 强制初始化，请注意它将删除所有 Nocalhost 的旧数据
-
-    你可以根据你的集群情况，配置上述 init 参数来执行初始化过程.
-
-## 第三步: 配置并登陆 Nocalhost VSCode 插件
-
-在 VSCode 中进入插件页面, 在左侧面板中点击 "Config Server URL" 按钮:
-
-[ ![](../assets/images/config-server-url.png) ](../assets/images/config-server-url.png){:target="_blank"}
+现在修改 ``template/index.html`` 或其它内容，体验 Nocalhost 的代码修改即时生效功能. **别忘记保存您的修改.**
 
 
-输入从 **第二步** 获得的访问地址, 如果你使用的是 `Minikube`，那么可以输入固定地址 `http://127.0.0.1:31219`，按下回车键保存.
+![APP Make Change](../../assets/images/installation/nocal-app-make-change.png)
 
-分别输入用户名和密码，按下回车键保存:
+刷新浏览器查看代码改动后带来的效果 [http://127.0.0.1:39080](http://127.0.0.1:39080)
 
-- 用户名: foo@nocalhost.dev
-- 密码: 123456
+![APP Changed](../../assets/images/installation/nocal-app-change.png)
 
-在登录之后，你可以看到:
+👍  **恭喜!** 描述为，恭喜，你已经使用 Nocalhost 体验了便捷的云原生微服务应用的开发过程。
 
-[ ![](../assets/images/signedin.png) ](../assets/images/signedin.png){:target="_blank"}
+## 下一步
 
-## 第四步: 安装示例应用: bookinfo
+以下是一些后续的建议步骤:
 
-点击左侧面板上的安装图标，在弹出的下拉框中选择应用: bookinfo.
-
-[ ![](../assets/images/signedin-2.png) ](../assets/images/signedin-2.png){:target="_blank"}
-
-点击之后，Nocalhost 会开始执行安装过程.
-
-[ ![](../assets/images/wait-for-start.png) ](../assets/images/wait-for-start.png){:target="_blank"}
-
-你可以点击刷新图标来查看应用安装和启动过程中的状态变化。
-
-在所有微服务都启动完毕后，将会弹出打开浏览器的对话框，点击 “GO” ：
-
-[ ![](../assets/images/app-started.png) ](../assets/images/app-started.png){:target="_blank"}
-
-现在，将会自动打开浏览器，你也可以手动打开 web 页面：
-
-[http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"}
-
-[ ![](../assets/images/before-change.png) ](../assets/images/before-change.png){:target="_blank"}
-
-## 第五步: 进入开发模式
-
-你可以点击某个工作负载右侧的绿色锤子图标来把工作负载切换到开发模式.
-
-[ ![](../assets/images/click-green-hammer.png) ](../assets/images/click-green-hammer.png){:target="_blank"}
-
-选择 "Clone from Git repo" 并指定一个本地存储目录后，Nocalhost 会把源码 clone 下来.
-
-[ ![](../assets/images/clone-repo.png) ](../assets/images/clone-repo.png){:target="_blank"}
-
-源代码检出后, Nocalhost 会打开一个新 VSCode 窗口，并继续切换到开发模式.
-
-在开发模式切换（初次使用，时间可能较长）完毕后，你会看到:
-
-[ ![](../assets/images/devmode.png) ](../assets/images/devmode.png){:target="_blank"}
-
-在开发模式下，开发容器默认没有启动主进程，所以不会响应网页端的请求，此时如果刷新页面，页面将出错。直到你再次启动进程后，页面才会恢复。
-
-如果你切换开发模式的工作负载是 productpage 的话，你可以执行 `sh run.sh` 来启动 hot-reload 模式的进程:
-
-[ ![](../assets/images/run-sh.png) ](../assets/images/run-sh.png){:target="_blank"}
-
-## 第六步: 改动一些代码，并查看运行结果
-
-你可以尝试修改一些代码，并刷新页面看效果。
-
-例如, 在文件 **productpage.py** 的 355 行添加 **Hello Nocalhost!** . 别忘了保存文件.
-
-[ ![](../assets/images/code-changes.png) ](../assets/images/code-changes.png){:target="_blank"}
-
-刷新网页，即可立即看到效果。 [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage){:target="_blank"} 😄
-
-[ ![](../assets/images/after-change.png) ](../assets/images/after-change.png){:target="_blank"}
-
-## 恭喜!
-
-通过这个简单的基于 Nocalhost 的教程，你已经体验了云原生开发的便捷和强大。可以开始尝试在真实的项目中配置并使用 Nocalhost 了。
-
-Nocalhost 欢迎您的意见和建议. GitHub Issues: [https://github.com/nocalhost/nocalhost](https://github.com/nocalhost/nocalhost){:target="_blank"}
+* 从 Nocalhost 的[核心概念](https://nocalhost.dev/Concepts/cluster/))开始学习
+* 加入我们的 [Slack](https://nocalhost.slack.com/) 和/或 [微信群](./)
