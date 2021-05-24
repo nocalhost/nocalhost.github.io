@@ -59,9 +59,8 @@ title: 快速上手
 
 ![Select Service](../assets/images/installation/select-service.jpg)
 
-:::note 更改远程 Git 仓库地址
-如果要在设置了 Git 仓库需要更改地址，可以单击  <img src="../../assets/images/icons/nocalhost-config-icon.jpg" /> 打开 yaml 文件，修改其中的 ``gitUrl`` 内容
-:::
+!!!note 更改远程 Git 仓库地址
+    如果要在设置了 Git 仓库需要更改地址，可以单击  <img src="../../assets/images/icons/nocalhost-config-icon.jpg" /> 打开 yaml 文件，修改其中的 ``gitUrl`` 内容
 
 指定源代码目录（或成功克隆代码）后，Nocalhost 将打开一个新的VSCode窗口，然后将自动进入 DevMode。
 
@@ -84,9 +83,8 @@ Port-forward 39080:9080 has been started
 ...
 ```
 
-:::tip 端口转发
-Nocalhost 将自动将端口转发到 Kubernetes 集群中的 Pod上。 在当前示例中，本地端口 **39080** 将数据转发到定义 Pod 上的端口 **9080**。 在主要进程成功启用后，您可以通过```http：//127.0.0.1：39080`访问此 Pod。
-:::
+!!!tip 端口转发
+    Nocalhost 将自动将端口转发到 Kubernetes 集群中的 Pod上。 在当前示例中，本地端口 **39080** 将数据转发到定义 Pod 上的端口 **9080**。 在主要进程成功启用后，您可以通过```http：//127.0.0.1：39080`访问此 Pod。
 
 ## 步骤4：更改代码并检查结果
 
@@ -101,7 +99,7 @@ sh run.sh
 ![APP Main Process](../../assets/images/installation/nocal-app-main-process.png)
 
 !!!note 容器内的主进程
-    在默认情况下，在 DevMo de 下，应用中的主进程不会自动在 DevContainer 中启动，因此应用将不响应任何请求。 您需要先手动启动主进程，然后才正常能访问该应用。
+    在默认情况下，在 DevMode 下，应用中的主进程不会自动在 DevContainer 中启动，因此应用将不响应任何请求。 您需要先手动启动主进程，然后才正常能访问该应用。
 
 打开您的浏览器并输入该地址 [http://127.0.0.1:39080](http://127.0.0.1:39080)，查看应用运行结果
 
@@ -124,5 +122,5 @@ sh run.sh
 
 以下是一些后续的建议步骤:
 
-* 从 Nocalhost 的[核心概念](https://nocalhost.dev/Concepts/cluster/))开始学习
+* 从 Nocalhost 的[核心概念](https://nocalhost.dev/Concepts/cluster/)开始学习
 * 加入我们的 [Slack](https://nocalhost.slack.com/) 和/或 [微信群](./)

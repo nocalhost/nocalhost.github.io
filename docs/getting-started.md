@@ -80,9 +80,8 @@ Port-forward 39080:9080 has been started
 ...
 ```
 
-:::tip Port Forwarding
-Nocalhost will automatically run port-forward to a pod in a Kubernetes cluster. In this case, local port **39080** forwards data to port **9080** on the defined pod. You can access this pod via ```http://127.0.0.1:39080``` after the main process started
-:::
+!!!tip Port Forwarding
+    Nocalhost will automatically run port-forward to a pod in a Kubernetes cluster. In this case, local port **39080** forwards data to port **9080** on the defined pod. You can access this pod via ```http://127.0.0.1:39080``` after the main process started
 
 ## Step 4: Change the code and check the result
 

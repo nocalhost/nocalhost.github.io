@@ -34,9 +34,8 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-:::tip 使用非默认的 kubeconfig
-可以通过通过使用 `--kubeconfig` flag 指定 `kubeconfig` 的路径。请查阅 [Helm install](https://helm.sh/docs/helm/helm_install/) 获取更多 `helm install` 的使用帮助。
-:::
+!!!tip 使用非默认的 kubeconfig
+    可以通过通过使用 `--kubeconfig` flag 指定 `kubeconfig` 的路径。请查阅 [Helm install](https://helm.sh/docs/helm/helm_install/) 获取更多 `helm install` 的使用帮助。
 
 #### 步骤3： 查看您的 Helm 部署
 
