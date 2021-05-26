@@ -18,8 +18,7 @@ title: 快速上手
 
 ## 步骤1：安装
 
-* 确保已经根据[客户端安装教程](https://nocalhost.dev/installation/) 完成 nhctl 和 Nocalhost VSCode 插件的安装
-
+确保已经根据[客户端安装教程](https://nocalhost.dev/installation/) 完成 Nocalhost VSCode 插件的安装
 
 ## 步骤2：在 VSCode 中安装和配置 Nocalhost
 
