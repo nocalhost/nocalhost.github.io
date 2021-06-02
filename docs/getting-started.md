@@ -14,7 +14,7 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 * Kubernetes api-server can be accessed internal and external
 
 !!!tip Example Application
-    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../References/deploy-book-info-app)** to deploy bookinfo app in your Kubernetes clusters.
+    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../References/deploy-book-info-app-manifest)** to deploy bookinfo app in your Kubernetes clusters.
 
 ## Step 1: Install
 

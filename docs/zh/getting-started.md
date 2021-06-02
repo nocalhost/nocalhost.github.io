@@ -14,7 +14,7 @@ title: 快速上手
 * Kubernetes API 服务可以在内部和外部访问
 
 !!!tip 示例应用
-    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app)** 在Kubernetes集群中部署bookinfo应用程序。
+    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app-manifest)** 在Kubernetes集群中部署bookinfo应用程序。
 
 ## 步骤1：安装
 
