@@ -36,6 +36,7 @@ application:
   # rawManifest: k8s manifest 文件夹相对于 Git 仓库的位置
   # rawManifestLocal: k8s manifest 文件夹相对于本地应用目录的位置
   # helmLocal: chart path: Chart 相对于本地应用目录仓库根目录的位置
+  # kustomize: k8s kustomize 文件夹相对于 Git 仓库的位置
   # 类型: string[]
   # 默认值: ["."]
   # 必须
@@ -206,6 +207,12 @@ application:
               requests:
                 cpu: "0.5"
                 memory: 512Mi
+            # 指定 K8s Persistent Volume 的 stoargeClass
+            # storage of pv
+            # 类型: string
+            # 默认值: null
+            # 可选
+            storageClass: "cbs"
             # DevContainer 中需要持久化存储的目录列表
             # 类型: string[]
             # 默认值: ["/home/nocalhost-dev"]

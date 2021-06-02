@@ -36,6 +36,7 @@ application:
   # rawManifest: manifest files path: multi relative paths of git repo root
   # rawManifestLocal: manifest files path: multi relative paths of local application path
   # helmLocal: chart path: relative path of local helm chart path.
+  # kustomize: relative path of kustomize file path.
   # type: string[]
   # default value: ["."]
   # required
@@ -202,6 +203,11 @@ application:
               requests:
                 cpu: "0.5"
                 memory: 512Mi
+            # Storage of persistence volume
+            # type: string
+            # default value: null
+            # optional
+            storageClass: "cbs"
             # Dirs to be persisted in DevContainer
             # type: string[]
             # default value: ["/home/nocalhost-dev"]
