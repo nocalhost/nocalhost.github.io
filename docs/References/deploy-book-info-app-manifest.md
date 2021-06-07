@@ -24,7 +24,7 @@ kubectl create namespace test
 
 
 ```
-install bookinfo -u https://github.com/nocalhost/bookinfo.git -t rawManifest -r test-case --resource-path manifest/templates  -n test
+~/.nh/bin/nhctl install bookinfo -u https://github.com/nocalhost/bookinfo.git -t rawManifest -r test-case --resource-path manifest/templates  -n test
 ```
 
 After successfully installed, you should see the following information: 

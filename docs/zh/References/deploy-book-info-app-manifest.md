@@ -22,7 +22,7 @@ kubectl create namespace test
 ### 步骤2: 通过 manifest 安装应用
 
 ```
-install bookinfo -u https://github.com/nocalhost/bookinfo.git -t rawManifest -r test-case --resource-path manifest/templates  -n test
+~/.nh/bin/nhctl install bookinfo -u https://github.com/nocalhost/bookinfo.git -t rawManifest -r test-case --resource-path manifest/templates  -n test
 ```
 
 安装成功后，你应该看到下述信息: 

@@ -13,9 +13,6 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 * Visual Studio Code (1.52+)
 * Kubernetes api-server can be accessed internal and external
 
-!!!tip Example Application
-    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../References/deploy-book-info-app-manifest)** to deploy bookinfo app in your Kubernetes clusters.
-
 ## Step 1: Install
 
 Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](https://nocalhost.dev/installation/)
@@ -47,6 +44,9 @@ After the kubeconfig file successfully loaded, select the context that you want 
 **Nocalhost** will automatically show the cluster list once you successfully add cluster:
 
 ![Cluster List](../assets/images/installation/nocal-success-load-cluster.png)
+
+!!!tip Example Application
+    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../References/deploy-book-info-app-manifest)** to deploy bookinfo app in your Kubernetes clusters.
 
 ## Step 3: Start DevMode
 

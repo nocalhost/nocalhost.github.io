@@ -13,9 +13,6 @@ title: 快速上手
 * Visual Studio Code (1.52+)
 * Kubernetes API 服务可以在内部和外部访问
 
-!!!tip 示例应用
-    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app-manifest)** 在Kubernetes集群中部署bookinfo应用程序。
-
 ## 步骤1：安装
 
 确保已经根据[客户端安装教程](https://nocalhost.dev/installation/) 完成 Nocalhost VSCode 插件的安装
@@ -49,6 +46,9 @@ title: 快速上手
 当成功添加集群后，**Nocalhost** 会自动显示您的集群列表
 
 ![Cluster List](../assets/images/installation/nocal-success-load-cluster.png)
+
+!!!tip 示例应用
+    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app-manifest)** 在Kubernetes集群中部署bookinfo应用程序。
 
 ## 步骤3：进入 DevMode
 
