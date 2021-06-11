@@ -33,13 +33,21 @@ application:
   manifestType: rawManifest
   # helmGit: Chart 相对于 Git 仓库根目录的位置
   # helmRepo: 无含义
-  # rawManifest: k8s manifest 文件夹相对于 Git 仓库的位置
-  # rawManifestLocal: k8s manifest 文件夹相对于本地应用目录的位置
   # helmLocal: chart path: Chart 相对于本地应用目录仓库根目录的位置
-  # kustomize: k8s kustomize 文件夹相对于 Git 仓库的位置
+  # rawManifestGit: k8s manifest 文件夹相对于 Git 仓库的位置
+  # rawManifestLocal: k8s manifest 文件夹相对于本地应用目录的位置
+  # kustomizeGit: k8s kustomize 文件夹相对于 Git 仓库的位置
+  # kustomizeLocal: k8s kustomize 文件夹相对于本地应用目录的位置
   # 类型: string[]
   # 默认值: ["."]
-  # 必须
+  # 必须# 
+
+  helmVersion: 0.0.1
+  # 指定 helmRepo 类型应用默认的版本号
+  # type: string
+  # deafult value: latest
+  # optional
+  
   resourcePath: []
   # helmGit: 无含义
   # helmRepo: 无含义

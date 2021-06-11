@@ -24,22 +24,32 @@ application:
   # required
   # nhctl param: [NAME]
   # uniq
+  
   name: coding-agile
   # Application k8s manifest type
   # type: select，options：helmGit/helmRepo/rawManifest/rawManifestLocal/helmLocal
   # default value: null
   # required
   # nhctl param: --type,-t
+
   manifestType: rawManifest
   # helmGit: chart path: relative path of git repo root.
+  # helmLocal: chart path: relative path of local helm chart path.
   # helmRepo: no meaning
   # rawManifest: manifest files path: multi relative paths of git repo root
   # rawManifestLocal: manifest files path: multi relative paths of local application path
-  # helmLocal: chart path: relative path of local helm chart path.
-  # kustomize: relative path of kustomize file path.
+  # kustomizeGit: kustomize file path: relative path of git repo
+  # kustomizeLocal: kustomize file path: multi relative paths of local application path
   # type: string[]
   # default value: ["."]
   # required
+
+  helmVersion: 0.0.1
+  # Set default application version for helmRepo
+  # type: string
+  # deafult value: latest
+  # optional
+
   resourcePath: []
   # helmGit: no meaning.
   # helmRepo: no meaning.
