@@ -15,7 +15,7 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 
 ## Step 1: Install
 
-Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](https://nocalhost.dev/installation/)
+Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](https://nocalhost.dev/installation)
 
 ## Step 2: Configure and use Nocalhost extension in VSCode
 
