@@ -117,7 +117,7 @@ sh run.sh
 
 ![APP Changed](../../assets/images/installation/nocal-app-change.png)
 
-👍 **恭喜!** 你已经使用 Nocalhost 体验了便捷的云原生微服务应用的开发过程。
+👍 **恭喜!** 你已经完成了便捷的云原生微服务开发体验。
 
 ## 下一步
 
