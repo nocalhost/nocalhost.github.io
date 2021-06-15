@@ -17,6 +17,8 @@ title: 快速上手
 
 确保已经根据[客户端安装教程](https://nocalhost.dev/zh/installation) 完成 Nocalhost VSCode 插件的安装
 
+如果你使用的是 linux，应该 [增加 inotify limit](./FAQ/increase-inotify.md)，否则文件同步可能会很慢。
+
 ## 步骤2：在 VSCode 中安装和配置 Nocalhost
 
 ### 启用插件

@@ -17,6 +17,8 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 
 Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](https://nocalhost.dev/installation)
 
+If you are using linux, you should [increase your inotify limit](./FAQ/increase-inotify.md) otherwise file-synchronization may be slow.
+
 ## Step 2: Configure and use Nocalhost extension in VSCode
 
 ### Open Extension

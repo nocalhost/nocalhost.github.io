@@ -69,6 +69,7 @@ nav:
       - 无可用的 pv: zh/FAQ/pvc-unbound.md
       - 支持的版本: zh/FAQ/support-version.md
       - 换行符: zh/FAQ/line-endings.md
+      - 调整 Inotify Limit(Linux): zh/FAQ/increase-inotify.md
     - 博客:
       - Nocalhost - 重新定义云原生开发环境: zh/Blog/redefine-cloud-native-dev-environment.md
   - Getting started: getting-started.md
@@ -105,6 +106,7 @@ nav:
     - No persistent volumes available: FAQ/pvc-unbound.md
     - Version Support: FAQ/support-version.md
     - Line Endings: FAQ/line-endings.md
+    - Increase Inotify Limit(Linux): FAQ/increase-inotify.md
   - Blog:
       - Nocalhost - Redefine Cloud Native Dev Environment: Blog/redefine-cloud-native-dev-environment.md
 
