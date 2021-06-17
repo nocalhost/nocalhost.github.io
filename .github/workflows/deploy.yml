@@ -16,7 +16,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install mkdocs-material==7.1.8
+        run: pip install mkdocs-material==6.2.6
 
       - name: Deploy
         run: mkdocs gh-deploy --force
