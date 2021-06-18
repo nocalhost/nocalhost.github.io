@@ -19,4 +19,4 @@ jobs:
         run: pip install mkdocs-material==6.2.6
 
       - name: Deploy
-        run: mkdocs gh-deploy
+        run: mkdocs gh-deploy --force
