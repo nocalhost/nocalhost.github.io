@@ -1,4 +1,5 @@
 site_name: Nocalhost Docs
+site_url: https://nocalhsot.dev/
 theme:
   name: material
   custom_dir: overrides
