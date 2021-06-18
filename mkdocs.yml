@@ -110,5 +110,3 @@ nav:
     - Increase Inotify Limit(Linux): FAQ/increase-inotify.md
   - Blog:
       - Nocalhost - Redefine Cloud Native Dev Environment: Blog/redefine-cloud-native-dev-environment.md
-
-google_analytics: ['G-5MSJE3N1YD', 'nocalhost.dev']
