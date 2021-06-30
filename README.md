@@ -10,7 +10,7 @@ title: Github Readme
 
 <center>
     <a herf="https://nocalhost.dev">
-        <img src={useBaseUrl('/img/logo.png')} width="200"/>
+        <img src='https://user-images.githubusercontent.com/3713305/123894696-305fc480-d991-11eb-960a-e87d8bd7acbf.png' width="200"/>
     </a>
     <br />
     <em>Make coding in Cloud Native more efficient and productive</em>
@@ -26,8 +26,7 @@ In addition, Nocalhost also provides application management, development environ
 
 In order to give you a better understanding of Nocalhost, it is recommended that you read our blog post [Nocalhost - Refine Cloud Native Dev Environment](https://nocalhost.dev/Blog/redefine-cloud-native-dev-environment/)
 
-![Local vs Nocal](/img/local-compare-nocal.jpg)
-
+![local-compare-nocal](https://user-images.githubusercontent.com/3713305/123894812-6ac96180-d991-11eb-935f-38df95eccc69.jpg)
 
 ## Key Features
 
@@ -49,9 +48,9 @@ Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These ext
 
 ## Getting Started
 
-* [Install the IDE plugin](./getting-started/install-ide-plugin)
-* [How it works](./getting-started/how-it-works)
-* [Quick Start](./getting-started/quick-start)
+* [Installation](https://nocalhost.dev/installation/)
+* [Quick Start](https://nocalhost.dev/getting-started/)
+* [How it works](https://nocalhost.dev/References/architecture/)
 
 ## Documentation
 
@@ -61,6 +60,8 @@ Full documentation is available on the [Nocalhost website](https://nocalhost.dev
 
 * Slack: [Nocalhost Slack Channel](https://nocalhost.slack.com/)
 * WeChat: Scan the QR Code to add CODING assistance with note "Nocalhost", assistance will add you into our WeChat group
+
+![nocal-host-wechat](https://user-images.githubusercontent.com/3713305/123894953-a2d0a480-d991-11eb-88af-9082d14b0c2c.png)
 
 ## Talks and Conferences
 
