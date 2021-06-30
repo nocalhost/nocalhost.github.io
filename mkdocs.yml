@@ -58,6 +58,7 @@ nav:
       - Nhctl CLI: zh/References/cli-commands.md
       - 文件同步与忽略: zh/References/syncfilepattern-ignorefilepattern.md
       - k8s 资源管理: zh/References/resource-management.md
+      - 手动安装 nhctl: zh/References/manual-nhctl.md
     - 常见问题:
       - Helm 工作负载名称: zh/FAQ/work-with-helm.md
       - 依赖标签选择器: zh/FAQ/dep-label-selector.md
@@ -95,6 +96,7 @@ nav:
     - Sync/Ignore File Pattern: References/syncfilepattern-ignorefilepattern.md
     - Service Dependency: References/service-dependency.md
     - Port Forward: References/port-forward.md
+    - Manual Install nhctl: References/manual-nhctl.md
   - FAQ:
     - Work with Helm: FAQ/work-with-helm.md
     - Dependency Label Selector: FAQ/dep-label-selector.md
