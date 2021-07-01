@@ -42,7 +42,7 @@ Any code changes will be synchronized immediately to the remote side without reb
 
 Every team member can enjoy their own independent development space to ensure that they are not disturbed by others.
 
-##### IDE Support
+#### IDE Support
 
 Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These extension will enable developer to develop and debug cloud-based application in their local machine.
 
