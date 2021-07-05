@@ -13,7 +13,7 @@ title: Github Readme
         <img src='https://user-images.githubusercontent.com/3713305/123894696-305fc480-d991-11eb-960a-e87d8bd7acbf.png' width="200"/>
     </a>
     <br />
-    <em>Make coding in Cloud Native more efficient and productive</em>
+    <em>Make coding in cloud-native more efficient and productive</em>
 </center>
 
 ## Nocalhost
