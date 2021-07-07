@@ -111,7 +111,7 @@ reviews       0/1     1            0           7s
 
 ## 克隆 bookinfo 源代码
 
-我们在 [快速开始](https://nocalhost.dev/getting-started/) 里会使用到 bookinfo 的源代码，建议您可以先把源码克隆到本地备用，避免在操作过程中因为网络或 SSL 问题导致异常
+我们在 [快速开始](../../getting-started/) 里会使用到 bookinfo 的源代码，建议您可以先把源码克隆到本地备用，避免在操作过程中因为网络或 SSL 问题导致异常
 
 bookinfo 内4个服务的源码的地址：
 

@@ -44,8 +44,8 @@ Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These ext
 ## Getting Started
 
 * [Installation](https://nocalhost.dev/installation/)
-* [Quick Start](https://nocalhost.dev/getting-started/)
-* [How it works](https://nocalhost.dev/References/architecture/)
+* [Quick Start](https://nocalhost.dev/eng/getting-started/)
+* [How it works](https://nocalhost.dev/references/architecture/)
 
 ## Documentation
 
