@@ -9,21 +9,20 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 * **Configured Kubernetes Cluster (with 2 Core and 4G Memory)** which can either be a cluster for local development, such as [minikube](https://minikube.sigs.k8s.io/docs/start/) or [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) cluster, or a remote cluster, such as [Tencent TKE](https://cloud.tencent.com/product/tke). 
 * **RBAC** must be enabled in above cluster
 * **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** that has namespace admin privilege
-* **[kubectl (1.6+)](https://kubernetes.io/docs/home/)** installed
 * Visual Studio Code (1.52+)
 * Kubernetes api-server can be accessed internal and external
 
 ## Step 1: Install
 
-Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](https://nocalhost.dev/installation)
+Make sure you have finished the Nocalhost VSCode plugin following [Client Installation](../installation)
 
-If you are using linux, you should [increase your inotify limit](./FAQ/increase-inotify.md) otherwise file-synchronization may be slow.
+If you are using linux, you should [increase your inotify limit](../FAQ/faq-installation) otherwise file-synchronization may be slow.
 
 ## Step 2: Configure and use Nocalhost extension in VSCode
 
 ### Open Extension
 
-Open the VSCode, click on the Nocalhost icon <img src="../assets/images/icons/nocalhost-plugin-icon.png" width="20"/> on the sidebar, open the Nocalhost plugin
+Open the VSCode, click on the Nocalhost icon <img src="../../assets/images/icons/nocalhost-plugin-icon.png" width="20"/> on the sidebar, open the Nocalhost plugin
 
 ![Nocalhost VSCode Plugin](../assets/images/installation/nocal-vs-plugin.jpg)
 
@@ -45,25 +44,25 @@ After the kubeconfig file successfully loaded, select the context that you want 
 
 **Nocalhost** will automatically show the cluster list once you successfully add cluster:
 
-![Cluster List](../assets/images/installation/nocal-success-load-cluster.png)
+[![](../assets/images/installation/nocal-success-load-cluster.png)](../assets/images/installation/nocal-success-load-cluster.png)
 
 !!!tip Example Application
-    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../References/deploy-book-info-app-manifest)** to deploy bookinfo app in your Kubernetes clusters.
+    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../references/deploy-app)** to deploy bookinfo app in your Kubernetes clusters.
 
 ## Step 3: Start DevMode
 
 Select the application that you want to develop, we are using the **bookinfo** app as example. 
 
-Select the **productpage** service, click <img src="../assets/images/icons/nocal-devmode-icon.jpg" /> to start the **DevMode**, specify the source code directory (clone from Git repo or use existing local directory)
+Select the **productpage** service, click <img src="../../assets/images/icons/nocal-devmode-icon.jpg" /> to start the **DevMode**, specify the source code directory (clone from Git repo or use existing local directory)
 
-![Select Service](../assets/images/installation/select-service.jpg)
+[![](../assets/images/installation/select-service.jpg)](../assets/images/installation/select-service.jpg)
 
 !!!note Change the remote Git repo after set
-    If you want to change the Git repo after url has set, you can click <img src="../assets/images/icons/nocalhost-config-icon.jpg" /> to modify the ``gitUrl`` option in the yaml file
+    If you want to change the Git repo after url has set, you can click <img src="../../assets/images/icons/nocalhost-config-icon.jpg" /> to modify the ``gitUrl`` option in the yaml file
 
 After specify the source code directory (or successfully clone the code), Nocalhost will open a new VSCode window, then will automatically start the DevMode.
 
-![Nocalhost on DevMode](../assets/images/installation/nocal-on-devmode.png)
+[![](../assets/images/installation/nocal-on-devmode.png)](../assets/images/installation/nocal-on-devmode.png)
 
 When DevMode completed, you should see the following message:
 
@@ -95,21 +94,21 @@ Let's make some code change and see how Nocalhost works
 sh run.sh
 ```
 
-![APP Main Process](../assets/images/installation/nocal-app-main-process.png)
+[![](../assets/images/installation/nocal-app-main-process.png)](../assets/images/installation/nocal-app-main-process.png)
 
 !!!note "Main process within container"
     In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not response any request. You need to manually start the main process before you can access.
 
 Open your web browser and check the result on [http://127.0.0.1:39080](http://127.0.0.1:39080)
 
-![APP Started](../assets/images/installation/nocal-app-started.png)
+[![](../assets/images/installation/nocal-app-started.png)](../assets/images/installation/nocal-app-started.png)
 
 
 #### Change the code
 
 Let's modify ``template/index.html`` or something else. **Don't forget to Save your change.**
 
-![APP Make Change](../assets/images/installation/nocal-app-make-change.png)
+[![](../assets/images/installation/nocal-app-make-change.png)](../assets/images/installation/nocal-app-make-change.png)
 
 Refresh the web browser and check the latest outcome [http://127.0.0.1:39080](http://127.0.0.1:39080)
 
@@ -121,6 +120,11 @@ Refresh the web browser and check the latest outcome [http://127.0.0.1:39080](ht
 
 Here are some recommended next steps:
 
-* Learn Nocalhost starting from its [Core Concepts](https://nocalhost.dev/Concepts/cluster/)
-* Join our [Slack](https://nocalhost.slack.com/) and/or [WebChat Group](./)
+
+* Read Nocalhost's [Core Concept](core-concept.md)
+* Visit our [Github Repo](https://github.com/nocalhost/nocalhost)
+* Join our [Slack](https://nocalhost.slack.com/) or scan the code to join our WeChat Group
+
+<img src="../../assets/images/nocal-host-wechat.png" width="200" />
+
 

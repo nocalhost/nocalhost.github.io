@@ -135,10 +135,10 @@ nav:
         - Quick Start: eng/server/quick-start.md
         - Using Nocalhost Server: eng/server/using-server.md
     - Reference:
-      - Nocalhost Config Specs: zh/references/nh-config-spec.md
-      - Deploy Demo APP: zh/references/deploy-app.md
+      - Nocalhost Config Specs: eng/references/nh-config-spec.md
+      - Deploy Demo APP: eng/references/deploy-app.md
     - FAQ:
-      - Insallation: zh/FAQ/faq-installation.md
-      - Using: zh/FAQ/faq-using.md
+      - Insallation: eng/FAQ/faq-installation.md
+      - Using: eng/FAQ/faq-using.md
     - Blog:
         - Nocalhost - Redefine Cloud Native Dev Environment: eng/Blog/redefine-cloud-native-dev-environment.md
