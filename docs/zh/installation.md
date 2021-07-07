@@ -1,40 +1,53 @@
 ---
-title: 安装教程
+title: 安装 IDE 插件
 ---
 
-## 安装 Nocalhost VScode 编辑器插件
+!!!tip 一键安装 Nocalhost 开发环境
+    在安装 Nocalhost IDE 插件时，插件会自动帮您安装最新版本的 **nhctl**
 
-Nocalhost 的 VScode 编辑器插可以让您在 VScode 编辑器上轻松方便的使用 Nocalhost。
-您可以安装应用程序，打开 DevSpace，在 VSCode 中启动 DevMode。
+## 安装 VScode 插件
 
-### 在 VScode 插件市场上安装 Nocalhost VScode 插件
-点击此链接: [https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost](https://marketplace.visualstudio.com/items?itemName=nocalhost.nocalhost){:target="_blank"}
+=== "通过编辑器应用市场安装"
 
-### 直接在 VScode 编辑器上安装 Nocalhost VScode 编辑器插件
-1. 打开 VScode 编辑器, 在右侧栏中点击 "Extensions" 图标。
-2. 在搜索框中输入 “nocalhost” 进行搜索。
-3. 选择 “nocalhost-vscode-plugin”, 点击 “install” 按钮进行安装。
+    1. 打开 VScode 编辑器，然后单击左侧栏中的  <img src="../../assets/images/icons/vs-code-icon.jpg" width="20" />  图标
+    2. 在搜索输入框中键入 nocalhost
+    3. 选择 nocalhost-vscode-plugin，然后单击 “安装” 按钮进行安装。
 
-[ ![](../assets/images/extension-market.png) ](../assets/images/extension-market.png){:target="_blank"}
+    [![](../assets/images/plugins/vscode-market.png)](../assets/images/plugins/vscode-market.png)
 
-## 安装 Nocalhost IntelliJ 插件
-点击此链接查看: [https://plugins.jetbrains.com/plugin/16058-nocalhost](https://plugins.jetbrains.com/plugin/16058-nocalhost){:target="_blank"}.
+=== "手动安装"
 
+    1. [下载最新版本](https://github.com/nocalhost/nocalhost-vscode-plugin/releases/latest) 的 VSCode 插件
+    2. 打开 VScode 编辑器，然后单击左侧栏中的  <img src='../../assets/images/icons/vs-code-icon.jpg' width="20" />  图标
+    3. 点击 <img src='../../assets/images/icons/cluster-action-icon.jpg') width="20" /> 图标，选择 <kbd>从 VSIX 文件安装...</kbd>，选择刚才下载的 VSIX 文件开始安装
 
-- 在 Windows 上使用 Jetbrains 系列 IDE 内置插件系统：
-    - <kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+    [![](../assets/images/plugins/vscode-manual.png)](../assets/images/plugins/vscode-manual.png)
 
-- 在 MacOS 上使用 Jetbrains 系列 IDE 内置插件系统：
-    - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "nocalhost"</kbd> > <kbd>Install Plugin</kbd>
+## 安装 JetBrains 插件
 
-[ ![](../assets/images/jetbrains-market-01.png) ](../assets/images/jetbrains-market-01.png){:target="_blank"}
+=== "通过编辑器应用市场安装"
 
+    ### Windows 系统
+    
+    <kbd>文件</kbd> > <kbd>设置</kbd> > <kbd>插件</kbd> > <kbd>浏览仓库... </kbd> > <kbd>搜索 nocalhost </kbd> > <kbd>安装插件</kbd>
 
-- 手动安装：
-    - 下载 [最新版本](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest){:target="_blank"} 并手动安装 <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install plugin from disk...</kbd>
+    ### MacOS 系统
 
-[ ![](../assets/images/jetbrains-market-02.png) ](../assets/images/jetbrains-market-02.png){:target="_blank"}
+    <kbd>首选项</kbd> > <kbd>设置</kbd> > <kbd>插件</kbd> > <kbd>浏览仓库... </kbd> > <kbd>搜索 nocalhost</kbd> > <kbd>安装插件</kbd>
 
-!!! note "前置条件"
-	使用 nocalhost，请确保您已经安装了 [git](https://git-scm.com/downloads){:target="_blank"}、[kubectl](https://kubernetes.io/docs/home/){:target="_blank"} 以及 [helm](https://helm.sh/){:target="_blank"}。
+    [![](../assets/images/plugins/jb-market.png)](../assets/images/plugins/jb-market.png)
 
+=== "手动安装"
+
+    1. 下载[最新版本](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest)
+    2. 安装插件：<kbd>首选项</kbd> > <kbd>插件</kbd> > <kbd>从磁盘安装插件... </kbd>
+
+    [![](../assets/images/plugins/jb-manual.png)](../assets/images/plugins/jb-manual.png)
+
+## 编辑器插件升级
+
+Nocalhost 编辑器插件在每次编辑器启动时如检查到有新的版本，Nocalhost 插件会自动下载更新插件和 nhctl
+
+## 下一步
+
+使用 Nocalhost 插件 [体验](getting-started.md) 便捷的云原生微服务应用的开发过程

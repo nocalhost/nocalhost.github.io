@@ -4,20 +4,22 @@ title: 快速上手
 
 欢迎使用 Nocalhost! 在这篇指南里，我们将引导您完成安装 Nocalhost 以及使用 Nocalhost 在 Kubernetes 上体验便捷的云原生微服务应用的开发过程。
 
+!!!bug "ARM CPU 支持"
+    目前 Nocalhost 对 ARM 系列 CPU（包括苹果 M1）并未完全支持
+
 ## 前置条件
 
 * **配置好的 Kubernetes Cluster (2核CPU 和 4G 内存)** 可以是本地集群, 如 [minikube](https://minikube.sigs.k8s.io/docs/start/) 或 [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) 集群, 或远端集群, 比如[腾讯的 TKE](https://cloud.tencent.com/product/tke). 
 * **RBAC** 在上述集群中已经启用
 * **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** 具备命名空间的管理员权限
-* **[kubectl (1.6+)](https://kubernetes.io/docs/home/)** 已安装
 * Visual Studio Code (1.52+)
 * Kubernetes API 服务可以在内部和外部访问
 
 ## 步骤1：安装
 
-确保已经根据[客户端安装教程](https://nocalhost.dev/zh/installation) 完成 Nocalhost VSCode 插件的安装
+确保已经根据[安装 IDE 插件](../installation) 完成 VSCode 插件的安装。
 
-如果你使用的是 linux，应该 [增加 inotify limit](./FAQ/increase-inotify.md)，否则文件同步可能会很慢。
+如果你使用的是 linux，应该 [增加 inotify limit](../FAQ/faq-installation#增加 Inotify Limit)，否则文件同步可能会很慢。
 
 ## 步骤2：在 VSCode 中安装和配置 Nocalhost
 
@@ -49,10 +51,10 @@ title: 快速上手
 
 ![Cluster List](../assets/images/installation/nocal-success-load-cluster.png)
 
-!!!tip 示例应用
-    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../References/deploy-book-info-app-manifest)** 在Kubernetes集群中部署bookinfo应用程序。
-
 ## 步骤3：进入 DevMode
+
+!!!tip 示例应用
+    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../references/deploy-app)** 在Kubernetes集群中部署bookinfo应用程序。
 
 选择一个你想开发的应用，在这里我们用 **bookinfo** 应用举例
 
@@ -123,5 +125,8 @@ sh run.sh
 
 以下是一些后续的建议步骤:
 
-* 从 Nocalhost 的[核心概念](https://nocalhost.dev/Concepts/cluster/)开始学习
-* 加入我们的 [Slack](https://nocalhost.slack.com/) 和/或 [微信群](./)
+* 阅读 Nocalhost 的[核心概念](core-concept.md)
+* 访问我们的 [Github](https://github.com/nocalhost/nocalhost)
+* 加入我们的 [Slack](https://nocalhost.slack.com/) 或扫码添加小助手后申请加入微信群
+
+<img src="../../assets/images/nocal-host-wechat.png" width="200" />
