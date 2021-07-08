@@ -1,7 +1,3 @@
----
-title: 简介
----
-
 <figure>
   <img src="../../assets/images/logo.png" width="300" />
   <figcaption>Most productive way to build cloud-native applications.</figcaption>
