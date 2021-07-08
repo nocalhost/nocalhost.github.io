@@ -1,10 +1,8 @@
-## Helm 工作负载名称
+## How does Nocalhost find services when the workloads are installed by Helm?
 
-### Nocalhost 如何确定由 Helm 安装的工作负载对应于配置中的哪个服务？
+By default, Nocalhost recognizes services by the exact name of workloads in the cluster. But the name of the workloads installed by Helm may be generated according to the Chart templates. 
 
-默认情况下，Nocalhost 通过集群中工作负载的名称来识别服务的。但通过 Helm 安装的工作负载名称有可能是通过 Chart 模板生成的。
-
-如果 Chart 是通过 Helm 提供的模板创建的，Nocalhost 会通过查找以 `<release-name>-<service-name>` 形式命名的工作负载来作为对应的服务。例如，config.yaml 定义了如下的服务：
+For example, if the Chart is created with the template provided by Helm, Nocalhost may find it by looking for workloads with name formed with `<release-name>-<service-name>`. For example, there is a service defined in config.yaml as following:
 
 ```
 ...
@@ -13,7 +11,7 @@ services:
     serviceType: deployment
 ```
 
-当我们通过 `nhctl`(Helm) 安装下面的应用：
+When we install a application(helm) by nhctl as following:
 
 ```
 $ nhctl install dev -u <git-repo-url>
@@ -22,52 +20,56 @@ NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
 dev-productpage   0/1     1            0           9s
 ```
 
-如果集群中没有名为 `productpage` 的工作负载，则 Nocalhost 会把 `dev-productpage` 认为是用户在 config.yaml 中配置的 `productpage` 服务。
+Nocalhost will consider the workload `dev-productpage` as the service named `productpage` defined in config.yaml, while no workload named `productpage` in cluster.
 
-如果 Chart 不是通过 Helm 提供的模板创建的，或工作负载不是通过上述方式安装的，Nocalhost 则无法确定 config.yaml 中定义的服务所对应的工作负载。在这种情况下，你应该配置准确的工作负载名称。
+In other case, if you create Chart with other templates or install Chart in other ways, Nocalhost cannot find the services in the config.yaml. In this situation, you should configure the exact name of the workloads to Nocalhost's config.yaml.
 
-建议在 Helm Chart 中使用静态工作负载名称。
+Using static workload names is recommended. 
 
-## Nocalhost 支持开发运行多容器 Pod 的组件（服务）吗？
+## Does Nocalhost have support to develop components(services) which have Pods running multiple containers?
 
-在 V2 版本的配置文件中可以对同一个 Pod 的多个容器声明开发配置即可指定开发哪个容器。
+You can specify container's name in V2 Nocalhost config file.
 
-## 为什么在 Windows 下进入开发模式后无法编译代码？
+## Why does my code fail to compile in the DevMode under Windows?
 
-这种情况有可能是因为操作系统的换行符不同导致的。例如，编译目标环境为 Linux 的代码，换行符为 `\n`，而在 Windows 下检出、编译或格式化等操作都有可能导致代码的换行符被转换成 `\r\n`。换行符的变化会导致部分构建工具（如 Gradle）无法正常运行。所以在进入开发模式前，请先根据实际需求配置好本地开发环境。
+The issue may be caused by differences of line endings between different operating systems. For example, the code is compiled for Linux with line endings of `\n`, and you checkout, edit or reformat the code under Windows may convert line endings to `\r\n`. The conversion of line endings will lead to failures on some build tools (like Gradle). Therefore, before entering the DevMode, you should configure the local development environment as needed.
 
-- git: Windows 下默认会开启换行符自动转换，即 `git checkout` 时将 `\n` 转换成 `\r\n`，`git commit`时将 `\r\n` 转换成 `\n`。如需配置，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git#_core-autocrlf)；
-- Visual Studio Code: Windows 下默认使用 `\r\n`。如需修改全局配置，依次进入 File -> Preferences -> Settings -> Text Editor -> Files -> Eol；如需修改单个文件配置，直接单击右下角状态栏上的 `CRLF` 或 `LF` 进行切换；
-- IntelliJ IDEA: Windows 下默认使用 `\r\n`。如需修改配置，依次进入 File -> Settings -> Editor -> Code Style -> Line seperator。
+- git: In default, line ending conversions are enabled. It means that `git checkout` will convert `\n` to `\r\n` and `git commit` will convert `\r\n` to `\n`. Please refer to [Git Docs](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_autocrlf) if you have to configure it.
+- Visual Studio Code: In default, line ending is `\r\n` under Windows. Configure it globally by entering File -> Preferences -> Settings -> Text Editor -> Files -> Eol, or click the `CRLF` or `LF` on the right of the status bar when converting for a single file.
+- IntelliJ IDEA: In default, line ending is `\r\n` under Windows. Configure it by entering File -> Settings -> Editor -> Code Style -> Line seperator.
 
-## Nocalhost 支持开发具备 HPA (Horizontal Pod Autoscaler) 控制的 Deployment 吗？
+## Does Nocalhost have support to develop components(services) that controls by Deployments with HPA (Horizontal Pod Autoscaler)?
 
-不支持。建议在部署应用完毕后，先去删除 HPA 控制器，再使用 Nocalhost 进行对指定服务进行开发。
+No. It is suggested that remove HPA controller from Deployments before developing components(services) with Nocalhost.
 
-## 为什么没有注册链接？怎么登录 Nocalhost Web？
+## Why there isn't a register link? How to login Nocalhost Web?
 
-Nocalhost 不支持用户注册。Nocalhost 服务器目前是设计给管理员使用的。
+Nocalhost does not support self-registration.
 
-管理员可以通过默认账户邮箱密码登录。
+By now, Nocalhost Server(api and web) is designed using by administrator.
 
-默认邮箱：
+Administrator can sign in with the default administrator account email and password.
+
+The default account's Email is:
 ```
 admin@admin.com
 ```
-默认密码：
+The default account's password is:
 ```
 123456
 ```
-登录后，管理员可修改账户邮箱和密码，也可以对用户、集群和应用进行管理。
 
-## Nocalhost 支持开发依赖 Namespace、ClusterRole 等集群资源的应用吗？
+After signed in, they can change admin user's Email and password. They can also manage users, clusters and applications.
 
-Visual Studio Code 插件和 Nocalhost 服务器不支持，但 Nocalhost 命令行工具 `nhctl` 支持。未来会提供支持。
 
-## 误删 ~/.nh 目录，插件无法使用怎么办？
+## Does Nocalhost have support to develop components(services) which depend on Kubernetes cluster resources such as Namespaces, ClusterRole?
 
-重启 Visual Studio Code 即可。
+It is not supported by Visual Studio Code plugin and Nocalhost Server, but Nocalhost CLI tool `nhctl` supports. We will support later.
 
-## 插件端已经做 应用卸载 操作，kubernetes 集群工作负载没有释放
+## What should I do if I delete the ~/.nh directory by mistake and the plugin cannot be used?
 
-因为你的登录的账号发生改变，kubeconfig 也就发生了改变。目前暂时不支持账号切换。如果发生了该情况，需要手动删除之前资源。
+Just restart Visual Studio Code.
+
+## Application uninstallation has been done on the plug-in side, and the kubernetes cluster workload has not been released
+
+Because your login account has changed, kubeconfig has also changed. Currently, account switching is not supported. If this happens, you need to manually delete the previously resources.

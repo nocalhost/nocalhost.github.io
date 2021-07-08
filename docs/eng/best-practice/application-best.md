@@ -6,15 +6,15 @@ Nocalhost supports to use the following types to install application:
 
 You can select the deployment method of matching type to deploy your application in Kubernetes, and then develop via Nocalhost IDE plugin. In addition, You can also use Nocalhost Server to manage your applications. Please read Nocalhost Server [Quick Start](../server/quick-start) and [Using Nocalhost Server](../server/using-server).
 
-## Deploy applicaion by Helm Chart
+## Deploy Application by Helm Chart
 
-You can using existing **Helm Chart** to deploy applicaion.
+You can using existing **Helm Chart** to deploy application.
 
 ### Deploy Helm application from local and remote repo
 
-#### 本地部署
+#### Deploy from Local
 
-如果在本地已经有配置好的 Helm 应用，且 **helm chart** 放置在**相对于根目录**的 `mychart/example/` 文件下，您可以执行下述命令进行应用部署
+If you have configured a Helm application locally, and **helm chart** is placed under `mychart/example/` directory that relative to the **root directory**, you can execute the following command to deploy the application.
 
 ```blash
 helm install helloworld /chart/example/ \ 
@@ -22,9 +22,9 @@ helm install helloworld /chart/example/ \
    --kubeconfig ~/.kube/barconfig
 ```
 
-#### 远端仓库部署
+#### Deploy from Remote Repo
 
-如果您有一个 Helm 应用存放在一个有权限访问的远端仓库，例如：
+If you have a Helm application that store in the remote repo and have access privilege, e.g.:
 
 ```hl_lines="7"
 https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git
@@ -40,7 +40,7 @@ mychart/example/
    templates/
    ...
 ```
-对于这个仓库来说，我们将 **Helm chart** 放置在了**相对于根目录**的 `mychart/example/` 文件下，那么我们可以使用如下命令来进行应用部署：
+For this repo, we placed under `mychart/example/` directory that relative to the **root directory**, then we can execute the following command to deploy the application:
 
 ```blash
 nhctl install helloworld \
@@ -51,9 +51,9 @@ nhctl install helloworld \
    --kubeconfig ~/.kube/barconfig
 ```
 
-### 使用自己的 Helm Repo
+### Use Owned Helm Repo
 
-如果您有自己的 Helm Repo，可以通过下列命令进行部署：
+If you have own Helm repo, you can run the following command to deploy:
 
 ```blash
 helm install helloworld \
@@ -63,7 +63,7 @@ helm install helloworld \
    --kubeconfig ~/.kube/barconfig
 ```
 
-或者也可以使用下述 `nhctl` 命令来达到同样的效果：
+or can use the following `nhctl` command to achieve the same effect:
 
 ```blash
 nhctl install helloworld \
@@ -73,7 +73,7 @@ nhctl install helloworld \
    --kubeconfig ~/.kube/barconfig
 ```
 
-## 使用 Kubernetes Manifest 部署应用
+## Using Kubernetes Manifest Deploy Application
 
 假设你有这样的一个仓库，它的地址为 `https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git`，里面存放着许多 **Kubernetes manifest yaml** 文件 ：
 
