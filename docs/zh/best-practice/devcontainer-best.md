@@ -40,4 +40,4 @@ containers:
       shell: bash
 ```
 
-在进行调试时，Nocalhost 会将 DevContainer 的启动命令覆盖为 `/bin/sh -c tail -f /dev/null` 以确保 DevContainer 不会意外退出。关于 **DevMode** 下，Nocalhost 做的其他变动，请查看 [DevMode](../core-concept#devmode)。
+在进行调试时，Nocalhost 会将 DevContainer 的启动命令覆盖为 `/bin/sh -c tail -f /dev/null` 以确保 DevContainer 不会意外退出。关于 **DevMode** 下，Nocalhost 做的其他变动，请查看 [DevMode](../../core-concept/#devmode)。

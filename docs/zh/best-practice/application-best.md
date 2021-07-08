@@ -116,8 +116,6 @@ nhctl install applicationNameFooBar \
   --kubeconfig ~/.kube/barconfig
 ```
 
-## 使用 Kustomize 部署应用
-
 ## Nocalhost 对原生 Kubernetes 应用的增强
 
 在 Kubernetes 的基础上，Nocalhost 提供了一些对应用的增强功能，您可以在你的项目仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](../../references/nh-config-spec) 文件。
@@ -151,7 +149,7 @@ dependLabelSelector:
     - productpage
 ```
 
-可以可以查阅 [Service 指定启动顺序依赖关系](../service-best#service-指定启动顺序依赖关系) 获取更多信息。
+可以查阅 [Service 指定启动顺序依赖关系](../service-best/#service_2) 获取更多信息。
 
 ### 开发镜像配置
 

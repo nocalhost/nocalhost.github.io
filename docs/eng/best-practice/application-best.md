@@ -75,7 +75,7 @@ nhctl install helloworld \
 
 ## Using Kubernetes Manifest Deploy Application
 
-假设你有这样的一个仓库，它的地址为 `https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git`，里面存放着许多 **Kubernetes manifest yaml** 文件 ：
+For example, you have a git repo with address `https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git`, it has many **Kubernetes manifest yaml** files:
 
 ```blash
 README.MD
@@ -92,8 +92,7 @@ foo/bar/k8s/manifests/
                                             bar.yaml
                                             …
 ```
-
-你只想应用相对根目录 `what/ever/` 与 `support/all/dir/inside/` 下的文件，那么使用命令：
+You only want to apply the files in the relative root directory `what/ever/` and `support/all/dir/inside/`, then use the command:
 
 ```hl_lines="5 6"
 nhctl install applicationNameFooBar \
@@ -105,7 +104,7 @@ nhctl install applicationNameFooBar \
   --kubeconfig ~/.kube/barconfig
 ```
 
-如果你想应用所有文件，则可以使用命令：
+If you want to apply all files, you can use the command:
 
 ```hl_lines="5"
 nhctl install applicationNameFooBar \
@@ -116,19 +115,18 @@ nhctl install applicationNameFooBar \
   --kubeconfig ~/.kube/barconfig
 ```
 
-## 使用 Kustomize 部署应用
+## Nocalhost Enhancements to Kubernetes Applications
 
-## Nocalhost 对原生 Kubernetes 应用的增强
 
-在 Kubernetes 的基础上，Nocalhost 提供了一些对应用的增强功能，您可以在你的项目仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](../../references/nh-config-spec) 文件。
+Base on Kubernetes, Nocalhost provides some enhancements to applications. You can add a `.nocalhost/` folder under your project repository and add [config.yaml](../../references /nh-config-spec) file.
 
-:::info 无侵入
-Nocalhost 对用户的 Kubernetes manifest 配置无侵入。
-:::
+!!!info "No Intrusion"
+   Nocalhost has no intrusion into the user's Kubernetes manifest configuration
+
 
 ### Pre-Install
 
-Nocalhost 允许用户在安装部署应用之前，进行一些额外的操作。以 [bookinfo](https://github.com/nocalhost/bookinfo) 为例，在安装应用前，我们会执行如下声明的几个 Job，等待 Job 执行结束才安装应用，
+Nocalhost allows users to perform some additional operations before installing and deploying applications. Take [bookinfo](https://github.com/nocalhost/bookinfo) as an example, before installing the application, we will execute several jobs as stated below, and wait for the completion of the job execution before installing the application.
 
 ```yaml hl_lines="1"
 onPreInstall:
@@ -138,11 +136,11 @@ onPreInstall:
     weight: "-5"
 ```
 
-### 启动依赖管理
+### Start Dependency Management
 
-Nocalhost 可以控制应用内的服务启动顺序。
+Nocalhost can control the startup sequence of services within the application.
 
-例如以下这个配置，代表 `ratings` 这个 **Deployment**，需要等待 `productpage` 的 `pod` 可用后才会启动。
+For example, the following configuration, which represents the **Deployment** of `ratings`, needs to wait for the `pod` of `productpage` to be available before starting.
 
 ```yml hl_lines="3"
 name: ratings
@@ -151,12 +149,11 @@ dependLabelSelector:
   pods:
     - productpage
 ```
+You can refer to [Service Specify Startup Sequence Dependency](../service-best/#service_2) for more information.
 
-可以可以查阅 [Service 指定启动顺序依赖关系](../service-best#service-指定启动顺序依赖关系) 获取更多信息。
+### Dev Image Configuration
 
-### 开发镜像配置
-
-Nocalhost 允许指定开发容器的镜像，例如：
+Nocalhost can specify the image of the development container, for example:
 
 ```yml hl_lines="5"
 containers:
@@ -167,19 +164,18 @@ containers:
 ...
 ```
 
-在上述配置中，镜像 **python:3.7.7-slim-productpage**，将在进入开发模式时，替代原镜像进行开发。
+In the above configuration, the image **python:3.7.7-slim-productpage** will replace the original image for development when entering the DevMode.
 
-更多信息，请查阅 [DevContainer 最佳实践](../devcontainer-best)
+For more information, please refer to [DevContainer Best Practice](../devcontainer-best)
 
+## Advanced Configuration
 
-## 高级配置
-
-这里会说明一些 **Application** 一些额外的特性或者设计，这并不是必须的，但会有助于你更好的使用 Nocalhost。
+Here will explain some additional features or design of **Application**, which is not necessary, but it will help you to use Nocalhost better.
 
 ### Application Name
 
-Nocalhost 使用唯一的 Application Name 来区分不同的 Application。注意，即使使用不同的 **Nocalhost Server**（例如部署了两套以上的），不支持相同的 Application Name 在同一个开发机器上使用。
+Nocalhost uses a unique Application Name to distinguish different applications. Note that even if different **Nocalhost Server** are used (for example, two or more sets are deployed), the same Application Name is not supported on the same development machine.
 
-### `~/.nh` 目录
+### `~/.nh` Directory
 
-注意，在 `~/.nh/` 目录下，`nhctl` 和 IDE 插件会存储一些文件用以保存当前应用部署，开发等的一些状态，通常你不需要了解或者直接使用他们。
+Note that in the `~/.nh/` directory, `nhctl` and the IDE plugin will store some files to save the current application deployment, development, etc., usually you don't need to know or use them directly.
