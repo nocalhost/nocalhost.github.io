@@ -1,12 +1,12 @@
-将配置文件转换到指定版本
+Convert config file between different versions
 
-## 用法
+## Usage
 
 ```
 nhctl convert [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

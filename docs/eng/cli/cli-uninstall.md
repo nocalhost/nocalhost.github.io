@@ -1,12 +1,12 @@
-卸载应用
+Uninstall application
 
-## 用法
+## Usage
 
 ```
 nhctl uninstall [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

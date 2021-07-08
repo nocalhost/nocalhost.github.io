@@ -1,7 +1,7 @@
-管理持久化卷
+Manage PersistVolumeClaims
 
 ```
-用法:
+Usage:
   nhctl pvc [command]
 
 Available Commands:
@@ -11,15 +11,16 @@ Available Commands:
 
 ## nhctl pvc clean
 
-清楚持久化卷
+Clean up PersistVolumeClaims
 
-### 用法
+
+### Usage
 
 ```
 nhctl pvc clean [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -36,15 +37,15 @@ Global Flags:
 
 ## nhctl pvc list
 
-列出所有的持久化卷
+List PersistVolumeClaims
 
-### 用法
+### Usage
 
 ```
 nhctl pvc list [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

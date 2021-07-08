@@ -1,7 +1,7 @@
-leveldb 相关操作
+leveldb operations
 
 ```
-用法:
+Usage:
 nhctl db [command]
 
 Available Commands:
@@ -13,15 +13,15 @@ Available Commands:
 
 ## nhctl db all
 
-获取所有 leveldb 数据
+Get all leveldb data
 
-### 用法
+### Usage
 
 ```
 nhctl db all [NAME] [flags]
 ```
 
-### 标记
+### Flags
 ```
 Flags:
       --app string   List leveldb data of specified application
@@ -35,15 +35,15 @@ Global Flags:
 
 ## nhctl db compact
 
-压缩所有 leveldb 数据
+Compact leveldb data
 
-### 用法
+### Usage
 
 ```
 nhctl db compact [NAME] [flags]
 ```
 
-### 标记
+### Flags
 ```
 Flags:
       --app string   Leveldb data of specified application
@@ -58,15 +58,15 @@ Global Flags:
 
 ## nhctl db put
 
-更新 leveldb 数据
+Update leveldb data
 
-### 用法
+### Usage
 
 ```
 nhctl db put [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -84,15 +84,15 @@ Global Flags:
 
 ## nhctl db size
 
-获取所有 leveldb 的大小
+Get all leveldb data
 
-### 用法
+### Usage
 
 ```
 nhctl db size [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

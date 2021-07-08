@@ -1,6 +1,6 @@
-列出所有应用
+List all applications
 
-## 用法
+## Usage
 
 ```
 nhctl list [NAME] [flags]
@@ -9,7 +9,7 @@ Aliases:
   list, ls
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

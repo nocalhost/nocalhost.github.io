@@ -1,12 +1,12 @@
-在容器中运行一段命令
+Execute a command in container
 
-## 用法
+## Usage
 
 ```
 nhctl exec [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

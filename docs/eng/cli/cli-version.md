@@ -1,12 +1,12 @@
-获取 nhctl 的版本号
+Get nhctl's version
 
-## 用法
+## Usage
 
 ```
 nhctl version [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

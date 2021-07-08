@@ -1,7 +1,7 @@
-开发模式相关操作
+Dev Operations
 
 ```
-用法:
+Usage:
   nhctl dev [command]
 
 Available Commands:
@@ -15,15 +15,16 @@ Available Commands:
 
 ## nhctl dev associate
 
-指定开发目录
+Associate service dev dir
 
-### 用法
+
+### Usage
 
 ```
 nhctl dev associate [Name] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -41,15 +42,15 @@ Global Flags:
 
 ## nhctl dev cmd
 
-在开发容器中启用 terminal
+Run cmd in dev container
 
-### 用法 
+### Usage 
 
 ```
 nhctl dev cmd [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -67,15 +68,16 @@ Global Flags:
 
 ## nhctl dev end
 
-退出开发模式
+End dev model
 
-### 用法 
+
+### Usage 
 
 ```
 nhctl dev end [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -91,15 +93,15 @@ Global Flags:
 
 ## nhctl dev reset
 
-重置服务
+Reset service
 
-### 用法 
+### Usage 
 
 ```
 nhctl dev reset [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -115,15 +117,15 @@ Global Flags:
 
 ## nhctl dev start
 
-进入开发模式
+Start DevMode
 
-### 用法 
+### Usage 
 
 ```
 nhctl dev start [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -150,15 +152,15 @@ Global Flags:
 
 ## nhctl dev terminal
 
-进入开发容器的 Terminal
+Enter dev container's terminal
 
-### 用法 
+### Usage 
 
 ```
 nhctl dev terminal [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

@@ -1,6 +1,6 @@
-将文件同步到远端 K8s 的 POD 中
+Sync files to remote Pod in Kubernetes
 
-## 用法
+## Usage
 
 ```
 nhctl sync [NAME] [flags]

@@ -1,7 +1,7 @@
-端口转发
+Port-forward
 
 ```
-用法:
+Usage:
   nhctl port-forward [command]
 
 Available Commands:
@@ -12,13 +12,13 @@ Available Commands:
 
 ## nhctl port-forward end
 
-### 用法
+### Usage
 
 ```
 nhctl port-forward end [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -35,13 +35,13 @@ Global Flags:
 
 ## nhctl port-forward list
 
-### 用法
+### Usage
 
 ```
 nhctl port-forward list [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -57,13 +57,13 @@ Global Flags:
 
 ## nhctl port-forward start
 
-### 用法
+### Usage
 
 ```
 nhctl port-forward start [NAME] [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

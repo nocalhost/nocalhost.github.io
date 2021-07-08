@@ -1,25 +1,22 @@
-应用 manifest
+Apply manifest
 
-## 用法
+## Usage
 
 ```
 nhctl apply [NAME] [MANIFEST] [flags]
 ```
 
 ```
-示例: 
+Example: 
 nhctl apply 
 ```
 
-## 标记
+## Flags
 
 ```
--h, --help   help for apply
-```
+Flags:
+  -h, --help   help for apply
 
-## 全局标记
-
-```
 Global Flags:
       --debug               enable debug level log
       --kubeconfig string   the path of the kubeconfig file

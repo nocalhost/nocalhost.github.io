@@ -1,12 +1,12 @@
-渲染一个文件已进行调试
+Render the file for debugging
 
-## 用法
+## Usage
 
 ```
 nhctl render [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

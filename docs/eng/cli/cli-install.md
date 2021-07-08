@@ -1,12 +1,12 @@
-应用安装
+Install Application
 
-## 用法
+## Usage
 
 ```
 nhctl install [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

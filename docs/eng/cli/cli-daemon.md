@@ -1,7 +1,7 @@
-nhctl 守护进程相关操作
+nhctl daemon
 
 ```
-用法:
+Usage:
 nhctl daemon [command]
 
 Available Commands:
@@ -14,21 +14,21 @@ Available Commands:
 
 ## nhctl daemon info
 
-### 用法
+### Usage
 
 ```
 nhctl daemon info
 ```
 
 ```
-示例:
+Example:
 
 > nhctl daemon info
 
 > {"Version":"v0.4.12","CommitId":"0f02d7f90335076b502bca3f40ff42bd37ee55e6","NhctlPath":".nh/bin/nhctl","Upgrading":false}
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -45,20 +45,20 @@ Global Flags:
 
 重启 nhctl daemon
 
-### 用法
+### Usage
 
 ```
 nhctl daemon restart
 ```
 
 ```
-示例:
+Example:
 
 > nhctl daemon restart
 > RestartDaemonServerCommand has been sent
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -73,15 +73,15 @@ Global Flags:
 
 ## nhctl daemon start
 
-手动启动 nhctl daemon
+Manually start nhctl daemon
 
-### 用法
+### Usage
 
 ```
 nhctl daemon start [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -97,22 +97,22 @@ Global Flags:
 
 ## nhctl daemon status
 
-查看 nhctl daemon 状态
+View nhctl daemon status
 
-### 用法
+### Usage
 
 ```
 nhctl daemon status
 ```
 
 ```
-示例:
+Example:
 
 > nhctl daemon status
 > {"portForwardList":[]}
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -127,15 +127,15 @@ Global Flags:
 
 ## nhctl daemon stop
 
-手动停止 nhctl daemon
+Manually stop nhctl daemon
 
-### 用法
+### Usage
 
 ```
 nhctl daemon stop
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

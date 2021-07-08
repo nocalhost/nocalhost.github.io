@@ -1,7 +1,7 @@
-初始化操作
+Init demo or dep component
 
 ```
-用法:
+Usage:
   nhctl init [command]
 
 Available Commands:
@@ -11,22 +11,22 @@ Available Commands:
 
 ## nhctl init demo
 
-Nocalhost 服务端（nocalhost-api, nocalhost-web, nocalhost-dep）初始化
+Init api, web and dep component in cluster
 
-### 用法
+### Usage
 
 ```
 nhctl init demo [flags]
 ```
 
 ```
-示例:
+Example:
 
 nhctl init demo -n [DevSpace Name] -t nodeport -p [port]
 nhctl init demo -n [DevSpace Name]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -50,13 +50,13 @@ Global Flags:
 
 Nocalhost（nocalhost-dep）组件初始化
 
-### 用法
+### Usage
 
 ```
 nhctl init dep [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

@@ -1,12 +1,13 @@
-描述应用信息
+Describe application info
 
-## 用法
+
+## Usage
 
 ```
 nhctl describe [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

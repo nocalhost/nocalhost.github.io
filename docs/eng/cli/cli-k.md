@@ -1,7 +1,7 @@
-kubectl 命令
+kubectl
 
 ```
-用法:
+Usage:
   nhctl k [command]
 
 Available Commands:
@@ -12,19 +12,19 @@ Available Commands:
 
 ## nhctl k delete
 
-### 用法
+### Usage
 
 ```
 nhctl k delete [flags]
 ```
 
 ``` 
-示例:
+Example:
 
 nhctl k delete [podName] --namespace nocalhost-reserved --kubeconfig=[path]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -55,19 +55,19 @@ Global Flags:
 
 ## nhctl k exec
 
-### 用法
+### Usage
 
 ```
 nhctl k exec [flags]
 ```
 
 ```
-示例:
+Example:
 
 exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -84,19 +84,19 @@ Global Flags:
 
 ## nhctl k logs
 
-### 用法
+### Usage
 
 ```
 nhctl k logs [flags]
 ```
 
 ```
-示例:
+Example:
 
 nhctl logs [podName] -c [containerName] -f=true --tail=1 --namespace nocalhost-reserved --kubeconfig=[path]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

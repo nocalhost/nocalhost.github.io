@@ -1,12 +1,12 @@
-重置应用
+Reset application
 
-## 用法
+## Usage
 
 ```
 nhctl reset [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

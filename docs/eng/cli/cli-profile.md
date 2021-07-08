@@ -1,4 +1,4 @@
-Profile  管理
+Profile Management
 
 ```
 Usage:
@@ -11,15 +11,15 @@ Available Commands:
 
 ## nhctl profile get
 
-获取 Profile 汇总的一个配置项
+Get a config item of Profile
 
-### 用法
+### Usage
 
 ```
 nhctl profile get [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -37,15 +37,15 @@ Global Flags:
 
 ## nhctl profile set
 
-配置 Profile 中的一个配置项
+Set a config item of Profile
 
-### 用法
+### Usage
 
 ```
 nhctl profile set [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

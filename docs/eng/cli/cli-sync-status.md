@@ -1,12 +1,12 @@
-跟踪文件同步状态，包括本地文件夹和远端
+Tracing the files sync status, include local folder and remote device
 
-## 用法
+## Usage
 
 ```
 nhctl sync-status [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:

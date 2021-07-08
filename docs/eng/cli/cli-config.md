@@ -1,7 +1,7 @@
-应用/服务配置文件相关操作
+View, save and check application config file
 
 ```
-用法:
+Usage:
 nhctl config [command]
 
 Available Commands:
@@ -13,17 +13,13 @@ Available Commands:
 
 ## nhctl config edit
 
-编辑应用/服务的配置
+Edit service config
 
 ```
 nhctl config edit [Name] [flags]
 ```
 
-```
-示例: 
-```
-
-### 标记
+### Flags
 
 ```
 Flags:
@@ -40,7 +36,7 @@ Global Flags:
 
 ## nhctl config get
 
-获取应用/服务的配置
+Get application/service config
 
 ```
 nhctl config get [Name] [flags]
@@ -50,7 +46,7 @@ nhctl config get [Name] [flags]
 示例: 
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -67,17 +63,13 @@ Global Flags:
 
 ## nhctl config reload
 
-刷新应用/服务的配置
+Reload application/service config
 
 ```
 nhctl config reload [Name] [flags]
 ```
 
-```
-示例: 
-```
-
-### 标记
+### Flags
 
 ```
 Flags:
@@ -93,17 +85,13 @@ Global Flags:
 
 ## nhctl config template
 
-获取服务的配置模版
+Get service config template
 
 ```
 nhctl config template [Name] [flags]
 ```
 
-```
-示例: 
-```
-
-### 标记
+### Flags
 
 ```
 Flags:

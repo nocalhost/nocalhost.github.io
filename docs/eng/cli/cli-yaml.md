@@ -1,4 +1,4 @@
-Yaml 工具
+Yaml tools
 
 ```
 Usage:
@@ -11,15 +11,15 @@ Available Commands:
 
 ## nhctl yaml from-json
 
-将 json 文件转为 yaml 文件
+Convert json to yaml
 
-### 用法
+### Usage
 
 ```
 nhctl yaml from-json [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:
@@ -33,15 +33,15 @@ Global Flags:
 
 ## nhctl yaml to-json
 
-将 yaml 文件转为 json 文件
+Convert yaml to json
 
-### 用法
+### Usage
 
 ```
 nhctl yaml to-json [flags]
 ```
 
-### 标记
+### Flags
 
 ```
 Flags:

@@ -1,12 +1,12 @@
-升级一个 K8s 应用
+Upgrade k8s application
 
-## 用法
+## Usage
 
 ```
 nhctl upgrade [NAME] [flags]
 ```
 
-## 标记
+## Flags
 
 ```
 Flags:
