@@ -6,7 +6,7 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 
 ## Prerequisites
 
-* **Configured Kubernetes Cluster (with 2 Core and 4G Memory)** which can either be a cluster for local development, such as [minikube](https://minikube.sigs.k8s.io/docs/start/) or [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) cluster, or a remote cluster, such as [Tencent TKE](https://cloud.tencent.com/product/tke). 
+* **Configured Kubernetes Cluster (with 2 Core and 4G Memory)** which can either be a cluster for local development, such as [minikube](https://minikube.sigs.k8s.io/docs/start/) or [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) cluster, or any publick Kubernetes cluster, such as [Tencent TKE](https://cloud.tencent.com/product/tke). 
 * **RBAC** must be enabled in above cluster
 * **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** that has namespace admin privilege
 * Visual Studio Code (1.52+)

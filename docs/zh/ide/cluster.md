@@ -73,34 +73,4 @@ Nocalhost 编辑器插件支持两种通过 kubeconfig 连接集群的方式
         <img src='../../../assets/images/ide/vscode-view-config.gif' width="600"/>
     </center>
 
-## 连接 Nocalhost Server
-
-=== "VSCode 编辑器插件"
-
-    1. 点击 <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> 连接群集
-
-    2. 选择 **Connect to Nocalhost Server**
-
-    3. 输入 Nocalhost Server 的 API 地址、用户名和密码后点击登陆
-
-    <center className="img-margin">
-        <img src='../../../assets/images/ide/vscode-connect-server.png' width="200"/>
-    </center>
-
-=== "JetBrains 编辑器插件"
-
-    1. 点击 <img src='../../../assets/images/icons/idea-connect-server.png' width="20"/> 连接群集
-
-    2. 输入 Nocalhost Server 的 API 地址、用户名和密码后点击登陆
-
-## 断开 Nocalhost Server 连接
-
-=== "VSCode 编辑器插件"
-
-    右键单击指定 Nocalhost Server，然后点击 **Logout** 断开和该服务端的连接
-
-=== "JetBrains 编辑器插件"
-
-    点击 <img src='../../../assets/images/icons/idea-connect-server.png' width="20"/>，选择需要断开连接的 Nocalhost Server
-
 

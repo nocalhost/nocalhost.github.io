@@ -1,4 +1,4 @@
-Nocalhost 支持三种类型的应用：
+Nocalhost 支持通过下面三种类型进行安装：
 
 * Manifest
 * Helm
@@ -122,9 +122,8 @@ nhctl install applicationNameFooBar \
 
 在 Kubernetes 的基础上，Nocalhost 提供了一些对应用的增强功能，您可以在你的项目仓库下新增 `.nocalhost/` 文件夹，并新增 [config.yaml](../../references/nh-config-spec) 文件。
 
-:::info 无侵入
-Nocalhost 对用户的 Kubernetes manifest 配置无侵入。
-:::
+!!!info "无侵入"
+   Nocalhost 对用户的 Kubernetes manifest 配置无侵入
 
 ### Pre-Install
 

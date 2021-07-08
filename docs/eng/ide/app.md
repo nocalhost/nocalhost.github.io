@@ -1,109 +1,109 @@
 ## Apply
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Clear Persistent Data
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Config
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Upgrade App
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Load Resource
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 
 ## Enter DevMode
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Exit DevMode
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Config
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Clear Persistent Data
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 ## Associate Local Directory
 
-=== "VSCode IDE Plugin"
+=== "VSCode Plugin"
 
-=== "JetBrains IDE Plugin"
+=== "JetBrains Plugin"
 
 
 ## Copy Terminal
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Delete
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Logs
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Port Forward
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Port Forward List
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Reset
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"
 
 
 ## Terminal
 
-### VSCode IDE Plugin
+=== "VSCode Plugin"
 
-### JetBrains IDE Plugin
+=== "JetBrains Plugin"

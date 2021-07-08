@@ -8,53 +8,6 @@
 
 > 这里用 minikube 进行示例的部署，您也可以将示例应用部署在任意 Kubernetes 集群中
 
-## 通过 Helm 部署 bookinfo 应用
-
-### 步骤1: 从 Gihub 仓库克隆 bookinfo
-
-```
-git clone https://github.com/nocalhost/bookinfo.git
-```
-
-### 步骤2: 安装 Helm Chart
-
-Helm chart 位于 `./chart/bookinfo` 路径中, 我们可以直接使用 **helm install** 命令来进行安装, Helm 会默认根据您的 `kubeconfig` 将 bookinfo 应用部署到您默认的 Kubernetes 集群中:
-
-```
-helm install bookinfo ./charts/bookinfo
-
-NAME: bookinfo
-LAST DEPLOYED: Fri May 21 19:18:30 2021
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-```
-
-!!!tip 使用非默认的 kubeconfig
-    可以通过通过使用 `--kubeconfig` flag 指定 `kubeconfig` 的路径。请查阅 [Helm install](https://helm.sh/docs/helm/helm_install/) 获取更多 `helm install` 的使用帮助。
-
-### 步骤3： 查看您的 Helm 部署
-
-您可以通过下述命令查看 helm 的部署状态:
-
-```
-helm list
-
-NAME    	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART                   	APP VERSION
-bookinfo	default  	1       	2021-05-21 19:18:30.268709 +0800 CST	deployed	nocalhost-bookinfo-1.2.2	1.3        
-```
-
-```
-kubectl get deployment -n default    
-
-NAME          READY   UP-TO-DATE   AVAILABLE   AGE
-details       2/2     2            2           4m18s
-productpage   2/2     2            2           4m18s
-ratings       2/2     2            2           4m18s
-reviews       0/2     2            0           4m18s
-```
-
 ## 通过 Manifest 部署 bookinfo 应用
 
 ### 步骤1: 创建一个 test 命名空间
@@ -106,6 +59,56 @@ details       0/1     1            0           9s
 productpage   0/2     2            0           8s
 ratings       0/1     1            0           7s
 reviews       0/1     1            0           7s   
+```
+
+## 通过 Helm 部署 bookinfo 应用
+
+### 步骤1: 从 Gihub 仓库克隆 bookinfo
+
+克隆 bookinfo 应用，在成功后进入目录
+
+```
+git clone https://github.com/nocalhost/bookinfo.git
+
+cd bookinfo
+```
+
+### 步骤2: 安装 Helm Chart
+Helm chart 位于 `./chart/bookinfo` 路径中, 我们可以直接使用 **helm install** 命令来进行安装, Helm 会默认根据您的 `kubeconfig` 将 bookinfo 应用部署到您默认的 Kubernetes 集群中:
+
+```
+helm install bookinfo ./charts/bookinfo
+
+NAME: bookinfo
+LAST DEPLOYED: Fri May 21 19:18:30 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+!!!tip 使用非默认的 kubeconfig
+    可以通过通过使用 `--kubeconfig` flag 指定 `kubeconfig` 的路径。请查阅 [Helm install](https://helm.sh/docs/helm/helm_install/) 获取更多 `helm install` 的使用帮助。
+
+### 步骤3： 查看您的 Helm 部署
+
+您可以通过下述命令查看 helm 的部署状态:
+
+```
+helm list
+
+NAME    	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART                   	APP VERSION
+bookinfo	default  	1       	2021-05-21 19:18:30.268709 +0800 CST	deployed	nocalhost-bookinfo-1.2.2	1.3        
+```
+
+```
+kubectl get deployment -n default    
+
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+details       2/2     2            2           4m18s
+productpage   2/2     2            2           4m18s
+ratings       2/2     2            2           4m18s
+reviews       0/2     2            0           4m18s
 ```
 
 

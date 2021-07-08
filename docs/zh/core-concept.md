@@ -27,7 +27,7 @@ DevSpace 之间是隔离的，开发者可以把自己的 DevSpace 共享给其�
 
 ### 管理 DevSpace
 
-如果需要管理 DevSpace，如果需要管理 Cluster，您需要先安装并配置 Nocalhost Server，可以查阅 Nocalhost Server 的 [快速开始指南](../server/quick-start) 和 [使用 Nocalhost Server](../server/using-server)。
+如果需要管理 DevSpace，您需要先安装并配置 Nocalhost Server，可以查阅 Nocalhost Server 的 [快速开始指南](../server/quick-start) 和 [使用 Nocalhost Server](../server/using-server)。
 
 ## Application（应用）
 

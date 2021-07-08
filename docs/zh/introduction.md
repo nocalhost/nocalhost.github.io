@@ -63,7 +63,7 @@ IDE 插件通过 nhctl 和 nocalhost-api 为开发者提供更好的开发体验
 
 ### nhctl
 
-nhctl 是 Nocalhost 的核心组件，主要功能见[《nhctl 概览》]()
+nhctl 是 Nocalhost 的核心组件
 
 ### nocalhost-web
 

@@ -1,106 +1,75 @@
-## 连接集群
+## Connect
 
-Nocalhost 编辑器插件支持两种通过 kubeconfig 连接集群的方式
 
-**1. 选择 kubeconfig 文件**
+Nocalhost supports multi cluster management, you can add any Kubernetes in IDE plugin by select kubeconfig file or pastes the kubeconfig file as text to add cluster.
 
-在你的本地文件夹中选择一个 kubeconfig 文件.
+**1. Select kubeconfig file**
 
-!!!tip "默认路径"
-    默认情况下，Nocalhost 插件启动时会从 ``~/.kube/config`` 路径下自动读取您本地的 kubeconfig。您也可以更换默认的文件所在路径。
+Select a kubeconfig file from your local directory.
 
-**2. 粘贴 kubeconfig 文本**
+!!!tip "Default Path"
+    Nocalhost will try to load kubeconfig from your local `~/.kube/config` by default. You can also change the default path.
 
-粘贴 kubeconfig 的文本内容。在 kubeconfig 被成功读取后，选择需要访问的环境，然后连接集群。
+**2. Paste kubeconfig as text**
 
-!!!tip "获取 Kubeconfig"
-    你可以通过在 Kubernetes 集群所在系统内运行下述命令查看 kubeconfig，然后复制黏贴到插件里。
+Paste kubeconfig as text. Once kubeconfig has successfully read, select the right context, then connect to cluster.
+
+!!!tip "Get Kubeconfig"
+    You can view kubeconfig by running the following command in the system where the Kubernetes cluster is installed, and then copy and paste it.
 
     ```bash
     kubectl config view --minify --raw --flatten
     ```
 
-=== "VSCode 编辑器插件"
+=== "VSCode Plugin"
 
-    1. 点击 <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> 连接群集
-    2. 点击 **Add Kubeconfig** 后选择合适的连接方式
+    1. Click <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> icon connect to cluster
+    2. Click **Add Kubeconfig** and select the suitable method to connect
 
     <center>
         <img src='../../../assets/images/ide/vscode-add-cluster.gif' width="250">
     </center>
 
-=== "JetBrains 编辑器插件"
+=== "JetBrains Plugin"
 
-    1. 点击 <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> 连接群集
+    1. Click <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> icon connect to cluster
 
-    2. 选择合适的连接方式
+    2. Select the suitable method to connect
 
     <center className="img-margin">
         <img src='../../../assets/images/ide/idea-connect-cluster.gif' width="600"/>
     </center>
 
-## 移除集群
+## Remove Cluster
 
-=== "VSCode 编辑器插件"
+=== "VSCode Plugin"
 
-    右键单击指定集群，然后点击 **Remove** 将该指定集群从 Nocalhost 编辑器插件集群列表中移除该集群。
+    Right-click the specified cluster, and then click **Remove** to remove the specified cluster from the cluster list.
 
     <center className="img-margin">
         <img src='../../../assets/images/ide/vscode-remove-cluster.gif'  width="290"/>
     </center>
 
-=== "JetBrains 编辑器插件"
+=== "JetBrains Plugin"
 
-    右键单击指定集群，然后点击 **Remove** 将该指定集群从 Nocalhost 编辑器插件集群列表中移除该集群。
+    Right-click the specified cluster, and then click **Remove** to remove the specified cluster from the cluster list.
 
     <center className="img-margin">
         <img src='../../../assets/images/ide/idea-remove-cluster.gif'  width="600"/>
     </center>
 
-## 查看集群 Kubeconfig
+## View Cluster's Kubeconfig
 
-右键点击指定集群，选择 **View Kubeconfig**，Nocalhost 插件会打开该集群的 kubeconfig。
+Right-click the specified cluster and select **View Kubeconfig**, the Nocalhost plugin will open the kubeconfig of the cluster.
 
-=== "VSCode 编辑器插件"
+=== "VSCode Plugin"
 
     <center className="img-margin">
         <img src='../../../assets/images/ide/idea-view-config.gif' width="600"/>
     </center>
 
-=== "JetBrains 编辑器插件"
+=== "JetBrains Plugin"
 
     <center className="img-margin">
         <img src='../../../assets/images/ide/vscode-view-config.gif' width="600"/>
     </center>
-
-## 连接 Nocalhost Server
-
-=== "VSCode 编辑器插件"
-
-    1. 点击 <img src='../../../assets/images/icons/add-cluster.jpg' width="20"/> 连接群集
-
-    2. 选择 **Connect to Nocalhost Server**
-
-    3. 输入 Nocalhost Server 的 API 地址、用户名和密码后点击登陆
-
-    <center className="img-margin">
-        <img src='../../../assets/images/ide/vscode-connect-server.png' width="200"/>
-    </center>
-
-=== "JetBrains 编辑器插件"
-
-    1. 点击 <img src='../../../assets/images/icons/idea-connect-server.png' width="20"/> 连接群集
-
-    2. 输入 Nocalhost Server 的 API 地址、用户名和密码后点击登陆
-
-## 断开 Nocalhost Server 连接
-
-=== "VSCode 编辑器插件"
-
-    右键单击指定 Nocalhost Server，然后点击 **Logout** 断开和该服务端的连接
-
-=== "JetBrains 编辑器插件"
-
-    点击 <img src='../../../assets/images/icons/idea-connect-server.png' width="20"/>，选择需要断开连接的 Nocalhost Server
-
-
