@@ -89,6 +89,7 @@ nav:
       - 使用中常见问题: zh/FAQ/faq-using.md
     - 博客:
       - Nocalhost - 重新定义云原生开发环境: zh/Blog/redefine-cloud-native-dev-environment.md
+      - 和其它软件的对比: zh/Blog/compare-with-x.md
   - Documentations:
     - Overview:
       - Introduction: eng/introduction.md
@@ -144,3 +145,4 @@ nav:
       - Using: eng/FAQ/faq-using.md
     - Blog:
         - Nocalhost - Redefine Cloud Native Dev Environment: eng/Blog/redefine-cloud-native-dev-environment.md
+        - Compare with X: eng/Blog/compare-with-x.md
