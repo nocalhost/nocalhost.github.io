@@ -16,6 +16,7 @@
 ```
 https://github.com/nocalhost/bookinfo.git
 ```
-4. 等待安装结束即可在命名空间上看到新部署的应用
+4. 选择默认分支后，在下拉框中选择 ``config.manifest.git.yaml`` 类型
+5. 等待安装结束即可在命名空间上看到新部署的应用
 
 [![](../../assets/images/installation/install-app.gif)](../../assets/images/installation/install-app.gif)

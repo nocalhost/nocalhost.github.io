@@ -17,6 +17,8 @@
 ```
 https://github.com/nocalhost/bookinfo.git
 ```
-4. Wait for installation finish then you can see your application in namespace
+
+4. Select default branch, choose ``config.manifest.git.yaml`` type form the dropdown list
+5. Wait for installation finish then you can see your application in namespace
 
 [![](../../assets/images/installation/install-app.gif)](../../assets/images/installation/install-app.gif)
