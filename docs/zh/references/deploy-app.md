@@ -3,7 +3,6 @@
 * **配置好的 Kubernetes Cluster (2核CPU 和 4G 内存)** 可以是本地集群, 如 [minikube](https://minikube.sigs.k8s.io/docs/start/) 或 [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) 集群, 或远端集群, 比如[腾讯的 TKE](https://cloud.tencent.com/product/tke). 
 * **RBAC** 在上述集群中已经启用
 * **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** 具备命名空间的管理员权限
-* **[Helm](https://helm.sh/)** 已安装
 * Kubernetes API 服务可以在内部和外部访问
 
 > 这里用 minikube 进行示例的部署，您也可以将示例应用部署在任意 Kubernetes 集群中
