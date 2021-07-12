@@ -19,6 +19,8 @@ When developing cloud-based application in Nocalhost, any code changes can immed
 
 In order to give you a better understanding of Nocalhost, it is recommended that you read our blog post [Nocalhost - Refine Cloud Native Dev Environment](https://nocalhost.dev/Blog/redefine-cloud-native-dev-environment/)
 
+[![Nocalhost](https://img.youtube.com/vi/hp5yICl8j0s/0.jpg)](https://www.youtube.com/watch?v=hp5yICl8j0s)
+
 ## Key Features
 
 #### IDE Support
