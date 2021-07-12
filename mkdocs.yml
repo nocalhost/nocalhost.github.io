@@ -83,6 +83,7 @@ nav:
     - 参考:
       - Nocalhost 配置说明: zh/references/nh-config-spec.md
       - 部署示例应用: zh/references/deploy-app.md
+      - 工作负载 DevMode 支持: zh/references/devmode-workloads.md
     - FAQ:
       - 安装中常见问题: zh/FAQ/faq-installation.md
       - 使用中常见问题: zh/FAQ/faq-using.md
@@ -137,6 +138,7 @@ nav:
     - Reference:
       - Nocalhost Config Specs: eng/references/nh-config-spec.md
       - Deploy Demo APP: eng/references/deploy-app.md
+      - DevMode supports for different workloads: eng/references/devmode-workloads.md
     - FAQ:
       - Insallation: eng/FAQ/faq-installation.md
       - Using: eng/FAQ/faq-using.md

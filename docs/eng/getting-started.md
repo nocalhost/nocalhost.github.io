@@ -88,7 +88,7 @@ Port-forward 39080:9080 has been started
 
 Let's make some code change and see how Nocalhost works
 
-#### Execute sh command to start the python process
+#### Execute sh command in remote terminal to start the python process
 
 ```
 sh run.sh

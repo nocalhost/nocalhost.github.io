@@ -1,23 +1,24 @@
-# 各种工作负载 DevMode 支持
+# DevMode supports for different workloads
 
-Nocalhost 支持对几种常见的工作负载进行开发，下述是对不同工作负载进行开发的工作原理
+Nocalhost supports to develop different common workloads. The following is the working principle of entering DevMode for different workloads
 
 ## Deployment
 
-Deployment 进入开发模式时主要有以下步骤：
-1. 将 Pod 的副本数缩减为 1
-2. 修改 .spec 中 manifest 的定义：
-    - 将原 .spec 保存在 annotation 中，用于退出开发时恢复原有工作负载
-    - 修改指定容器的镜像为开发镜像，容器的名字改为 nocalhost-dev
-    - 增加一个 nocalhost-sidecar 容器(用于文件同步)
-    - 创建一个 emptyDir 类型的卷，挂载到 nocalhost-dev 和 nocalhost-sidecar 容器的 workDir 目录下
-    - 创建一个 secret 类型的卷，将保存在 Secret 中的 syncthing 证书和配置挂载进 nocalhost-sidecar 容器 
-    - 禁用容器的所有探针，SecurityContext
+The main steps when Deployment enters the DevMode:
 
-总的来说，第 2 步就是修改 Deployment 的 manifest，以下以 bookinfo 的 reviews 服务作为示例，对比其进入开发前后的 manifest 变化：
+1. Reduce the Pod replicate to 1
+2. Modify manifest definition in ``.spec``：
+    - Save the original ``.spec`` in annotation, used to restore the original workload when existing DevMode
+    - Modify the image of the specified container as a DevImage, and change the name of the container to nocalhost-dev
+    - Add a nocalhost-sidecar container for file synchronization
+    - Create a ``emptyDir`` type volume, mount it to the ``workDir`` directory of the ``nocalhost-dev`` and ``nocalhost-sidecar`` containers
+    - -Create a secret volume, and mount the syncthing certificate and configuration stored in the Secret into the nocalhost-sidecar container
+    - Disable all probes of the container，SecurityContext
+
+In general, the second step is to modify the manifest of the Deployment. The following uses the reviews service of bookinfo as an example to compare the manifest changes before and after the DevMode:
 
 ```yaml
-# 进入开发前
+# Before enter DevMode
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -86,7 +87,7 @@ spec:
 ```
 
 ```yaml
-# 进入开发后
+# Enter DevMode
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -94,7 +95,10 @@ metadata:
     deployment.kubernetes.io/revision: "2"
     dev.nocalhost/application-name: bookinfo
     dev.nocalhost/application-namespace: nh6bxsw
-    # 下面这一串东西用于记录进入开发前工作负载的定义，用于退出开发时将工作负载还原到原来的状态
+
+    # The following strings used to record the definition of the workload
+    # before entering DevMode, and to restore the workload to its original
+    # state when exiting DevMode 
     nocalhost.origin.spec.json: '{"replicas":1,"selector":{"matchLabels":{"app":"reviews"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"reviews"}},"spec":{"volumes":[{"name":"wlp-output","emptyDir":{}},{"name":"tmp","emptyDir":{}}],"containers":[{"name":"reviews","image":"codingcorp-docker.pkg.coding.net/nocalhost/bookinfo/reviews:latest","ports":[{"containerPort":9080,"protocol":"TCP"}],"env":[{"name":"LOG_DIR","value":"/tmp/logs"}],"resources":{},"volumeMounts":[{"name":"tmp","mountPath":"/tmp"},{"name":"wlp-output","mountPath":"/opt/ibm/wlp/output"}],"readinessProbe":{"tcpSocket":{"port":9080},"initialDelaySeconds":5,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600}'
   generation: 2
   labels:
@@ -127,9 +131,12 @@ spec:
           env:
             - name: LOG_DIR
               value: /tmp/logs
-          image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:latest # 镜像被替换成了开发镜像
+          # Image has been replaced by DevImage
+          image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:latest 
           imagePullPolicy: Always
-          name: nocalhost-dev # 原 reviews 容器，进入开发模式后名字会被统一改成 nocalhost-dev
+          # The original reviews container, after entering the Devmode, the name
+          # will change to nocalhost-dev
+          name: nocalhost-dev 
           ports:
             - containerPort: 9080
               protocol: TCP
@@ -157,7 +164,8 @@ spec:
             - -c
           image: codingcorp-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:syncthing
           imagePullPolicy: Always
-          name: nocalhost-sidecar # nocalhost-sidecar 容器，和 nocalhost-dev 共同挂载了 nocalhost-shared-volume 卷，用于文件同步
+          # nocalhost-sidecar The container, and nocalhost-dev mount the nocalhost-shared-volume volume together for file synchronization
+          name: nocalhost-sidecar 
           resources:
             limits:
               cpu: "1"
@@ -187,8 +195,10 @@ spec:
         - emptyDir: {}
           name: tmp
         - emptyDir: {}
-          name: nocalhost-syncthing # syncthing 使用的卷
-        - name: nocalhost-syncthing-secret # 将保存在 Secret 中的 syncthing 证书和配置挂载进 nocalhost-sidecar 容器 
+          name: nocalhost-syncthing # syncthing volume
+        # Mount the syncthing certificate and configuration saved in 
+        # the Secret into the nocalhost-sidecar container
+        - name: nocalhost-syncthing-secret 
           secret:
             defaultMode: 448
             items:
@@ -206,51 +216,50 @@ spec:
           name: nocalhost-shared-volume
 ```
 
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+3. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar
+4. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container
 
 
 ## StatefulSet
 
-StatefulSet 进入开发模式的逻辑基本和 Deployment 一致：
+The logic of StatefulSet entering the DevMode is basically the same as that of Deployment:
 
-1. 将 Pod 的副本数缩减为 1
-2. 修改 .spec 中 manifest 的定义 （具体内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Reduce the Pod replicate to 1
+2. Modify manifest definition in ``.spec`` (Refer to Deployment above for specific modifications)
+3. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar
+4. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container
 
 ## DaemonSet
 
-DamonSet 进入开发模式的流程：
+The process of DamonSet entering DevMode:
 
-1. 将 Pod 数量缩减为 0，由于 DaemonSet 的 Pod 是每个 node 上会跑一个，没有办法显式地设置 Pod 的数量，只能将 nodeSelector 设置成一个不存在的 node，间接地让 Pod 数量变 0
-2. 使用 DaemonSet 的 .spec 生成一个 Deployment， 修改 Deployment 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Reduce the Pod replicate to 0, Since DaemonSet’s Pod runs one on each node, there is no way to explicitly set the number of Pods. You can only set the nodeSelector to a non-existent node and indirectly change the number of Pods to 0.
+2. Use DaemonSet's ``.spec`` to generate a Deployment, modify the definition of ``.spec`` manifest in the Deployment (Refer to Deployment above for specific modifications).
+3. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar.
+4. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container.
 
 ## Job
 
-Job 进入开发模式的流程：
+The process of Job entering DevMode:
 
-1. 使用 Job 的 .spec 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-2. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-3. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
-
+1. Use the job's ``.spec`` to generate a new job, modify the definition of the ``.spec`` manifest in the job (Refer to Deployment above for specific modifications)
+2. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar.
+3. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container.
 
 ## CronJob
 
-CronJob 进入开发模式的流程：
+The process of CronJob entering DevMode:
 
-1.  将 CronJob 的 .spec.schedule 设置为 ""1 1 1 1 1"，禁用掉定时任务的调度
-2. 使用 CronJob 的 .spec.jobTemplate 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Set the ``.spec.schedule`` of CronJob to ""1 1 1 1 1" to disable the scheduling of timed tasks
+2. Use CronJob's .spec.jobTemplate to generate a new Job and modify the definition of ``.spec`` manifest in the job (Refer to Deployment above for specific modifications)
+3. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar.
+4. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container.
 
 ## Pod 
 
-Pod 进入开发模式的流程：
+The process of Pod entering DevMode:
 
-1. 修改 Pod 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-2. 删除原来的 Pod，使用修改后的 .spec 创建一个新的 Pod
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Modify the definition of .spec manifest in the Pod (Refer to Deployment above for specific modifications)
+2. Delete the original Pod and create a new Pod with the modified ``.spec``
+3. Enable a port-forward and forward a random local port to the port monitored by syncthing in nocalhost-sidecar.
+4. The client running syncthing, monitors the local source directory and synchronizes the changes in the local directory to the remote container.

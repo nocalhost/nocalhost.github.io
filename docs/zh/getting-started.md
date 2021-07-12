@@ -93,7 +93,7 @@ Port-forward 39080:9080 has been started
 
 让我们进行一些代码更改，看看 Nocalhost 是如何工作的
 
-#### 执行 sh 命令启动 python 进程
+#### 在远端 Terminal 中执行 sh 命令启动 python 进程
 
 ```
 sh run.sh
