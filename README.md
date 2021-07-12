@@ -3,13 +3,13 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/nocalhost/nocalhost)](https://goreportcard.com/report/github.com/nocalhost/nocalhost)
 [![LICENSE](https://img.shields.io/github/license/nocalhost/nocalhost)](https://github.com/nocalhost/nocalhost/blob/main/LICENSE)
 
-<center>
+<p align="center">
     <a herf="https://nocalhost.dev">
         <img src='https://user-images.githubusercontent.com/3713305/123894696-305fc480-d991-11eb-960a-e87d8bd7acbf.png' width="200"/>
     </a>
     <br />
     <em>Most productive way to build cloud-native applications.</em>
-</center>
+</p>
 
 ## Nocalhost
 
@@ -19,14 +19,15 @@ When developing cloud-based application in Nocalhost, any code changes can immed
 
 In order to give you a better understanding of Nocalhost, it is recommended that you read our blog post [Nocalhost - Refine Cloud Native Dev Environment](https://nocalhost.dev/Blog/redefine-cloud-native-dev-environment/)
 
-[![Nocalhost](https://img.youtube.com/vi/hp5yICl8j0s/0.jpg)](https://www.youtube.com/watch?v=hp5yICl8j0s)
-
-
 ## Key Features
+
+#### IDE Support
+
+Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These extension will enable developer to develop and debug cloud-based application in their local machine.
 
 #### Develop cloud-based application in one click
 
-No need to config complex dev environments in your local machine anymore. Nocalhost helps you to set up remote side dev environment in one click.
+No need to config complex dev environments in your local machine anymore. Nocalhost helps you to connect to remote side dev environment in one click.
 
 #### HotReload without rebuild images or restart containers
 
@@ -35,10 +36,6 @@ Any code changes will be synchronized immediately to the remote side without reb
 #### Isolated development space
 
 Every team member can enjoy their own independent development space to ensure that they are not disturbed by others.
-
-#### IDE Support
-
-Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These extension will enable developer to develop and debug cloud-based application in their local machine.
 
 ## Getting Started
 
