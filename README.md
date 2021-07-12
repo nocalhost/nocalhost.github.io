@@ -8,7 +8,7 @@
         <img src='https://user-images.githubusercontent.com/3713305/123894696-305fc480-d991-11eb-960a-e87d8bd7acbf.png' width="200"/>
     </a>
     <br />
-    <em>Make coding in cloud-native more efficient and productive</em>
+    <em>Most productive way to build cloud-native applications.</em>
 </center>
 
 ## Nocalhost
@@ -21,7 +21,9 @@ In addition, Nocalhost also provides application management, development environ
 
 In order to give you a better understanding of Nocalhost, it is recommended that you read our blog post [Nocalhost - Refine Cloud Native Dev Environment](https://nocalhost.dev/Blog/redefine-cloud-native-dev-environment/)
 
-![local-compare-nocal](https://user-images.githubusercontent.com/3713305/123894812-6ac96180-d991-11eb-935f-38df95eccc69.jpg)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=hp5yICl8j0s
+" target="_blank"><img src="http://img.youtube.com/vi/hp5yICl8j0s/0.jpg" 
+alt="Nocalhost"/></a>
 
 ## Key Features
 
@@ -49,7 +51,7 @@ Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These ext
 
 ## Documentation
 
-Full documentation is available on the [Nocalhost website](https://nocalhost.dev/)
+Full documentation is available on the [Nocalhost](https://nocalhost.dev/)
 
 ## Community
 
