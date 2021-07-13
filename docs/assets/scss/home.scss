@@ -215,7 +215,7 @@
     .content-video-container {
       text-align: center;
     }
-
+    
     .cards-group-container {
       // Set card margin
       $cardMargin: 7px;
@@ -756,4 +756,11 @@
       color: #0078f9;
     }
   }
+}
+
+video::cue {
+  background: none;
+  color: #fff;
+  text-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000, 0 -1px #000;
+  font-size: medium;
 }
