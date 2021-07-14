@@ -23,19 +23,19 @@ In order to give you a better understanding of Nocalhost, it is recommended that
 
 ## Key Features
 
-#### IDE Support
+### IDE Support
 
 Nocalhost provides easy-to-use IDE extension for JetBrains and VSCode. These extension will enable developer to develop and debug cloud-based application in their local machine.
 
-#### Develop cloud-based application in one click
+## Start cloud-native application development in one click
 
-No need to config complex dev environments in your local machine anymore. Nocalhost helps you to connect to remote side dev environment in one click.
+No need to config complex dev environments in your local machine anymore. Nocalhost helps you to connect to any Kubernetes environment in one click.
 
-#### HotReload without rebuild images or restart containers
+### See code change under a second
 
-Any code changes will be synchronized immediately to the remote side without rebuild images or restart containers.
+automatically synchronize the code to container every time you make a change. Nocalhost eliminate the submit, building and pushing cycles,  significantly speed up the feedback loop of development, so you see change in under a second.
 
-#### Isolated development space
+### Isolated development space
 
 Every team member can enjoy their own independent development space to ensure that they are not disturbed by others.
 
