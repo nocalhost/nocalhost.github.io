@@ -211,6 +211,8 @@
   }
 }
 #nocalhost .tx-hero_content_2 .content-video-container {
+  width: 68%;
+  margin: 0 auto;
   position: relative;
   top: -40px;
   text-align: center;
