@@ -217,6 +217,11 @@
   top: -40px;
   text-align: center;
 }
+@media (max-width: 900px) {
+  #nocalhost .tx-hero_content_2 .content-video-container {
+    width: 100%;
+  }
+}
 #nocalhost .tx-hero_content_2 .cards-group-container {
   display: flex;
   justify-content: center;
@@ -739,6 +744,16 @@ video::cue {
   color: #fff;
   text-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000, 0 -1px #000;
   font-size: x-large;
+}
+@media (max-width: 700px) {
+  video::cue {
+    font-size: small;
+  }
+}
+@media (max-width: 460px) {
+  video::cue {
+    font-size: x-small;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

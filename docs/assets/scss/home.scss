@@ -218,6 +218,10 @@
       position: relative;
       top: -40px;
       text-align: center;
+      
+      @media (max-width: 900px) {
+        width: 100%;
+      }
     }
     
     .cards-group-container {
@@ -767,4 +771,12 @@ video::cue {
   color: #fff;
   text-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000, 0 -1px #000;
   font-size: x-large;
+
+  @media (max-width: 700px) {
+    font-size: small;
+  }
+
+  @media (max-width: 460px) {
+    font-size: x-small;
+  }
 }
