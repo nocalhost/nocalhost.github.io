@@ -4,7 +4,7 @@
 [![LICENSE](https://img.shields.io/github/license/nocalhost/nocalhost)](https://github.com/nocalhost/nocalhost/blob/main/LICENSE)
 
 <p align="center">
-    <a herf="https://nocalhost.dev">
+    <a href="https://nocalhost.dev">
         <img src='https://user-images.githubusercontent.com/3713305/123894696-305fc480-d991-11eb-960a-e87d8bd7acbf.png' width="200"/>
     </a>
     <br />
@@ -60,7 +60,7 @@ Full documentation is available on the [Nocalhost](https://nocalhost.dev/)
 
 | Engagement | Link |
 | ---------- | ---- |
-| :video_camera: &nbsp; Videos  |  |
+| :video_camera: &nbsp; Videos  | [https://www.youtube.com/channel/UC2QC6HvFG8zOtFRvvMzcAUw](https://www.youtube.com/channel/UC2QC6HvFG8zOtFRvvMzcAUw) |
 
 ## Contributing
 
