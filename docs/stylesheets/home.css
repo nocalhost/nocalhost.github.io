@@ -735,10 +735,10 @@
 }
 
 video::cue {
-  background: none;
+  background-color: transparent;
   color: #fff;
   text-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000, 0 -1px #000;
-  font-size: medium;
+  font-size: x-large;
 }
 
 /*# sourceMappingURL=home.css.map */
