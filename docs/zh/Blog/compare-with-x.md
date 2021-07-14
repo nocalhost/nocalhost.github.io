@@ -1,4 +1,4 @@
-# Nocalhsot vs. Other Software
+# Nocalhost vs. Other Software
 
 要对比不同软件之间的差别是困难的，尤其是当问到是否可以用其他软件来替代？以及不同的软件之间可以相互协同吗？
 
