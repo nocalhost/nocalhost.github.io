@@ -1,0 +1,124 @@
+[data-md-color-scheme="nocalhost"] {
+  --md-primary-fg-color: #0080ff;
+  --md-primary-fg-color--light: #3399ff;
+  --md-primary-fg-color--dark: #0059b2;
+}
+
+@font-face {
+  font-family: "nexa_light";
+  src: url("/assets/fonts/nexa_light.woff");
+  src: url("/assets/fonts/nexa_light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "nexa_bold";
+  src: url("/assets/fonts/nexa_bold.woff");
+  src: url("/assets/fonts/nexa_bold.woff") format("woff");
+}
+
+.md-header-nav__button.md-logo {
+  padding: 0;
+  margin: 0;
+}
+
+.md-header-nav__button.md-logo img,
+.md-header-nav__button.md-logo svg {
+  height: 2.4rem;
+  width: auto;
+}
+
+.md-button--primary {
+  background:#0078F9 !important;
+  border: none !important;
+}
+
+.md-button--primary:hover {
+  background: #005fc6 !important;
+  border: none;
+}
+
+.md-button__home_github {
+  background: #9b5bfb;
+  color: #fff !important;
+  border-radius: 0.1rem !important;
+}
+
+
+.md-button__home_github:hover {
+  background: #7d2afa;
+}
+
+.md-button__home_github > img {
+  display: inline-block;
+  fill: currentColor;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: text-top;
+  position: relative;
+  top: -1px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    height: auto;
+  }
+  .nocalhost-nav-logo {
+    padding: 0 !important;
+  }
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-nav__button {
+    position: static;
+  }
+}
+
+.nocalhost-nav-logo {
+  background: #0b0f13 !important;
+}
+
+.md-header {
+  background: #0b0f13;
+}
+
+.md-header-nav img.github-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: -1px;
+}
+
+.md-header-nav img.coding-icon {
+  height: 18px;
+  /* margin-top: 1px; */
+}
+
+.md-header-nav .md-tabs__list {
+  contain: none;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a {
+  position: relative;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a p {
+  position: absolute;
+  background: var(--md-primary-fg-color);
+  padding: 4px;
+  font-size: 14px;
+  line-height: 32px;
+  padding: 0 12px;
+  right: 0;
+  bottom: -60px;
+  border-radius: 4px;
+  color: #fff;
+  visibility: hidden;
+  box-shadow: 0 2px 4px rgba(5,9,12,0.2);
+  opacity: 0;
+}
+
+.md-header-nav .md-tabs__item.coding-entry a:hover p{
+  visibility: visible;
+  bottom: -50px;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
