@@ -2,10 +2,6 @@
 
 ### 1. Do Not Configure Service
 
-**Service** 并不是必须配置的，如果您没有进行任何 **Service** 相关的配置。但想在进入开发模式前对其进行配置，Nocalhost 编辑器插件会为您自动生成一个模板文件，您需对其进行修改并保存即可。
-
-1. 选择一个需要开发的微服务，
-
 **Service** does not have to be configured. If you have not modify any **Service** configuration, but want to configure it before entering the DevMode, the Nocalhost IDE plugin will automatically generate a template file for you, you need to modify it and save it.
 
 1. Select a microservice to be developed and click <img src='../../../assets/images/icons/nocalhost-config-icon.jpg' width="20" /> to configure
