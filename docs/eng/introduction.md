@@ -11,7 +11,7 @@ Although the development trend has greatly improved the efficiency of applicatio
 
 First, although Kubernetes does an excellent job of managing the infrastructure, it brings additional complexity and a steep learning curve. The lack of Kubernetes abstraction for developers affects the development experience and reduces development efficiency. Developers have to spend a lot of energy on concept learning, system configuration, environment deployment, and resource management.
 
-On the other hand, many companies today are in the practice of "microservices", the granularity of splitting is too tiny, leading to a further sharp increase in the number of microservice, and the relationship between services is becoming more and more complex. Various problems are paticularly prominent when you want to add new requirements. This leads to the following problems for developers and managers:
+On the other hand, many companies today are in the practice of "microservices", the granularity of splitting is too tiny, leading to a further sharp increase in the number of microservice, and the relationship between services is becoming more and more complex. Various problems are particularly prominent when you want to add new requirements. This leads to the following problems for developers and managers:
 
 > **Developer** :tired_face: How to quickly start a complete development environment? How to quickly debug these dozens or even hundreds of microservices? How to collaborate with other colleagues once the requirements are depends on others?
 
