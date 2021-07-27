@@ -46,8 +46,8 @@ After the kubeconfig file successfully loaded, select the context that you want 
 
 [![](../assets/images/installation/nocal-success-load-cluster.png)](../assets/images/installation/nocal-success-load-cluster.png)
 
-!!!tip Example Application
-    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Example Application in K8s](../references/deploy-app)** to deploy bookinfo app in your Kubernetes clusters.
+!!!tip Demo Application
+    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Demo Application](../references/deploy-quick-demo)** to deploy demo app in your Kubernetes clusters.
 
 ## Step 3: Start DevMode
 

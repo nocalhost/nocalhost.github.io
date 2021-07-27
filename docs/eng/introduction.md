@@ -84,7 +84,4 @@ Nocalhost manages serviceAccount, namespace and application in kubernetes cluste
 
 * Once all dependent service become available, the InitContainer exits, then the containers which container business logics start. There is no restarting, which means minimal time waiting of starting.
 
-## 下一步
-
-通过 [快速开始](getting-started.md) 便捷的云原生微服务应用的开发过程
 

@@ -54,7 +54,7 @@ title: 快速上手
 ## 步骤3：进入 DevMode
 
 !!!tip 示例应用
-    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../references/deploy-app)** 在Kubernetes集群中部署bookinfo应用程序。
+    我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[在K8s中部署示例应用程序](../references/deploy-quick-demo)** 在Kubernetes集群中部署 bookinfo 应用程序。
 
 选择一个你想开发的应用，在这里我们用 **bookinfo** 应用举例
 

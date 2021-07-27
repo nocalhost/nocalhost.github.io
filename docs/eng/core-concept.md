@@ -4,7 +4,7 @@ In this documentation, we will explain the core idea of Nocalhost and clarify so
 
 **Cluster** is a concept of Nocalhost. It usually corresponds to a Kubernetes cluster. Nocalhost supports to connect to multi-clusters, which can be GKE, minikube and microK8s.
 
-In the actual development process, users do not need to know the concept of Cluster, and user's operation under [DevSpace](#devspace) actually rely on the apabilities of Cluster.
+In the actual development process, users do not need to know the concept of Cluster, and user's operation under [DevSpace](#devspace) actually rely on the capabilities of Cluster.
 
 ### Cluster Management
 

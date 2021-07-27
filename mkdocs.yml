@@ -82,7 +82,7 @@ nav:
         - 使用 Nocalhost Server: zh/server/using-server.md
     - 参考:
       - Nocalhost 配置说明: zh/references/nh-config-spec.md
-      - 部署示例应用: zh/references/deploy-app.md
+      - 部署示例应用: zh/references/deploy-quick-demo.md
       - 工作负载 DevMode 支持: zh/references/devmode-workloads.md
     - FAQ:
       - 安装中常见问题: zh/FAQ/faq-installation.md
@@ -138,7 +138,7 @@ nav:
         - Using Nocalhost Server: eng/server/using-server.md
     - Reference:
       - Nocalhost Config Specs: eng/references/nh-config-spec.md
-      - Deploy Demo APP: eng/references/deploy-app.md
+      - Deploy Demo APP: eng/references/deploy-quick-demo.md
       - DevMode supports for different workloads: eng/references/devmode-workloads.md
     - FAQ:
       - Insallation: eng/FAQ/faq-installation.md
