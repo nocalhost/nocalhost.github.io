@@ -6,7 +6,7 @@ Welcome to Nocalhost! In this guide, we'll walk you through how to install Nocal
 
 ## Prerequisites
 
-* **Configured Kubernetes Cluster (with 2 Core and 4G Memory)** which can either be a cluster for local development, such as [minikube](https://minikube.sigs.k8s.io/docs/start/) or [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) cluster, or any publick Kubernetes cluster, such as [Tencent TKE](https://cloud.tencent.com/product/tke). 
+* **Configured Kubernetes Cluster (with 2 Core and 4G Memory)** which can either be a cluster for local development, such as [minikube](https://minikube.sigs.k8s.io/docs/start/) or [Docker Kubernetes](https://docs.docker.com/docker-for-mac/kubernetes/) cluster, or any public Kubernetes cluster, such as [Tencent TKE](https://cloud.tencent.com/product/tke). 
 * **RBAC** must be enabled in above cluster
 * **Configured [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file** that has namespace admin privilege
 * Visual Studio Code (1.52+)
@@ -47,7 +47,7 @@ After the kubeconfig file successfully loaded, select the context that you want 
 [![](../assets/images/installation/nocal-success-load-cluster.png)](../assets/images/installation/nocal-success-load-cluster.png)
 
 !!!tip Demo Application
-    We will using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Demo Application](../references/deploy-quick-demo)** to deploy demo app in your Kubernetes clusters.
+    We will using the `bookinfo` application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Demo Application](../references/deploy-quick-demo)** to deploy demo app in your Kubernetes clusters.
 
 ## Step 3: Start DevMode
 
