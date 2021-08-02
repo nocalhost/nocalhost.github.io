@@ -22,7 +22,7 @@ service:
       remoteDebugPort: 9003
 ...
 ```
-资料将使用 Xdebug 的默认调试端口 `9003`
+这里将使用 Xdebug 的默认调试端口 `9003`
 
 ## 2. 进入开发模式
 
@@ -30,7 +30,7 @@ service:
 
 ## 3. 添加调试配置
 
-添加 Nocalhost 调试培植
+添加 Nocalhost 调试配置
 
 ![Add debug configuration](../../assets/images/debug/php-add-config.gif)
 
