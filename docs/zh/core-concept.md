@@ -62,7 +62,7 @@ Nocalhost 支持三种类型的应用：
 
 ### 配置 Service
 
-可参考 [Service 最佳实践](./best-practice/service-best) 。
+可参考 [Service 最佳实践](./zh/best-practice/service-best) 。
 
 !!!note
     Service 配置并不是必须的！完全不进行配置，也可以照常创建 **Application**、**Cluster** 等等，**Service** 只在你有需要时才需要配置。
