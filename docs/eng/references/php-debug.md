@@ -3,9 +3,7 @@
 !!!note About this guide
     **Gold :**  Use Nocalhost to debugging PHP application <br />
     **Estimate time :** 3 minutes<br />
-    **Requirements :**
-        - PhpStorm installed
-        - Nocalhost IDE plugin installed
+    **Requirements :** PhpStorm and Nocalhost IDE plugin installed
 ## 1. Config Remote Debug Command and Port
 
 1. Open PhpStorm and Nocalhost JetBrains plugin

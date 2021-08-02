@@ -3,9 +3,7 @@
 !!!note About this guide
     **Gold :**  Use Nocalhost to debugging PHP application <br />
     **Estimate time :** 3 minutes<br />
-    **Requirements :**
-        - PyCharm installed
-        - Nocalhost IDE plugin installed
+    **Requirements :** PyCharm and Nocalhost IDE plugin installed
   
 ## 1. Config Remote Debug Command and Port
 

@@ -143,8 +143,9 @@ nav:
       - Deploy Demo APP: eng/references/deploy-quick-demo.md
       - DevMode supports for different workloads: eng/references/devmode-workloads.md
       - Remote Debug PHP Application: eng/references/php-debug.md
+      - Remote Debug Python Application: eng/references/python-debug.md
     - FAQ:
-      - Insallation: eng/FAQ/faq-installation.md
+      - Installation: eng/FAQ/faq-installation.md
       - Using: eng/FAQ/faq-using.md
     - Blog:
         - Nocalhost - Redefine Cloud Native Dev Environment: eng/Blog/redefine-cloud-native-dev-environment.md

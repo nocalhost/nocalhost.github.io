@@ -3,9 +3,7 @@
 !!!note 指引说明
     **目标 :**  使用 Nocalhost 远程调试 Python 应用 <br />
     **Estimate time :** 3 分钟<br />
-    **Requirements :**
-        - 已安装 PyCharm
-        - 已安装 Nocalhost IDE 插件
+    **Requirements :** 已安装 PyCharm 和 Nocalhost IDE 插件
      
 ## 1. 配置远程调试命令和端口
 
