@@ -76,4 +76,4 @@ Nocalhost is [Apache 2.0 licensed](./LICENSE)
 
 ## 🔥 &nbsp; We Are Hiring!
 
-If you are interested with Nocalhost, please send resume to email: wangweimax@coding.net(Accept Remote Work)
+If you are interested with Nocalhost, please send your resume to email: wangweimax@coding.net(Accept Remote Work)
