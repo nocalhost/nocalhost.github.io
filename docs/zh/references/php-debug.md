@@ -24,7 +24,7 @@ service:
       remoteDebugPort: 9003
 ...
 ```
-整理将使用 Xdebug 的默认调试端口 `9003`
+这里将使用 Xdebug 的默认调试端口 `9003`
 
 ## 2. 进入开发模式
 
