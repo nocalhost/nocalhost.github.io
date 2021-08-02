@@ -84,6 +84,7 @@ nav:
       - Nocalhost 配置说明: zh/references/nh-config-spec.md
       - 部署示例应用: zh/references/deploy-quick-demo.md
       - 工作负载 DevMode 支持: zh/references/devmode-workloads.md
+      - 远程调试 PHP 应用: zh/references/php-debug.md
     - FAQ:
       - 安装中常见问题: zh/FAQ/faq-installation.md
       - 使用中常见问题: zh/FAQ/faq-using.md
@@ -140,6 +141,7 @@ nav:
       - Nocalhost Config Specs: eng/references/nh-config-spec.md
       - Deploy Demo APP: eng/references/deploy-quick-demo.md
       - DevMode supports for different workloads: eng/references/devmode-workloads.md
+      - Remote Debug PHP Application: eng/references/php-debug.md
     - FAQ:
       - Insallation: eng/FAQ/faq-installation.md
       - Using: eng/FAQ/faq-using.md
