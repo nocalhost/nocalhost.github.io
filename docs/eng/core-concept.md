@@ -64,7 +64,7 @@ Read [Best Practice of Application](./best-practice/application-best.md) 。
 
 ### Service Congiguration
 
-Read [Best Practice of Service](./best-practice/service-best) 。
+Read [Best Practice of Service](/eng/best-practice/service-best) 。
 
 !!!note
     Service configurations are not necessary, only needs to be configured when you need it.
