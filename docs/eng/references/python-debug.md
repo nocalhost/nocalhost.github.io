@@ -26,23 +26,23 @@ service:
 
 Start the development mode
 
-![Enter development mode](../../assets/images/debug/php-devmode.gif)
+![Enter development mode](../../assets/images/debug/python-devmode.gif)
 
 ## 3. Add Configuration
 
 Add Nocalhost debug configuration, enter the same port number with your `remoteDebugPort` above.
 
-![Add debug configuration](../../assets/images/debug/php-add-config.gif)
+![Add debug configuration](../../assets/images/debug/python-add-config.gif)
 
 ## 4. Set Break Point and Debug
 
 Set the break point and start debugging 
 
-![Add debug configuration](../../assets/images/debug/php-break-debug.gif)
+![Add debug configuration](../../assets/images/debug/python-break-debug.gif)
 
 ## How it Works?
 
 Nocalhost using pydevd to debug Python application.
 
-![Add debug configuration](../../assets/images/debug/php-debug.jpg)
+![Add debug configuration](../../assets/images/debug/python-debug.jpg)
 
