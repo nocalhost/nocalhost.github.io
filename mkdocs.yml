@@ -85,6 +85,7 @@ nav:
       - 部署示例应用: zh/references/deploy-quick-demo.md
       - 工作负载 DevMode 支持: zh/references/devmode-workloads.md
       - 远程调试 PHP 应用: zh/references/php-debug.md
+      - 远程调试 Python 应用: zh/references/python-debug.md
     - FAQ:
       - 安装中常见问题: zh/FAQ/faq-installation.md
       - 使用中常见问题: zh/FAQ/faq-using.md
