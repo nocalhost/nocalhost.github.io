@@ -91,6 +91,7 @@ nav:
     - 博客:
       - Nocalhost - 重新定义云原生开发环境: zh/Blog/redefine-cloud-native-dev-environment.md
       - 和其它软件的对比: zh/Blog/compare-with-x.md
+      - 如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？: zh/Blog/mdhow-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh.md
   - Documentations:
     - Overview:
       - Introduction: eng/introduction.md
@@ -148,3 +149,4 @@ nav:
     - Blog:
         - Nocalhost - Redefine Cloud Native Dev Environment: eng/Blog/redefine-cloud-native-dev-environment.md
         - Compare with X: eng/Blog/compare-with-x.md
+        - How to debug microservices in Kubernetes with proxy, sidecar or service mesh?: eng/Blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh.md
