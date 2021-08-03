@@ -51,7 +51,7 @@ Kubernetes 可以说是目前为止用来运行微服务的最佳载体，但是
 
 [Nocalhost](https://nocalhost.dev/) 是一个基于 Kubernetes 的云端开发环境。要想使用它，你只需要在你的 IDE——VS Code 中安装一个插件即可扩展 Kubernetes，并缩短开发反馈周期。通过为不同的用户创建不同的 namespace，并使用 ServiceAccount 绑定到不同用户角身上时，就可以实现开发环境隔离。同时，Nocalhost 还提供了 Web 控制台和 API，方便管理员来管理不同的开发环境。
 
-[ ![Sidecar mode: Nocalhost](../../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpg) ](../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpg)
+[ ![Sidecar mode: Nocalhost](../../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpeg) ](../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpeg)
 
 #### 测试
 
@@ -91,11 +91,11 @@ kubectl create rolebinding admin --clusterrole=admin --serviceaccount=default:my
 
 下面是以 Istio 官方提供的 [bookinfo 示例](https://istio.io/latest/docs/examples/bookinfo/)为例，你可以在本地 IDE 中打开克隆下来的代码，然后点击代码文件旁边的锤子即可进入开发模式。选择对应的 DevContainer，nocalhost 会自动向 pod 中注入一个开发容器 sidecar，并在终端中自动进入该容器，如下图所示。
 
-[ ![Nocalhost VSCode 界面](../../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpg)
+[ ![Nocalhost VSCode 界面](../../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpeg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpeg)
 
 在开发模式中，本地修改代码，无需重新构建镜像，远端开发环境实时生效，这样可以极大的加快开发速度。同时，Nocalhost 还提供了服务端，可用于开发环境和用户权限进行管理，如下图所示。
 
-[ ![Nocalhost Web 端](../../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpg)
+[ ![Nocalhost Web 端](../../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpeg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpeg)
 
 ### Service Mesh 模式：Istio
 
@@ -103,7 +103,7 @@ kubectl create rolebinding admin --clusterrole=admin --serviceaccount=default:my
 
 而且，当你的服务正处于从虚拟机迁移到 Kubernetes 的过程中时，使用 Istio 可以将虚拟机与 Kubernetes 纳入一个网络平面中（如下图所示），方便开发者调试和做渐进式的迁移。
 
-[ ![Serivce Mesh 模式: Istio](../../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpg) ](../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpg)
+[ ![Serivce Mesh 模式: Istio](../../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpeg) ](../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpeg)
 
 当然要获得这些好处也不是一点“代价”也不没有的，引入 Istio 后，你的 Kubernetes service 需要遵守 Istio 的[命名规范](https://istio.io/latest/zh/docs/ops/deployment/requirements/)，学习使用 [Istioctl](https://istio.io/latest/docs/ops/diagnostic-tools/istioctl-analyze/) 命令行和日志的方式来调试微服务。
 

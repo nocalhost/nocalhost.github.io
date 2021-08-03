@@ -49,7 +49,7 @@ However, this approach requires users to run multiple commands while debugging l
 
 [Nocalhost](https://nocalhost.dev/) is a Kubernetes-based cloud development environment. To use it, you just need to install a plugin in your IDE – VS Code to extend Kubernetes and shorten the development feedback cycle. The development environment can be isolated by creating different namespaces for different users and using ServiceAccount when binding to different user corners. Nocalhost also provides a web console and API for administrators to manage different development environments.
 
-[ ![Sidecar mode: Nocalhost](../../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpg) ](../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpg)
+[ ![Sidecar mode: Nocalhost](../../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpeg) ](../assets/images/blog/how-to-debug-microservices/sidecar-nocalhost.jpeg)
 
 As long as you have a Kubernetes cluster and have admin rights to the cluster, you can refer to the [Nocalhost documentation](https://nocalhost.dev/getting-started/) to quickly start trying it out. To use the Nocalhost plugin in VS Code, you need to configure the Kubernetes cluster in the plugin first.
 
@@ -58,17 +58,17 @@ As long as you have a Kubernetes cluster and have admin rights to the cluster, y
 
 Here is an example of the [bookinfo sample](https://istio.io/latest/docs/examples/bookinfo/) provided by Istio. You can open the cloned code in your local IDE and click the hammer next to the code file to enter development mode. Selecting the corresponding DevContainer and Nocalhost will automatically inject a development container sidecar into the pod and automatically enter the container in the terminal, as shown in the following figure.
 
-[ ![Nocalhost VS code](../../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpg)
+[ ![Nocalhost VS code](../../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpeg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-vs-code.jpeg)
 
 In development mode, the code is modified locally without rebuilding the image, and the remote development environment takes effect in real time, which can greatly accelerate the development speed. At the same time, Nocalhost also provides a server for managing the development environment and user rights, as shown in the following figure.
 
-[ ![Nocalhost Web](../../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpg)
+[ ![Nocalhost Web](../../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpeg) ](../assets/images/blog/how-to-debug-microservices/nocalhost-web-admin.jpeg)
 
 ### Service Mesh – debugging microservices with Istio
 
 The above method of using proxy and sidecar can only debug one service at a time. You’ll need a mesh to get the global status of the application, such as the metrics of the service obtained, and debug the performance of the service by understanding the dependency and invocation process of the service through distributed tracing. These observability features need to be implemented by injecting sidecar uniformly for all services. And, when your services are in the process of migrating from VMs to Kubernetes, using Istio can bring VMs and Kubernetes into a single network plane (as shown below), making it easy for developers to debug and do incremental migrations.
 
-[ ![Serivce Mesh mode: Istio](../../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpg) ](../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpg)
+[ ![Serivce Mesh mode: Istio](../../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpeg) ](../assets/images/blog/how-to-debug-microservices/istio-service-mesh.jpeg)
 
 Of course, these benefits do not come without a “cost.” With the introduction of Istio, your Kubernetes services will need to adhere to the Istio naming convention and you’ll need to know how to debug microservices using the Istioctl command line and logging.
 
