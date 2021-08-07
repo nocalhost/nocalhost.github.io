@@ -74,16 +74,11 @@ application:
     # 必须提供
   - path: "job-1.yaml"
 
-    # Job 名称
-    # 类型: string
-    # 必须提供
-    name: xxx-job
-
     # 执行顺序，越小越先执行
     # 类型: int
     # 默认值: 0
     # 可选
-    priority: -1
+    weight: -1
 
   - path: "job-2.yaml"
     name: xxx2-job

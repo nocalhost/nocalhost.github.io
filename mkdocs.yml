@@ -77,8 +77,8 @@ nav:
         - nhctl-yaml: zh/cli/cli-yaml.md
       - Nocalhost Server:
         - 概览: zh/server/overview.md
-        - 部署教程: zh/server/deployment.md
-        - 快速开始: zh/server/quick-start.md
+        - 部署至 MiniKube: zh/server/deploy-mini.md
+        - 部署至远端: zh/server/deploy-cloud.md
         - 使用 Nocalhost Server: zh/server/using-server.md
     - 参考:
       - Nocalhost 配置说明: zh/references/nh-config-spec.md
@@ -135,8 +135,8 @@ nav:
         - nhctl-yaml: eng/cli/cli-yaml.md
       - Nocalhost Server:
         - Overview: eng/server/overview.md
-        - Deployment: eng/server/deployment.md
-        - Quick Start: eng/server/quick-start.md
+        - Deploy to Minikube: eng/server/deploy-mini.md
+        - Deploy to Remote : eng/server/deploy-cloud.md
         - Using Nocalhost Server: eng/server/using-server.md
     - Reference:
       - Nocalhost Config Specs: eng/references/nh-config-spec.md
