@@ -1,0 +1,2378 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://nocalhost.dev/zh/Blog/redefine-cloud-native-dev-environment/">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-6.2.6">
+    
+    
+      
+        <title>Nocalhost - 重新定义云原生开发环境 - Nocalhost Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/home.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/grid.css">
+    
+    
+
+      
+    
+
+<!-- Track external links -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.addEventListener("click", function(ev) {
+                if (ev.target instanceof HTMLElement) {
+                        var el = ev.target.closest("a[href^=http]")
+                        if (el)
+                            ga("send", "event", "outbound", "click", el.href)
+                    }
+            })
+    })
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "");
+</script>
+
+    
+
+  <!-- Determine title -->
+  
+  
+    
+  
+
+  <!-- The image needs to have an absolute URL -->
+  
+
+  <!-- Open graph meta tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nocalhost Docs - Nocalhost - 重新定义云原生开发环境" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://nocalhost.dev/zh/Blog/redefine-cloud-native-dev-environment/" />
+  <meta property="og:image" content="https://nocalhost.dev/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  <!-- Twitter meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@squidfunk" />
+  <meta name="twitter:creator" content="@squidfunk" />
+  <meta name="twitter:title" content="Nocalhost Docs - Nocalhost - 重新定义云原生开发环境" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://nocalhost.dev/assets/images/banner.png" />
+
+  <!-- Extra stylesheets -->
+  <link
+    rel="stylesheet"
+    href=""
+  />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="nocalhost" data-md-color-primary="" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nocalhost-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid" aria-label="Header">
+
+    <!-- Link to home -->
+    <a
+      href="https://nocalhost.dev/"
+      title="Nocalhost Docs"
+      class="md-header-nav__button md-logo"
+      aria-label="Nocalhost Docs"
+    >
+      <img src="/assets/images/logo-white.svg" alt="nocalhost" />
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header-nav__title" data-md-component="header-title">
+    </div>
+
+    <!-- Button to open search dialogue -->
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <style>
+.md-tabs-block {
+    height: 48px;
+}
+.md-tabs__list {
+    display: flex;
+}
+.md-tabs__item a {
+    line-height: 20px;
+}
+@media screen and (max-width: 700px) {
+	.sm-hide {
+		display: none !important;
+	}
+}
+</style>
+
+<div class="md-tabs-block">
+    <ul class="md-tabs__list">
+        <li class="md-tabs__item sm-hide">
+            <a href="/" class="md-tabs__link"> Home </a>
+        </li>
+        <li class="md-tabs__item sm-hide">
+            <a href="/eng/introduction/" class="md-tabs__link md-tabs__link"> Documentation </a>
+        </li>
+        <li class="md-tabs__item sm-hide">
+            <a href="https://github.com/nocalhost/nocalhost#were-hiring" class="md-tabs__link md-tabs__link" target="_blank"> Hiring </a>
+        </li>
+        <li class="md-tabs__item">
+            <a href="/zh" class="md-tabs__link"> 中文 </a>
+        </li>
+        <li class="md-tabs__item sm-hide">
+            <a href="https://github.com/nocalhost/nocalhost" target="_blank" class="md-tabs__link">
+                <img src="/assets/images/mark-github.svg" alt="repo" class="github-icon"/>
+            </a>
+        </li>
+        <li class="md-tabs__item sm-hide coding-entry">
+            <a href="https://coding.net" target="_blank" class="md-tabs__link">
+                <img src="/assets/images/mark-coding.svg" alt="repo" class="coding-icon"/>
+                <p>Nocalhost is a project initiated by Coding.net, click to visit.</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    <!-- Repository containing source -->
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <style>
+.md-nav__title .md-nav__button.md-logo img {
+    height: 48px;
+    width: auto;
+}
+.md-nav__title .custon_md-nav__title {
+    height: auto;
+}
+</style>
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="nocalhost-nav-logo md-nav__title custon_md-nav__title" for="__drawer">
+    <a
+      href="https://nocalhost.dev/"
+      title="Nocalhost Docs"
+      class="md-nav__button md-logo"
+      aria-label="Nocalhost Docs"
+    >
+      <img src="/assets/images/logo-white.svg" alt="nocalhost" />
+    </a>
+  </label>
+
+  <!-- Repository containing source -->
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        中文文档
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="中文文档" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          中文文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+      
+      <label class="md-nav__link" for="nav-1-1">
+        综述
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="综述" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          综述
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        入门指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="入门指南" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          入门指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        安装 IDE 插件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        快速开始
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concept/" class="md-nav__link">
+        核心概念
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3" >
+      
+      <label class="md-nav__link" for="nav-1-3">
+        IDE 插件用户手册
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="IDE 插件用户手册" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          IDE 插件用户手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ide/cluster/" class="md-nav__link">
+        集群
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ide/devspace/" class="md-nav__link">
+        开发空间
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ide/app/" class="md-nav__link">
+        应用和微服务
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4" >
+      
+      <label class="md-nav__link" for="nav-1-4">
+        最佳实践
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="最佳实践" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-4">
+          <span class="md-nav__icon md-icon"></span>
+          最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../best-practice/application-best/" class="md-nav__link">
+        Application 最佳实践
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../best-practice/service-best/" class="md-nav__link">
+        Service 最佳实践
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../best-practice/devcontainer-best/" class="md-nav__link">
+        DevContainer 最佳实践
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" >
+      
+      <label class="md-nav__link" for="nav-1-5">
+        进阶
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="进阶" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          进阶
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-1" type="checkbox" id="nav-1-5-1" >
+      
+      <label class="md-nav__link" for="nav-1-5-1">
+        CLI 命令
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI 命令" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-1">
+          <span class="md-nav__icon md-icon"></span>
+          CLI 命令
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-apply/" class="md-nav__link">
+        nhctl apply
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-config/" class="md-nav__link">
+        nhctl config
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-convert/" class="md-nav__link">
+        nhctl convert
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-daemon/" class="md-nav__link">
+        nhctl daemon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-db/" class="md-nav__link">
+        nhctl db
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-describe/" class="md-nav__link">
+        nhctl describe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-dev/" class="md-nav__link">
+        nhctl dev
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-exec/" class="md-nav__link">
+        nhctl exec
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-get/" class="md-nav__link">
+        nhctl get
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-init/" class="md-nav__link">
+        nhctl init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-install/" class="md-nav__link">
+        nhctl install
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-k/" class="md-nav__link">
+        nhctl k
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-list/" class="md-nav__link">
+        nhctl list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-port-forward/" class="md-nav__link">
+        nhctl port-forward
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-profile/" class="md-nav__link">
+        nhctl profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-pvc/" class="md-nav__link">
+        nhctl pvc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-render/" class="md-nav__link">
+        nhctl render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-reset/" class="md-nav__link">
+        nhctl reset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-sync-status/" class="md-nav__link">
+        nhctl sync status
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-sync/" class="md-nav__link">
+        nhctl sync
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-uninstall/" class="md-nav__link">
+        nhctl-uninstall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-upgrade/" class="md-nav__link">
+        nhctl-upgrade
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-version/" class="md-nav__link">
+        nhctl-version
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli-yaml/" class="md-nav__link">
+        nhctl-yaml
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Nocalhost Server
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nocalhost Server" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Nocalhost Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/overview/" class="md-nav__link">
+        概览
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/deploy-mini/" class="md-nav__link">
+        部署至 MiniKube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/deploy-cloud/" class="md-nav__link">
+        部署至远端
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/using-server/" class="md-nav__link">
+        使用 Nocalhost Server
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        参考
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="参考" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          参考
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/nh-config-spec/" class="md-nav__link">
+        Nocalhost 配置说明
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/deploy-quick-demo/" class="md-nav__link">
+        部署示例应用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/devmode-workloads/" class="md-nav__link">
+        工作负载 DevMode 支持
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/php-debug/" class="md-nav__link">
+        远程调试 PHP 应用
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-7" type="checkbox" id="nav-1-7" >
+      
+      <label class="md-nav__link" for="nav-1-7">
+        FAQ
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FAQ" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-7">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/faq-installation/" class="md-nav__link">
+        安装中常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/faq-using/" class="md-nav__link">
+        使用中常见问题
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-8" type="checkbox" id="nav-1-8" checked>
+      
+      <label class="md-nav__link" for="nav-1-8">
+        博客
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="博客" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-8">
+          <span class="md-nav__icon md-icon"></span>
+          博客
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Nocalhost - 重新定义云原生开发环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Nocalhost - 重新定义云原生开发环境
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localhost" class="md-nav__link">
+    Localhost 时代
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    云原生解放了部署和运维，开发呢？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nocalhost-_1" class="md-nav__link">
+    Nocalhost - 重新定义云原生开发环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    落地案例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    开源与社区共建
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compare-with-x/" class="md-nav__link">
+        和其它软件的对比
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdhow-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/" class="md-nav__link">
+        如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Documentations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Documentations" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        Overview
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/getting-started/" class="md-nav__link">
+        Quick Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/core-concept/" class="md-nav__link">
+        How it works
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+      
+      <label class="md-nav__link" for="nav-2-3">
+        Using IDE Plugin
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Using IDE Plugin" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-3">
+          <span class="md-nav__icon md-icon"></span>
+          Using IDE Plugin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/ide/cluster/" class="md-nav__link">
+        Cluster
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/ide/devspace/" class="md-nav__link">
+        DevSpace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/ide/app/" class="md-nav__link">
+        APP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+      
+      <label class="md-nav__link" for="nav-2-4">
+        Best Practice
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Best Practice" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          Best Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/best-practice/application-best/" class="md-nav__link">
+        Application Best Practice
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/best-practice/service-best/" class="md-nav__link">
+        Service Best Practice
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/best-practice/devcontainer-best/" class="md-nav__link">
+        DevContainer Best Practice
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+      
+      <label class="md-nav__link" for="nav-2-5">
+        Advanced
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-5">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-1" type="checkbox" id="nav-2-5-1" >
+      
+      <label class="md-nav__link" for="nav-2-5-1">
+        CLI Command
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI Command" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-5-1">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-apply/" class="md-nav__link">
+        nhctl apply
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-config/" class="md-nav__link">
+        nhctl config
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-convert/" class="md-nav__link">
+        nhctl convert
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-daemon/" class="md-nav__link">
+        nhctl daemon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-db/" class="md-nav__link">
+        nhctl db
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-describe/" class="md-nav__link">
+        nhctl describe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-dev/" class="md-nav__link">
+        nhctl dev
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-exec/" class="md-nav__link">
+        nhctl exec
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-get/" class="md-nav__link">
+        nhctl get
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-init/" class="md-nav__link">
+        nhctl init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-install/" class="md-nav__link">
+        nhctl install
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-k/" class="md-nav__link">
+        nhctl k
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-list/" class="md-nav__link">
+        nhctl list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-port-forward/" class="md-nav__link">
+        nhctl port-forward
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-profile/" class="md-nav__link">
+        nhctl profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-pvc/" class="md-nav__link">
+        nhctl pvc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-render/" class="md-nav__link">
+        nhctl render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-reset/" class="md-nav__link">
+        nhctl reset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-sync-status/" class="md-nav__link">
+        nhctl sync status
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-sync/" class="md-nav__link">
+        nhctl sync
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-uninstall/" class="md-nav__link">
+        nhctl-uninstall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-upgrade/" class="md-nav__link">
+        nhctl-upgrade
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-version/" class="md-nav__link">
+        nhctl-version
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/cli/cli-yaml/" class="md-nav__link">
+        nhctl-yaml
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-2" type="checkbox" id="nav-2-5-2" >
+      
+      <label class="md-nav__link" for="nav-2-5-2">
+        Nocalhost Server
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nocalhost Server" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Nocalhost Server
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/server/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/server/deploy-mini/" class="md-nav__link">
+        Deploy to Minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/server/deploy-cloud/" class="md-nav__link">
+        Deploy to Remote
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/server/using-server/" class="md-nav__link">
+        Using Nocalhost Server
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+      
+      <label class="md-nav__link" for="nav-2-6">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-6">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/references/nh-config-spec/" class="md-nav__link">
+        Nocalhost Config Specs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/references/deploy-quick-demo/" class="md-nav__link">
+        Deploy Demo APP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/references/devmode-workloads/" class="md-nav__link">
+        DevMode supports for different workloads
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/references/php-debug/" class="md-nav__link">
+        Remote Debug PHP Application
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7" >
+      
+      <label class="md-nav__link" for="nav-2-7">
+        FAQ
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FAQ" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-7">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/FAQ/faq-installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/FAQ/faq-using/" class="md-nav__link">
+        Using
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-8" type="checkbox" id="nav-2-8" >
+      
+      <label class="md-nav__link" for="nav-2-8">
+        Blog
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Blog" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-8">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/Blog/redefine-cloud-native-dev-environment/" class="md-nav__link">
+        Nocalhost - Redefine Cloud Native Dev Environment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/Blog/compare-with-x/" class="md-nav__link">
+        Compare with X
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eng/Blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/" class="md-nav__link">
+        How to debug microservices in Kubernetes with proxy, sidecar or service mesh?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localhost" class="md-nav__link">
+    Localhost 时代
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    云原生解放了部署和运维，开发呢？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nocalhost-_1" class="md-nav__link">
+    Nocalhost - 重新定义云原生开发环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    落地案例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    开源与社区共建
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                
+                <h1 id="nocalhost-">Nocalhost - 重新定义云原生开发环境</h1>
+<h2 id="_1">前言</h2>
+<p>随着业务的快速发展，技术部门的组织架构在横向及纵向不断扩大和调整，与此同时，企业的生产资料：应用系统，也变得越来越庞大。为了让应用系统适配企业组织架构的调整，梳理组织架构对于应用权责的边界，大部分组织会选择使用“微服务”架构来对应用系统进行横向拆分，使得应用系统的维护边界适配组织架构的权责边界。</p>
+<p>一般来说，越庞大的组织架构，应用系统会被拆分地越来越细，“微服务”的数量也变得越来越多。而在“微服务”的拆分的实践中，很容易出现将组织架构的权责边界一股脑地对标到“微服务”的拆分粒度中，这可能导致“微服务”拆分粒度过细，数量进一步剧增的问题。最终，“微服务”之间的调用关系就像跨部门协作，也变得越来越复杂，问题在想要新增需求时尤为突出。</p>
+<p>“微服务”带来便利的同时，对开发人员而言，还带来了额外的挑战：如何快速启动完整的开发环境？开发的需求依赖于其他同事怎么联调？如何快速调试这些微服务？</p>
+<p>而对于管理人员来说，也同样带来了一系列的挑战：如何管理开发人员的开发环境？如何让新入职的同事快速进行开发？</p>
+<p>试想一下，要开发由 200 个“微服务”组成的云原生应用，会遇到哪些困难呢？</p>
+<h2 id="localhost">Localhost 时代</h2>
+<p>在单体应用的时代，对于开发者来说是极为友好的，开发者使用本机运行应用，修改代码后实时生效，通过浏览器访问 <code>Localhost</code> 实时查看代码效果。</p>
+<p><a href="../../../assets/images/blog/zh/1-1.png"> <img alt="" src="../../../assets/images/blog/zh/1-1.png" /> </a></p>
+<p>单体应用和“微服务”应用不同，单体应用是 “ALL-IN-ONE” 组织方式，所有的调用关系仅限于在自身的类和函数，应用对硬件的要求一般也不会太高。</p>
+<p>而开发“微服务”应用则大不相同，由于相互间的依赖关系，当需要开发某一个功能或微服务时，不得不将所有依赖的服务都启动起来。随着微服务数量的增加，开发应用所需要的本地资源越来越多，最终导致本地无法满足开发的配置需求。</p>
+<h2 id="_2">云原生解放了部署和运维，开发呢？</h2>
+<p>云原生和 Kubernetes 的普及，进一步屏蔽了“微服务”应用的复杂度，这主要体现在部署和运维阶段。</p>
+<p>为了解决微服务应用在开发、测试和生产阶段环境一致性的问题，现代的微服务应用开发，都会将每一个组件打包成 Docker 镜像，并以工作负载的形式对其进行部署。利用 DevOps 流水线中的持续集成和持续部署，配合 Kubernetes 探针、HPA、应用自愈的能力，彻底解放了微服务应用的部署和运维环节。</p>
+<p>但我们忽略了一个关键节点：开发阶段</p>
+<p>微服务应用使用 Kubernetes 工作负载封装后，解决了开发过程应用的快速启动问题，开发人员只需要在本地安装单节点的 Kubernetes 集群，例如 Minikube、Kind 等即可快速启动微服务应用。</p>
+<p>但对于开发人员来说，原来单体应用的开发体验变得不复存在，由于应用很难在 Docker 容器之外运行，所以每次代码修改，都需要经历以下步骤：</p>
+<ul>
+<li>执行 docker build 构建镜像</li>
+<li>执行 docker tag 对镜像进行标记</li>
+<li>执行 docker push 推送镜像到仓库</li>
+<li>修改 Kubernetes 工作负载的镜像版本</li>
+<li>等待镜像拉取结束</li>
+<li>等待 Pod 重建</li>
+<li>查看修改后的代码效果</li>
+</ul>
+<p>这直接拖慢了开发的循环反馈过程，每次修改，动辄需要数分钟甚至十分钟的等待时间。</p>
+<p><a href="../../../assets/images/blog/zh/1-2.png"> <img alt="" src="../../../assets/images/blog/zh/1-2.png" /> </a></p>
+<h2 id="nocalhost-_1">Nocalhost - 重新定义云原生开发环境</h2>
+<blockquote>
+<p>Nocalhost 是一个云原生开发环境，希望让开发云原生应用像开发单体应用原始又简单。</p>
+</blockquote>
+<p>Nocalhost 重新梳理了开发过程所涉及到的角色和资源：</p>
+<ul>
+<li>团队管理人员</li>
+<li>开发者</li>
+<li>应用</li>
+<li>集群</li>
+<li>开发空间</li>
+</ul>
+<p>通过对这些角色和资源的重新整合，Nocalhost 重新定义了云原生开发环境，并带来了全新的云原生开发体验。</p>
+<p>为了快速理解 Nocalhost 重新定义的云原生开发环境，让我们首先站在不同的角色来看 Nocalhost 能给他们带来什么。</p>
+<p>开发人员：</p>
+<ul>
+<li><strong>摆脱每次修改需要重新 build 新镜像以及长时间的循环反馈，修改代码立即生效</strong></li>
+<li>一键部署开发环境，摆脱本地环境搭建和资源不足的限制</li>
+<li>本地 IDE 编辑器和开发环境联动，支持远程调试</li>
+<li>图形化的 IDE 插件，无需熟悉 <code>kubectl</code> 命令即可完成云原生环境下的开发</li>
+</ul>
+<p>管理人员：</p>
+<ul>
+<li>统一管理微服务应用包，降低应用的维护成本</li>
+<li>统一管理开发环境和集群，提高集群资源的利用率，同时具备隔离特性</li>
+<li>为新员工快速分配开发环境，分配环境后立刻能进行应用开发</li>
+<li>弹性的开发环境资源，用完销毁，降低开发成本</li>
+</ul>
+<p>以 <code>Nocalhost</code> 内置的 <code>Demo</code>：<code>Bookinfo</code> 为例，开发 <code>Productpage</code> 微服务，变成了以下简单的几个步骤：</p>
+<ol>
+<li>
+<p>一键部署开发环境</p>
+<p><a href="../../../assets/images/blog/zh/1-3.png"> <img alt="" src="../../../assets/images/blog/zh/1-3.png" /> </a></p>
+</li>
+<li>
+<p>环境部署完成，选择要开发的组件，点击“锤子”进入开发模式</p>
+<p><a href="../../../assets/images/blog/zh/1-4.png"> <img alt="" src="../../../assets/images/blog/zh/1-4.png" /> </a></p>
+</li>
+<li>
+<p>克隆业务代码或选择本地代码目录打开</p>
+<p><a href="../../../assets/images/blog/zh/1-5.png"> <img alt="" src="../../../assets/images/blog/zh/1-5.png" /> </a></p>
+</li>
+<li>
+<p>进入开发模式，本地修改代码并保存，无需重新构建镜像，远端开发环境实时生效，支持远程调试</p>
+<p><a href="../../../assets/images/blog/zh/1-6.png"> <img alt="" src="../../../assets/images/blog/zh/1-6.png" /> </a></p>
+<p><a href="../../../assets/images/blog/zh/1-7.png"> <img alt="" src="../../../assets/images/blog/zh/1-7.png" /> </a></p>
+</li>
+</ol>
+<h2 id="_3">落地案例</h2>
+<p>目前，腾讯云 CODING DevOps（近 200 微服务）正在使用 Nocalhost 进行开发，实践验证 Nocalhost 能够大大提高开发效率，缩短循环反馈。</p>
+<h2 id="_4">开源与社区共建</h2>
+<p>Nocalhost 目前是 100% 开源的，代码托管在 Github：https://github.com/nocalhost/nocalhost.git，并遵循 Apache-2.0 开源协议，可以免费使用。</p>
+<p>想了解更多关于 Nocalhost 的信息，欢迎访问官网：https://nocalhost.dev 获取。</p>
+                
+              
+
+  <!-- Content footer -->
+  <footer class="tx-content__footer md-typeset">
+  </footer>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../FAQ/faq-using/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                使用中常见问题
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../compare-with-x/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                和其它软件的对比
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
