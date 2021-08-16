@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://nocalhost.dev/zh-CN/blog</id>
+    <title>Nocalhost Blog</title>
+    <updated>2021-07-05T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://nocalhost.dev/zh-CN/blog"/>
+    <subtitle>Nocalhost Blog</subtitle>
+    <icon>https://nocalhost.dev/zh-CN/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？]]></title>
+        <id>如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/2021/07/05/jimmy"/>
+        <updated>2021-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[此博文首次发表于 Jimmy 的博客]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[重新定义云原生开发环境]]></title>
+        <id>重新定义云原生开发环境</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/2021/01/01/"/>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[前言]]></summary>
+    </entry>
+</feed>

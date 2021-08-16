@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://nocalhost.dev/blog</id>
+    <title>Nocalhost Blog</title>
+    <updated>2021-07-05T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://nocalhost.dev/blog"/>
+    <subtitle>Nocalhost Blog</subtitle>
+    <icon>https://nocalhost.dev/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
+        <id>How to debug microservices in Kubernetes with proxy, sidecar or service mesh?</id>
+        <link href="https://nocalhost.dev/blog/2021/07/05/jimmy"/>
+        <updated>2021-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This blog is originally posted on Jimmy's Blog]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redefine Cloud Native Dev Environment]]></title>
+        <id>Redefine Cloud Native Dev Environment</id>
+        <link href="https://nocalhost.dev/blog/2021/01/01/"/>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Preface]]></summary>
+    </entry>
+</feed>
