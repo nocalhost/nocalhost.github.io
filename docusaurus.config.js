@@ -178,7 +178,7 @@ module.exports = {
 				docs: {
 					path: 'docs',
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/neaped/nh-docs/',
+					editUrl: 'https://github.com/nocalhost/nocalhost.github.io/tree/main',
 					showLastUpdateAuthor: true,
 					showLastUpdateTime: true,
 				},

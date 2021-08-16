@@ -2,7 +2,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Manger Cluster
+# Manage Cluster
 
 ## Connect to Kubernetes Cluster
 
