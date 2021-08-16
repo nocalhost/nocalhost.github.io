@@ -38,7 +38,7 @@ Start the development mode in IDE:
 
 ### 1. Replace Image
 
-When entering DevMode, Nocalhost will replace the remote container image with development image (DevImage).
+When starting DevMode, Nocalhost will first replace the remote container image with development image (DevImage).
 
 [Read more to learn about DevImage configuration](../config/config-dev#configure-development-image)
 
@@ -46,7 +46,7 @@ When entering DevMode, Nocalhost will replace the remote container image with de
 Container image will handle by Kubernetes, [read more to learn about Kubernetes image management](https://kubernetes.io/docs/concepts/containers/images/)
 :::
 
-### 2. Replace Container
+### 2. Replace Container and Restart POD
 
 
 
