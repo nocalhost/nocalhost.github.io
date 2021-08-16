@@ -49,8 +49,6 @@ Container image will handle by Kubernetes, [read more to learn about Kubernetes 
 ### 2. Replace Container and Restart POD
 
 
-
-
 ```bash
 Starting DevMode...
 No previous syncthing process (10799) found
