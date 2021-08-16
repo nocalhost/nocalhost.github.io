@@ -43,6 +43,7 @@ When entering DevMode, Nocalhost will replace the remote container image with de
 [Read more to learn about DevImage configuration](../config/config-dev#configure-development-image)
 
 :::info Image Pull
+Nocalhost 
 :::
 
 ### 2. Replace Container
