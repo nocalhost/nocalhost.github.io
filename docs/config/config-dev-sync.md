@@ -11,7 +11,7 @@ When entering the development mode, Nocalhost will automatically synchronize the
 
 You can configure the files and folders that need to be synchronized or ignored.
 
-```yml {3}
+```yml {7-8}
 containers:
   - name: container-01
     dev:

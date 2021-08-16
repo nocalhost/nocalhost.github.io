@@ -26,15 +26,15 @@ When install Nocalhost IDE plugin, it will install the `nhctl` for you automatic
         </tr>
         <tr>
             <td rowspan="3" >JetBrains</td>
-            <td>2021.2 (Ultimate & Community) - Intel and M1</td>
+            <td>2021.2 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
-            <td>2021.1 (Ultimate & Community) - Intel and M1</td>
+            <td>2021.1 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
-            <td>2020.3 (Ultimate & Community) - Intel and M1</td>
+            <td>2020.3 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
     </tbody>

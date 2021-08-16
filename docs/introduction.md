@@ -17,7 +17,7 @@ Nocalhost is an open-source IDE plugin for cloud-native applications development
 Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} width="800"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} />
 </figure>
 
 ## Why Nocalhost?

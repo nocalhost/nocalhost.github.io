@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # 配置应用部署
 
-您可以配置匹配类型的部署方式，然后使用 Nocalhost IDE 插件在 Kubernetes 中部署您的应用程序。 Nocalhost 支持使用以下类型来安装应用程序：
+您可以配置匹配类型的部署方式，然后使用 Nocalhost IDE 插件在 Kubernetes 中部署您的应用程序。 Nocalhost 支持使用以下类型来部署应用程序：
 
 - Manifest
 - Helm

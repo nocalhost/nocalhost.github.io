@@ -26,7 +26,6 @@ service:
     dev:
       command:
         debug:
-         - GOPROXY=https://goproxy.cn
          - dlv
          - --headless
          - --log

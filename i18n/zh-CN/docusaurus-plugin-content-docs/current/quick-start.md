@@ -15,8 +15,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - Visual Studio Code (1.52+)
 :::
 
-:::danger ARM CPU 支持
-我们全力对 Mac M1 的支持做优化。目前某些功能可能需要变通方式实现或不可用。
+:::danger Apple Silicon 支持
+我们在全力对 Apple Silicon 的支持做优化。目前某些功能可能需要变通方式实现或不可用。
 :::
 
 ## 1. 安装 Nocalhost VS Code 插件

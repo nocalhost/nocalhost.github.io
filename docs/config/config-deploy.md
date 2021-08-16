@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure Application Deployment
 
-You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to install application:
+You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to deploy application:
 
 - Manifest
 - Helm
@@ -246,7 +246,7 @@ If both `env` and `envFrom` configure at the same time, Nocalhost will merge the
 
 `application[*].onPreInstall`
 
-Nocalhost allows users to perform some additional operations before installing and deploying applications. 
+Nocalhost allows users to perform some additional operations before deploying applications. 
 
 #### Example: Setting up the pre-install Jobs
 

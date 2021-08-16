@@ -54,7 +54,7 @@ In this stage, Nocalhost will:
 2. Use the DevContainer to replace the original container
 3. Restart POD with the DevContainer
 
-When entering DevMode, you should see the following message in the IDE output:
+When entering DevMode, you should see the following messages in the IDE output:
 
 ```bash
 Starting DevMode...
@@ -69,13 +69,22 @@ Waiting pod to start...
  ✓  Dev container has been updated
 ```
 
-
 ### 3. Start Port-Forwarding
+
+#### Configured `portForward` in `config.yaml`
+
+Nocalhost iterates over every item the `containers[*].dev[*].portForward` array defined in the `config.yaml` and starts port-forwarding for each of the entries and the port mappings they define in the `portForward` section.
+
+:::note
+Before starting the actual port-forwarding, Nocalhost waits until the containers and services are ready. You should see the following messages in IDE output.
 
 ```bash
 Syncthing port-forward pod ratings-5dfbc89c59-r7wg5, namespace default
 Port-forward 51517:51517 has been started
 ```
+:::
+
+#### Without `portForward` Configurations
 
 ### 4. Start File Synchronization
 

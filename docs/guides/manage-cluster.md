@@ -97,7 +97,7 @@ Right-click the specified cluster and select `View KubeConfig`, the Nocalhost pl
 <TabItem value="vscode">
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/opt/idea-view-config.gif')} width="600" />
+  <img className="gif-img" src={useBaseUrl('/img/opt/vscode-view-config.gif')} width="600" />
   <figcaption>View KubeConfig in VS Code</figcaption>
 </figure>
 
@@ -106,7 +106,7 @@ Right-click the specified cluster and select `View KubeConfig`, the Nocalhost pl
 <TabItem value="jet">
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/opt/vscode-view-config.gif')} width="600" />
+  <img className="gif-img" src={useBaseUrl('/img/opt/idea-view-config.gif')} width="600" />
   <figcaption>View KubeConfig in JetBrains IDE</figcaption>
 </figure>
 

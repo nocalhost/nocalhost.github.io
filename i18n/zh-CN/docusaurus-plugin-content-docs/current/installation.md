@@ -14,8 +14,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <thead>
         <tr>
             <th>IDE</th>
-            <th>版本</th>
-            <th>测试结果</th>
+            <th>Version</th>
+            <th>Result</th>
         </tr>
     </thead>
     <tbody>
@@ -26,15 +26,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
         </tr>
         <tr>
             <td rowspan="3" >JetBrains</td>
-            <td>2021.2 (Ultimate & Community) - Intel and M1</td>
+            <td>2021.2 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
-            <td>2021.1 (Ultimate & Community) - Intel and M1</td>
+            <td>2021.1 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
-            <td>2020.3 (Ultimate & Community) - Intel and M1</td>
+            <td>2020.3 - Intel and Apple Silicon</td>
             <td><strong className="pass-tag">passed</strong></td>
         </tr>
     </tbody>

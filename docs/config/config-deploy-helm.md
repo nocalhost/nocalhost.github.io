@@ -18,7 +18,7 @@ To deploy Helm charts, you need to configure them within the `application` secti
     {label: 'From Git Repo', value: 'helmGit'},
     {label: 'From Helm Repo', value: 'helmRepo'}
   ]}>
-<TabItem value="helmGit">
+<TabItem value="helmLocal">
 
 Deploy Helm chart from local directory.
 
@@ -35,7 +35,7 @@ application:
 
 </TabItem>
   
-<TabItem value="helmLocal">
+<TabItem value="helmGit">
 
 Deploy Helm chart from Git repository.
 
