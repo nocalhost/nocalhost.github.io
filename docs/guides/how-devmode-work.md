@@ -43,16 +43,12 @@ When entering DevMode, Nocalhost will replace the remote container image with de
 [Read more to learn about DevImage configuration](../config/config-dev#configure-development-image)
 
 :::info Image Pull
-Nocalhost 
+Container image will handle by Kubernetes, [read more to learn about Kubernetes image management](https://kubernetes.io/docs/concepts/containers/images/)
 :::
 
 ### 2. Replace Container
 
-After the DevImage has pulled, Nocalhost will use the DevImage to start a new container in the specified POD, and restart this POD.
 
-Use the DevImage to start a new POD and replace the exiting POD
-
-Before entering the development mode (DevMode), Nocalhost will use the development image (DevImage) to start a new container in the specified POD. This container is called Develop Container（DevContainer）
 
 
 ```bash
