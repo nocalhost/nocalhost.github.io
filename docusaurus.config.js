@@ -11,7 +11,7 @@ module.exports = {
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',
 	organizationName: 'nocalhost', // Usually your GitHub org/user name.
-	projectName: 'nocalhost', // Usually your repo name.
+	projectName: 'nocalhost.github.io', // Usually your repo name.
 	// i18n Configurations
 	i18n: {
 		defaultLocale: 'en',

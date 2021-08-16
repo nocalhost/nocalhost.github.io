@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具:
 
 - 直接在 Kubernetes 集群中**构建、测试和调试应用程序**
-- 提供易于使用的 IDE 插件（支持 VS Code 和 JetBrains），开发人员可以快速使用熟悉的 IDE 开发云原生应用
+- 提供易于使用的 IDE 插件（支持 VS Code 和 JetBrains），即使在 Kubernetes 集群中进行开发和调试，Nocalhost 保持本地开发一样的体验
 - **使用即时文件同步进行开发：** 即时将您的代码更改同步到远端容器，而无需重建映像或重新启动容器。
 
 <figure className="img-frame">
@@ -22,14 +22,14 @@ Nocalhost 由单个二进制 CLI 和 IDE 插件组成。 理想情况下，您�
 
 ### 在 Kubernetes 中编码
 
-Nocalhost 可以与您喜欢的 IDE 一起使用，能一键连接到任何 Kubernetes 集群，享受集群内编码，摆脱烦人的本地环境配置。
+Nocalhost 可以与您熟悉的 IDE 一起使用，能一键连接到任何 Kubernetes 集群，享受集群内编码，摆脱烦人的本地环境配置。
 
 ### 实时文件同步
 
 Nocalhost 可以在您每次进行更改时自动将代码同步到容器。 这样，免去了提交、构建和推送等步骤，极大的提速开发反馈循环。 因此能实现代码更改，秒级生效。
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle-cn.png')} width="700"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle-cn.jpg')} width="700"/>
 </figure>
 
 ### 为合作而生

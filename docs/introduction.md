@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Nocalhost is an open-source IDE plugin for cloud-native applications development:
 
 - **Build, test and debug applications directly inside Kubernetes**
-- **IDE Support :** provides easy to use IDEs extension (supports VS Code and JetBrains), developers can leverage the tools they already know.
+- **IDE Support :** providing the same debugging and developing experience you're used in the IDE even in the remote Kubernetes cluster
 - **Developing with instant file synchronization:** instantly sync your code change to remote container without rebuilding images or restarting containers.
 
 <figure className="img-frame">
@@ -15,6 +15,10 @@ Nocalhost is an open-source IDE plugin for cloud-native applications development
 ## How does it work?
 
 Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} width="800"/>
+</figure>
 
 ## Why Nocalhost?
 
@@ -29,7 +33,7 @@ Nocalhost is preconfigured to work with your favourite IDEs, you can connect to 
 Nocalhost can automatically synchronize the code to the container every time you make a change. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second.
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle.png')} width="700"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle.jpg')} width="700"/>
 </figure>
 
 ### Made For Collaboration

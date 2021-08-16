@@ -153,11 +153,11 @@ containers:
 Nocalhost will use `git clone` command to clone the source code. Please make sure you have **Git** installed in your local computer.
 :::
 
-### Configure Develop Image
+### Configure Development Image
 
 `containers[*].dev[*].image # required`
 
-Specify the develop image (`DevImage`) to replace the image of the `DevContainer` when entering development mode.
+Specify the development image (`DevImage`) to replace the image of the `DevContainer` when entering development mode.
 
 Similar to [`gitURL`](#configure-git-url), you can preset it in the configuration or Nocalhost will ask you to enter the image name or URL.
 

@@ -67,7 +67,7 @@ helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=<path>/
 ```
 
 :::caution No PVC
-The above deployment will create a pvc for `mariadb`. If you do not have pvc or permission to create, you can use the `--set mariadb.primary.persistence.enabled=false` to deploy Nocalhost Server without creating pvc.
+The above deployment will create a pvc for `mariadb`. If you do not have pvc or without permission to create, you can use the `--set mariadb.primary.persistence.enabled=false` to deploy Nocalhost Server without creating pvc.
 :::
 
 ### 3. Waiting for Deployment 
@@ -115,7 +115,7 @@ Password: 123456
 
 After executing the deployment commands, Nocalhost will:
 
-1. Deploy essential components: [nocalhost-api](./server-overview), `nocalhost-mariadb` and [nocalhost-web](./server-overview)
+1. Deploy essential components: [nocalhost-api](./server-overview#nocalhost-api), `nocalhost-mariadb` and [nocalhost-web](./server-overview#nocalhost-web)
 2. Create another namespace called `nocalhost-reserve` and deploy [`nocalhost-dep`](./nh-dep)
 3. Create an namespace with random name, this namespace is used for you initial `DevSpace`
 
