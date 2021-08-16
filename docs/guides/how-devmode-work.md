@@ -48,6 +48,13 @@ Container image will handle by Kubernetes, [read more to learn about Kubernetes 
 
 ### 2. Replace Container and Restart POD
 
+In this stage, Nocalhost will: 
+
+1. Use the DevImage to start a new development container (DevContainer)
+2. Use the DevContainer to replace the original container
+3. Restart POD with the DevContainer
+
+When entering DevMode, you should see the following message in the IDE output:
 
 ```bash
 Starting DevMode...
