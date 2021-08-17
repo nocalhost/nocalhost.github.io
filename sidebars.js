@@ -179,7 +179,8 @@ module.exports = {
       type: 'category',
       label: 'Changelogs',
       items: [
-        'changelogs/0.4.x'
+        'changelogs/0.4.x',
+        'changelogs/0.5.x'
       ]
     }
   ],
