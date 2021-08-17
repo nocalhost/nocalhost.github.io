@@ -59,7 +59,7 @@ envFrom:
     envFile: []                 # string[]  | Optional  | Use envFile to inject environment variable for all workload 
 ```
 
-[详细了解如何设置环境变量](./config-deploy#inject-environment-variable)
+[详细了解如何设置环境变量](./config-deploy##inject-environment-variable-to-workloads)
 
 ### `application[*].services`
 

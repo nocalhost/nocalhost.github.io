@@ -68,7 +68,7 @@ So **DevSpace** can actually be approximated as **Application** + **Kubeconfig**
 
 #### Application Management
 
-If you need to manage **Applications**, you can refer to [Manage User](./manage-user) 
+If you need to manage **Applications**, you can refer to [Manage Application](./manage-app) 
 
 ### Service
 
@@ -87,7 +87,7 @@ Service configurations are not necessary, only needs when essential.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/server/user-and-space.png')} width="800"/>
-  <figcaption>Nocalhost DevSpace</figcaption>
+  <figcaption>Nocalhost DevSpace and user</figcaption>
 </figure>
 
 There are two types of **User** in Nocalhost: **Standard User** and **System Admin**
