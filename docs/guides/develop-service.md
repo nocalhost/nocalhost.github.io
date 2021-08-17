@@ -1,3 +1,5 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Develop a Workload
@@ -17,17 +19,38 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Nocalhost supports to develop all types of Kubernetes workload. 
 
+In your IDE:
+
+1. Open Nocalhost plugin and expand the cluster inspector
+2. Select the workload you want to develop
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/intro/start-devmode.jpg')} />
+  <figcaption>Select workload in VS Code and JetBrains</figcaption>
+</figure>
+
 ## Choose Source Code Directory
 
 Before developing the application, you need to tell Nocalhost the location of your source code. You can either specify a local directory or clone your source code from Git repository through Nocalhost.
 
 ### Specify Local Directory
 
+<Tabs
+  defaultValue="associate"
+  values={[
+    {label: 'Associate Local Directory', value: 'associate'},
+    {label: 'Open Local Directory as Text', value: 'open'},
+  ]}>
+<TabItem value="associate">
 
-#### 1. Open Local Directory
 
-#### 2. Associate Local Directory
+</TabItem>
+  
+<TabItem value="open">
 
+
+</TabItem>
+</Tabs>
 
 ### Clone From Git Repository
 

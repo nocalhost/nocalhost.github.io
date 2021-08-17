@@ -16,6 +16,10 @@ Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具:
 
 Nocalhost 由单个二进制 CLI 和 IDE 插件组成。 理想情况下，您可以直接将它与您熟悉的 IDE 一起使用。 Nocalhost 不需要服务器端组件，因为它通过 KubeConfig 直接与您的 Kubernetes 集群通信，就像 kubectl 一样。
 
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} />
+</figure>
+
 ## 为什么使用 Nocalhost？
 
 尽管 Kubernetes 在管理基础设施方面做得非常出色，但构建 Kubernetes 应用仍然很困难，对于大型开发团队，该问题尤为严重。 Nocalhost 为开发者提供了最高效的方式来构建云原生应用程序。

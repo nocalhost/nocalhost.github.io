@@ -31,7 +31,7 @@ Start the development mode in IDE:
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/intro/start-devmode.jpg')} />
-  <figcaption>Start DevMode in VS Code and JetBrains</figcaption>
+  <figcaption>Select workload and enter DevMode in VS Code and JetBrains</figcaption>
 </figure>
 
 ## Development Process
