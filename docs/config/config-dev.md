@@ -342,15 +342,15 @@ containers:
 
 Files synchronization configurations in DevMode.
 
-```yml {3}
+```yml {6-8}
 containers:
   - name: container-01
     dev:
       ...
       sync:
-      type: send                  # select    | optional  | The synchronization file mode of the workload       
-        filePattern: ["."]        # string[]  | optional  | List of files and directories to be synchronized to DevConatiner
-        ignoreFilePattern: ["."]  # string[]  | optional  | List of ignored files and directories to be synchronized to DevConatiner
+        type: send                  # select    | optional  | The synchronization file mode of the workload       
+          filePattern: ["."]        # string[]  | optional  | List of files and directories to be synchronized to DevConatiner
+          ignoreFilePattern: ["."]  # string[]  | optional  | List of ignored files and directories to be synchronized to DevConatiner
       ...
 ```
 

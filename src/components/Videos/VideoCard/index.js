@@ -41,9 +41,10 @@ const TutorialVideoCards = [
 // eslint-disable-next-line react/prop-types
 function Card({title, url, description}) {
 	return (
-		<div className="col col--4 margin-bottom--lg">
+		<div className="col col--5 margin-bottom--lg">
 			<div className="video-card card">
 				<iframe
+					className="video-frame"
 					src={url}
 					frameBorder={0}
 					width={'100%'}

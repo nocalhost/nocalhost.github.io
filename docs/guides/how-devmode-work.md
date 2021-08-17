@@ -76,7 +76,7 @@ Waiting pod to start...
 Nocalhost iterates over every item the `containers[*].dev[*].portForward` array defined in the `config.yaml` and starts port-forwarding for each of the entries and the port mappings they define in the `portForward` section.
 
 :::note
-Before starting the actual port-forwarding, Nocalhost waits until the containers and services are ready. You should see the following messages in IDE output.
+Before starting the actual port-forwarding, Nocalhost waits until the containers and services are ready. You should see the following messages in IDE output:
 
 ```bash
 Syncthing port-forward pod ratings-5dfbc89c59-r7wg5, namespace default
@@ -86,7 +86,15 @@ Port-forward 51517:51517 has been started
 
 #### Without `portForward` Configurations
 
+If the port-forwarding configuration has not been configured before entering the DevMode, then you need to configure the port-forwarding through the IDE after entering the development mode.
+
+[Read more to learn how to configure port-forwarding in IDE](./develop-service#start-port-forwarding)
+
 ### 4. Start File Synchronization
+
+Nocalhost will check the `containers[*].dev[*].sync` section defined in the `config.yaml` and starts a real-time file synchronization between local directory and DevContainer.
+
+You should see the following messages in IDE output:
 
 ```bash
 ignoredPattern: 
@@ -105,7 +113,11 @@ Syncthing has been started
 sync file end
 ```
 
-### 5. Open Terminal and Stream Logs
+[Read more to learn how to configure file synchronization](../config/config-dev-sync)
+
+### 5. Open Remote Terminal
+
+Nocalhost will open DevContainer's terminal right within the IDE without extra configurations.
 
 ```bash
 root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#

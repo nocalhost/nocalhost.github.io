@@ -349,9 +349,9 @@ containers:
     dev:
       ...
       sync:
-      type: send                  # select    | optional  | The synchronization file mode of the workload       
-        filePattern: ["."]        # string[]  | optional  | List of files and directories to be synchronized to DevConatiner
-        ignoreFilePattern: ["."]  # string[]  | optional  | List of ignored files and directories to be synchronized to DevConatiner
+        type: send                  # select    | optional  | The synchronization file mode of the workload       
+          filePattern: ["."]        # string[]  | optional  | List of files and directories to be synchronized to DevConatiner
+          ignoreFilePattern: ["."]  # string[]  | optional  | List of ignored files and directories to be synchronized to DevConatiner
       ...
 ```
 

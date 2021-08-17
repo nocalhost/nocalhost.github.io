@@ -50,8 +50,8 @@ module.exports = {
           type: 'category',
           label: 'Development',
           items: [
-            'guides/how-devmode-work',
             'guides/develop-service',
+            'guides/how-devmode-work',
           ]
         },
         // Debugging

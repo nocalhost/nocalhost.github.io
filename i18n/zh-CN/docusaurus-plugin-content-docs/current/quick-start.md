@@ -5,9 +5,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # 快速开始
 
 :::note 关于本指南
-**Goal :** 安装 Nocalhost，体验核心功能，享受便捷高效的云原生开发体验。<br />
-**Estimate time :** 5 分钟 <br />
-**Requirements :**
+**目标:** 安装 Nocalhost，体验核心功能，享受便捷高效的云原生开发体验。<br />
+**预计阅读时间:** 5 分钟 <br />
+**前置条件:**
 - 任何本地或远程 Kubernetes 集群 (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...)。单节点集群如 [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) 和 [minikube](https://minikube.sigs.k8s.io/docs/start/) 分配至少 4GB 的内存
 - **RBAC** 必须在上述机群中启用
 - **配置好的 kubeconfig 文件** 具备命名空间的管理员权限

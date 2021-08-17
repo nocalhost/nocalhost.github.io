@@ -101,6 +101,10 @@
     -webkit-box-orient: vertical;
 }
 
+.video-frame {
+  height: 400px;
+}
+
 /** Tab **/
 [role=tabpanel] {
   background-color: var(--ifm-color-lightest);
