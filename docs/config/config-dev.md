@@ -8,16 +8,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Configured Development Mode 
 
-Nocalhost plugin can [manage a DevMode configuration of the workload in local](#manage-configurations-by-ide-plugin). If you need to persist the configuration, you can also [create it manually](#manually-create-configurations).
+You can [manage a DevMode configuration of the workload in Nocalhost IDE](#by-ide-plugin) or [create the configuration manually](#manually-create-configurations).
 
-## Manage Configurations by IDE Plugin
+## Manage DevMode Configurations 
 
-Nocalhost IDE plugin can generate a runtime DevMode configuration which is stored in the memory. This configuration can be used for across IDEs in your local computer after it is saved.
+### By IDE Plugin
+
+Nocalhost will generate a runtime configuration stored in the memory. This configuration can be used across IDEs in your local computer after being saved.
 
 In general, when using the Nocalhost IDE plugin, the plugin automatically updates the DevMode configurations according to your operation. **No** manual configuration is required.
 
-:::danger Non Persistent
-This runtime configurations created by Nocalhost IDE plugin only save in your local computer, if you change computer or delete the `.nh` folder, you will lost your configurations. 
+:::danger Non-Persistent
+These runtime configurations created by the Nocalhost only save in your local computer. If you change the computer or delete the `.nh` folder, you will lose the current configurations.
 :::
 
 <Tabs
@@ -28,7 +30,7 @@ This runtime configurations created by Nocalhost IDE plugin only save in your lo
   ]}>
 <TabItem value="vscode">
 
-Expand the cluster tree and select a workload, you will see there is a little gear icon. This icon has two different status:
+Expand the cluster inspector and select a workload. There is a little gear icon at the end of the workload. This icon has two different states:
 
 - <img src={useBaseUrl('/img/icons/setting-warning.svg')} width="20"/> Does not have configuration, Nocalhost will generate a new configuration after you click.
 - <img src={useBaseUrl('/img/icons/setting-normal.svg')} width="20"/> Has a configuration, Nocalhost will load the existing configuration after you click.
@@ -54,16 +56,16 @@ Expand the cluster tree and select a workload, you will see there is a little ge
 </Tabs>
 
 :::info Take effect
-All changes will not take effect in real time, but will take effect the next time you enter development mode.
+All changes will not take effect until the next time you enter development mode.
 :::
 
-## Manually Create Configurations
+### Manually Create Configurations
 
-If you want to have persist DevMode configuration to use in different computer or share with others, you can add a `.nocalhost` folder under your source code root directory and create a `config.yaml` file within the folder.
+If you want to have persisted DevMode configuration to use on a different computer or share with others, you can add a `.nocalhost` folder under your source code root directory and create a `config.yaml` file within the folder.
 
-After you create `config.yaml`, you need to add `dev` section within `application[*].services[*].containers[*]` section.
+You can read this [configuration example](#example) to set up your configuration.
 
-## Configuration Priority
+### Configuration Priority
 
 If you have added `.nocalhost/config.yaml` to your source code root directory, Nocalhost will use the configuration in the `config.yaml` to replace the one set by the plugin.
 
@@ -71,15 +73,15 @@ If you use the IDE plugin to open the configuration, this configuration will bec
 
 #### Example: Using and open local configuration
 
-``` yaml {1-6} title="Nocalhost will guid user hwo to modify the configuration"
-# Tips: This configuration is a in-memory replica of local file: 
+``` yaml {1-6}
+# Tips: This configuration is an in-memory replica of the local file: 
 # 
 # '~/whatever/details/.nocalhost/config.yaml'
 # 
 # You should modify your configuration in local file, and the modification will
 # take effect immediately. (Dev modification will take effect the next time you enter the DevMode)
 #
-# In addition, if you want to config multi service in same config.yaml, or use
+# In addition, if you want to configure multi-services in the same config.yaml, or use
 # the Server-version of Nocalhost, you can also configure under the definition 
 # of the application, such as:
 # https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml
@@ -96,7 +98,7 @@ containers:
 
 ## Configurations
 
-### Example
+#### Example: Configure container's DevMode
 
 ```yaml {11}
 application:
@@ -128,9 +130,9 @@ application:
 
 ### Configure Git URL
 
-`containers[*].dev[*].gitUrl # required`
+`containers[*].dev.gitUrl # required`
 
-Set the source code Git repository URL of the workload.
+Set the source code repository URL of the workload.
 
 - **Preset:** if you set this URL and choose to download from Git before entering development mode, Nocalhost will try to clone the source code from the URL you configured. 
 - **Not preset:** if you choose `Clone from Git Repository` when selecting the source code directory and enter the Git URL. Nocalhost will automatically set the URL you entered into the configuration.
@@ -150,12 +152,12 @@ containers:
 ```
 
 :::note Clone Source Code
-Nocalhost will use `git clone` command to clone the source code. Please make sure you have **Git** installed in your local computer.
+Nocalhost will use `git clone` command to clone the source code. Please make sure you have **Git** installed on your local computer.
 :::
 
 ### Configure Development Image
 
-`containers[*].dev[*].image # required`
+`containers[*].dev.image # required`
 
 Specify the development image (`DevImage`) to replace the image of the `DevContainer` when entering development mode.
 
@@ -165,7 +167,7 @@ Similar to [`gitURL`](#configure-git-url), you can preset it in the configuratio
 - **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL.
 
 :::tip DevImage
-`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specify image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
+`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
 :::
 
 <figure className="img-frame">
@@ -188,7 +190,7 @@ containers:
 
 ### Configure Shell of DevContainer
 
-`containers[*].dev[*].shell # optional`
+`containers[*].dev.shell # optional`
 
 Configure the default shell of `DevContainer`, you can use `bin/sh` or `shell` within `DevContainer`.
 
@@ -205,9 +207,9 @@ containers:
 
 ### Configure Work Directory
 
-`containers[*].dev[*].workDir # optional`
+`containers[*].dev.workDir # optional`
 
-Used to indicate the working directory in remote container after entering the `DevMode` and the directory where the synchronized files are stored. By default, `/home/nocalhost-dev` will be used.
+Used to indicate the working directory in the remote container after entering the `DevMode` and the directory where the synchronized files are stored. By default, `/home/nocalhost-dev` will be used.
 
 #### Example: Setting up the Work Directory
 ```yml {5}
@@ -221,7 +223,7 @@ containers:
 
 ### Configure Resources
 
-`containers[*].dev[*].resources # optional`
+`containers[*].dev.resources # optional`
 
 Optionally specify how much of each resource a `DevContainer` needs and limits.
 
@@ -246,7 +248,7 @@ containers:
 
 ### Configure Persistence Volume
 
-`containers[*].dev[*].storageClass # optional`
+`containers[*].dev.storageClass # optional`
 
 Set the storage class name for a `DevContainer`
 
@@ -265,7 +267,7 @@ containers:
 
 ### Configure Persistent DIR
 
-`containers[*].dev[*].persistentVolumeDirs # optional`
+`containers[*].dev.persistentVolumeDirs # optional`
 
 Directories that need to be persisted in `DevContainer`
 
@@ -283,7 +285,7 @@ containers:
 
 ### Configure Commands
 
-`containers[*].dev[*].command # optional`
+`containers[*].dev.command # optional`
 
 ```yaml
 containers:
@@ -303,11 +305,11 @@ containers:
 
 ### Specify Remote Debugging Port
 
-`containers[*].dev[*].debug # optional`
+`containers[*].dev.debug # optional`
 
 Configure the remote debugging port for the `DevContainer`. 
 
-When using Nocalhost's remote debugging feature, plugin will connect to the specified port to debug the remote workload.
+When using Nocalhost's remote debugging feature, the plugin will connect to the specified port to debug the remote workload.
 
 ```yaml {5}
 containers:
@@ -321,7 +323,7 @@ containers:
 
 ### Use `.dev-container` of VS Code
 
-`containers[*].dev[*].useDevContainer # optional`
+`containers[*].dev.useDevContainer # optional`
 
 Use `.dev-container` of VS Code to specify `DevImage`.
 
@@ -338,7 +340,7 @@ containers:
 
 ### File Synchronization in DevMode
 
-`containers[*].dev[*].sync # optional`
+`containers[*].dev.sync # optional`
 
 Files synchronization configurations in DevMode.
 
@@ -374,7 +376,7 @@ You need to have `nocalhost-dep` to install for this configuration to take effec
   ]}>
 <TabItem value="value">
 
-`containers[*].dev[*].env # optional`
+`containers[*].dev.env # optional`
 
 ```yml {4}
 containers:
@@ -391,7 +393,7 @@ containers:
   
 <TabItem value="file">
 
-`containers[*].dev[*].envFrom # optional`
+`containers[*].dev.envFrom # optional`
 
 ```yml {4}
 containers:
@@ -408,7 +410,7 @@ containers:
 
 **Explanation:**
 
-- These variables will be injected to container when entering development mode
+- These variables will be injected into the container when entering development mode
 - These variables will take effect after the entered development mode
 
 :::info Duplicate Configs
@@ -417,11 +419,11 @@ If both `env` and `envFrom` configure at the same time, Nocalhost will merge the
 
 ### Port-Forwarding
 
-`containers[*].dev[*].portForward # optional`
+`containers[*].dev.portForward # optional`
 
 Port-forwarding allows you to access your `DevContainer` on `localhost:[PORT]` by forwarding the network traffic from a localhost port to a specified port of a container.
 
-When entering the development mode, Nocalhost starts port-forwarding as configured in the `dev。portForward` section.
+When entering the development mode, Nocalhost starts port-forwarding as configured in the `dev.portForward` section.
 
 ```yml {4}
 containers:

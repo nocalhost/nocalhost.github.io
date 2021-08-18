@@ -45,15 +45,7 @@ module.exports = {
             'guides/deploy/deploy-demo',
           ]
         },
-        // Development
-        {
-          type: 'category',
-          label: 'Development',
-          items: [
-            'guides/develop-service',
-            'guides/how-devmode-work',
-          ]
-        },
+        'guides/develop-service',
         // Debugging
         { 
           type: 'category',
@@ -78,6 +70,7 @@ module.exports = {
       collapsed: false,
       items: [
         'config/config-ref',
+        'config/config-services',
         // Deployments
         {
           type: 'category',
@@ -95,6 +88,7 @@ module.exports = {
           label: 'Development',
           items: [
             'config/config-dev',
+            'config/config-dev-workload',
             'config/config-dev-command',
             'config/config-dev-sync',
             'config/config-dev-devcontainer',

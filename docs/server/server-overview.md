@@ -95,9 +95,7 @@ There are two types of **User** in Nocalhost: **Standard User** and **System Adm
 #### Standard User
 
 - Can only log in IDE Plugin, users can develop under their own DevSpace. these DevSpace are all created by Administrator.
-
 - User can only see their own DevSpace, and have all the permissions under these DevSpace, such as install, uninstall (deploy and destroy), enter DevMode and port-forwarding.
-
 - Cannot log in to Nocalhost-Web, nor can they delete the DevSpace, or disassociate it from the DevSpace, which is very similar to the admin permission under a certain namespace of Kubernetes.
 
 #### System Admin

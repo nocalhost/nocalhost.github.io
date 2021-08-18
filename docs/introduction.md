@@ -22,7 +22,23 @@ Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use
 
 ## Why Nocalhost?
 
-Although Kubernetes does an excellent job of managing the infrastructure, building Kubernetes applications still be difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications.
+Building Kubernetes applications is often difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications.
+
+The advantages of using Nocalhost to develop directly inside Kubernetes are:
+
+- **Production environment similarity** - Dev environment is very similar to your production environment, giving you much more confidence that everything will work in the production environment when new features are released.
+- **Speed up feedback loop** - Via file synchronization, your code changes can take effect immediately in the container without rebuilding the image or redeploying the container. 
+- **Flexible scalability** - Developers do not need to worry about insufficient local resources.
+- **Reduce Cost** - Use resources more efficiently and reduce IT facility costs
+
+Develop in Kubernetes cluster can be useful in the following cases:
+
+- Limitations of local resources
+- Want to test your application in a production-like environment
+- Want to debug issues that are hard to reproduce on your local machine
+- Applications need to access cluster-internal services (e.g. Cluster DNS)
+
+## Key Features
 
 ### Coding in Kubernetes
 
@@ -40,7 +56,7 @@ Nocalhost can automatically synchronize the code to the container every time you
 
 Nocalhost helps your team to standardize development workflows without requiring everyone on your team to become a Kubernetes expert.
 
-- **Kubernetes and DevOps expert** on your team can configure and manager Cluster, Applications, DevSpace and Users by Nocalhost Server, [read more about Nocalhost Server](./server/server-overview)
+- **Kubernetes and DevOps expert** on your team can configure and manager Cluster, Applications, DevSpace and Users by Nocalhost Server, Read more about [Nocalhost Server](./server/server-overview)
 - **Developers** on your team can easily check out the project and start coding and debugging in the Kubernetes cluster without becoming a Kubernetes expert.
 
 ### Compatibility

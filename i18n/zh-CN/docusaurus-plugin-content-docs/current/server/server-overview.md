@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### 集群
 
-**Cluster（集群）** 是 Nocalhost 的一个概念，它管理运行开发环境中的应用程序的资源，通常对应着一个 Kubernetes 集群。Nocalhost 支持同时管理多个集群，这些集群可以是 GKE, minikube and microK8s 等等。
+**集群**是 Nocalhost 的一个概念，它管理运行开发环境中的应用程序的资源，通常对应着一个 Kubernetes 集群。Nocalhost 支持同时管理多个集群，这些集群可以是 GKE, Minikube and MicroK8s 等等。
 
 在实际的开发过程中，用户不需要直接接触 Cluster 这一概念，而用户在 [DevSpace](#devspace)下的操作实际上都借助了 Cluster 的能力。
 
@@ -25,9 +25,9 @@ Cluster一般和DevSpace一起使用，如果需要管理Cluster，可以参考[
   <figcaption>Nocalhost 集群</figcaption>
 </figure>
 
-### DevSpace
+### 开发空间
 
-**DevSpace（开发空间）** 是 Nocalhost 的一个概念，其代表由 Nocalhost 管理的一个预分配的云端开发的空间，开发者可以在 DevSpace 中随时部署，卸载，开发，调试应用。
+**开发空间**是 Nocalhost 的一个概念，其代表由 Nocalhost 管理的一个预分配的云端开发的空间，开发者可以在 DevSpace 中随时部署，卸载，开发，调试应用。
 
 DevSpace 之间是隔离的，开发者可以把自己的 DevSpace 共享给其他开发者，实现开发协作。因为 DevSpace 的隔离性，也可以被用作测试环境。
 
@@ -42,7 +42,7 @@ DevSpace 之间是隔离的，开发者可以把自己的 DevSpace 共享给其�
 
 ### 应用
 
-**应用** 是 Nocalhost 的一个概念，它主要用于管理您想用于本地开发的一组 manifest 文件。也就是说，这些 manifest 通常包含你的应用所依赖的所有 k8s 资源，如果可能，我们应该尽量保持它的最小化。
+**应用**是 Nocalhost 的一个概念，它主要用于管理您想用于本地开发的一组 manifest 文件。也就是说，这些 manifest 通常包含你的应用所依赖的所有 k8s 资源，如果可能，我们应该尽量保持它的最小化。
 
 Nocalhost 支持三种类型的应用：
 
@@ -50,7 +50,7 @@ Nocalhost 支持三种类型的应用：
 * Helm
 * Kustomize
 
-**应用** 可以用来创建[开发空间](#devspace)，我们推荐直接使用IDE插件来部署你的应用，IDE插件工作在应用创建的开发空间上。 也就是说，在分配了一个开发空间后之后，开发者可以轻松地在 IDE 上进行开发。
+**应用**可以用来创建[开发空间](#devspace)，我们推荐直接使用IDE插件来部署你的应用，IDE插件工作在应用创建的开发空间上。 也就是说，在分配了一个开发空间后之后，开发者可以轻松地在 IDE 上进行开发。
 
 分配一个 DevSpace 后，你会得到一个 `KubeConfig` 来访问这个 DevSpace，`nhctl` 或插件可以根据应用程序的 mianifest 文件和 `KubeConfig` 来部署应用程序。
 

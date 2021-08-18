@@ -1,36 +1,45 @@
-# 配置参考
+# Config Reference
 
-有关完整详细的 Nocalhost 配置规范，请参阅 [Nocalhost 配置](../reference/nh-config)
+For full detailed Nocalhost config specs, please refer to [Nocalhost Config Specs](../reference/nh-config)
+
+
+## Configuration Structure
+
+```yaml
+configProperties: ...           # struct    | required | Specify config properties
+
+application: ...                # struct    | required | Specify application configuration
+```
 
 ## `configProperties`
 
 ```yaml
-configProperties:               # struct    | required | 指定配置文件属性
-    version: v2                 # string    | required | 指定配置文件版本
-    envFile: null               # string    | optional | env 名称，在当前配置文件相同目录下
+configProperties:               
+    version: v2                 # string    | required | config file version
+    envFile: null               # string    | optional | env file name, substitution variable for this file
 ```
 
 ## `application`
 
-Nocalhost 将使用这些配置来管理应用程序。
+**Application** is a concept of Nocalhost. An application consists of a set of [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest). These manifests contain resources descriptions of all the components you want to deploy.
+
+Nocalhost allows you to customize the deployment and development of these components.
 
 ```yaml
-application:                    # struct    | required | 指定配置应用属性
-    name: foo-app               # string    | required | 应用名称
-    manifestType: rawManifest   # string    | required | 应用的 K8s manifest 类型
-    resourcePath: []            # string[]  | required | 设置应用的相对路径目录
-    helmVersion: 0.0.1          # string    | optional | 指定 helmRepo 类型应用默认的版本号
+application:                    
+    name: foo-app               # string    | required | Application name
+    manifestType: rawManifest   # string    | required | Application k8s manifest type
+    resourcePath: []            # string[]  | required | Set the application resource path
+    helmVersion: 0.0.1          # string    | optional | Set default application version for helmRepo
+    helmValues: ...             # struct    | optional | Overwrite Helm values.yaml
     ignoredPath: []             # string[]  | optional | 
-    onPreInstall: ...           # struct    | optional | 应用安装前的执行任务
-    helmValues: ...             # struct    | optional | 仅针对 Helm 应用类型有效，覆写 values.yaml 指定值
-    env: ...                    # struct    | optional | 应用安装时为所有工作负载注入环境变量
-    envFrom: ...                # struct    | optional | 应用安装时为所有工作负载注入环境变量（使用 env 文件）
-    services: ...               # struct    | optional | 应用的服务配置
+    onPreInstall: ...           # struct    | optional | The jobs to be executed before application's installation.
+    env: ...                    # struct    | optional | Inject environment variable for all workload when installed
+    envFrom: ...                # struct    | optional | Use envFile to inject environment variable for all workload when installed
+    services: ...               # struct    | optional | Applications' services configurations
 ```
 
-[了解有关如何配置应用部署的更多信息](./config-deploy)
-
-### `application[*].onPreInstall`
+### `application.onPreInstall`
 
 ```yaml
 onPreInstall:
@@ -38,9 +47,9 @@ onPreInstall:
       weight: 0                 # integer   | required | Order of execution of job, the smallest will be executed first
 ```
 
-[了解有关如何设置预安装配置的更多信息](./config-deploy#run-jobs-before-installing-the-application)
+[Read more about how to set up pre-install configurations ](./config-deploy#run-jobs-before-installing-the-application)
 
-### `application[*].helmValues`
+### `application.helmVersion` and `application.helmValues`
 
 ```yaml
 helmValues:
@@ -48,33 +57,37 @@ helmValues:
       value: ""                 # string    | The Helm chart values
 ```
 
-[详细了解如何覆盖 Helm Value](./config-deploy-helm#overwrite-helm-values)
+[Read more to learn how to configure Helm application deployment](./config-deploy-helm)
 
-### `application[*].env` and `application[*].envFrom`
+### `application.env` and `application.envFrom`
 
 ```yaml
 env: []
 
 envFrom:
-    envFile: []                 # string[]  | Optional  | Use envFile to inject environment variable for all workload 
+    envFile: []                 # string[]  | optional | Use envFile to inject environment variable for all workload 
 ```
 
-[详细了解如何设置环境变量](./config-deploy##inject-environment-variable-to-workloads)
+[Read more about how to set up environment variables](./config-deploy#inject-environment-variable-to-workloads)
 
-### `application[*].services`
+### `application.services`
 
-Nocalhost 的服务与 Kubernetes Service 完全不同。 它为应用程序部署和开发提供了增强。
+A Kubernetes application of microservice architecture consists of multiple microservices in the broad sense. Each microservice is a [Kubernetes workload](https://kubernetes.io/docs/concepts/workloads/) in the narrow sense.
+
+Nocalhost inherits this concept, and the `Services` here corresponds to the microservices in the application. Therefore, Nocalhost's `Service` can be seen as an enhancement to Kubernetes workload.
+
+`services` gives you the options to configure the workloads that give you better deployment and development experiences.
 
 ```yaml
 services:
-    - name: ""                      # string    | required | Name of the service, also is the display name in cluster
+    - name: ""                      # string    | required | Name of the workload, also is the display name in cluster
       serviceType: ""               # string    | required | The Kubernetes Workloads type corresponding to the service
       dependLabelSelector: ...      # struct    | optional | Dependent Pods label selector 
       container: ...                # struct    | optional | 
 ```
-- `dependLabelSelector` - [了解如何配置工作负载的启动顺序](./config-deploy#manage-start-dependency)
-- `container` - [详细了解如何配置开发模式](./config-dev)
 
-:::info 不是必须的
-服务配置不是必须的，不配置不会影响Nocalhost的使用。 这是增强功能，可为您提供更好的部署和开发体验。
+:::caution Optional
+`Service` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. 
 :::
+
+[Read more to learn how to configure `services`](./config-services)

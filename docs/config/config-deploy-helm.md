@@ -54,7 +54,7 @@ application:
 
 <TabItem value="helmRepo">
 
-Deploy from Helm repository. This deployment method only supports with **Nocalhost Server**, please refer to [Manager applications with Nocalhost Server](../server/manage-app)
+Deploy from Helm repository. This deployment method only supports with **Nocalhost Server**, refer to [Manager applications with Nocalhost Server](../server/manage-app)
 
 ```yaml
 configProperties:                       # struct    | required | Specify config properties
