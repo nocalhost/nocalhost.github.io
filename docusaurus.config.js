@@ -61,7 +61,19 @@ module.exports = {
 			},
 		],
 		// Custom Redirect
-		
+		[
+			'@docusaurus/plugin-client-redirects',
+			{
+			  redirects: [
+				  {
+					  to: '/docs/cn-ZH',
+					  from : [
+						  '/zh'
+					  ],
+				  },
+			  ],
+			},
+		],
 		// Image Zoom
 		'plugin-image-zoom',
 	],

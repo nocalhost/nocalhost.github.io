@@ -213,7 +213,7 @@ Nocalhost will associate the directory to the clone directory automatically afte
 Nocalhost will replace the workload containers when entering DevMode by DevImage. You can configure `containers[*].dev.image` options before entering DevMode or Nocalhost will ask you to input the image URL.
 
 - **Preset:** if you set the image before entering development mode, Nocalhost will use it to replace the image of DevContainer directly.
-- **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL.
+- **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL. You can also use the DevImage we provided.
 
 :::tip DevImage
 `image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
@@ -335,6 +335,12 @@ Nocalhost will open DevContainer's terminal right within the IDE after entering 
 root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
 ```
 
+You can now run the main process of your workload and check the result.
+
+:::tip Main Process
+In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not response any request. You need to manually start the main process before you can access.
+:::
+
 ## Configure Port-Forwarding in IDE
 
 You can easily configure the port-forwarding for specific container within Nocalhost in IDE.
@@ -392,12 +398,27 @@ You have configured the port-forwarding in `DevMode`. This port-forwarding will 
 
 ## Coding in Kubernetes Cluster
 
-Nocalhost provides the same coding experience you're used in the IDE when developing in remote Kubernetes cluster.
+Nocalhost provides the same coding experience you're used in the IDE when developing in the remote Kubernetes cluster. 
 
+You can make any code change in the IDE see results instantly without rebuilding the image or restarting containers.
 
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/opt/code-change.gif')} />
+  <figcaption>Coding in VS Code</figcaption>
+</figure>
 
-### Statusbar
+### Status Bar
 
+Nocalhost will monitor the local files change and synchronize the changes to the remote containers. You can check the synchronization status in IDE's status bar.
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/statusbar.jpg')} />
+  <figcaption>Synchronization status in IDE</figcaption>
+</figure>
+
+#### Disconnect & Reconnect
+
+If the file synchronization has disconnected, the status will change to `Nocalhost sidecar disconnected`. In this case, you can just click the status bar, Nocalhost will reconnect the file synchronization. 
 
 ## Debugging
 
@@ -412,12 +433,50 @@ You can debug your remote Kubernetes workloads, [access the container's terminal
 - PHP: **[Remote debugging of PHP workload](./debug/php)**
 - Python: **[Remote debugging of Python workload](./debug/python)**
 
+## Open Project
 
-## Exit Development Mode
+If you closed the source code IDE window in development mode and want to reopen it. You can select the workload from the cluster inspector and use `Open Project`.
 
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/open-project.gif')} />
+  <figcaption>Open project in VS Code</figcaption>
+</figure>
 
-## Reset Application
+:::caution DevMode Only
+`Open Project` only works in development mode.
+:::
 
+## End Development Mode
+
+When you finish developing, you can now end DevMode.
+
+### How to?
+
+**VS Code:** Click the <img src={useBaseUrl('/img/icons/dev_end.svg')} width="20" /> icon
+
+**JetBrains:** Right click the workload that in DevMode and select `End DevMode`
+
+### Process
+
+When ending DevMode, Nocalhost runs the following process:
+
+1. Stop file synchronization and port-forwarding (if any)
+2. Stop the DevContainer
+3. Delete the current versioned Pod
+4. Recreating and start the original versioned Pod
+
+## Reset Workload
+
+For example, reset the `productpage` deployment
+
+```bash
+Stopping port forward
+Failed to clean up syncthing secret: secrets "productpage-deployment-nocalhost-syncthing-secret" not found
+Annotation nocalhost.origin.spec.json found, use it
+ Deleting current revision...
+ Recreating original revision...
+Service productpage has been reset.
+```
 
 ## Edit Manifest
 
