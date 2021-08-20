@@ -469,17 +469,32 @@ When ending DevMode, Nocalhost runs the following process:
 
 Nocalhost can help you to rollback any Pod to its original version. You can do this by `Reset Pod`.
 
-For example, reset the `productpage` deployment
+For example, reset the `productpage` deployment, and you should see the similar message as below:
 
 ```bash
 Stopping port forward
-Failed to clean up syncthing secret: secrets "productpage-deployment-nocalhost-syncthing-secret" not found
 Annotation nocalhost.origin.spec.json found, use it
  Deleting current revision...
  Recreating original revision...
 Service productpage has been reset.
 ```
 
-## Edit Manifest
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/reset-pod.gif')} />
+  <figcaption>Reset pod</figcaption>
+</figure>
 
-## Deploy Workloads
+## Manifest
+
+### Application Level
+
+You can apply a new [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest) to an [application](../config/config-ref#application). You can easily deploy/undeploy Kubernetes workloads by this feature.
+
+### Workload Level
+
+Nocalhost has a built-in manifest editor that allows you to edit the Kubernetes manifest within IDE. After modification, Nocalhost can apply the new manifest directly.
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/edit-manifest.gif')} />
+  <figcaption>Edit manifest</figcaption>
+</figure>
