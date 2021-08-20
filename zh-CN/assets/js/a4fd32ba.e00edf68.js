@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[934],{7541:function(e,t,n){n.r(t);var c=n(7294);t.default=function(){var e=(0,c.useRef)();return(0,c.useEffect)((function(){e.current.click()}),[]),c.createElement(c.Fragment,null,c.createElement("a",{ref:e,href:"https://nocalhost.dev/zh-CN/",style:{visibility:"hidden"}}))}}}]);
