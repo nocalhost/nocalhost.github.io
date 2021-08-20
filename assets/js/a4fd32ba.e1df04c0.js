@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[934],{7541:function(e,n,t){t.r(n);var c=t(7294),u=t(5977);n.default=function(){return c.createElement(u.l_,{to:"/zh-CN/"})}}}]);
