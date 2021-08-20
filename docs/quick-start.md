@@ -94,7 +94,7 @@ We are using the bookinfo application as an example here. You can use your own a
 Make sure you have successfully deployed workloads within your Kubernetes Cluster, then:
 
 1. Expand the workloads tree, find the workload you want to develop
-2. Click <img className="svg-icon" src={useBaseUrl('/img/icons/dev-start.svg')} width="18" /> to start the `Development Mode (DevMode)`
+2. Click <img className="svg-icon" src={useBaseUrl('/img/icons/dev_start.svg')} width="18" /> to start the `Development Mode (DevMode)`
 3. Specify the source code local directory or you can clone from existing Git repository. 
 4. Nocalhost will open a new VS Code window, and start the `DevMode` automatically.
 
@@ -114,7 +114,7 @@ sh run.sh
 ```
 
 :::tip Main Process
-When entering DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not response any request. You need to manually start the main process before you can access.
+When entering DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not response any request. You need to manually start the main process before you can access it.
 :::
 
 **2.** View the running result on [http://127.0.0.1:39080](http://127.0.0.1:39080) in your web browser
