@@ -56,7 +56,7 @@ kubectl config view --minify --raw --flattern
 ## Remove Cluster
 
 :::note KubeConfig Unchanged
-Nocalhost will only remove the cluster from the tree list, it will not modify your `KubeConfig`
+Nocalhost will only remove the cluster from inspector, it will not modify your `KubeConfig`
 :::
 
 <Tabs

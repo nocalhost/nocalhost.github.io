@@ -24,12 +24,22 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 service:
   containers:
     dev:
-    command:
+      command:
+        debug:
+        - ./debug.sh
       debug:
-       - ./debug.sh
-    debug:
-      remoteDebugPort: 9004
+        remoteDebugPort: 9004
 ...
+```
+
+```yaml title="debug.sh"
+#! /bin/sh
+
+export DEBUG_ENV=1
+export FLASK_DEBUG=0
+export FLASK_ENV=development
+
+flask run --host=0.0.0.0 --port=9999
 ```
 
 ## 2. Enter Development Mode

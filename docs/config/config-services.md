@@ -14,15 +14,15 @@ applications:
     - name: deployment-workload
       serviceType: deployment
         dependLabelSelector:
-        pods: []
-        jobs:
+          pods: []
+          jobs:
             - dep-job
         containers: ...
     - name: statefulset-workload
       serviceType: statefulset
         dependLabelSelector:
-        pods: []
-        jobs:
+          pods: []
+          jobs:
             - dep-job
         containers: ...
 ```
