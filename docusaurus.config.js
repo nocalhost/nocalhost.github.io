@@ -61,7 +61,6 @@ module.exports = {
 			},
 		],
 		// Custom Redirect
-		
 		// Image Zoom
 		'plugin-image-zoom',
 	],

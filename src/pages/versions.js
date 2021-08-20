@@ -20,8 +20,6 @@ function VersionPage() {
 	)
 	const repoUrl = `https://github.com/${organizationName}/${projectName}`
 
-	console.log(currentVersion)
-
 	return (
 		<Layout
 			title="Versions"
@@ -29,7 +27,6 @@ function VersionPage() {
 			<main className="container margin-vert--lg">
 			    <h1><Translate>Nocalhost documentation versions</Translate></h1>
 
-                
 				{latestVersion && (
 					<div className="margin-bottom--lg">
 						<h3 id="next"><Translate>Current Version (Stable)</Translate></h3>
