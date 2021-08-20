@@ -467,9 +467,9 @@ When ending DevMode, Nocalhost runs the following process:
 
 ## Reset Workload
 
-Nocalhost can help you to rollback any Pod to its original version. You can do this by `Reset Pod`.
+Nocalhost can help you to roll back any Pod to its original version. You can do this by `Reset Pod`.
 
-For example, reset the `productpage` deployment
+For example, reset the `productpage` workload in IDE, you will see the following message in IDE's output:
 
 ```bash
 Stopping port forward
