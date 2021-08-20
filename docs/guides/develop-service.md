@@ -139,9 +139,9 @@ Nocalhost uses the following icons to describe the status of different Kubernete
 
 ## Choose Source Code Directory
 
-Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
+Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
 
-You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory`. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
+You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have an associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
 
 ### Associate Local Directory
 
@@ -176,7 +176,7 @@ You can select any local directory and confirm the selection. Nocalhost will sav
 Nocalhost will not clone source code from Git if you have already associated directory. 
 :::
 
-Nocalhost can help you to clone the source code from Git repository within the IDE. 
+Nocalhost can help you to clone the source code from the Git repository within the IDE. 
 
 Set the source code repository URL of the workload.
 
@@ -216,7 +216,7 @@ Nocalhost will replace the workload containers when entering DevMode by DevImage
 - **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL. You can also use the DevImage we provided.
 
 :::tip DevImage
-`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
+`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
 :::
 
 <figure className="img-frame">
@@ -234,7 +234,7 @@ containers:
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage
 ```
 
-[Read more to learn how to build your own DevImage](../config/config-dev-devcontainer)
+[Read more to learn how to build your DevImage](../config/config-dev-devcontainer)
 
 ## Enter Development Mode
 
@@ -338,12 +338,12 @@ root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
 You can now run the main process of your workload and check the result.
 
 :::tip Main Process
-In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not response any request. You need to manually start the main process before you can access.
+In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not respond to any request. You need to manually start the main process before you can access it.
 :::
 
 ## Configure Port-Forwarding in IDE
 
-You can easily configure the port-forwarding for specific container within Nocalhost in IDE.
+You can easily configure the port-forwarding for a specific container within Nocalhost in IDE.
 
 :::danger Careful
 Port forwarding set in different modes only corresponds to the current mode.
@@ -469,17 +469,32 @@ When ending DevMode, Nocalhost runs the following process:
 
 Nocalhost can help you to roll back any Pod to its original version. You can do this by `Reset Pod`.
 
-For example, reset the `productpage` workload in IDE, you will see the following message in IDE's output:
+For example, reset the `productpage` deployment, and you should see the similar message as below:
 
 ```bash
 Stopping port forward
-Failed to clean up syncthing secret: secrets "productpage-deployment-nocalhost-syncthing-secret" not found
 Annotation nocalhost.origin.spec.json found, use it
  Deleting current revision...
  Recreating original revision...
 Service productpage has been reset.
 ```
 
-## Edit Manifest
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/reset-pod.gif')} />
+  <figcaption>Reset pod</figcaption>
+</figure>
 
-## Deploy Workloads
+## Manifest
+
+### Application Level
+
+You can apply a new [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest) to an [application](../config/config-ref#application). You can easily deploy/undeploy Kubernetes workloads by this feature.
+
+### Workload Level
+
+Nocalhost has a built-in manifest editor that allows you to edit the Kubernetes manifest within IDE. After modification, Nocalhost can apply the new manifest directly.
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/edit-manifest.gif')} />
+  <figcaption>Edit manifest</figcaption>
+</figure>

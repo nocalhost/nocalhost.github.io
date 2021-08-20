@@ -24,11 +24,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 service:
   containers:
     dev:
-    command:
+      command:
+        debug:
+          - ./debug.sh
       debug:
-       - ./debug.sh
-    debug:
-      remoteDebugPort: 9003
+        remoteDebugPort: 9003
 ...
 ```
 We are using the default debug port `9003` of Xdebug.

@@ -95,7 +95,7 @@ module.exports = {
           ]
         },
         // ConfigMap
-        'config/config-configmap'
+        // 'config/config-configmap'
       ]
     },
     // Best Practice

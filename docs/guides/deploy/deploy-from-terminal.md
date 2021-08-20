@@ -95,9 +95,3 @@ nhctl install helloworld \
    -n fooNamespace \
    --kubeconfig ~/.kube/barconfig
 ```
-
-## Deploy by Kustomize 
-
-:::note Coming Soon
-We will update the docs soon.
-:::

@@ -44,31 +44,10 @@ You need to have configured `config.yaml` before deploy applications. [Learn how
 
 Nocalhost supports to install application from local directory, Git repository and Helm repository.
 
-<Tabs
-  defaultValue="local"
-  values={[
-    {label: 'From Local Directory', value: 'local'},
-    {label: 'From Git Repository', value: 'git'},
-    {label: 'From Helm Repository', value: 'helm'},
-  ]}>
+**From Local Directory** and **From Git Repository**
 
-<TabItem value="local">
+Nocalhost will analyze the deployment configuration in the `.nocalhost` folder in your application directory or Git repository, looking for clues on how to deploy your application.
 
-1. Select the application directory
-2. Nocalhost will analyze the deployment configuration in the `.nocalhost` folder in your application directory, looking for clues on how to deploy your application.
+**From Helm Repository**
 
-</TabItem>
-  
-<TabItem value="git">
-
-
-</TabItem>
-
-<TabItem value="helm">
-
-
-</TabItem>
-
-</Tabs>
-
-
+Nocalhost will run the `helm install` to deploy your helmChart. [Read more to learn about `helm install`](https://helm.sh/docs/helm/helm_install/)
