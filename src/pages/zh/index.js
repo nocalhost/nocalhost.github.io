@@ -1,13 +1,16 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 // import {Redirect} from '@docusaurus/router'
 
 function Zh () {
+	const ARef = useRef()
 	useEffect(() => {
-		window.location.href='https://nocalhost.dev/zh-CN/'
+		ARef.current.click()
 	}, [])
 	return (
-		<></>
+		<>
+			<a ref={ARef} href="https://nocalhost.dev/zh-CN/" style={{ visibility: 'hidden' }}></a>
+		</>
 	)
 }
 
