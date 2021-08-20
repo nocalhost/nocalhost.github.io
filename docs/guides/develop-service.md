@@ -467,6 +467,8 @@ When ending DevMode, Nocalhost runs the following process:
 
 ## Reset Workload
 
+Nocalhost can help you to rollback any Pod to its original version. You can do this by `Reset Pod`.
+
 For example, reset the `productpage` deployment
 
 ```bash
