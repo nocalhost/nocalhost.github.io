@@ -40,7 +40,7 @@ module.exports = {
           label: 'Deploy Application',
           items: [
             'guides/deploy/deploy-by-ide',
-            'guides/deploy/deploy-from-helm',
+            // 'guides/deploy/deploy-from-helm',
             'guides/deploy/deploy-from-terminal',
             'guides/deploy/deploy-demo',
           ]
@@ -60,7 +60,7 @@ module.exports = {
             'guides/debug/python',
           ]
         },
-        'guides/clear-pvc',
+        // 'guides/clear-pvc',
       ]
     },
     // Configurations
@@ -111,18 +111,18 @@ module.exports = {
           id: 'practice/cloud/k8s-compatible'
         },
         // Working with Cloud
-        {
-          type: 'category',
-          label: 'Working with Cloud',
-          items: [
-            'practice/cloud/tencent-tke',
-            'practice/cloud/rancher-rke',
-            'practice/cloud/ali-ack',
-            'practice/cloud/google-gke',
-            'practice/cloud/amazon-eks',
-            'practice/cloud/ms-azure'
-          ]
-        },
+        // {
+        //   type: 'category',
+        //   label: 'Working with Cloud',
+        //   items: [
+        //     'practice/cloud/tencent-tke',
+        //     'practice/cloud/rancher-rke',
+        //     'practice/cloud/ali-ack',
+        //     'practice/cloud/google-gke',
+        //     'practice/cloud/amazon-eks',
+        //     'practice/cloud/ms-azure'
+        //   ]
+        // },
       ]
     },
     // Advanced
@@ -139,10 +139,10 @@ module.exports = {
           items: [
             'server/server-overview',
             'server/deploy-server',
-            'server/manage-user',
-            'server/manage-cluster',
-            'server/manage-devspace',
-            'server/manage-app'
+            // 'server/manage-user',
+            // 'server/manage-cluster',
+            // 'server/manage-devspace',
+            // 'server/manage-app'
           ]
         }
       ]
