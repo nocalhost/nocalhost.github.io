@@ -2,7 +2,7 @@
 title: workloads
 ---
 
-# How Nocalhost DevMode Supports Different Workloads
+# How Does Nocalhost DevMode Works?
 
 Nocalhost supports to development of all types of Kubernetes workloads. The following are the working principles.
 

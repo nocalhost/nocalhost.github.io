@@ -142,7 +142,7 @@ Set the source code repository URL of the workload.
   <figcaption>Choose source code directory</figcaption>
 </figure>
 
-#### Example: Set gitURL
+#### Example: Configure gitUrl option
 
 ```yaml
 containers:

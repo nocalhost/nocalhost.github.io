@@ -4,7 +4,7 @@ title: devContainer
 
 # Development Container
 
-Before entering the development mode (`DevMode`), Nocalhost will use the development image (`DevImage`) to start a new container in the specified POD. This container is called `Development Container（DevContainer）`
+Before entering the development mode (`DevMode`), Nocalhost will replace the specified container's image with the development image (`DevImage`), and then change the container's name to `nocalhost-dev`. This container is called `Development Container（DevContainer）`
 
 You can use the [Nocalhost Standard DevImage](https://github.com/nocalhost/dev-container) provided by us or customize by yourself.
 

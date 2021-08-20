@@ -142,7 +142,7 @@ Set the source code repository URL of the workload.
   <figcaption>Choose source code directory</figcaption>
 </figure>
 
-#### Example: Set gitURL
+#### Example: Configure Git URL
 
 ```yaml
 containers:
@@ -423,7 +423,7 @@ If both `env` and `envFrom` configure at the same time, Nocalhost will merge the
 
 Port-forwarding allows you to access your `DevContainer` on `localhost:[PORT]` by forwarding the network traffic from a localhost port to a specified port of a container.
 
-When entering the development mode, Nocalhost starts port-forwarding as configured in the `dev.portForward` section.
+When entering the development mode, Nocalhost iterates over every item the `containers[*].dev[*].portForward` array defined in the configuration and starts port-forwarding for each of the entries and the port mappings they define in the `portForward` section.
 
 ```yml {4}
 containers:

@@ -45,7 +45,7 @@ module.exports = {
 					{
 						tagName: 'link',
 						rel: 'icon',
-						href: '/img/logo.png',
+						href: '/img/favicon.ico',
 					},
 					{
 						tagName: 'link',

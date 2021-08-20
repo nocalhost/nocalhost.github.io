@@ -45,7 +45,6 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
-  services: ...                         # struct    | optional | Applications' services configurations
 ```
 
 </TabItem>
@@ -62,7 +61,6 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
-  services: ...                         # struct    | optional | Applications' services configurations
 ```
 
 </TabItem>
@@ -80,7 +78,6 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
-  services: ...                         # struct    | optional | Applications' services configurations
 ```
 
 </TabItem>

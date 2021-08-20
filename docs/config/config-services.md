@@ -35,8 +35,8 @@ Each entry you configure under `application[*].services` will tell Nocalhost to 
 
 The following config options are needed to determine the workload to be configured:
 
-- [`name`](#name)
-- [`serviceType`](#serviceType)
+- [`name`](#servicesname)
+- [`serviceType`](#servicesservicetype)
 
 ### `services[*].name`
 

@@ -5,8 +5,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Develop a Workload
 
 :::note about this guide
-**Goal:** In [Quick Start Guide](../quick-start), we have guided you on how to install Nocalhost and experience the easier and faster Kubernetes application development. We will provide a complete Nocalhost user guide. <br />
-**Estimate Time:** 15 minutes <br />
+**Goal:** A complete Nocalhost user guide. <br />
+**Estimate Time:** 20 minutes <br />
 **Requirements:**
 - Any local or remote Kubernetes cluster (Minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [Minikube](https://minikube.sigs.k8s.io/docs/start/).
 - **[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)** must be enabled in the above cluster
@@ -19,133 +19,127 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 In the microservice architecture, a workload can also be considered as a sole microservice.
 :::
 
-## Select Workload
+## Cluster Inspector
 
-Nocalhost supports to development of all types of Kubernetes workload. 
+Nocalhost build-in a cluster inspector that can browse resources in the Kubernetes cluster.
 
-In your IDE:
-
-1. Open the Nocalhost plugin and expand the cluster inspector
-2. Select the workload you want to develop
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/start-devmode.jpg')} />
-  <figcaption>Select workload in VS Code and JetBrains</figcaption>
-</figure>
-
-### Status
+### Resources Status
 
 Nocalhost uses the following icons to describe the status of different Kubernetes resources in cluster inspector.
 
 <table>
-    <tr>
-        <th>Resource</th>
-        <th>Status</th>
-        <th>Icon</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td rowspan="2">Cluster</td>
-        <td>Active</td>
-        <td><img src={useBaseUrl('/img/icons/cluster_active.svg')} width="20" /></td>
-        <td>Connected to cluster</td>
-    </tr>
-    <tr>
-        <td>Inactive</td>
-        <td><img src={useBaseUrl('/img/icons/cluster_warning.svg')} width="20" /></td>
-        <td>Unable to connect to cluster</td>
-    </tr>
-    <tr>
-        <td rowspan="2">DevSpace</td>
-        <td>Normal</td>
-        <td><img src={useBaseUrl('/img/icons/namespace.svg')} width="20" /></td>
-        <td>Normal DevSpace/Namespace</td>
-    </tr>
-    <tr>
-        <td>Read Only</td>
-        <td><img src={useBaseUrl('/img/icons/namespace_viewer.svg')} width="20" /></td>
-        <td>This DevSpace/Namespace is readonly, can not operate</td>
-    </tr>
-    <tr>
-        <td rowspan="3">Application</td>
-        <td>Active</td>
-        <td><img src={useBaseUrl('/img/icons/app_active.svg')} width="20" /></td>
-        <td>Application is able to operate</td>
-    </tr>
-    <tr>
-        <td>Inactive</td>
-        <td><img src={useBaseUrl('/img/icons/app_inactive.svg')} width="20" /></td>
-        <td>Application is inactive, unable to operate</td>
-    </tr>
-    <tr>
-        <td>Loading</td>
-        <td><img src={useBaseUrl('/img/icons/loading.gif')} width="20" /></td>
-        <td>Installation or uninstallation</td>
-    </tr>
-    <tr>
-        <td rowspan="5">Development Mode</td>
-        <td>Start DevMode</td>
-        <td><img src={useBaseUrl('/img/icons/dev_start.svg')} width="20" /></td>
-        <td>The workload is in DevMode</td>
-    </tr>
-    <tr>
-        <td>End DevMode</td>
-        <td><img src={useBaseUrl('/img/icons/dev_end.svg')} width="20" /></td>
-        <td>End DevMode</td>
-    </tr>
-    <tr>
-        <td>Others</td>
-        <td><img src={useBaseUrl('/img/icons/dev_other.svg')} width="20" /></td>
-        <td>Others enabled DevMode</td>
-    </tr>
-    <tr>
-        <td>DevMode and Port-Forwarding</td>
-        <td><img src={useBaseUrl('/img/icons/dev_port_forwarding.svg')} width="20" /></td>
-        <td>In DevMode and port-forwarding enabled</td>
-    </tr>
-    <tr>
-        <td>DevMode and Port-Forwarding, enabled by others</td>
-        <td><img src={useBaseUrl('/img/icons/dev_port_forwarding_other.svg')} width="20" /></td>
-        <td>Others enable the workload into DevMode and port-forwarding</td>
-    </tr>
-    <tr>
-        <td rowspan="2">Nocalhost Configs</td>
-        <td>Normal</td>
-        <td><img src={useBaseUrl('/img/icons/setting_normal.svg')} width="20" /></td>
-        <td>This workload has Nocalhost configurations</td>
-    </tr>
-    <tr>
-        <td>Warning</td>
-        <td><img src={useBaseUrl('/img/icons/setting_warning.svg')} width="20" /></td>
-        <td>Nocalhost configurations is empty</td>
-    </tr>
-    <tr>
-        <td rowspan="4">Workload Status</td>
-        <td>Not Ready</td>
-        <td><img src={useBaseUrl('/img/icons/status_normal.svg')} width="20" /></td>
-        <td>This workload is not ready, e.g. deploying</td>
-    </tr>
-    <tr>
-        <td>Running</td>
-        <td><img src={useBaseUrl('/img/icons/status_running.svg')} width="20" /></td>
-        <td>This workload is running</td>
-    </tr>
-    <tr>
-        <td>Failed</td>
-        <td><img src={useBaseUrl('/img/icons/status_failed.svg')} width="20" /></td>
-        <td>This workload has failed to run</td>
-    </tr>
-    <tr>
-        <td>Unknown</td>
-        <td><img src={useBaseUrl('/img/icons/status_unknown.svg')} width="20" /></td>
-        <td>This workload status is unknown</td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Resource</th>
+            <th>Status</th>
+            <th>Icon</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowSpan="2">Cluster</td>
+            <td>Active</td>
+            <td><img src={useBaseUrl('/img/icons/cluster_active.svg')} width="20" /></td>
+            <td>Connected to cluster</td>
+        </tr>
+        <tr>
+            <td>Inactive</td>
+            <td><img src={useBaseUrl('/img/icons/cluster_warning.svg')} width="20" /></td>
+            <td>Unable to connect to cluster</td>
+        </tr>
+        <tr>
+            <td rowSpan="2">DevSpace</td>
+            <td>Normal</td>
+            <td><img src={useBaseUrl('/img/icons/namespace.svg')} width="20" /></td>
+            <td>Normal DevSpace/Namespace</td>
+        </tr>
+        <tr>
+            <td>Read Only</td>
+            <td><img src={useBaseUrl('/img/icons/namespace_viewer.svg')} width="20" /></td>
+            <td>This DevSpace/Namespace is readonly, can not operate</td>
+        </tr>
+        <tr>
+            <td rowSpan="3">Application</td>
+            <td>Active</td>
+            <td><img src={useBaseUrl('/img/icons/app_active.svg')} width="20" /></td>
+            <td>Application is able to operate</td>
+        </tr>
+        <tr>
+            <td>Inactive</td>
+            <td><img src={useBaseUrl('/img/icons/app_inactive.svg')} width="20" /></td>
+            <td>Application is inactive, unable to operate</td>
+        </tr>
+        <tr>
+            <td>Loading</td>
+            <td><img src={useBaseUrl('/img/icons/loading.gif')} width="20" /></td>
+            <td>Installation or uninstallation</td>
+        </tr>
+        <tr>
+            <td rowSpan="5">Development Mode</td>
+            <td>Start DevMode</td>
+            <td><img src={useBaseUrl('/img/icons/dev_start.svg')} width="20" /></td>
+            <td>The workload is in DevMode</td>
+        </tr>
+        <tr>
+            <td>End DevMode</td>
+            <td><img src={useBaseUrl('/img/icons/dev_end.svg')} width="20" /></td>
+            <td>End DevMode</td>
+        </tr>
+        <tr>
+            <td>Others</td>
+            <td><img src={useBaseUrl('/img/icons/dev_other.svg')} width="20" /></td>
+            <td>Others enabled DevMode</td>
+        </tr>
+        <tr>
+            <td>DevMode and Port-Forwarding</td>
+            <td><img src={useBaseUrl('/img/icons/dev_port_forwarding.svg')} width="20" /></td>
+            <td>In DevMode and port-forwarding enabled</td>
+        </tr>
+        <tr>
+            <td>DevMode and Port-Forwarding, enabled by others</td>
+            <td><img src={useBaseUrl('/img/icons/dev_port_forwarding_other.svg')} width="20" /></td>
+            <td>Others enable the workload into DevMode and port-forwarding</td>
+        </tr>
+        <tr>
+            <td rowSpan="2">Nocalhost Configs</td>
+            <td>Normal</td>
+            <td><img src={useBaseUrl('/img/icons/setting_normal.svg')} width="20" /></td>
+            <td>This workload has Nocalhost configurations</td>
+        </tr>
+        <tr>
+            <td>Warning</td>
+            <td><img src={useBaseUrl('/img/icons/setting_warning.svg')} width="20" /></td>
+            <td>Nocalhost configurations is empty</td>
+        </tr>
+        <tr>
+            <td rowSpan="4">Workload Status</td>
+            <td>Not Ready</td>
+            <td><img src={useBaseUrl('/img/icons/status_normal.svg')} width="20" /></td>
+            <td>This workload is not ready, e.g. deploying</td>
+        </tr>
+        <tr>
+            <td>Running</td>
+            <td><img src={useBaseUrl('/img/icons/status_running.svg')} width="20" /></td>
+            <td>This workload is running</td>
+        </tr>
+        <tr>
+            <td>Failed</td>
+            <td><img src={useBaseUrl('/img/icons/status_failed.svg')} width="20" /></td>
+            <td>This workload has failed to run</td>
+        </tr>
+        <tr>
+            <td>Unknown</td>
+            <td><img src={useBaseUrl('/img/icons/status_unknown.svg')} width="20" /></td>
+            <td>This workload status is unknown</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Choose Source Code Directory
 
-Before developing the application, you need to tell Nocalhost the location of your source code. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
+Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
 
 You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory`. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
 
@@ -178,28 +172,92 @@ You can select any local directory and confirm the selection. Nocalhost will sav
 
 ### Clone from Git Repository
 
-Nocalhost will ask you to input the Git repository URL and run the `git clone <URL>` command. You also need to specify the local directory to store the code clone from the repository.
+:::danger Limitation
+Nocalhost will not clone source code from Git if you have already associated directory. 
+:::
 
-```bash title="Nocalhost run the git clone command"
+Nocalhost can help you to clone the source code from Git repository within the IDE. 
+
+Set the source code repository URL of the workload.
+
+- **Preset:** if you set this URL in `containers[*].dev.gitUrl` and choose to download from Git before entering development mode, Nocalhost will try to clone the source code from the URL you configured. 
+- **Not preset:** if you choose `Clone from Git Repository` when selecting the source code directory and enter the Git URL. Nocalhost will automatically set the URL you entered into the configuration.
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/plugin/vs-choose-dir.jpg')} />
+  <figcaption>Choose source code directory</figcaption>
+</figure>
+
+#### Example: Configure Git URL
+
+```yaml
+containers:
+  - name: container-01
+    dev:
+      gitURL: https://github.com/nocalhost/nocalhost.git
+```
+
+#### Cloning Source Code in IDE
+
+```bash title="Nocalhost run the git clone command within IDE"
 [cmd] git clone https://e.coding.net/bookinfo-ratings.git "/Users/user/Downloads/Github/ratings"
 Cloning into '/Users/garry/Downloads/Github/ratings'...
 ```
-
-In addition, Nocalhost will save the Git URL in the `gitUrl` section in workload [DevMode configuration](../config/config-dev#manage-configurations-by-ide-plugin). Refer to [Configure Git URL](../config/config-dev#configure-git-url) for more information.
 
 :::info Auto-associate
 Nocalhost will associate the directory to the clone directory automatically after codes are cloned. 
 :::
 
-:::caution Appear Once
-The `Clone from Git Repository` option will only appear once at the first time the workload enter DevMode. 
+## Choose Development Image
+
+Nocalhost will replace the workload containers when entering DevMode by DevImage. You can configure `containers[*].dev.image` options before entering DevMode or Nocalhost will ask you to input the image URL.
+
+- **Preset:** if you set the image before entering development mode, Nocalhost will use it to replace the image of DevContainer directly.
+- **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL.
+
+:::tip DevImage
+`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
 :::
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/plugin/vs-devimage.jpg')} />
+  <figcaption>Choose source code directory</figcaption>
+</figure>
+
+#### Example: Set the image for `DevConatiner`
+  
+```yml {5}
+containers:
+  - name: container-01
+    dev:
+      ...
+      image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage
+```
+
+[Read more to learn how to build your own DevImage](../config/config-dev-devcontainer)
 
 ## Enter Development Mode
 
+
+### Select Workload
+
+Nocalhost supports to development of all types of Kubernetes workload. 
+
+In your IDE:
+
+1. Open the Nocalhost plugin and expand the cluster inspector
+2. Select the workload you want to develop
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/start-devmode.jpg')} />
+  <figcaption>Select workload in VS Code and JetBrains</figcaption>
+</figure>
+
+### Development Process
+
 When entering DevMoe, Nocalhost first runs the following process (1. - 5.)
 
-### 1. Replace Image
+#### 1. Replace Image
 
 Nocalhost will first replace the remote container image with a development image (DevImage).
 
@@ -209,7 +267,7 @@ Nocalhost will first replace the remote container image with a development image
 Container image will handle by Kubernetes, [read more to learn about Kubernetes image management](https://kubernetes.io/docs/concepts/containers/images/)
 :::
 
-### 2. Replace Container and Restart POD
+#### 2. Replace Container and Restart POD
 
 In this stage, Nocalhost will: 
 
@@ -232,26 +290,19 @@ Waiting pod to start...
  ✓  Dev container has been updated
 ```
 
-### 3. Start Port-Forwarding
+#### 3. Start Port-Forwarding
 
-#### Configured before Enter DevMode
+[Read more to learn how to configure port-forwarding in DevMode](../config/config-dev#port-forwarding)
 
-Nocalhost iterates over every item the `containers[*].dev[*].portForward` array defined in the `config.yaml` and starts port-forwarding for each of the entries and the port mappings they define in the `portForward` section.
-
-:::note
-Before starting the actual port-forwarding, Nocalhost waits until the containers and services are ready. You should see the following messages in IDE output:
+If you have configured the `containers[*].dev[*].portForward`, Nocalhost will start the port-forwarding after entering DevMode and you should see the following message in IDE output:
 
 ```bash
 Syncthing port-forward pod ratings-5dfbc89c59-r7wg5, namespace default
 Port-forward 51517:51517 has been started
 ```
-:::
+If you have not configured `containers[*].dev[*].portForward` you can [configure the port-forwarding in IDE](#configure-port-forwarding-in-ide) after entering DevMode.
 
-#### Without `portForward` Configurations
-
-If the port-forwarding configuration has not been configured before entering the DevMode, then you need to configure the port-forwarding through the IDE after entering the development mode.
-
-### 4. Start File Synchronization
+#### 4. Start File Synchronization
 
 Nocalhost will check the `containers[*].dev[*].sync` section defined in the `config.yaml` and starts a real-time file synchronization between local directory and DevContainer.
 
@@ -276,16 +327,90 @@ sync file end
 
 [Read more to learn how to configure file synchronization](../config/config-dev-sync)
 
-### 5. Open Remote Terminal
+#### 5. Open Remote Terminal
 
-Nocalhost will open DevContainer's terminal right within the IDE without extra configurations.
+Nocalhost will open DevContainer's terminal right within the IDE after entering DevMode. The default directory is the one you configured in `container[*].dev.workDir`.
 
 ```bash
 root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
 ```
 
+## Configure Port-Forwarding in IDE
 
-### Status Bar
+You can easily configure the port-forwarding for specific container within Nocalhost in IDE.
+
+:::danger Careful
+Port forwarding set in different modes only corresponds to the current mode.
+
+For Example: 
+
+You have configured the port-forwarding in `DevMode`. This port-forwarding will only take effect in `DevMode`. If you end `DevMode`, this port-forwarding will lose.
+:::
+
+<Tabs
+  defaultValue="vs-port"
+  values={[
+    {label: 'Configure Port-Forwarding in VS Code', value: 'vs-port'},
+    {label: 'Configure Port-Forwarding in JetBrains', value: 'jb-port'},
+  ]}>
+<TabItem value="vs-port">
+
+**Start Port-Forwarding**
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/vs-port-forward.gif')} />
+  <figcaption>Start port-forwarding in VS Code</figcaption>
+</figure>
+
+**Stop Port-Forwarding**
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/vs-stop-port-forward.gif')} />
+  <figcaption>Start port-forwarding in VS Code</figcaption>
+</figure>
+
+</TabItem>
+  
+<TabItem value="jb-port">
+
+**Start Port-Forwarding**
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/jb-port-forward.gif')} />
+  <figcaption>Start port-forwarding in JetBrains</figcaption>
+</figure>
+
+**Stop Port-Forwarding**
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/jb-stop-port-forward.gif')} />
+  <figcaption>Start port-forwarding in JetBrains</figcaption>
+</figure>
+
+</TabItem>
+</Tabs>
+
+## Coding in Kubernetes Cluster
+
+Nocalhost provides the same coding experience you're used in the IDE when developing in remote Kubernetes cluster.
+
+
+
+### Statusbar
+
+
+## Debugging
+
+Nocalhost provides the same debugging experience you used in the IDE even when debugging in the remote Kubernetes cluster.
+
+You can debug your remote Kubernetes workloads, [access the container's terminal](./debug/access-terminal) and [viewing the container logs](./debug/log-viewer) right within your favourite IDEs.
+
+**Remote Debugging Supports**
+
+- Java: **[Remote debugging of Java workload](./debug/java)**
+- Golang: **[Remote debugging of Go workload](./debug/go)**
+- PHP: **[Remote debugging of PHP workload](./debug/php)**
+- Python: **[Remote debugging of Python workload](./debug/python)**
 
 
 ## Exit Development Mode
@@ -295,3 +420,5 @@ root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
 
 
 ## Edit Manifest
+
+## Deploy Workloads
