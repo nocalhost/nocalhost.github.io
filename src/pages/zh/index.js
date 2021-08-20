@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 
 function Zh () {
 	useEffect(() => {
-		window.location.replace='https://nocalhost.dev/zh-CN/'
+		window.location.href='https://nocalhost.dev/zh-CN/'
 	}, [])
 	return (
 		<></>
