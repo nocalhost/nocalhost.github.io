@@ -51,13 +51,10 @@ module.exports = {
           type: 'category',
           label: 'Debugging',
           items: [
-            'guides/debug/debug',
+            'guides/debug/overview',
+            'guides/debug/remote-debug',
             'guides/debug/access-terminal', 
             'guides/debug/log-viewer',
-            'guides/debug/php',
-            'guides/debug/java',
-            'guides/debug/go',
-            'guides/debug/python',
           ]
         },
         // 'guides/clear-pvc',
