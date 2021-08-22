@@ -424,14 +424,7 @@ If the file synchronization has disconnected, the status will change to `Nocalho
 
 Nocalhost provides the same debugging experience you used in the IDE even when debugging in the remote Kubernetes cluster.
 
-You can debug your remote Kubernetes workloads, [access the container's terminal](./debug/access-terminal) and [viewing the container logs](./debug/log-viewer) right within your favourite IDEs.
-
-**Remote Debugging Supports**
-
-- Java: **[Remote debugging of Java workload](./debug/java)**
-- Golang: **[Remote debugging of Go workload](./debug/go)**
-- PHP: **[Remote debugging of PHP workload](./debug/php)**
-- Python: **[Remote debugging of Python workload](./debug/python)**
+You can [remote debug your Kubernetes workloads](./debug/remote-debug), [access the container's terminal](./debug/access-terminal) and [viewing the container logs](./debug/log-viewer) right within your favourite IDEs.
 
 ## Open Project
 

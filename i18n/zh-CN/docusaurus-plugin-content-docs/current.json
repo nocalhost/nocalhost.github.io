@@ -3,10 +3,6 @@
     "message": "下个版本",
     "description": "The label for version current"
   },
-  "sidebar.docs.category.Introduction": {
-    "message": "简介",
-    "description": "The label for category Introduction in sidebar docs"
-  },
   "sidebar.docs.category.Getting Started": {
     "message": "快速开始",
     "description": "The label for category Getting Started in sidebar docs"
@@ -39,10 +35,6 @@
     "message": "最佳实践",
     "description": "The label for category Best Practices in sidebar docs"
   },
-  "sidebar.docs.category.Working with Cloud": {
-    "message": "云端开发",
-    "description": "The label for category Working with Cloud in sidebar docs"
-  },
   "sidebar.docs.category.Advanced Guides": {
     "message": "进阶指南",
     "description": "The label for category Advanced Guides in sidebar docs"
@@ -55,12 +47,12 @@
     "message": "参考",
     "description": "The label for category Reference in sidebar docs"
   },
-  "sidebar.docs.category.CLI Reference": {
-    "message": "CLI 命令参考",
-    "description": "The label for category CLI Reference in sidebar docs"
-  },
   "sidebar.docs.category.Changelogs": {
     "message": "变更日志",
     "description": "The label for category Changelogs in sidebar docs"
+  },
+  "sidebar.docs.category.CLI": {
+    "message": "CLI",
+    "description": "The label for category CLI in sidebar docs"
   }
 }
