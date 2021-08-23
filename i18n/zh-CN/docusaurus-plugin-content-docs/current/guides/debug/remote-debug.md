@@ -17,7 +17,7 @@ We will support VS Code as soon as possible.
 3. Then right-click this workload again and select **Remote Debug**
 4. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/LDb7oDGr8gA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe src="//player.bilibili.com/player.html?aid=207555689&bvid=BV1Vh411q7Yh&cid=394592915&page=1" scrolling="no" border="0" frameBorder="no" frameSpacing="0" allowFullScreen="true"> </iframe>
 
 ## Configuration
 
@@ -192,7 +192,7 @@ containers:
           debug:
             - ./debug.sh
         debug:
-          remoteDebugPort: 9009
+          remoteDebugPort: 9003
         useDevContainer: false
         sync:
             type: send
