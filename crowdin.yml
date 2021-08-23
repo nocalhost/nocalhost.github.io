@@ -1,5 +1,7 @@
 files:
   - source: /docs/**/*
+    ignore:
+      - /changelogs/*.*
     translation: /i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%
   - source: /src/pages/**/*
     ignore:
@@ -9,7 +11,5 @@ files:
       - /**/*.tsx
       - /**/*.css
     translation: i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%
-  - source: /blog/**/*
-    translation: i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%
   - source: /versioned_docs/**/*
     translation: /i18n/%locale%/docusaurus-plugin-content-docs/**/%original_file_name%
