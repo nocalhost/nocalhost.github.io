@@ -36,6 +36,16 @@ const TutorialVideoCards = [
 			</>
 		),
 	},
+	{
+		url: '//player.bilibili.com/player.html?aid=207210349&bvid=BV1Fh411B7Vb&cid=383218107&page=1',
+		title: '破解 Kubernetes 应用开发困局——实时热加载和一键 Debug',
+		language: 'zh-cn',
+		description: (
+			<>
+            本次演讲主要介绍如何使用 Nocalhost 简化 Kubernetes 环境下的应用开发，实现应用热加载和一键 Debug，获得秒级的编码/调试/测试循环。
+			</>
+		),
+	},
 ]
 
 // eslint-disable-next-line react/prop-types
