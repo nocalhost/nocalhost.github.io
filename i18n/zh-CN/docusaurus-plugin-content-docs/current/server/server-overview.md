@@ -14,7 +14,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 #### 集群管理
 
-:::tip KubeConfig 如果你想管理一个集群，那么需要有一个带有集群管理员权限的 `KubeConfig`。 :::
+:::tip KubeConfig 
+如果你想管理一个集群，那么需要有一个带有集群管理员权限的 `KubeConfig`。 
+:::
 
 Cluster一般和DevSpace一起使用，如果需要管理Cluster，可以参考[集群管理](./manage-cluster)
 
@@ -75,7 +77,9 @@ Nocalhost 支持三种类型的应用：
 - [阅读更多以了解如何配置应用程序部署](../config/config-deploy)
 - [阅读更多以了解如何配置应用程序开发](../config/config-dev)
 
-:::caution 配置 Services 服务配置不是必需的，只有在必要时才需要。 :::
+:::caution 配置 `services`
+`services` 配置不是必需的，只有在必要时才需要。 
+:::
 
 ### User
 

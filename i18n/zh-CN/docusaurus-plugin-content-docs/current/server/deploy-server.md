@@ -4,14 +4,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Getting Start
 
-:::note About this guide **Goal :** Deploy Nocalhost Sever to Kubernetes cluster. <br /> **Estimate time :** 5 minutes <br /> **Requirements :** <br /> **Estimate time :** 5 minutes <br /> **Requirements :**
+:::note About this guide 
+**Goal :** Deploy Nocalhost Sever to Kubernetes cluster. <br /> **Estimate time :** 5 minutes <br /> **Requirements :** <br /> **Estimate time :** 5 minutes <br /> **Requirements :**
+
 - Any local or remote Kubernetes cluster (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Any local or remote Kubernetes cluster (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [minikube](https://minikube.sigs.k8s.io/docs/start/).
 - **RBAC** must be enabled in above cluster
 - **Configured kubeconfig file** that has namespace admin privilege
 - **[kubectl](https://kubernetes.io/docs/tasks/tools/)** installed
 - **Nocalhost IDE Plugin** installed
 - Kubernetes api-server can be accessed internal and external
-- **[Helm](https://helm.sh/docs/intro/install/)** installed if you [deploy by Helm](#deploy-by-helm) :::
+- **[Helm](https://helm.sh/docs/intro/install/)** installed if you [deploy by Helm](#deploy-by-helm) 
+:::
 
 You can either deploy Nocalhost Server by Nocalhost CLI tool (`nhctl`) or by Helm. You can either deploy Nocalhost Server by Nocalhost CLI tool (`nhctl`) or by Helm. Either way, you need to have the `KubeConfig` with namespace admin privilege of the Kubernetes cluster.
 
