@@ -16,10 +16,19 @@ For example, you have a git repo with address `https://<Repo URL>/foo/bar/hellow
 README.MD
 something.java
 …
+README.MD
+something.java
+…
 foo/bar/k8s/manifests/
                  foo.yaml
                  pre-install-cm.yaml
                 …
+                 what/ever/
+                               inner.yaml
+                               …
+                support/all/dir/inside/
+                                            bar.yaml
+                                            …
                  what/ever/
                                inner.yaml
                                …
@@ -47,6 +56,7 @@ nhctl install applicationNameFooBar \
   -t manifest \
   -n k8sFooNamespace \
   --resource-path. \
+  --kubeconfig ~/.kube/barconfig \
   --kubeconfig ~/.kube/barconfig
 ```
 
@@ -65,6 +75,12 @@ Somefile.py
 AClass.java
 README.MD
 ...
+mychart/example/
+   Chart.yaml
+   values.yaml
+   charts/
+   templates/
+   ...
 mychart/example/
    Chart.yaml
    values.yaml
