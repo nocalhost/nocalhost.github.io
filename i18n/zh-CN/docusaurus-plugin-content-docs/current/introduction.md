@@ -14,13 +14,13 @@ Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具:
 
 ## Nocalhost 是如何工作的？
 
-Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
+Nocalhost 由单个二进制 CLI 和 IDE 插件组成。 理想情况下，您可以直接将它与您熟悉的 IDE 一起使用。 Nocalhost 不需要服务器端组件，因为它通过 KubeConfig 直接与您的 Kubernetes 集群通信，就像 kubectl 一样。
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} />
 </figure>
 
-## Why Nocalhost?
+## 为什么使用 Nocalhost？
 
 Building Kubernetes applications is often difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications. Nocalhost provides the most productive way to build cloud-native applications.
 
