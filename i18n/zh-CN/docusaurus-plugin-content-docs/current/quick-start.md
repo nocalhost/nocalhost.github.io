@@ -9,11 +9,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - **RBAC** 必须在上述机群中启用
 - **配置好的 kubeconfig 文件** 具备命名空间的管理员权限
 - Kubernetes API 服务可以在内部和外部访问
-- Visual Studio Code (1.52+) :::
+- Visual Studio Code (1.52+)
 
 :::danger Apple Silicon 支持 我们在全力对 Apple Silicon 的支持做优化。 目前某些功能可能需要变通方式实现或不可用。 :::
 
-## 1. 1. 安装 Nocalhost VS Code 插件
+## 1. 安装 Nocalhost VS Code 插件
 
 1. 打开 VScode 编辑器，然后单击左侧栏中的 <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
 2. 在搜索输入框中键入 `nocalhost`
@@ -26,7 +26,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::tip JetBrains 插件 Nocalhost 同时支持 JetBrains，请参阅[安装 JetBrains 插件](./installation##install-jetbrains-plugin) :::
 
-## 2. 2. 连接 Kubernetes 集群
+## 2. 连接 Kubernetes 集群
 
 在左侧面板点击 Nocalhost 插件按钮 <img className="svg-icon" src={useBaseUrl('/img/icons/logo-light.svg')} width="20" />， 打开 Nocalhost 插件.
 
