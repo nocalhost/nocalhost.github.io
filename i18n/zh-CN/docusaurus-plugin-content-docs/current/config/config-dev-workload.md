@@ -4,7 +4,7 @@ title: workloads
 
 # How Does Nocalhost DevMode Works?
 
-Nocalhost supports to development of all types of Kubernetes workloads. The following are the working principles.
+Nocalhost supports to development of all types of Kubernetes workloads. The following are the working principles. The following are the working principles.
 
 ## Deployment
 
@@ -19,10 +19,10 @@ Development process:
     - Create a `secret` volume to store `syncthing` certificate and configurations
     - Mount the `secret` volume to `nocalhost-sidecar` container
     - Disable all probes of the container and [`Security Context`](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
-3. Enabled port-forwarding. Forward a random local port to the port monitored by `syhcthing` in `nocalhost-sidecar`
+3. Enabled port-forwarding. Enabled port-forwarding. Forward a random local port to the port monitored by `syhcthing` in `nocalhost-sidecar`
 4. Execute `syncthing` client, monitors the local source code directory and synchronizes the code changes in local to the remote container.
 
-The second step is to modify the manifest of the Deployment. The following example using the `review` service in [`bookinfo'](https://github.com/nocalhost/bookinfo), to compare its manifest change before and after entering DevMode:
+The second step is to modify the manifest of the Deployment. The second step is to modify the manifest of the Deployment. The following example using the `review` service in [`bookinfo'](https://github.com/nocalhost/bookinfo), to compare its manifest change before and after entering DevMode:
 
 ```yaml title="Before entering DevMode"
 apiVersion: apps/v1
@@ -216,43 +216,42 @@ spec:
 
 StatefulSet 进入开发模式的逻辑基本和 Deployment 一致：
 
-1. 将 Pod 的副本数缩减为 1
+1. Reduce the Pod replicate to 1
 2. 修改 .spec 中 manifest 的定义 （具体内容可以参考 Deployment）
 3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去 Synchronizes the changes in the local directory to the remote container.
 
 ## DaemonSet
 
 DamonSet 进入开发模式的流程：
 
-1. 将 Pod 数量缩减为 0，由于 DaemonSet 的 Pod 是每个 node 上会跑一个，没有办法显式地设置 Pod 的数量，只能将 nodeSelector 设置成一个不存在的 node，间接地让 Pod 数量变 0
+1. 将 Pod 数量缩减为 0，由于 DaemonSet 的 Pod 是每个 node 上会跑一个，没有办法显式地设置 Pod 的数量，只能将 nodeSelector 设置成一个不存在的 node，间接地让 Pod 数量变 0 You can only set the nodeSelector to a non-existent node and indirectly change the number of Pods to 0.
 2. 使用 DaemonSet 的 .spec 生成一个 Deployment， 修改 Deployment 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
 3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去 Synchronizes the changes in the local directory to the remote container.
 
 ## Job
 
 Job 进入开发模式的流程：
 
 1. 使用 Job 的 .spec 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-2. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-3. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
-
+3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
+4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去 Synchronizes the changes in the local directory to the remote container.
 
 ## CronJob
 
 CronJob 进入开发模式的流程：
 
-1.  将 CronJob 的 .spec.schedule 设置为 ""1 1 1 1 1"，禁用掉定时任务的调度
+1. 将 CronJob 的 .spec.schedule 设置为 ""1 1 1 1 1"，禁用掉定时任务的调度
 2. 使用 CronJob 的 .spec.jobTemplate 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
 3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去 Synchronizes the changes in the local directory to the remote container.
 
-## Pod 
+## Pod
 
 Pod 进入开发模式的流程：
 
 1. 修改 Pod 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
 2. 删除原来的 Pod，使用修改后的 .spec 创建一个新的 Pod
 3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去 Synchronizes the changes in the local directory to the remote container.
