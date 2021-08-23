@@ -14,7 +14,7 @@ Nocalhost is an open-source IDE plugin for cloud-native applications development
 
 ## How does it work?
 
-Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
+Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/intro/how-it-works.webp')} />
@@ -22,12 +22,12 @@ Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use
 
 ## Why Nocalhost?
 
-Building Kubernetes applications is often difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications.
+Building Kubernetes applications is often difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications. Nocalhost provides the most productive way to build cloud-native applications.
 
 The advantages of using Nocalhost to develop directly inside Kubernetes are:
 
 - **Production environment similarity** - Dev environment is very similar to your production environment, giving you much more confidence that everything will work in the production environment when new features are released.
-- **Speed up feedback loop** - Via file synchronization, your code changes can take effect immediately in the container without rebuilding the image or redeploying the container. 
+- **Speed up feedback loop** - Via file synchronization, your code changes can take effect immediately in the container without rebuilding the image or redeploying the container.
 - **Flexible scalability** - Developers do not need to worry about insufficient local resources.
 - **Reduce Cost** - Use resources more efficiently and reduce IT facility costs
 
@@ -46,10 +46,10 @@ Nocalhost is preconfigured to work with your favourite IDEs, you can connect to 
 
 ### Instant File Synchronization
 
-Nocalhost can automatically synchronize the code to the container every time you make a change. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second.
+Nocalhost can automatically synchronize the code to the container every time you make a change. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second.
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle-cn.jpg')} width="700"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle.jpg')} width="700"/>
 </figure>
 
 ### Made For Collaboration
