@@ -24,7 +24,9 @@ containers:
       ...
 ```
 
-:::caution Working Mode These working modes currently only correspond to the specified features in IDE plugin. ::: :::
+:::caution Working Mode 
+These working modes currently only correspond to the specified features in IDE plugin. 
+:::
 
 ## `dev[*].command[*].build`
 
@@ -77,12 +79,18 @@ containers:
             debug: ["./gradlew", "bootRun", "--debug-jvm"]
 ```
 
-:::danger Debugging When debugging, Nocalhost will overwrite the startup command of `DevContainer` to `/bin/sh -c tail -f /dev/null` to ensure that `DevContainer` will not exit unexpectedly :::
+:::danger Debugging 
+When debugging, Nocalhost will overwrite the startup command of `DevContainer` to `/bin/sh -c tail -f /dev/null` to ensure that `DevContainer` will not exit unexpectedly 
+:::
 
 ## `dev[*].command[*].hotReloadRun`
 
-:::info coming soon This feature is currently not implemented. ::: :::
+:::info coming soon 
+This feature is currently not implemented. 
+:::
 
 ## `dev[*].command[*].hotReloadDebug`
 
-:::info coming soon This feature is currently not implemented. ::: :::
+:::info coming soon 
+This feature is currently not implemented. 
+:::

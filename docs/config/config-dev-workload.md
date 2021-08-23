@@ -22,7 +22,7 @@ Nocalhost supports to development of all types of Kubernetes workloads. The foll
 3. Enabled port-forwarding. Forward a random local port to the port monitored by `syhcthing` in `nocalhost-sidecar`
 4. Execute `syncthing` client, monitors the local source code directory and synchronizes the code changes in local to the remote container.
 
-The second step is to modify the manifest of the Deployment. The following example using the `review` service in [`bookinfo'](https://github.com/nocalhost/bookinfo), to compare its manifest change before and after entering DevMode:
+The second step is to modify the manifest of the Deployment. The following example using the `reviews` service in [`bookinfo'](https://github.com/nocalhost/bookinfo), to compare its manifest change before and after entering DevMode:
 
 ```yaml title="Before entering DevMode"
 apiVersion: apps/v1

@@ -18,7 +18,9 @@ Nocalhost will generate a runtime configuration stored in the memory. This confi
 
 In general, when using the Nocalhost IDE plugin, the plugin automatically updates the DevMode configurations according to your operation. **No** manual configuration is required. **No** manual configuration is required.
 
-:::danger Non-Persistent These runtime configurations created by the Nocalhost only save in your local computer. If you change the computer or delete the `.nh` folder, you will lose the current configurations. ::: If you change the computer or delete the `.nh` folder, you will lose the current configurations. :::
+:::danger Non-Persistent 
+These runtime configurations created by the Nocalhost only save in your local computer. If you change the computer or delete the `.nh` folder, you will lose the current configurations. 
+::: 
 
 <Tabs
   defaultValue="vscode"
@@ -57,7 +59,9 @@ Expand the cluster inspector and select a workload. There is a little gear icon 
 </TabItem>
 </Tabs>
 
-:::info Take effect All changes will not take effect until the next time you enter development mode. ::: :::
+:::info Take effect 
+All changes will not take effect until the next time you enter development mode. 
+:::
 
 ### Manually Create Configurations
 
@@ -164,7 +168,9 @@ containers:
       gitURL: https://github.com/nocalhost/nocalhost.git
 ```
 
-:::note Clone Source Code Nocalhost will use `git clone` command to clone the source code. Please make sure you have **Git** installed on your local computer. ::: Please make sure you have **Git** installed on your local computer. :::
+:::note Clone Source Code 
+Nocalhost will use `git clone` command to clone the source code. Please make sure you have **Git** installed on your local computer. 
+:::
 
 ### Configure Development Image
 
@@ -177,7 +183,9 @@ Similar to [`gitURL`](#configure-git-url), you can preset it in the configuratio
 - **Preset:** if you set the image before entering development mode, Nocalhost will use it to replace the image of DevContainer directly.
 - **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL.
 
-:::tip DevImage `image` accepts image name or URL. :::tip DevImage `image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage` ::: Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage` :::
+:::tip DevImage 
+`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your own private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage` 
+:::
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/plugin/vs-devimage.jpg')} />
@@ -412,7 +420,9 @@ containers:
 
 Nocalhost supports injecting the preset environment variables to a container in development mode. You can inject these variables by input the values or import the file. You can inject these variables by input the values or import the file.
 
-:::caution nocalhost-dep Needed You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. ::: Please refer to [Nocalhost Dep](../server/nh-dep) for more details. :::
+:::caution nocalhost-dep Needed 
+You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. 
+:::
 
 #### Example: Setting up inject environment variable
 
@@ -467,7 +477,9 @@ containers:
 - These variables will be injected into the container when entering development mode
 - These variables will take effect after the entered development mode
 
-:::info Duplicate Configs If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. ::: :::
+:::info Duplicate Configs 
+If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. 
+:::
 
 ### Port-Forwarding
 

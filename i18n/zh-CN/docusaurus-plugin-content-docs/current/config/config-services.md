@@ -82,9 +82,13 @@ Nocalhost can control the startup sequence of multiple workloads within an appli
 
 - Workload is dependent on other workloads or services
 
-:::danger Required Kubernetes 1.16.0+ This feature depends on Kubernetes [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/), so please ensure that the minimum version of the Kubernetes is v1.16.0 or Above, and make sure to enable **MutatingAdmissionWebhook** and **ValidatingAdmissionWebhook** controllers. ::: :::
+:::danger Required Kubernetes 1.16.0+ 
+This feature depends on Kubernetes [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/), so please ensure that the minimum version of the Kubernetes is v1.16.0 or Above, and make sure to enable **MutatingAdmissionWebhook** and **ValidatingAdmissionWebhook** controllers. 
+:::
 
-:::caution required nocalhost-dep You need to install  `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. ::: Please refer to [Nocalhost Dep](../server/nh-dep) for more details. :::
+:::caution required nocalhost-dep 
+You need to install  `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. 
+:::
 
 #### Example: Setting up start dependencies
 
@@ -178,7 +182,9 @@ You can configure the installation of the container. You can configure the insta
 
 Nocalhost supports injecting the preset environment variables to the container when deploying the workload. You can inject these variables by input the values or import the file. You can inject these variables by input the values or import the file.
 
-:::caution nocalhost-dep Needed You need to install `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. ::: Please refer to [Nocalhost Dep](../server/nh-dep) for more details. :::
+:::caution nocalhost-dep Needed 
+You need to install `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. 
+:::
 
 ##### Example: Inject environment variable
 
@@ -235,7 +241,9 @@ containers:
 - These variables will be injected into container when deploying
 - These variables will take effect after the deployment occurs
 
-:::info Duplicate Configs If both `env` and `envFrom` configure together, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. ::: :::
+:::info Duplicate Configs 
+If both `env` and `envFrom` configure together, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. 
+:::
 
 #### Setting up Port-Forwarding
 

@@ -1,3 +1,7 @@
+---
+title: 简介
+---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # 什么是 Nocalhost?

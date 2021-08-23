@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 
 To deploy Kubernetes manifest with Nocalhost, you need to configure them within the application section of the `.nocalhost/config.yaml`.
 
-:::info No need for kubectl You do not need to install `kubectl`, Nocalhost can deploy Kubernetes manifest. ::: :::
+:::info No need for kubectl 
+You do not need to install `kubectl`, Nocalhost can deploy Kubernetes manifest. 
+:::
 
 ## Example
 

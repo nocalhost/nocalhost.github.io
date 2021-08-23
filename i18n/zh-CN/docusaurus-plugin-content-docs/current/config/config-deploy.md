@@ -17,7 +17,9 @@ You can configured the deployment method of matching type to deploy your applica
 
 Application deployments are configured within the `application` section of the `config.yaml`.
 
-:::caution Config.yaml Nocalhost will **not** create this yaml file for you by default. :::caution Config.yaml Nocalhost will **not** create this yaml file for you by default. You need to add a `.nocalhost` folder under your application's root directory and create a `config.yaml` file within the folder. ::: :::
+:::caution Config.yaml 
+Nocalhost will **not** create this yaml file for you by default. You need to add a `.nocalhost` folder under your application's root directory and create a `config.yaml` file within the folder.
+:::
 
 ## Example
 
@@ -81,7 +83,9 @@ application:
 </TabItem>
 </Tabs>
 
-:::info Example Configurations We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations. ::: :::
+:::info Example Configurations 
+We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations. 
+:::
 
 ## Required Configurations
 
@@ -146,7 +150,9 @@ manifestType:   kustomizeLocal
 resourcePath:   ["<kustomize file path: multi relative paths of local application path>"]
 ```
 
-:::note This is the source path configuration at application level :::
+:::note 
+This is the source path configuration at application level 
+:::
 
 ## Advanced Configurations
 
@@ -182,7 +188,9 @@ resourcePath:   ["<ignored kustomize file path: multi relative paths of local ap
 
 Nocalhost supports injecting the preset environment variables to all workloads when deploying an application. You can inject these variables by input the values or import the file. You can inject these variables by input the values or import the file.
 
-:::caution nocalhost-dep Needed You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. ::: Please refer to [Nocalhost Dep](../server/nh-dep) for more details. :::
+:::caution nocalhost-dep Needed 
+You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. 
+:::
 
 #### Example: Setting up inject environment variable
 
@@ -227,7 +235,9 @@ application:
 - These variables will be injected to all workloads when deploying
 - These variables will take effect after the deployments occurs
 
-:::info Duplicate Configs If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. ::: :::
+:::info Duplicate Configs 
+If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. 
+:::
 
 ### Run Jobs Before Installing the Application
 

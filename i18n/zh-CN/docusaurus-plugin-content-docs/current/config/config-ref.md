@@ -653,6 +653,8 @@ services:
       container: ...                # struct    | optional | 
 ```
 
-:::caution Optional `Service` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. ::: :::
+:::caution Optional 
+`services` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. 
+:::
 
 [Read more to learn how to configure `services`](./config-services)

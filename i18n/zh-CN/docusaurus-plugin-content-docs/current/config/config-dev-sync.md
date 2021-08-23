@@ -6,7 +6,9 @@ title: sync
 
 When entering the development mode, Nocalhost will automatically synchronize the files in the selected local directory to the `DevContainer`. Nocalhost supports bi-directional file synchronization. Nocalhost supports bi-directional file synchronization.
 
-:::info Behind the File Sync Nocalhost using [Syncthing](https://syncthing.net/) to build our file synchronization system. ::: :::
+:::info Behind the File Sync 
+Nocalhost using [Syncthing](https://syncthing.net/) to build our file synchronization system. 
+:::
 
 ## Example
 
