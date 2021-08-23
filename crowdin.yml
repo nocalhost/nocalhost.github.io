@@ -1,0 +1,13 @@
+files:
+  - source: docs/**/*
+    translation: /i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+  - source: /src/pages/**/*
+    ignore:
+      - /**/*.js
+      - /**/*.jsx
+      - /**/*.ts
+      - /**/*.tsx
+      - /**/*.css
+    translation: i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%
+  - source: /blog/**/*
+    translation: i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%
