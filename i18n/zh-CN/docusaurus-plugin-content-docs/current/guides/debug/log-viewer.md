@@ -14,8 +14,8 @@ Nocalhost comes with a built-in log viewer, to helps you to monitor and debug is
   defaultValue="vscode"
   values={[
     {label: 'VS Code', value: 'vscode'},
-    {label: 'JetBrains', value: 'jb'},
-  ]}>
+ {label: 'JetBrains', value: 'jb'},
+ ]}>
 <TabItem value="vscode">
 
 <figure className="img-frame">
@@ -24,7 +24,7 @@ Nocalhost comes with a built-in log viewer, to helps you to monitor and debug is
 </figure>
 
 </TabItem>
-  
+
 <TabItem value="jb">
 
 
