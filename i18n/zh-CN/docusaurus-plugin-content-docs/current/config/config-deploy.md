@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure Application Deployment
 
-You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to deploy application:
+You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to deploy application: Nocalhost supports to use the following types to deploy application:
 
 - Manifest
 - Helm
@@ -15,11 +15,9 @@ You can configured the deployment method of matching type to deploy your applica
 
 ## Configurations
 
-Application deployments are configured within the `application` section of the `config.yaml`. 
+Application deployments are configured within the `application` section of the `config.yaml`.
 
-:::caution Config.yaml
-Nocalhost will **not** create this yaml file for you by default. You need to add a `.nocalhost` folder under your application's root directory and create a `config.yaml` file within the folder.
-:::
+:::caution Config.yaml Nocalhost will **not** create this yaml file for you by default. :::caution Config.yaml Nocalhost will **not** create this yaml file for you by default. You need to add a `.nocalhost` folder under your application's root directory and create a `config.yaml` file within the folder. ::: :::
 
 ## Example
 
@@ -27,9 +25,9 @@ Nocalhost will **not** create this yaml file for you by default. You need to add
   defaultValue="helm"
   values={[
     {label: 'Helm Chart', value: 'helm'},
-    {label: 'Manifest', value: 'manifest'},
-    {label: 'Kustomizations', value: 'kustom'}
-  ]}>
+ {label: 'Manifest', value: 'manifest'},
+ {label: 'Kustomizations', value: 'kustom'}
+ ]}>
 <TabItem value="helm">
 
 ```yaml
@@ -48,7 +46,7 @@ application:
 ```
 
 </TabItem>
-  
+
 <TabItem value="manifest">
 
 ```yaml
@@ -83,9 +81,7 @@ application:
 </TabItem>
 </Tabs>
 
-:::info Example Configurations
-We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations.
-:::
+:::info Example Configurations We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations. ::: :::
 
 ## Required Configurations
 
@@ -93,7 +89,7 @@ We provide an example application, you can check out the source code in our [Git
 
 `application[*].name # required`
 
-Nocalhost uses a **unique** application name to differentiate different applications. Therefore, you **can not** deploy two applications with the same name in one namespace.
+Nocalhost uses a **unique** application name to differentiate different applications. Therefore, you **can not** deploy two applications with the same name in one namespace. Therefore, you **can not** deploy two applications with the same name in one namespace.
 
 ```yaml
 application:
@@ -120,7 +116,7 @@ Nocalhost will chooses different deployment methods according to different `mani
 
 `application[*].resourcePath # required`
 
-Set application source path. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
+Set application source path. Set application source path. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
 
 #### Example: Configure resource path for the corresponding type
 
@@ -150,19 +146,17 @@ manifestType:   kustomizeLocal
 resourcePath:   ["<kustomize file path: multi relative paths of local application path>"]
 ```
 
-:::note
-This is the source path configuration at application level
-:::
+:::note This is the source path configuration at application level :::
 
 ## Advanced Configurations
 
-Nocalhost provides some enhancements to application deployment. 
+Nocalhost provides some enhancements to application deployment.
 
 ### Ignored Path
 
 `application[*].ignoredPath # optional`
 
-Nocalhost will ignore the files under this path during installation. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
+Nocalhost will ignore the files under this path during installation. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
 
 #### Example: Configure ignored path for the corresponding type
 
@@ -186,11 +180,9 @@ resourcePath:   ["<ignored kustomize file path: multi relative paths of local ap
 
 ### Inject Environment Variable to Workloads
 
-Nocalhost supports injecting the preset environment variables to all workloads when deploying an application. You can inject these variables by input the values or import the file.
+Nocalhost supports injecting the preset environment variables to all workloads when deploying an application. You can inject these variables by input the values or import the file. You can inject these variables by input the values or import the file.
 
-:::caution nocalhost-dep Needed
-You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details.
-:::
+:::caution nocalhost-dep Needed You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. ::: Please refer to [Nocalhost Dep](../server/nh-dep) for more details. :::
 
 #### Example: Setting up inject environment variable
 
@@ -198,8 +190,8 @@ You need to have `nocalhost-dep` to install for this configuration to take effec
   defaultValue="value"
   values={[
     {label: 'Inject By Values', value: 'value'},
-    {label: 'Inject By Files', value: 'file'},
-  ]}>
+ {label: 'Inject By Files', value: 'file'},
+ ]}>
 <TabItem value="value">
 
 `application[*].env # optional`
@@ -214,7 +206,7 @@ application:
 ```
 
 </TabItem>
-  
+
 <TabItem value="file">
 
 `application[*].envFrom # optional`
@@ -235,15 +227,13 @@ application:
 - These variables will be injected to all workloads when deploying
 - These variables will take effect after the deployments occurs
 
-:::info Duplicate Configs
-If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs.
-:::
+:::info Duplicate Configs If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. ::: :::
 
 ### Run Jobs Before Installing the Application
 
 `application[*].onPreInstall`
 
-Nocalhost allows users to perform some additional operations before deploying applications. 
+Nocalhost allows users to perform some additional operations before deploying applications.
 
 #### Example: Setting up the pre-install Jobs
 
@@ -251,6 +241,8 @@ Nocalhost allows users to perform some additional operations before deploying ap
 onPreInstall:
   - path: job-01.yaml       # string    | required | Job yaml file, the relative path of the repo root
     weight: "1"             # integer   | optional | Order of execution of job, tThe smaller the value, the first to execute.
+  - path: job-02.yaml
+    weight: "-5"
   - path: job-02.yaml
     weight: "-5"
 ```
