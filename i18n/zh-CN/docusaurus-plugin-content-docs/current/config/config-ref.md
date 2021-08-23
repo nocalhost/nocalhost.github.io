@@ -3,7 +3,159 @@
 ## Full Config Specs
 
 ```yaml
-# 指定配置文件属性
+# Specify config properties
+# type: object
+# default value: {}
+# required
+configProperties:
+
+  # config file version
+  # type: string
+  # default value: null
+  # required
+  version: v2
+
+  # env file name, substitution variable for this file
+  # type: string
+  # default value: null
+  # optional
+  envFile: env.dev
+
+application:
+
+  # Application name
+  # type: string(dns1123)
+  # default value: null
+  # required
+  # nhctl param: [NAME]
+  # uniq
+  name: coding-agile
+
+  # Application k8s manifest type
+  # type: select，options：helmGit/helmRepo/rawManifest/rawManifestLocal/helmLocal
+  # default value: null
+  # required
+  # nhctl param: --type,-t
+  manifestType: rawManifest
+
+  # Set default application version for helmRepo
+  # type: string
+  # deafult value: latest
+  # optional
+  helmVersion: 0.0.1
+
+  # helmGit: chart path: relative path of git repo root.
+  # helmLocal: chart path: relative path of local helm chart path.
+  # helmRepo: no meaning
+  # rawManifestGit: manifest files path: multi relative paths of git repo root
+  # rawManifestLocal: manifest files path: multi relative paths of local application path
+  # kustomizeGit: kustomize file path: relative path of git repo
+  # kustomizeLocal: kustomize file path: multi relative paths of local application path
+  # type: string[]
+  # default value: ["."]
+  # required
+  resourcePath: []
+
+  # helmGit: no meaning.
+  # helmRepo: no meaning.
+  # rawManifestGit: ignored manifest path: multi relative paths of git repo root.
+  # rawManifestLocal: ignored manifest path: multi relative paths of local application path.
+  # helmLocal: no meaning.
+  # type: string[]
+  # default value: ["."]
+  # optional
+  ignoredPath: []
+
+  # The jobs to be executed before application's installation.
+  # type: object[]
+  # default value: []
+  # optional
+  onPreInstall: 
+
+    # Job yaml file, the relative path of the repo root
+    # type: string
+    # required
+    - path: "job-1.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
+
+    - path: "job-2.yaml"
+      weight: 5
+
+  # Overwrite helm values.yaml
+  # type: object[]
+  # default value: []
+  # optional
+  helmValues:
+    - key: DOMAIN
+      value: ${DOMAIN:-www.coding.com}
+    - key: DEBUG
+      value: ${DEBUG:-true}
+
+  # Inject environment variable for all workload 
+  # type: object[]
+  # default value: []
+  # optional
+  env: 
+    - name: DEBUG
+      value: ${DEBUG:-true}
+    - name: DOMAIN
+      value: "www.coding.com"
+
+  # Use envFile to inject environment variable for all workload 
+  # If specify env and envFrom at the same time, then use intersection of them, and use env key as primary
+  # type: object[]
+  # default value: []
+  # optional
+  envFrom: 
+    envFile: 
+      - path: dev.env
+      - path: dev.env
+
+  # The Applicaion's micro services
+  # type: object[]
+  # default value: []
+  # optional
+  services:
+
+    # Name of service, the name of workload in cluster
+    # type: string
+    # default value: null
+    # required
+    - name: e-coding
+
+      # The Kubernetes Workloads type corresponding to the service
+      # type: select, options: deployment/statefulset/pod/job/cronjob/daemonset case insensitive 
+      # default value: deployment
+      # required
+      serviceType: deployment
+
+      dependLabelSelector: 
+
+        # Dependent Pods label selector (The service will not start until the Pods selected by selector being ready.)
+        # type: string[]
+        # default value: []
+        # optional
+        pods: 
+          - "name=mariadb"
+          - "app.kubernetes.io/name=mariadb"
+
+        # Dependent Jobs label selector (The service will not start until the Jobs selected by selector completed.)
+        # type: string[]
+        # default value: []
+        # optional
+        jobs:
+          - "job-name=init-job"
+          - "app.kubernetes.io/name=init-job"
+
+      containers:
+
+        # When the Pod has multiple containers, specify the container name.
+        # 指定配置文件属性
 # 类型: 对象
 # 默认值: {}
 # 必须
@@ -374,6 +526,45 @@ application:
             # 可选
             portForward:
             - 3306:3306
+              # optional
+              filePattern: 
+                - "./src"
+                - "./pkg/fff"
+
+              # List of ignored files and directories to be synchronized to DevContainer
+              # type: string[]
+              # default value: []
+              # optional
+              ignoreFilePattern:
+                - ".git"
+                - "./build"
+
+            # Specify dev mode environment parameters
+            # type: object[]
+            # default value: {}
+            # optional
+            env: 
+            - name: DEBUG
+              value: "true"
+            - name: DOMAIN
+              value: "www.coding.com"
+
+            # Use env file to specify dev mode environment parameters
+            # type: object
+            # default value: {}
+            # optional
+            envFrom:
+              envFile: 
+                - path: dev.env
+                - path: dev.env
+
+            # Ports to be forwarded to local when enter devMode
+            # localPort:remotePort
+            # type: string[]
+            # default value: []
+            # optional
+            portForward:
+            - 3306:3306
 ```
 
 ## Configuration Structure
@@ -394,7 +585,7 @@ configProperties:
 
 ## `application`
 
-**Application** is a concept of Nocalhost. An application consists of a set of [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest). These manifests contain resources descriptions of all the components you want to deploy.
+**Application** is a concept of Nocalhost. An application consists of a set of [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest). These manifests contain resources descriptions of all the components you want to deploy. An application consists of a set of [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest). These manifests contain resources descriptions of all the components you want to deploy.
 
 Nocalhost allows you to customize the deployment and development of these components.
 
@@ -407,6 +598,9 @@ application:
     helmValues: ...             # struct    | optional | Overwrite Helm values.yaml
     ignoredPath: []             # string[]  | optional | 
     onPreInstall: ...           # struct    | optional | The jobs to be executed before application's installation.
+    env: ...                    # struct    | optional | Inject environment variable for all workload when installed
+    envFrom: ...                # struct    | optional | Use envFile to inject environment variable for all workload when installed
+    services: ...               # struct    | optional | Applications' services configurations
     env: ...                    # struct    | optional | Inject environment variable for all workload when installed
     envFrom: ...                # struct    | optional | Use envFile to inject environment variable for all workload when installed
     services: ...               # struct    | optional | Applications' services configurations
@@ -445,9 +639,9 @@ envFrom:
 
 ### `application.services`
 
-A Kubernetes application of microservice architecture consists of multiple microservices in the broad sense. Each microservice is a [Kubernetes workload](https://kubernetes.io/docs/concepts/workloads/) in the narrow sense.
+A Kubernetes application of microservice architecture consists of multiple microservices in the broad sense. Each microservice is a [Kubernetes workload](https://kubernetes.io/docs/concepts/workloads/) in the narrow sense. Each microservice is a [Kubernetes workload](https://kubernetes.io/docs/concepts/workloads/) in the narrow sense.
 
-Nocalhost inherits this concept, and the `Services` here corresponds to the microservices in the application. Therefore, Nocalhost's `Service` can be seen as an enhancement to Kubernetes workload.
+Nocalhost inherits this concept, and the `Services` here corresponds to the microservices in the application. Therefore, Nocalhost's `Service` can be seen as an enhancement to Kubernetes workload. Therefore, Nocalhost's `Service` can be seen as an enhancement to Kubernetes workload.
 
 `services` gives you the options to configure the workloads that give you better deployment and development experiences.
 
@@ -459,8 +653,6 @@ services:
       container: ...                # struct    | optional | 
 ```
 
-:::caution Optional
-`Service` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. 
-:::
+:::caution Optional `Service` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. ::: :::
 
 [Read more to learn how to configure `services`](./config-services)
