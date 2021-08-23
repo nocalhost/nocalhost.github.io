@@ -3,7 +3,9 @@ title: Kubernetes Compatibility
 id: k8s-compatible
 ---
 
-:::caution We are keep doing the battle-test with different Kubernetes clusters now, testing results are updating. If you have issues when using Nocalhost, just feel free to contact us. ::: If you have issues when using Nocalhost, just feel free to contact us. :::
+:::caution 
+We are keep doing the battle-test with different Kubernetes clusters now, testing results are updating. If you have issues when using Nocalhost, just feel free to contact us. 
+:::
 
 ## Local Kubernetes Cluster
 
