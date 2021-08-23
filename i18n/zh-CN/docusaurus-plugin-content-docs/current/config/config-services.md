@@ -226,12 +226,6 @@ containers:
           - path: dev.env
           - path: dev.env
 ```
-    install:
-      envFrom: 
-        envFile: 
-          - path: dev.env
-          - path: dev.env
-```
 
 </TabItem>
 </Tabs>

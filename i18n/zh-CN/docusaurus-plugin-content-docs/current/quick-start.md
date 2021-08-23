@@ -10,8 +10,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - **配置好的 kubeconfig 文件** 具备命名空间的管理员权限
 - Kubernetes API 服务可以在内部和外部访问
 - Visual Studio Code (1.52+)
+:::
 
-:::danger Apple Silicon 支持 我们在全力对 Apple Silicon 的支持做优化。 目前某些功能可能需要变通方式实现或不可用。 :::
+:::danger Apple Silicon 支持 
+我们在全力对 Apple Silicon 的支持做优化。 目前某些功能可能需要变通方式实现或不可用。 
+:::
 
 ## 1. 安装 Nocalhost VS Code 插件
 
@@ -24,7 +27,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   <figcaption>VS Code 插件市场</figcaption>
 </figure>
 
-:::tip JetBrains 插件 Nocalhost 同时支持 JetBrains，请参阅[安装 JetBrains 插件](./installation##install-jetbrains-plugin) :::
+:::tip JetBrains 插件 
+Nocalhost 同时支持 JetBrains，请参阅[安装 JetBrains 插件](./installation##install-jetbrains-plugin) 
+:::
 
 ## 2. 连接 Kubernetes 集群
 
@@ -40,9 +45,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <Tabs
   defaultValue="kubeconfig"
   values={[
-    {label: 'By KubeConfig', value: 'kubeconfig'},
- {label: 'Past as Text', value: 'text'},
- ]}>
+    {label: '通过 KubeConfig 连接', value: 'kubeconfig'},
+    {label: '黏贴 KubeConfig 文本内容', value: 'text'},
+  ]}>
 <TabItem value="kubeconfig">
 
 <p>从本地文件夹中选择 <code>KubeConfig</code> 文件。</p>
@@ -52,18 +57,13 @@ Nocalhost 会默认从 `~/.kube/config` 自动读取你的  `KubeConfig`。
 :::
 
 </TabItem>
-
+  
 <TabItem value="text">
 
-<p>粘贴 <code>KubeConfig</code> 的文本内容</p>
+<p>Past the <code>KubeConfig</code> as a text</p>
 
 :::tip 获取 KubeConfig 的文本内容
 你可以通过下述 `kubectl` 命令查看并复制你的 `KubeConfig`
-
-```bash
-kubectl config view --raw --flattern
-```
-:::
 
 ```bash
 kubectl config view --raw --flattern
@@ -82,7 +82,7 @@ kubectl config view --raw --flattern
   <figcaption>VS Code 集群列表</figcaption>
 </figure>
 
-## 3. 3. 进入开发模式
+## 3. 进入开发模式
 
 :::tip 应用 我们将在这里以 bookinfo 应用程序作为示例。 您可以选择已经部署在您 Kubernetes 集群中应用程序，也可以按照 **[部署示例应用程序](./guides/deploy/deploy-demo)** 在 Kubernetes 集群中部署示例应用。 :::
 
@@ -98,7 +98,7 @@ kubectl config view --raw --flattern
   <figcaption>进入开发模式</figcaption>
 </figure>
 
-## 4. 4. 更改代码并检查结果
+## 4. 更改代码并检查结果
 
 ### 在远端容器中启动程序的主进程
 
