@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/zh-CN/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2021-07-05T00:00:00.000Z</updated>
+    <updated>2021-08-23T12:19:28.696Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/zh-CN/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
     <icon>https://nocalhost.dev/zh-CN/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
+        <id>Nocalhost 官方文档翻译活动</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/docs-translate"/>
+        <updated>2021-08-23T12:19:28.696Z</updated>
+        <summary type="html"><![CDATA[背景]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？]]></title>
         <id>如何调试 Kubernetes 中的微服务 ——proxy、sidecar 还是 service mesh？</id>

@@ -4,9 +4,16 @@
         <title>Nocalhost Blog</title>
         <link>https://nocalhost.dev/blog</link>
         <description>Nocalhost Blog</description>
-        <lastBuildDate>Mon, 05 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Aug 2021 12:19:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Nocalhost 官方文档翻译活动]]></title>
+            <link>https://nocalhost.dev/blog/docs-translate</link>
+            <guid>Nocalhost 官方文档翻译活动</guid>
+            <pubDate>Mon, 23 Aug 2021 12:19:28 GMT</pubDate>
+            <description><![CDATA[背景]]></description>
+        </item>
         <item>
             <title><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
             <link>https://nocalhost.dev/blog/2021/07/05/jimmy</link>
