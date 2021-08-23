@@ -1,18 +1,18 @@
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# What is Nocalhost?
+# 什么是 Nocalhost?
 
-Nocalhost is an open-source IDE plugin for cloud-native applications development:
+Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具:
 
-- **Build, test and debug applications directly inside Kubernetes**
-- **IDE Support :** providing the same debugging and developing experience you're used in the IDE even in the remote Kubernetes cluster
-- **Developing with instant file synchronization:** instantly sync your code change to remote container without rebuilding images or restarting containers.
+- **直接在 Kubernetes 集群中构建、测试和调试应用程序**
+- 提供易于使用的 IDE 插件（支持 VS Code 和 JetBrains），即使在 Kubernetes 集群中进行开发和调试，Nocalhost 保持本地开发一样的体验
+- **使用即时文件同步进行开发：** 即时将您的代码更改同步到远端容器，而无需重建映像或重新启动容器。
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/intro/coding-in-cluster.gif')} width="800"/>
 </figure>
 
-## How does it work?
+## Nocalhost 是如何工作的？
 
 Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost is composed of a single binary CLI and IDE extension. Ideally, you use it straight with your favourite IDE. Nocalhost does not require a server-side component as it communicates directly to your Kubernetes cluster using KubeConfig, just like kubectl.
 
