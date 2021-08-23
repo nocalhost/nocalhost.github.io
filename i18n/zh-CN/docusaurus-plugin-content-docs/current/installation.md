@@ -12,28 +12,28 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <thead>
         <tr>
             <th>IDE</th>
-            <th>Version</th>
-            <th>Result</th>
+            <th>版本</th>
+            <th>测试结果</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>VS Code </td>
             <td>1.58.2 (Universal)</td>
-            <td><strong className="pass-tag">passed</strong></td>
+            <td><strong className="pass-tag">通过</strong></td>
         </tr>
         <tr>
             <td rowspan="3" >JetBrains</td>
             <td>2021.2 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">passed</strong></td>
+            <td><strong className="pass-tag">通过</strong></td>
         </tr>
         <tr>
             <td>2021.1 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">passed</strong></td>
+            <td><strong className="pass-tag">通过</strong></td>
         </tr>
         <tr>
             <td>2020.3 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">passed</strong></td>
+            <td><strong className="pass-tag">通过</strong></td>
         </tr>
     </tbody>
 </table>
