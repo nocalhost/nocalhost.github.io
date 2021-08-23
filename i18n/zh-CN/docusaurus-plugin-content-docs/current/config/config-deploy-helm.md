@@ -15,10 +15,12 @@ To deploy Helm charts, you need to configure them within the `application` secti
   defaultValue="helmLocal"
   values={[
     {label: 'From Local Directory', value: 'helmLocal'},
-    {label: 'From Git Repo', value: 'helmGit'},
-    {label: 'From Helm Repo', value: 'helmRepo'}
-  ]}>
+ {label: 'From Git Repo', value: 'helmGit'},
+ {label: 'From Helm Repo', value: 'helmRepo'}
+ ]}>
 <TabItem value="helmLocal">
+
+Deploy Helm chart from local directory.
 
 Deploy Helm chart from local directory.
 
@@ -34,10 +36,21 @@ application:
 ```
 
 </TabItem>
-  
+
 <TabItem value="helmGit">
 
 Deploy Helm chart from Git repository.
+
+```yaml
+configProperties:                       # struct    | required | Specify config properties
+    version: v2 
+
+application:
+  name: bookinfo                        # string    | required | Application name                 
+  manifestType: helmGit                 # string    | required | Application k8s manifest type                           
+  resourcePath: ["charts/bookinfo"]     # string[]  | required | Set the application resource path
+  helmValues: []                        # struct    | optional | Overwrite helm values.yaml                          
+```
 
 ```yaml
 configProperties:                       # struct    | required | Specify config properties
@@ -54,7 +67,7 @@ application:
 
 <TabItem value="helmRepo">
 
-Deploy from Helm repository. This deployment method only supports with **Nocalhost Server**, refer to [Manager applications with Nocalhost Server](../server/manage-app)
+Deploy from Helm repository. Deploy from Helm repository. This deployment method only supports with **Nocalhost Server**, refer to [Manager applications with Nocalhost Server](../server/manage-app)
 
 ```yaml
 configProperties:                       # struct    | required | Specify config properties
@@ -70,12 +83,11 @@ application:
 </TabItem>
 </Tabs>
 
-
 ### Helm Version
 
 `application[*].helmVersion`
 
-Specify the application version in the Helm repository. This only corresponds to `manifestType: helmRepo`
+Specify the application version in the Helm repository. This only corresponds to `manifestType: helmRepo` This only corresponds to `manifestType: helmRepo`
 
 #### Example: Setting up application version
 

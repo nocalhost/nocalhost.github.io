@@ -12,6 +12,8 @@ Available Commands:
   delete      Delete resources by filenames, stdin, resources and names, or by resources and label selector.
   exec        Execute a command in a container
   logs        Print the logs for a container in a pod or specified resource
+  exec        Execute a command in a container
+  logs        Print the logs for a container in a pod or specified resource
 ```
 
 ## nhctl k delete
@@ -75,6 +77,7 @@ exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
 
 ```
 Flags:
+  -c, --container string   Container name. Flags:
   -c, --container string   Container name. If omitted, the first container in the pod will be chosen
   -h, --help               help for exec
   -i, --stdin              Pass stdin to the container
@@ -111,10 +114,28 @@ Flags:
       --ignore-errors                      If watching / following pod logs, allow for any errors that occur to be non-fatal
       --insecure-skip-tls-verify-backend   Skip verifying the identity of the kubelet that logs are requested from.  In theory, an attacker could provide invalid log content back. You might want to use this if your kubelet serving certificates have expired.
       --limit-bytes int                    Maximum bytes of logs to return. Defaults to no limit.
+      --max-log-requests int               Specify maximum number of concurrent logs to follow when using by a selector. Defaults to 5. Flags:
+      --all-containers                     Get all containers' logs in the pod(s).
+  -c, --container string                   Print the logs of this container
+  -f, --follow                             Specify if the logs should be streamed.
+  -h, --help                               help for logs
+      --ignore-errors                      If watching / following pod logs, allow for any errors that occur to be non-fatal
+      --insecure-skip-tls-verify-backend   Skip verifying the identity of the kubelet that logs are requested from.  In theory, an attacker could provide invalid log content back. You might want to use this if your kubelet serving certificates have expired.
+      --limit-bytes int                    Maximum bytes of logs to return. Defaults to no limit.
       --max-log-requests int               Specify maximum number of concurrent logs to follow when using by a selector. Defaults to 5. (default 5)
       --pod-running-timeout duration       The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 20s)
       --prefix                             Prefix each log line with the log source (pod name and container name)
   -p, --previous                           If true, print the logs for the previous instance of the container in a pod if it exists.
+  -l, --selector string                    Selector (label query) to filter on.
+      --since duration                     Only return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs. Only one of since-time / since may be used.
+      --since-time string                  Only return logs after a specific date (RFC3339). Defaults to all logs. Only one of since-time / since may be used.
+      --tail int                           Lines of recent log file to display. Defaults to -1 with no selector, showing all log lines otherwise 10, if a selector is provided. (default -1)
+      --timestamps                         Include timestamps on each line in the log output
+
+Global Flags:
+      --debug               enable debug level log
+      --kubeconfig string   the path of the kubeconfig file
+  -n, --namespace string    kubernetes namespace
   -l, --selector string                    Selector (label query) to filter on.
       --since duration                     Only return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs. Only one of since-time / since may be used.
       --since-time string                  Only return logs after a specific date (RFC3339). Defaults to all logs. Only one of since-time / since may be used.

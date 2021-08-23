@@ -48,7 +48,7 @@ Global Flags:
 
 Run cmd in dev container
 
-### Usage 
+### Usage
 
 ```
 nhctl dev cmd [NAME] [flags]
@@ -75,7 +75,7 @@ Global Flags:
 End dev model
 
 
-### Usage 
+### Usage
 
 ```
 nhctl dev end [NAME] [flags]
@@ -99,7 +99,7 @@ Global Flags:
 
 Reset service
 
-### Usage 
+### Usage
 
 ```
 nhctl dev reset [NAME] [flags]
@@ -123,7 +123,7 @@ Global Flags:
 
 Start DevMode
 
-### Usage 
+### Usage
 
 ```
 nhctl dev start [NAME] [flags]
@@ -158,7 +158,7 @@ Global Flags:
 
 Enter dev container's terminal
 
-### Usage 
+### Usage
 
 ```
 nhctl dev terminal [NAME] [flags]

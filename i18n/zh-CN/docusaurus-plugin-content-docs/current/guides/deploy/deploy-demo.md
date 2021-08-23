@@ -13,7 +13,5 @@ Nocalhost IDE plugin has built-in demo application, you can quickly install it t
   <figcaption>Install the quick demo application</figcaption>
 </figure>
 
-:::tip Access Demo
-Quick demo application comes with port-forward configured. After demo has successfully deployed (check the deployment status from the cluster tree), you can access the demo from your local web browser by visiting [http://127.0.0.1:39080](http://127.0.0.1:39080) 
-:::
+:::tip Access Demo Quick demo application comes with port-forward configured. :::tip Access Demo Quick demo application comes with port-forward configured. After demo has successfully deployed (check the deployment status from the cluster tree), you can access the demo from your local web browser by visiting [http://127.0.0.1:39080](http://127.0.0.1:39080) :::
 
