@@ -4,7 +4,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # 安装 Nocalhost
 
-:::tip nhctl 安装 Nocalhost IDE 插件时，插件会自动帮您安装最新版本的 **nhctl** ::: :::
+:::tip nhctl 
+安装 Nocalhost IDE 插件时，插件会自动帮您安装最新版本的 **nhctl** 
+:::
 
 ## 兼容性
 
