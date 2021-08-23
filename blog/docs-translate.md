@@ -29,3 +29,11 @@ Nocalhost 的新官网框架已经上线。因为目前 Nocalhost 官方文档�
   <img className="gif-img" src={useBaseUrl('/img/translate/translate.gif')} />
 </figure>
 
+### 翻译要求
+
+- 数字和英文两边是中文要加空格。
+- Nocalhost 和 Nocalhost Server 统一写法。
+- 翻译完请先阅读一遍，不要出现遗漏段落，保证文章通顺、符合中文阅读习惯。不追求严格一致，可以意译。review 的时候也会检验。
+- 你和您不要混用，统一使用用 **“你”**。
+- 不会翻译的词汇可以不翻译，可以在 PR 中说明，review 的时候会查看。
+- 注意中英文标点符号。

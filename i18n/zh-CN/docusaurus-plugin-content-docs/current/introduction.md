@@ -53,7 +53,7 @@ Nocalhost is preconfigured to work with your favourite IDEs, you can connect to 
 Nocalhost can automatically synchronize the code to the container every time you make a change. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second.
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle.jpg')} width="700"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle-cn.jpg')} width="700"/>
 </figure>
 
 ### Made For Collaboration
