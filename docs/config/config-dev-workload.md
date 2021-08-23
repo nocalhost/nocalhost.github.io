@@ -8,7 +8,7 @@ Nocalhost supports to development of all types of Kubernetes workloads. The foll
 
 ## Deployment
 
-Development process:
+`Development` type workload entering DevMode process:
 
 1. Reduce the Pod replicate to 1
 2. Modify manifest definition in `.spec`:
@@ -214,45 +214,44 @@ spec:
 
 ## StatefulSet
 
-StatefulSet 进入开发模式的逻辑基本和 Deployment 一致：
+The process of `StatefulSet` entering the DevMode is basically the same as `Deployment`:
 
-1. 将 Pod 的副本数缩减为 1
-2. 修改 .spec 中 manifest 的定义 （具体内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Reduce the Pod replicate to 1
+2. Modify the definition of manifest in `.spec` (Refer to [`Deployment`](#deployment))
+3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
+4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
 
 ## DaemonSet
 
-DamonSet 进入开发模式的流程：
+The process of DamonSet entering DevMode:
 
-1. 将 Pod 数量缩减为 0，由于 DaemonSet 的 Pod 是每个 node 上会跑一个，没有办法显式地设置 Pod 的数量，只能将 nodeSelector 设置成一个不存在的 node，间接地让 Pod 数量变 0
-2. 使用 DaemonSet 的 .spec 生成一个 Deployment， 修改 Deployment 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Reduce the Pod replicate to 0, Since `DaemonSet’s` Pod runs one on each node, there is no way to explicitly set the number of Pods. You can only set the nodeSelector to a non-existent node and indirectly change the number of Pods to 0.
+2. Use `DaemonSet`'s `.spec` to generate a `Deployment`, modify the definition of `.spec` manifest in the `Deployment` (Refer to [Deployment](#deployment) above for specific modifications).
+3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
+4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
 
 ## Job
 
-Job 进入开发模式的流程：
+The process of Job entering DevMode:
 
-1. 使用 Job 的 .spec 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-2. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-3. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
-
+1. Use the Job's `.spec` to generate a new Job, modify the definition of the `.spec` manifest in the Job (Refer to [Deployment](#deployment) above for specific modifications).
+3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
+4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
 
 ## CronJob
 
-CronJob 进入开发模式的流程：
+The process of CronJob entering DevMode:
 
-1.  将 CronJob 的 .spec.schedule 设置为 ""1 1 1 1 1"，禁用掉定时任务的调度
-2. 使用 CronJob 的 .spec.jobTemplate 生成一个新的 Job， 修改 Job 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Set the `.spec.schedule` of CronJob to `"1 1 1 1 1"` to disable the scheduling of timed tasks
+2. Use CronJob's `.spec.jobTemplate` to generate a new Job and modify the definition of `.spec` manifest in the job (Refer to Deployment above for specific modifications)
+3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
+4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
 
 ## Pod 
 
-Pod 进入开发模式的流程：
+The process of Pod entering DevMode:
 
-1. 修改 Pod 中 .spec manifest 的定义（具体修改内容可以参考 Deployment）
-2. 删除原来的 Pod，使用修改后的 .spec 创建一个新的 Pod
-3. 启用一个端口转发，将本地的某个随机端口转发到 nocalhost-sidecar 中 syncthing 监听的端口中去
-4. 运行 syncthing 的客户端，监测本地源码目录，将本地目录中的改动同步到远端容器中去
+1. Modify the definition of .spec manifest in the Pod (Refer to Deployment above for specific modifications)
+2. Delete the original Pod and create a new Pod with the modified `.spec`
+3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
+4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
