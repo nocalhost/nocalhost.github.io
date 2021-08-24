@@ -22,4 +22,4 @@ yarn-error.log*
 node_modules
 
 # i18n
-i18n/**/*
+i18n

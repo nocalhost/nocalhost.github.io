@@ -18,9 +18,9 @@ files: [
       translation: '/i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%',
     },
     # Content Translation
-    {
-      source: '/src/pages/**/*',
-      translation: '/i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%',
-      ignore: ['/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css'],
-    },
+    # {
+    #   source: '/src/pages/**/*',
+    #   translation: '/i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%',
+    #   ignore: ['/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css'],
+    # },
 ]
