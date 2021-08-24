@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.docs.category.Getting Started": {
-    "message": "快速开始",
+    "message": "开始使用",
     "description": "The label for category Getting Started in sidebar docs"
   },
   "sidebar.docs.category.User Guides": {
@@ -12,12 +12,8 @@
     "description": "The label for category User Guides in sidebar docs"
   },
   "sidebar.docs.category.Deploy Application": {
-    "message": "部署应用",
+    "message": "应用部署",
     "description": "The label for category Deploy Application in sidebar docs"
-  },
-  "sidebar.docs.category.Development": {
-    "message": "开发配置",
-    "description": "The label for category Development in sidebar docs"
   },
   "sidebar.docs.category.Debugging": {
     "message": "调试",
@@ -28,8 +24,12 @@
     "description": "The label for category Configuration in sidebar docs"
   },
   "sidebar.docs.category.Deployments": {
-    "message": "部署配置",
+    "message": "部署",
     "description": "The label for category Deployments in sidebar docs"
+  },
+  "sidebar.docs.category.Development": {
+    "message": "开发",
+    "description": "The label for category Development in sidebar docs"
   },
   "sidebar.docs.category.Best Practices": {
     "message": "最佳实践",
@@ -44,15 +44,15 @@
     "description": "The label for category Nocalhost Server in sidebar docs"
   },
   "sidebar.docs.category.Reference": {
-    "message": "参考",
+    "message": "参考资料",
     "description": "The label for category Reference in sidebar docs"
   },
-  "sidebar.docs.category.Changelogs": {
-    "message": "变更日志",
-    "description": "The label for category Changelogs in sidebar docs"
-  },
   "sidebar.docs.category.CLI": {
-    "message": "CLI",
+    "message": "CLI（命令行）",
     "description": "The label for category CLI in sidebar docs"
+  },
+  "sidebar.docs.category.Changelogs": {
+    "message": "更新日志",
+    "description": "The label for category Changelogs in sidebar docs"
   }
 }

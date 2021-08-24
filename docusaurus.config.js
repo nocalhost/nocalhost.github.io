@@ -176,18 +176,30 @@ module.exports = {
 				// Docs
 				docs: {
 					path: 'docs',
-					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/nocalhost/nocalhost.github.io/tree/main',
+					sidebarPath: 'sidebars.js',
+					editUrl: ({locale, docPath}) => {
+						if (locale !== 'en') {
+							return `https://crowdin.com/project/nocalhost/${locale}`;
+						}
+
+						const nextVersionDocsDirPath = 'docs';
+						return `https://github.com/nocalhost/nocalhost.github.io/tree/main/${nextVersionDocsDirPath}/${docPath}`;
+					},
+					// editUrl: 'https://github.com/nocalhost/nocalhost.github.io/tree/main',
 					showLastUpdateAuthor: true,
 					showLastUpdateTime: true,
 				},
 				// Blog
 				blog: {
-					blogTitle: 'Nocalhost Blog',
-					blogDescription: 'Most productive way to build cloud-native application',
 					showReadingTime: true,
 					blogSidebarCount: 'ALL',
 					blogSidebarTitle: 'All our posts',
+					editUrl: ({locale, blogDirPath, blogPath}) => {
+					  if (locale !== 'en') {
+						return `https://crowdin.com/project/nocalhost/${locale}`;
+					  }
+					  return `https://github.com/nocalhost/nocalhost.github.io/tree/main/${blogDirPath}/${blogPath}`;
+					},
 				},
 				// Theme
 				theme: {

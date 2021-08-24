@@ -66,7 +66,7 @@ application:
   # optional
   ignoredPath: []
 
-  # The jobs to be executed before application's installation.
+  # Executes after templates are rendered, but before any resources are created in Kubernetes
   # type: object[]
   # default value: []
   # optional
@@ -75,7 +75,7 @@ application:
     # Job yaml file, the relative path of the repo root
     # type: string
     # required
-    - path: "job-1.yaml"
+    - path: "on-pre-install-job.yaml"
 
       # Order of execution of job, The smaller the value, the first to execute
       # type: integer
@@ -83,8 +83,69 @@ application:
       # optional
       weight: -1
 
-    - path: "job-2.yaml"
-      weight: 5
+  # The jobs to be executed before application's installation.
+  # type: object[]
+  # default value: []
+  # optional
+  onPostInstall: 
+    - path: "on-post-install-job.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
+
+  # Executes on a deletion request before any resources are deleted from Kubernetes
+  # type: object[]
+  # default value: []
+  # optional
+  onPreDelete: 
+    - path: "on-pre-delete-job.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
+
+  # Executes on a deletion request after all of the release's resources have been deleted
+  # default value: []
+  # optional
+  onPostDelete: 
+    - path: "on-post-delete-job.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
+
+  # Executes on an upgrade request after templates are rendered, but before any resources are updated
+  # type: object[]
+  # default value: []
+  # optional
+  onPreUpgrade: 
+    - path: "on-pre-upgrade-job.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
+
+  # Executes on an upgrade request after all resources have been upgraded
+  # type: object[]
+  # default value: []
+  # optional
+  onPostUpgrade: 
+    - path: "on-post-upgrade-job.yaml"
+
+      # Order of execution of job, The smaller the value, the first to execute
+      # type: integer
+      # default value: 0
+      # optional
+      weight: -1
 
   # Overwrite helm values.yaml
   # type: object[]
@@ -368,17 +429,21 @@ application:
 ## Configuration Structure
 
 ```yaml
+
 configProperties: ...           # struct    | required | Specify config properties
 
 application: ...                # struct    | required | Specify application configuration
+
 ```
 
 ## `configProperties`
 
 ```yaml
+
 configProperties:               
     version: v2                 # string    | required | config file version
     envFile: null               # string    | optional | env file name, substitution variable for this file
+
 ```
 
 ## `application`
@@ -388,6 +453,7 @@ configProperties:
 Nocalhost allows you to customize the deployment and development of these components.
 
 ```yaml
+
 application:                    
     name: foo-app               # string    | required | Application name
     manifestType: rawManifest   # string    | required | Application k8s manifest type
@@ -395,28 +461,34 @@ application:
     helmVersion: 0.0.1          # string    | optional | Set default application version for helmRepo
     helmValues: ...             # struct    | optional | Overwrite Helm values.yaml
     ignoredPath: []             # string[]  | optional | 
-    onPreInstall: ...           # struct    | optional | The jobs to be executed before application's installation.
+    <HOOKS>: ...                # struct    | optional | Application Hooks
     env: ...                    # struct    | optional | Inject environment variable for all workload when installed
     envFrom: ...                # struct    | optional | Use envFile to inject environment variable for all workload when installed
     services: ...               # struct    | optional | Applications' services configurations
+
 ```
 
-### `application.onPreInstall`
+### Application Hooks
+
+`application.[*].<HOOKS>`
+
+Nocalhost provides a hook mechanism to allow developers to intervene at certain points in a deployment's life cycle. For example, you can use hooks to:
+
+- Execute a Job to back up a database before deploy an application
+- Run a job before deleting a release to gracefully take a service out of rotation before removing it
+
+[Read more to learn how to use application hooks](./config-hooks)
+
+### Helm Application Configuration
+
+`application.helmVersion` and `application.helmValues`
 
 ```yaml
-onPreInstall:
-    - path: ""                  # string    | required | Job's yaml file, the relative path of the root directory
-      weight: 0                 # integer   | required | Order of execution of job, the smallest will be executed first
-```
 
-[Read more about how to set up pre-install configurations ](./config-deploy#run-jobs-before-installing-the-application)
-
-### `application.helmVersion` and `application.helmValues`
-
-```yaml
 helmValues:
     - kye: ""                   # string    | The Helm chart value key
       value: ""                 # string    | The Helm chart values
+
 ```
 
 [Read more to learn how to configure Helm application deployment](./config-deploy-helm)
@@ -424,10 +496,12 @@ helmValues:
 ### `application.env` and `application.envFrom`
 
 ```yaml
+
 env: []
 
 envFrom:
     envFile: []                 # string[]  | optional | Use envFile to inject environment variable for all workload 
+
 ```
 
 [Read more about how to set up environment variables](./config-deploy#inject-environment-variable-to-workloads)
@@ -441,15 +515,19 @@ Nocalhost inherits this concept, and the `Services` here corresponds to the micr
 `services` gives you the options to configure the workloads that give you better deployment and development experiences.
 
 ```yaml
+
 services:
     - name: ""                      # string    | required | Name of the workload, also is the display name in cluster
       serviceType: ""               # string    | required | The Kubernetes Workloads type corresponding to the service
       dependLabelSelector: ...      # struct    | optional | Dependent Pods label selector 
       container: ...                # struct    | optional | 
+
 ```
 
 :::caution Optional
+
 `Service` configurations are not essential, it will not affect the usage of Nocalhost without configuring it. 
+
 :::
 
 [Read more to learn how to configure `services`](./config-services)

@@ -5,18 +5,20 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Develop a Workload
 
 :::note about this guide
-**Goal:** A complete Nocalhost user guide. <br />
-**Estimate Time:** 20 minutes <br />
-**Requirements:**
+
+**Goal:** A complete Nocalhost user guide. <br /> **Estimate Time:** 20 minutes <br /> **Requirements:**
 - Any local or remote Kubernetes cluster (Minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [Minikube](https://minikube.sigs.k8s.io/docs/start/).
 - **[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)** must be enabled in the above cluster
 - **Configured KubeConfig file** that has namespace admin privilege
 - Kubernetes API-server can be accessed internal and external
 - Visual Studio Code (1.52+)
+
 :::
 
 :::tip Microservice
+
 In the microservice architecture, a workload can also be considered as a sole microservice.
+
 :::
 
 ## Cluster Inspector
@@ -136,7 +138,6 @@ Nocalhost uses the following icons to describe the status of different Kubernete
     </tbody>
 </table>
 
-
 ## Choose Source Code Directory
 
 Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
@@ -145,7 +146,7 @@ You can [Associate Local Directory](#associate-local-directory) before entering 
 
 ### Associate Local Directory
 
-You can associate the local source code directory to a workload before entering DevMode. Once you associated this directory, Nocalhost will save this directory path in the database. 
+You can associate the local source code directory to a workload before entering DevMode. Once you associated this directory, Nocalhost will save this directory path in the database.
 
 When you enter DevMode, Nocalhost will use this path directory without asking for input.
 
@@ -156,9 +157,11 @@ When you enter DevMode, Nocalhost will use this path directory without asking fo
 3. Choose the local directory and confirm the selection
 
 :::tip Cross IDE
-If you have associated the directory in one IDE already, once you develop the same workload in the other IDE, Nocalhost will still use the directory path set before. 
+
+If you have associated the directory in one IDE already, once you develop the same workload in the other IDE, Nocalhost will still use the directory path set before.
 
 For example, when a workload is associated with a directory in VS Code, then switch to IDEA. Nocalhost will firstly use the directory you associated in VS Code until you associate again.
+
 :::
 
 ### Open Local Directory
@@ -173,14 +176,16 @@ You can select any local directory and confirm the selection. Nocalhost will sav
 ### Clone from Git Repository
 
 :::danger Limitation
-Nocalhost will not clone source code from Git if you have already associated directory. 
+
+Nocalhost will not clone source code from Git if you have already associated directory.
+
 :::
 
-Nocalhost can help you to clone the source code from the Git repository within the IDE. 
+Nocalhost can help you to clone the source code from the Git repository within the IDE.
 
 Set the source code repository URL of the workload.
 
-- **Preset:** if you set this URL in `containers[*].dev.gitUrl` and choose to download from Git before entering development mode, Nocalhost will try to clone the source code from the URL you configured. 
+- **Preset:** if you set this URL in `containers[*].dev.gitUrl` and choose to download from Git before entering development mode, Nocalhost will try to clone the source code from the URL you configured.
 - **Not preset:** if you choose `Clone from Git Repository` when selecting the source code directory and enter the Git URL. Nocalhost will automatically set the URL you entered into the configuration.
 
 <figure className="img-frame">
@@ -191,21 +196,27 @@ Set the source code repository URL of the workload.
 #### Example: Configure Git URL
 
 ```yaml
+
 containers:
   - name: container-01
     dev:
       gitURL: https://github.com/nocalhost/nocalhost.git
+
 ```
 
 #### Cloning Source Code in IDE
 
 ```bash title="Nocalhost run the git clone command within IDE"
+
 [cmd] git clone https://e.coding.net/bookinfo-ratings.git "/Users/user/Downloads/Github/ratings"
 Cloning into '/Users/garry/Downloads/Github/ratings'...
+
 ```
 
 :::info Auto-associate
-Nocalhost will associate the directory to the clone directory automatically after codes are cloned. 
+
+Nocalhost will associate the directory to the clone directory automatically after codes are cloned.
+
 :::
 
 ## Choose Development Image
@@ -216,7 +227,9 @@ Nocalhost will replace the workload containers when entering DevMode by DevImage
 - **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL. You can also use the DevImage we provided.
 
 :::tip DevImage
-`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`
+
+`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`.
+
 :::
 
 <figure className="img-frame">
@@ -225,13 +238,15 @@ Nocalhost will replace the workload containers when entering DevMode by DevImage
 </figure>
 
 #### Example: Set the image for `DevConatiner`
-  
+
 ```yml {5}
+
 containers:
   - name: container-01
     dev:
       ...
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage
+
 ```
 
 [Read more to learn how to build your DevImage](../config/config-dev-devcontainer)
@@ -241,7 +256,7 @@ containers:
 
 ### Select Workload
 
-Nocalhost supports to development of all types of Kubernetes workload. 
+Nocalhost supports to development of all types of Kubernetes workload.
 
 In your IDE:
 
@@ -264,12 +279,14 @@ Nocalhost will first replace the remote container image with a development image
 [Read more to learn about DevImage configuration](../config/config-dev#configure-development-image)
 
 :::info Image Pull
-Container image will handle by Kubernetes, [read more to learn about Kubernetes image management](https://kubernetes.io/docs/concepts/containers/images/)
+
+Container image will handle by Kubernetes, [read more to learn about Kubernetes image management](https://kubernetes.io/docs/concepts/containers/images/).
+
 :::
 
 #### 2. Replace Container and Restart POD
 
-In this stage, Nocalhost will: 
+In this stage, Nocalhost will:
 
 1. Use the DevImage to start a new development container (DevContainer)
 2. Use the DevContainer to replace the original container
@@ -278,6 +295,7 @@ In this stage, Nocalhost will:
 When entering DevMode, you should see the following messages in the IDE output:
 
 ```bash
+
 Starting DevMode...
 No previous syncthing process (10799) found
 Deployment ratings replicas is already 1, no need to scale
@@ -288,6 +306,7 @@ This may take several minutes, depending on the load of your k8s cluster
 Waiting pod to start...
 
  ✓  Dev container has been updated
+
 ```
 
 #### 3. Start Port-Forwarding
@@ -297,8 +316,10 @@ Waiting pod to start...
 If you have configured the `containers[*].dev[*].portForward`, Nocalhost will start the port-forwarding after entering DevMode and you should see the following message in IDE output:
 
 ```bash
+
 Syncthing port-forward pod ratings-5dfbc89c59-r7wg5, namespace default
 Port-forward 51517:51517 has been started
+
 ```
 If you have not configured `containers[*].dev[*].portForward` you can [configure the port-forwarding in IDE](#configure-port-forwarding-in-ide) after entering DevMode.
 
@@ -309,6 +330,7 @@ Nocalhost will check the `containers[*].dev[*].sync` section defined in the `con
 You should see the following messages in IDE output:
 
 ```bash
+
 ignoredPattern: 
 .git
 .github
@@ -323,6 +345,7 @@ sync file ...
 ... ...
 Syncthing has been started
 sync file end
+
 ```
 
 [Read more to learn how to configure file synchronization](../config/config-dev-sync)
@@ -332,13 +355,17 @@ sync file end
 Nocalhost will open DevContainer's terminal right within the IDE after entering DevMode. The default directory is the one you configured in `container[*].dev.workDir`.
 
 ```bash
+
 root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
+
 ```
 
 You can now run the main process of your workload and check the result.
 
 :::tip Main Process
+
 In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not respond to any request. You need to manually start the main process before you can access it.
+
 :::
 
 ## Configure Port-Forwarding in IDE
@@ -346,19 +373,21 @@ In DevMode, the application main process will not automatically start by default
 You can easily configure the port-forwarding for a specific container within Nocalhost in IDE.
 
 :::danger Careful
+
 Port forwarding set in different modes only corresponds to the current mode.
 
-For Example: 
+For Example:
 
 You have configured the port-forwarding in `DevMode`. This port-forwarding will only take effect in `DevMode`. If you end `DevMode`, this port-forwarding will lose.
+
 :::
 
 <Tabs
   defaultValue="vs-port"
   values={[
     {label: 'Configure Port-Forwarding in VS Code', value: 'vs-port'},
-    {label: 'Configure Port-Forwarding in JetBrains', value: 'jb-port'},
-  ]}>
+ {label: 'Configure Port-Forwarding in JetBrains', value: 'jb-port'},
+ ]}>
 <TabItem value="vs-port">
 
 **Start Port-Forwarding**
@@ -376,7 +405,7 @@ You have configured the port-forwarding in `DevMode`. This port-forwarding will 
 </figure>
 
 </TabItem>
-  
+
 <TabItem value="jb-port">
 
 **Start Port-Forwarding**
@@ -398,7 +427,7 @@ You have configured the port-forwarding in `DevMode`. This port-forwarding will 
 
 ## Coding in Kubernetes Cluster
 
-Nocalhost provides the same coding experience you're used in the IDE when developing in the remote Kubernetes cluster. 
+Nocalhost provides the same coding experience you're used in the IDE when developing in the remote Kubernetes cluster.
 
 You can make any code change in the IDE see results instantly without rebuilding the image or restarting containers.
 
@@ -418,7 +447,7 @@ Nocalhost will monitor the local files change and synchronize the changes to the
 
 #### Disconnect & Reconnect
 
-If the file synchronization has disconnected, the status will change to `Nocalhost sidecar disconnected`. In this case, you can just click the status bar, Nocalhost will reconnect the file synchronization. 
+If the file synchronization has disconnected, the status will change to `Nocalhost sidecar disconnected`. In this case, you can just click the status bar, Nocalhost will reconnect the file synchronization.
 
 ## Debugging
 
@@ -436,7 +465,9 @@ If you closed the source code IDE window in development mode and want to reopen 
 </figure>
 
 :::caution DevMode Only
+
 `Open Project` only works in development mode.
+
 :::
 
 ## End Development Mode
@@ -465,11 +496,13 @@ Nocalhost can help you to roll back any Pod to its original version. You can do 
 For example, reset the `productpage` deployment, and you should see the similar message as below:
 
 ```bash
+
 Stopping port forward
 Annotation nocalhost.origin.spec.json found, use it
  Deleting current revision...
  Recreating original revision...
 Service productpage has been reset.
+
 ```
 
 <figure className="img-frame">

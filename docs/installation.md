@@ -5,7 +5,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Install Nocalhost
 
 :::tip nhctl
+
 When install Nocalhost IDE plugin, it will install the `nhctl` for you automatically.
+
 :::
 
 ## Compatible

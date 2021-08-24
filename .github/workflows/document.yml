@@ -36,6 +36,8 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Release to GitHub Pages
         env:
           USE_SSH: true
@@ -51,4 +53,5 @@ jobs:
           else
           npm i
           fi
+          npm run crowdin:sync
           npm run deploy

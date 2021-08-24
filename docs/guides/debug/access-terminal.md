@@ -13,7 +13,6 @@ Nocalhost provides two modes to access the terminal of a target container.
 - **Open Remote Terminal:** access container's terminal right within IDE's build-in terminal.
 - **Copy Terminal Exec Command:** Nocalhost will copy the execution command of remote terminal, you can paste this command in any terminal tools, run it then access to container's terminal.
 
-
 ## VS Code
 
 <Tabs
@@ -42,7 +41,6 @@ Nocalhost provides two modes to access the terminal of a target container.
 </Tabs>
 
 ## JetBrains
-
 
 <Tabs
   defaultValue="jb-open"

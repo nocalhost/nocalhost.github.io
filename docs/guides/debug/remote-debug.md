@@ -5,9 +5,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Remote Debugging
 
 :::caution JetBrans only
+
 Nocalhost only supports remote debugging within JetBrains' IDE now.
 
 We will support VS Code as soon as possible.
+
 :::
 
 ## Debugging Process
@@ -43,6 +45,7 @@ These are important options for remote debugging:
 <TabItem value="java">
 
 ```yaml {10,15,29} title="Nocalhost Configs"
+
 name: java-remote-debugging
 serviceType: deployment
 containers:
@@ -73,6 +76,7 @@ containers:
         envFrom: null
         portForward:
           - 33333:9999
+
 ```
 
 </TabItem>
@@ -80,6 +84,7 @@ containers:
 <TabItem value="python">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
+
 name: python-remote-debugging
 serviceType: deployment
 containers:
@@ -108,9 +113,11 @@ containers:
         envFrom: null
         portForward:
           - 33333:9999
+
 ```
 
 ```yaml title="debug.sh"
+
 #! /bin/sh
 
 pip3 install --no-cache-dir -r ./requirements.txt
@@ -120,6 +127,7 @@ export FLASK_DEBUG=0
 export FLASK_ENV=development
 
 flask run --host=0.0.0.0 --port=9999
+
 ```
 
 ### How does it Works?
@@ -136,6 +144,7 @@ Nocalhost using pydevd to debug Python application.
 <TabItem value="go">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
+
 name: go-remote-debugging
 serviceType: deployment
 containers:
@@ -164,9 +173,11 @@ containers:
         envFrom: null
         portForward:
           - 33333:9999
+
 ```
 
 ```yaml title="debug.sh"
+
 #! /bin/sh
 
 export GOPROXY=https://goproxy.cn
@@ -179,6 +190,7 @@ dlv --headless --log --listen :9009 --api-version 2 --accept-multiclient debug a
 <TabItem value="php">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
+
 name: php-remote-debugging
 serviceType: deployment
 containers:
@@ -207,12 +219,15 @@ containers:
         envFrom: null
         portForward:
           - 33333:9999
+
 ```
 
 ```yaml title="debug.sh"
+
 #！/bin/sh
 
 php -t ./ -S 0.0.0.0:9999;
+
 ```
 
 ### How does it works?
@@ -226,3 +241,8 @@ Nocalhost using Xdebug to debug PHP applications.
 
 </TabItem>
 </Tabs>
+
+
+## Known Issues
+
+- Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)

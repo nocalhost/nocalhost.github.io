@@ -7,6 +7,7 @@ You can configure single or multiple workloads in a single configuration which d
 For example:
 
 ```yaml
+
 applications:
     name: K8s-app
     ...
@@ -25,6 +26,7 @@ applications:
           jobs:
             - dep-job
         containers: ...
+
 ```
 
 ## How does it work?
@@ -43,11 +45,13 @@ The following config options are needed to determine the workload to be configur
 Nocalhost uses the `name` as a **unique** identifier to match a corresponding Kubernetes workload. The `name` option expects a string that specifies a workload name to select a target workload. 
 
 ```yaml {2,4}
+
 services:
   - name: foo-workload-01
   ...
   - name: foo-workload-02
   ...
+
 ```
 
 ### `services[*].serviceType`
@@ -55,10 +59,12 @@ services:
 Kubernetes workload type, Nocalhost currently supports all Kubernetes workloads types. 
 
 ```yaml {3}
+
 services:
     - name: deployment-workload
         serviceType: deployment
         ...
+
 ```
 
 - [Read more to learn Kubernetes workload](https://kubernetes.io/docs/concepts/workloads/)
@@ -71,16 +77,21 @@ Nocalhost can control the startup sequence of multiple workloads within an appli
 - Workload is dependent on other workloads or services
 
 :::danger Required Kubernetes 1.16.0+ 
+
 This feature depends on Kubernetes [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/), so please ensure that the minimum version of the Kubernetes is v1.16.0 or Above, and make sure to enable **MutatingAdmissionWebhook** and **ValidatingAdmissionWebhook** controllers.
+
 :::
 
 :::caution required nocalhost-dep
+
 You need to install  `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details.
+
 :::
 
 #### Example: Setting up start dependencies
 
 ```yml {4}
+
 services:
   - name: foo-app                   # string    | required | Name of workload
     serviceType: deployment         # string    | required | The Kubernetes workloads type
@@ -90,6 +101,7 @@ services:
         - B-Pod
       jobs:                         # string[]  | optional | Dependent Jobs label selector
         - "name=foo-db"
+
 ```
 
 **Explanation:**
@@ -104,6 +116,7 @@ Whether your workload is a single component or several that work together, on Ku
 Nocalhost give you the options to configure these containers before deploying and developing.
 
 ```yaml
+
 services:
     - name: foo-workload
       ...
@@ -114,6 +127,7 @@ services:
             ...
         - name: container-2
             ...
+
 ```
 
 ### `container[*].name` 
@@ -123,6 +137,7 @@ Nocalhost use container `name` as **unique** identifier to determine the contain
 #### Example: Configure containers
 
 ```yaml {6,14}
+
 services:
     - name: foo-workload
       serviceType: deployment
@@ -143,6 +158,7 @@ services:
                 protForward:
                     - 38080:9080
             dev: ...
+
 ```
 
 ### `containers[*].install`
@@ -157,7 +173,9 @@ You can configure the installation of the container. Nocalhost supports the foll
 Nocalhost supports injecting the preset environment variables to the container when deploying the workload. You can inject these variables by input the values or import the file.
 
 :::caution nocalhost-dep Needed
+
 You need to install `nocalhost-dep` for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details.
+
 :::
 
 ##### Example: Inject environment variable
@@ -173,6 +191,7 @@ You need to install `nocalhost-dep` for this configuration to take effect. Pleas
 `container[*].install.env # optional`
 
 ```yml
+
 containers:
   - name: container-01
     ...
@@ -182,6 +201,7 @@ containers:
           value: ${DEBUG:-true}
         - name: DOMAIN
           value: "www.coding.com"
+
 ```
 
 </TabItem>
@@ -191,6 +211,7 @@ containers:
 `container[*].install.envFrom # optional`
 
 ```yml
+
 containers:
   - name: container-01
     ...
@@ -199,6 +220,7 @@ containers:
         envFile: 
           - path: dev.env
           - path: dev.env
+
 ```
 
 </TabItem>
@@ -210,7 +232,9 @@ containers:
 - These variables will take effect after the deployment occurs
 
 :::info Duplicate Configs
+
 If both `env` and `envFrom` configure together, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs.
+
 :::
 
 #### Setting up Port-Forwarding
@@ -224,6 +248,7 @@ When container has deployed, Nocalhost starts port-forwarding as configured in t
 ##### Example
 
 ```yaml
+
 containers:
   - name: container-01
     ...
@@ -231,6 +256,7 @@ containers:
       portForward: 
         - 9883:3306       # string[]  |  optional  | Ports to be forwarded to local when container has been deployed
         - 9884:3307
+        
 ```
 
 - Using `Local Port : Remote Port` format

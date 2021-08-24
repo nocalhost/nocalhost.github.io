@@ -1,15 +1,11 @@
----
-title: 简介
----
-
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # 什么是 Nocalhost?
 
-Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具:
+Nocalhost 是一款开源的基于 IDE 的云原生应用开发工具：
 
 - **直接在 Kubernetes 集群中构建、测试和调试应用程序**
-- 提供易于使用的 IDE 插件（支持 VS Code 和 JetBrains），即使在 Kubernetes 集群中进行开发和调试，Nocalhost 保持本地开发一样的体验
+- 提供易于使用的 IDE 插件（支持 VS Code 和 JetBrains），即使在 Kubernetes 集群中进行开发和调试，Nocalhost 也能保持和本地开发一样的开发体验
 - **使用即时文件同步进行开发：** 即时将您的代码更改同步到远端容器，而无需重建映像或重新启动容器。
 
 <figure className="img-frame">
@@ -26,47 +22,47 @@ Nocalhost 由单个二进制 CLI 和 IDE 插件组成。 理想情况下，您�
 
 ## 为什么使用 Nocalhost？
 
-Building Kubernetes applications is often difficult, and it is even harder for large teams of developers. Nocalhost provides the most productive way to build cloud-native applications. Nocalhost provides the most productive way to build cloud-native applications.
+构建 Kubernetes 应用并不简单，尤其对于大型开发团队来说更具挑战。 Nocalhost 提供了最高效的方式来构建云原生应用程序。
 
-The advantages of using Nocalhost to develop directly inside Kubernetes are:
+使用 Nocalhost 直接在 Kubernetes 中进行开发的优势有：
 
-- **Production environment similarity** - Dev environment is very similar to your production environment, giving you much more confidence that everything will work in the production environment when new features are released.
-- **Speed up feedback loop** - Via file synchronization, your code changes can take effect immediately in the container without rebuilding the image or redeploying the container.
-- **Flexible scalability** - Developers do not need to worry about insufficient local resources.
-- **Reduce Cost** - Use resources more efficiently and reduce IT facility costs
+- **生产环境相似性** - 开发环境与你的生产环境非常相似，让你更有信心在发布新功能时一切都将在生产环境中正常工作。
+- **提速反馈循环** - 通过文件同步，你所有代码更改可以在容器中立即生效，而无需重建镜像或重新部署容器。
+- **灵活的扩展性** - 开发人员无需再担心本地资源不足。
+- **降低成本** - 更有效地使用资源并降低 IT 设施成本。
 
-Develop in Kubernetes cluster can be useful in the following cases:
+在下述环境里，在 Kubernetes 集群中进行开发很有用：
 
-- Limitations of local resources
-- Want to test your application in a production-like environment
-- Want to debug issues that are hard to reproduce on your local machine
-- Applications need to access cluster-internal services (e.g. Cluster DNS)
+- 本地资源的限制
+- 想要在类似生产环境中测试你的应用
+- 想要调试在本地计算机上难以重现的问题
+- 应用程序需要访问集群内部服务 (例如集群 DNS)
 
-## Key Features
+## 主要特性
 
-### Coding in Kubernetes
+### 在 Kubernetes 集群中编码
 
-Nocalhost is preconfigured to work with your favourite IDEs, you can connect to any Kubernetes cluster with one click, and enjoying the coding in-cluster, get rid of the pesky local environment configurations.
+Nocalhost 预配置为与你喜欢的 IDE 配合使用，你可以一键连接到任何 Kubernetes 集群，开始享受在集群内进行编码，摆脱烦人的本地环境配置。
 
-### Instant File Synchronization
+### 实时的文件同步
 
-Nocalhost can automatically synchronize the code to the container every time you make a change. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second. This way, eliminate the submit, building and pushing cycles, greatly speed up the feedback loop of development. So you see updates in under a second.
+Nocalhost 可以在你每次进行修改时自动将代码同步到 K8s 容器中。 这样能免去了镜像提交、构建和推送等步骤，极大提速了开发的反馈循环。 因此代码修改可以实现秒级生效。
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle-cn.jpg')} width="700"/>
+  <img className="gif-img" src={useBaseUrl('/img/intro/dev-circle.jpg')} width="700"/>
 </figure>
 
-### Made For Collaboration
+### 为协作而生
 
-Nocalhost helps your team to standardize development workflows without requiring everyone on your team to become a Kubernetes expert.
+Nocalhost 可帮助你的团队实现标准化开发工作流程，而无需让团队中的每个人都成为 Kubernetes 专家。
 
-- **Kubernetes and DevOps expert** on your team can configure and manager Cluster, Applications, DevSpace and Users by Nocalhost Server, Read more about [Nocalhost Server](./server/server-overview)
-- **Developers** on your team can easily check out the project and start coding and debugging in the Kubernetes cluster without becoming a Kubernetes expert.
+- 您团队中的 **Kubernetes 和 DevOps 专家**可以通过 Nocalhost Server 配置和管理集群、应用程序、DevSpace 和用户。阅读有关 [Nocalhost Server](./server/server-overview) 的更多信息
+- 您团队中的**开发人员**无需成为 Kubernetes 专家，即可轻松查看项目并即时在 Kubernetes 集群中开始编码和调试。
 
-### Compatibility
+### 兼容性
 
-Nocalhost is battle-tested with many Kubernetes distributions including:
+Nocalhost 已经过许多 Kubernetes 发行版的实战测试，包括：
 
-- **Local Kubernetes clusters** like minikube, Microk8s, K3s and Docker Desktop
-- **Managed Kubernetes clusters** like TKE (Tencent), ACK (Alibaba Cloud), GKE (Google), Microsoft Azure
-- **Self-managed Kubernetes cluster** (e.g. created with KubeSphere or Rancher)
+- **本地 Kubernetes 集群**，如 minikube、Microk8s、K3s 和 Docker Desktop
+- **托管 Kubernetes 集群**，如 TKE （腾讯）、ACK（阿里巴巴云）、GKE（谷歌）、Microsoft Azure
+- **自管理的 Kubernetes 集群**（例如使用 KubeSphere 或 Rancher 管理的 K8s 集群）

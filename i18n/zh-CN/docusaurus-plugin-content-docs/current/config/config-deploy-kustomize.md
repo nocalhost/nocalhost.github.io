@@ -9,8 +9,10 @@ import TabItem from '@theme/TabItem';
 
 To deploy Kustomize with Nocalhost, you need to configure them within the application section of the .`nocalhost/config.yaml`.
 
-:::info No need for kubectl 
-You do not need to install `kubectl`, Nocalhost can deploy Kustomize. 
+:::info No need for kubectl
+
+You do not need to install `kubectl`, Nocalhost can deploy Kustomize.
+
 :::
 
 ## Example
@@ -25,9 +27,8 @@ You do not need to install `kubectl`, Nocalhost can deploy Kustomize.
 
 Deploy Kubernetes manifest from local directory.
 
-Deploy Kubernetes manifest from local directory.
-
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -35,6 +36,7 @@ application:
   name: bookinfo                        # string    | required | Application name
   manifestType: kustomizeLocal          # string    | required | Application k8s manifest type
   resourcePath: ["kustomize/base"]      # string[]  | required | Set the application resource path
+
 ```
 
 </TabItem>
@@ -44,6 +46,7 @@ application:
 Deploy Kubernetes manifest from Git repository.
 
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -51,16 +54,7 @@ application:
   name: bookinfo                        # string    | required | Application name
   manifestType: kustomizeGit            # string    | required | Application k8s manifest type
   resourcePath: ["kustomize/base"]      # string[]  | required | Set the application resource path
-```
-
-```yaml
-configProperties:                       # struct    | required | Specify config properties
-    version: v2 
-
-application:
-  name: bookinfo                        # string    | required | Application name
-  manifestType: kustomizeGit            # string    | required | Application k8s manifest type
-  resourcePath: ["kustomize/base"]      # string[]  | required | Set the application resource path
+  
 ```
 
 </TabItem>

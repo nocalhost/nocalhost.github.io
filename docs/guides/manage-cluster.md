@@ -13,7 +13,9 @@ Nocalhost supports multi cluster management, There are two methods that you can 
 Select the `KubeConfig` file from any local directory.
 
 :::tip Default KubeConfig
+
 Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by default.
+
 :::
 
 **Paste KubeConfig as Text**
@@ -21,11 +23,13 @@ Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by defa
 Past the `KubeConfig` as a text.
 
 :::tip Get KubeConfig
+
 You can use the following command to view your `KubeConfig`, copy and paste to the Nocalhost plugin.
 
 ```bash
 kubectl config view --minify --raw --flattern
 ```
+
 :::
 
 <Tabs
@@ -56,7 +60,9 @@ kubectl config view --minify --raw --flattern
 ## Remove Cluster
 
 :::note KubeConfig Unchanged
-Nocalhost will only remove the cluster from inspector, it will not modify your `KubeConfig`
+
+Nocalhost will only remove the cluster from inspector, it will not modify your `KubeConfig`.
+
 :::
 
 <Tabs

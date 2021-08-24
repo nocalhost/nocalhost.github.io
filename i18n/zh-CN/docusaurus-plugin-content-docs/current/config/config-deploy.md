@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure Application Deployment
 
-You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to deploy application: Nocalhost supports to use the following types to deploy application:
+You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE plugin. Nocalhost supports to use the following types to deploy application:
 
 - Manifest
 - Helm
@@ -17,8 +17,10 @@ You can configured the deployment method of matching type to deploy your applica
 
 Application deployments are configured within the `application` section of the `config.yaml`.
 
-:::caution Config.yaml 
+:::caution Config.yaml
+
 Nocalhost will **not** create this yaml file for you by default. You need to add a `.nocalhost` folder under your application's root directory and create a `config.yaml` file within the folder.
+
 :::
 
 ## Example
@@ -33,6 +35,7 @@ Nocalhost will **not** create this yaml file for you by default. You need to add
 <TabItem value="helm">
 
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -45,6 +48,7 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
+
 ```
 
 </TabItem>
@@ -52,6 +56,7 @@ application:
 <TabItem value="manifest">
 
 ```yaml
+
 application:
   name: bookinfo                        # string    | required | Application name                 
   manifestType: rawManifestGit          # string    | required | Application k8s manifest type                           
@@ -61,6 +66,7 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
+
 ```
 
 </TabItem>
@@ -69,6 +75,7 @@ application:
 <TabItem value="kustom">
 
 ```yaml
+
 application:
   name: bookinfo                        # string    | required | Application name
   manifestType: kustomizeGit            # string    | required | Application k8s manifest type
@@ -78,13 +85,16 @@ application:
       value: ${DEBUG:-false}
     - name: DOMAIN
       value: ${DOMAIN:-coding.net}
+
 ```
 
 </TabItem>
 </Tabs>
 
-:::info Example Configurations 
-We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations. 
+:::info Example Configurations
+
+We provide an example application, you can check out the source code in our [Github Repo](https://github.com/nocalhost/bookinfo/tree/main/.nocalhost) for full configurations.
+
 :::
 
 ## Required Configurations
@@ -93,11 +103,13 @@ We provide an example application, you can check out the source code in our [Git
 
 `application[*].name # required`
 
-Nocalhost uses a **unique** application name to differentiate different applications. Therefore, you **can not** deploy two applications with the same name in one namespace. Therefore, you **can not** deploy two applications with the same name in one namespace.
+Nocalhost uses a **unique** application name to differentiate different applications. Therefore, you **can not** deploy two applications with the same name in one namespace.
 
 ```yaml
+
 application:
   name: app-name
+
 ```
 
 ### Manifest Type
@@ -120,11 +132,12 @@ Nocalhost will chooses different deployment methods according to different `mani
 
 `application[*].resourcePath # required`
 
-Set application source path. Set application source path. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
+Set application source path. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
 
 #### Example: Configure resource path for the corresponding type
 
 ```yaml title="Corresponding Configs"
+
 // highlight-next-line
 manifestType:   helmGit
 resourcePath:   ["<chart path: relative path of git repo root>"]
@@ -148,10 +161,13 @@ resourcePath:   ["<kustomize file path: relative path of git repo>"]
 // highlight-next-line
 manifestType:   kustomizeLocal
 resourcePath:   ["<kustomize file path: multi relative paths of local application path>"]
+
 ```
 
-:::note 
-This is the source path configuration at application level 
+:::note
+
+This is the source path configuration at application level.
+
 :::
 
 ## Advanced Configurations
@@ -162,11 +178,12 @@ Nocalhost provides some enhancements to application deployment.
 
 `application[*].ignoredPath # optional`
 
-Nocalhost will ignore the files under this path during installation. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
+Nocalhost will ignore the files under this path during installation. This config must correspond to [`mainifestType`](#manifest-type), otherwise, this config will not take effect.
 
 #### Example: Configure ignored path for the corresponding type
 
 ```yaml title="Corresponding Configs"
+
 // highlight-next-line
 manifestType:   rawManifestGit
 resourcePath:   ["<ignored manifest files path: multi relative paths of git repo root>"]
@@ -182,14 +199,17 @@ resourcePath:   ["<ignored kustomize file path: relative path of git repo>"]
 // highlight-next-line
 manifestType:   kustomizeLocal
 resourcePath:   ["<ignored kustomize file path: multi relative paths of local application path>"]
+
 ```
 
 ### Inject Environment Variable to Workloads
 
-Nocalhost supports injecting the preset environment variables to all workloads when deploying an application. You can inject these variables by input the values or import the file. You can inject these variables by input the values or import the file.
+Nocalhost supports injecting the preset environment variables to all workloads when deploying an application. You can inject these variables by input the values or import the file.
 
-:::caution nocalhost-dep Needed 
-You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. Please refer to [Nocalhost Dep](../server/nh-dep) for more details. 
+:::caution nocalhost-dep Needed
+
+You need to have `nocalhost-dep` to install for this configuration to take effect. Please refer to [Nocalhost Dep](../server/nh-dep) for more details.
+
 :::
 
 #### Example: Setting up inject environment variable
@@ -205,12 +225,14 @@ You need to have `nocalhost-dep` to install for this configuration to take effec
 `application[*].env # optional`
 
 ```yml
+
 application:
   env: 
     - name: DEBUG
       value: ${DEBUG:-true}
     - name: DOMAIN
       value: "www.coding.com"
+
 ```
 
 </TabItem>
@@ -220,11 +242,13 @@ application:
 `application[*].envFrom # optional`
 
 ```yml
+
 application:
   envFrom: 
     envFile: 
       - path: dev.env
       - path: dev.env
+
 ```
 
 </TabItem>
@@ -235,31 +259,11 @@ application:
 - These variables will be injected to all workloads when deploying
 - These variables will take effect after the deployments occurs
 
-:::info Duplicate Configs 
-If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs. 
+:::info Duplicate Configs
+
+If both `env` and `envFrom` configure at the same time, Nocalhost will merge the configurations, and the duplicate parts are subject to `env` configs.
+
 :::
-
-### Run Jobs Before Installing the Application
-
-`application[*].onPreInstall`
-
-Nocalhost allows users to perform some additional operations before deploying applications.
-
-#### Example: Setting up the pre-install Jobs
-
-```yaml
-onPreInstall:
-  - path: job-01.yaml       # string    | required | Job yaml file, the relative path of the repo root
-    weight: "1"             # integer   | optional | Order of execution of job, tThe smaller the value, the first to execute.
-  - path: job-02.yaml
-    weight: "-5"
-  - path: job-02.yaml
-    weight: "-5"
-```
-
-**Explanation:**
-
-Nocalhost will wait for the completion of `job-01` and `job-02` execution before deploying the application.
 
 ## Configure Workloads and Containers Deployments
 

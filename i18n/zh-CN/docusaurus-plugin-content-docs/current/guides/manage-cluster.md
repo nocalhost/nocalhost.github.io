@@ -2,27 +2,34 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# 集群管理
+# Manage Cluster
 
-## 连接 Kubernetes 集群
+## Connect to Kubernetes Cluster
 
-Nocalhost 支持多集群管理，您可以使用两种方法连接到 Kubernetes 集群：
+Nocalhost supports multi cluster management, There are two methods that you can use to connect to Kubernetes cluster:
 
-**通过 KubeConfig 连接**
+**Connect By KubeConfig**
 
-从任何本地目录中选择 `KubeConfig` 文件。
+Select the `KubeConfig` file from any local directory.
 
-:::tip 默认 KubeConfig 默认情况下，Nocalhost 插件启动时会从 `~/.kube/config` 路径下自动读取您本地的 `KubeConfig`。 :::
+:::tip Default KubeConfig
 
-**粘贴 KubeConfig 文本**
+Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by default.
 
-粘贴 KubeConfig 的文本内容。
+:::
 
-:::tip 获取 KubeConfig 你可以通过在 Kubernetes 集群所在系统内运行下述命令查看 `KubeConfig`，然后复制黏贴到插件里。
+**Paste KubeConfig as Text**
+
+Past the `KubeConfig` as a text.
+
+:::tip Get KubeConfig
+
+You can use the following command to view your `KubeConfig`, copy and paste to the Nocalhost plugin.
 
 ```bash
 kubectl config view --minify --raw --flattern
 ```
+
 :::
 
 <Tabs
@@ -35,7 +42,7 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/vscode-add-cluster.gif')} width="250" />
-  <figcaption>在 VS Code 中连接集群</figcaption>
+  <figcaption>Connect to cluster in VS Code</figcaption>
 </figure>
 
 </TabItem>
@@ -44,15 +51,19 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/idea-connect-cluster.gif')} width="600" />
-  <figcaption>在 JetBrains IDE 中连接集群</figcaption>
+  <figcaption>Connect to cluster in JetBrains IDE</figcaption>
 </figure>
 
 </TabItem>
 </Tabs>
 
-## 移除集群
+## Remove Cluster
 
-:::note 不修改源 KubeConfig Nocalhost 只会从树列表中删除集群，它不会修改你的 `KubeConfig`。 :::
+:::note KubeConfig Unchanged
+
+Nocalhost will only remove the cluster from inspector, it will not modify your `KubeConfig`.
+
+:::
 
 <Tabs
   defaultValue="vscode"
@@ -64,7 +75,7 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/vscode-remove-cluster.gif')} width="290" />
-  <figcaption>在 VS Code 中移除集群</figcaption>
+  <figcaption>Remove cluster in VS Code</figcaption>
 </figure>
 
 </TabItem>
@@ -73,15 +84,15 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/idea-remove-cluster.gif')} width="600" />
-  <figcaption>在 JetBrains IDE 中移除集群</figcaption>
+  <figcaption>Remove cluster in JetBrains IDE</figcaption>
 </figure>
 
 </TabItem>
 </Tabs>
 
-## 查看集群 KubeConfig
+## View KubeConfig
 
-右键点击指定集群，选择 `View KubeConfig`，Nocalhost 插件会打开该集群的 `KubeConfig`
+Right-click the specified cluster and select `View KubeConfig`, the Nocalhost plugin will open the `KubeConfig` of the cluster.
 
 <Tabs
   defaultValue="vscode"
@@ -93,7 +104,7 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/vscode-view-config.gif')} width="600" />
-  <figcaption>在 VS Code 中查看集群 KubeConfig</figcaption>
+  <figcaption>View KubeConfig in VS Code</figcaption>
 </figure>
 
 </TabItem>
@@ -102,7 +113,7 @@ kubectl config view --minify --raw --flattern
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/idea-view-config.gif')} width="600" />
-  <figcaption>在 JetBrains IDE 中查看集群 KubeConfig</figcaption>
+  <figcaption>View KubeConfig in JetBrains IDE</figcaption>
 </figure>
 
 </TabItem>

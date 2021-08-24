@@ -2,45 +2,47 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# 安装 Nocalhost
+# Install Nocalhost
 
-:::tip nhctl 
-安装 Nocalhost IDE 插件时，插件会自动帮您安装最新版本的 **nhctl** 
+:::tip nhctl
+
+When install Nocalhost IDE plugin, it will install the `nhctl` for you automatically.
+
 :::
 
-## 兼容性
+## Compatible
 
 <table>
     <thead>
         <tr>
             <th>IDE</th>
-            <th>版本</th>
-            <th>测试结果</th>
+            <th>Version</th>
+            <th>Result</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>VS Code </td>
             <td>1.58.2 (Universal)</td>
-            <td><strong className="pass-tag">通过</strong></td>
+            <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
             <td rowspan="3" >JetBrains</td>
             <td>2021.2 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">通过</strong></td>
+            <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
             <td>2021.1 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">通过</strong></td>
+            <td><strong className="pass-tag">passed</strong></td>
         </tr>
         <tr>
             <td>2020.3 - Intel and Apple Silicon</td>
-            <td><strong className="pass-tag">通过</strong></td>
+            <td><strong className="pass-tag">passed</strong></td>
         </tr>
     </tbody>
 </table>
 
-## 安装 VScode 插件
+## Install VS Code Plugin
 
 <Tabs
   defaultValue="market"
@@ -50,33 +52,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
  ]}>
 <TabItem value="market">
 
-1. 1. 打开 VScode 编辑器，然后单击左侧栏中的 <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
+1. Open VS Code and go to `Extensions` by click the <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
 2. Input `Nocalhost` in the search box
 3. Select the `Nocalhost Extension`, and click the **Install** button.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/vscode-market.png')} />
-  <figcaption>从 VS Code 插件市场安装</figcaption>
+  <figcaption>Install from VS Code extension market</figcaption>
 </figure>
 
 </TabItem>
 
 <TabItem value="manual">
 
-1. 1. 从 [Github 仓库](https://github.com/nocalhost/nocalhost-vscode-plugin/releases/latest)下载最新的 VS Code 插件版本
-2. 打开 VScode 编辑器，然后单击左侧栏中的 Open VS Code and go to `Extensions` by click the <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
-3. Click <img src={useBaseUrl('/img/icons/cluster-action-icon.jpg')} width="20" /> 按钮, 选择 `Install from VSIX...` 后，选择刚下载的 `VSIX` 文件进行安装
+1. Download the latest version from our [Github Repo](https://github.com/nocalhost/nocalhost-vscode-plugin/releases/latest)
+2. Open VS Code and go to `Extensions` by click the <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
+3. Click <img src={useBaseUrl('/img/icons/cluster-action-icon.jpg')} width="20" /> on the top right of the `Extension` list, select `Install from VSIX...`, select the `VSIX` downloaded above
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/vs-manual.jpg')} />
-  <figcaption>手动安装 VS Code 插件</figcaption>
+  <figcaption>Manual installation</figcaption>
 </figure>
 
 </TabItem>
 
 </Tabs>
 
-## 安装 JetBrains 插件
+## Install JetBrains Plugin
 
 <Tabs
   defaultValue="market"
@@ -88,46 +90,46 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Windows
     
-`文件 > 设置 > 插件 > 浏览仓库... > 搜索 "Nocalhost" > 安装插件`
+`File > Settings > Plugins > Browse repositories... > Search for "Nocalhost" > Install Plugin`
 
 ### MacOS
 
-`首选项 > 设置 > 插件 > 浏览仓库... > 搜索 "Nocalhost" > 安装插件`
+`Preferences > Settings > Plugins > Browse repositories... > Search for "Nocalhost" > Install Plugin`
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/jb-market.png')} />
-  <figcaption>从 JetBrains 插件市场安装</figcaption>
+  <figcaption>Install from JetBrains extension market</figcaption>
 </figure>
 
 </TabItem>
 
 <TabItem value="manual">
 
-1. 1. 从我们的 [Github 仓库](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest) 下载最新版本
-2. 安装插件：<kbd>首选项</kbd> > <kbd>插件</kbd> > <kbd>从磁盘安装插件... </kbd> Install plugin: <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install from disk... </kbd>
+1. Download the latest version from our [Github Repo](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest)
+2. Install plugin: <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install from disk... </kbd>
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/jb-manual.jpg')} />
-  <figcaption>手动安装 JetBrains 插件</figcaption>
+  <figcaption>Manual installation</figcaption>
 </figure>
 
 </TabItem>
 
 </Tabs>
 
-## 升级插件
+## Upgrade Plugin
 
-Nocalhost 会在 IDE 启动时自动检查并安装最新的更新。
+Nocalhost will automatically check and install the latest updates when IDE starts.
 
-## 卸载
+## Uninstall
 
-在 IDE 中卸载 Nocalhost 插件
+You can fully uninstall Nocalhost by following
 
-### 卸载 IDE 插件
+### Uninstall IDE Plugin
 
-删除根目录下的 `.nh` 文件夹
+Uninstall Nocalhost IDE plugin in your IDE
 
-### 移除 `nhctl`
+### Remove `nhctl`
 
 Remove the `.nh` folder in your root directory
 
@@ -140,7 +142,7 @@ Remove the `.nh` folder in your root directory
 
 <TabItem value="mac">
 
-`.nh` 文件夹在你的 `~/` 目录中，你可以通过以下命令删除它
+`.nh` folder is in your `~/` directory, you can remove it by the following command
 
 ```bash
 rm -rf .nh
@@ -150,7 +152,7 @@ rm -rf .nh
 
 <TabItem value="windows">
 
-`.nh` 文件夹在你的 `<ROOT PATH>/User/username/` 目录中，你可以直接删除它。
+`.nh` folder is in your `<ROOT PATH>/User/username/` directory, you can just delete it.
 </TabItem>
 
 </Tabs>

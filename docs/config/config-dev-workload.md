@@ -25,6 +25,7 @@ Nocalhost supports to development of all types of Kubernetes workloads. The foll
 The second step is to modify the manifest of the Deployment. The following example using the `reviews` service in [`bookinfo'](https://github.com/nocalhost/bookinfo), to compare its manifest change before and after entering DevMode:
 
 ```yaml title="Before entering DevMode"
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -90,9 +91,11 @@ spec:
           name: wlp-output
         - emptyDir: {}
           name: tmp
+
 ```
 
 ```yaml {9,41,43,71,101,102} title="After entering DevMode"
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -210,6 +213,7 @@ spec:
             secretName: reviews-deployment-nocalhost-syncthing-secret
         - emptyDir: {}
           name: nocalhost-shared-volume
+          
 ```
 
 ## StatefulSet

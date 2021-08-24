@@ -5,7 +5,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Deploy by IDE Plugin
 
 :::caution Requirements
+
 You need to have configured `config.yaml` before deploy applications. [Learn how to configure application deployment](../../config/config-deploy).
+
 :::
 
 ## Choose Application Source Path
@@ -14,8 +16,8 @@ You need to have configured `config.yaml` before deploy applications. [Learn how
   defaultValue="vscode"
   values={[
     {label: 'VS Code', value: 'vscode'},
-    {label: 'JetBrains', value: 'jet'},
-  ]}>
+ {label: 'JetBrains', value: 'jet'},
+ ]}>
 <TabItem value="vscode">
 
 1. Select a namespace
@@ -28,7 +30,7 @@ You need to have configured `config.yaml` before deploy applications. [Learn how
 </figure>
 
 </TabItem>
-  
+
 <TabItem value="jet">
 
 1. Right click a namespace, click `Install Application`
