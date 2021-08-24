@@ -15,6 +15,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - uses: crowdin/github-action@1.0.4
+        env:
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Test Build
         run: |
           if [ -e yarn.lock ]; then
@@ -24,6 +28,7 @@ jobs:
           else
           npm i
           fi
+          npm run crowdin:sync
           npm run build
   gh-release:
     if: github.event_name != 'pull_request'
@@ -36,6 +41,8 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - uses: crowdin/github-action@1.0.4
+        env:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Release to GitHub Pages
