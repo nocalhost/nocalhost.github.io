@@ -1,13 +1,26 @@
-files:
-  - source: docs/**/*
-    translation: /i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%
-  - source: /src/pages/**/*
-    ignore:
-      - /**/*.js
-      - /**/*.jsx
-      - /**/*.ts
-      - /**/*.tsx
-      - /**/*.css
-    translation: i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%
-  - source: /blog/**/*
-    translation: i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%
+project_id: '473096'
+api_token: 'eb30616b57a936bdaf2d8b779e31d0d8e5d25d4bd3fdc0b424ab715a2ee4dc65536912654aa36a0d'
+preserve_hierarchy: true
+files: [
+  # JSON translation files
+    {
+      source: '/i18n/en/**/*',
+      translation: '/i18n/%locale%/**/%original_file_name%',
+    },
+    # Docs Markdown files
+    {
+      source: '/docs/**/*',
+      translation: '/i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%',
+    },
+    # Blog Markdown files
+    {
+      source: '/blog/**/*',
+      translation: '/i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%',
+    },
+    # Content Translation
+    {
+      source: '/src/pages/**/*',
+      translation: '/i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%',
+      ignore: ['/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css'],
+    },
+]
