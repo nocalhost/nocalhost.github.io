@@ -10,9 +10,9 @@ Nocalhost 的新官网框架已经上线。因为目前 Nocalhost 官方文档�
 
 ## 活动流程
 
-本次活動主要通过使用 Crowdin 对文档进行翻译
+本次活動可以通过使用 Crowdin 平台或下载源码对文档进行翻译
 
-### 开始翻译
+## 通过 Crowndin 进行翻译
 
 翻译项目的的地址在：https://crowdin.com/project/nocalhost
 
@@ -43,10 +43,30 @@ Nocalhost 的新官网框架已经上线。因为目前 Nocalhost 官方文档�
 
 ### 注意事项
 
-在翻译的时候，请注意原文格式和 Crowdin 生成的标签。比如下图中的 `<0></0>` 和 `<1></1>`。
-
-这些标签是 Crowdin 自动生成的，用于替换原文中的图标，特殊格式等。
+在翻译的时候，请注意原文格式和 Crowdin 生成的标签。比如下图中的 `<0></0>` 和 `<1></1>`。这些标签是 Crowdin 自动生成的，用于替换原文中的图标，特殊格式等。
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/translate/label.png')} />
+  <figcaption>Crowdin 标签</figcaption>
 </figure>
+
+Nocalhost 官网使用了 [Docusaurus](https://docusaurus.io/)，因此某些特殊符号和格式请注意。
+
+例如：
+
+```yaml
+
+:::note title
+
+内容。。。。。
+
+:::
+
+```
+
+这个是 Docuasurus 的告示（Admonition）方法。在翻译时，`note` 需要翻译，后面的 `title` 需要翻译。另外，请注意格式。
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/translate/admonition.png')} />
+</figure>
+
