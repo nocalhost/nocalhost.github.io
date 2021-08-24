@@ -18,7 +18,6 @@ jobs:
           node-version: '12.x'
       - uses: crowdin/github-action@1.3.2
         with:
-          upload_sources: true
           download_translations: true
         env:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -48,7 +47,6 @@ jobs:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - uses: crowdin/github-action@1.3.2
         with:
-          upload_sources: true
           download_translations: true
         env:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
