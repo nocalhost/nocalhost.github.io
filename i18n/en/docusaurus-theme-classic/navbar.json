@@ -4,15 +4,15 @@
     "description": "The title in the navbar"
   },
   "item.label.Docs": {
-    "message": "文档",
+    "message": "Docs",
     "description": "Navbar item with label Docs"
   },
   "item.label.Videos": {
-    "message": "视频",
+    "message": "Videos",
     "description": "Navbar item with label Videos"
   },
   "item.label.Blog": {
-    "message": "博客",
+    "message": "Blog",
     "description": "Navbar item with label Blog"
   }
 }

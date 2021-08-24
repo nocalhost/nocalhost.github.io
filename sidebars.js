@@ -68,6 +68,7 @@ module.exports = {
       items: [
         'config/config-ref',
         'config/config-services',
+        'config/config-hooks',
         // Deployments
         {
           type: 'category',

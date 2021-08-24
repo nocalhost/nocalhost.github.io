@@ -15,7 +15,9 @@ In the actual development process, users do not need to know the concept of Clus
 #### Cluster Management
 
 :::tip KubeConfig
+
 If you want to manage a Cluster，then need to maintain a `KubeConfig` with the cluster's Cluster-Admin role.
+
 :::
 
 Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./manage-cluster) 
@@ -78,7 +80,9 @@ If you need to manage **Applications**, you can refer to [Manage Application](./
 - [Read more to learn how to configure application development](../config/config-dev)
 
 :::caution Service Configs
+
 Service configurations are not necessary, only needs when essential.
+
 :::
 
 ### User

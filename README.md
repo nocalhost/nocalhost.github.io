@@ -41,9 +41,9 @@ Every team member can enjoy their own independent development space to ensure th
 
 ## Getting Started
 
-* [Installation](https://nocalhost.dev/installation/)
-* [Quick Start](https://nocalhost.dev/eng/getting-started/)
-* [How it works](https://nocalhost.dev/references/architecture/)
+* [Installation](https://nocalhost.dev/docs/installation)
+* [Quick Start](https://nocalhost.dev/docs/quick-start/)
+* [How it works](https://nocalhost.dev/docs/introduction)
 
 ## Documentation
 

@@ -1,8 +1,8 @@
 project_id: '473096'
-api_token: 'eb30616b57a936bdaf2d8b779e31d0d8e5d25d4bd3fdc0b424ab715a2ee4dc65536912654aa36a0d'
+api_token_env: CROWDIN_PERSONAL_TOKEN
 preserve_hierarchy: true
 files: [
-  # JSON translation files
+    # JSON translation files
     {
       source: '/i18n/en/**/*',
       translation: '/i18n/%locale%/**/%original_file_name%',
@@ -18,9 +18,9 @@ files: [
       translation: '/i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%',
     },
     # Content Translation
-    {
-      source: '/src/pages/**/*',
-      translation: '/i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%',
-      ignore: ['/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css'],
-    },
+    # {
+    #   source: '/src/pages/**/*',
+    #   translation: '/i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%',
+    #   ignore: ['/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css'],
+    # },
 ]

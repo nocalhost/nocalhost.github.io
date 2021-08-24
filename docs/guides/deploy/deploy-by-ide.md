@@ -5,7 +5,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Deploy by IDE Plugin
 
 :::caution Requirements
+
 You need to have configured `config.yaml` before deploy applications. [Learn how to configure application deployment](../../config/config-deploy).
+
 :::
 
 ## Choose Application Source Path

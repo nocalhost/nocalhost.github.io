@@ -23,6 +23,7 @@ To deploy Helm charts, you need to configure them within the `application` secti
 Deploy Helm chart from local directory.
 
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -31,6 +32,7 @@ application:
   manifestType: helmLocal               # string    | required | Application k8s manifest type
   resourcePath: ["charts/bookinfo"]     # string[]  | required | Set the application resource path
   helmValues: []                        # struct    | optional | Overwrite helm values.yaml
+
 ```
 
 </TabItem>
@@ -40,6 +42,7 @@ application:
 Deploy Helm chart from Git repository.
 
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -47,7 +50,8 @@ application:
   name: bookinfo                        # string    | required | Application name                 
   manifestType: helmGit                 # string    | required | Application k8s manifest type                           
   resourcePath: ["charts/bookinfo"]     # string[]  | required | Set the application resource path
-  helmValues: []                        # struct    | optional | Overwrite helm values.yaml                          
+  helmValues: []                        # struct    | optional | Overwrite helm values.yaml      
+
 ```
 </TabItem>
 
@@ -57,6 +61,7 @@ application:
 Deploy from Helm repository. This deployment method only supports with **Nocalhost Server**, refer to [Manager applications with Nocalhost Server](../server/manage-app)
 
 ```yaml
+
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -65,6 +70,7 @@ application:
   manifestType: helmRepo                # string    | required | Application k8s manifest type
   helmValues: []                        # struct    | optional | Overwrite helm values.yaml
   helmVersion:    0.0.1                 # string    | optional | Set default application version
+
 ```
 
 </TabItem>
@@ -80,8 +86,10 @@ Specify the application version in the Helm repository. This only corresponds to
 #### Example: Setting up application version
 
 ```yaml
+
 manifestType:   helmRepo
 helmVersion:    0.0.1       
+
 ```
 
 ### Overwrite Helm Values
@@ -93,9 +101,11 @@ The `helmValues` option expects an object with values that should be overriding 
 #### Example: Using values
 
 ```yaml
+
 helmValues:
   - key: DOMAIN
     value: ${DOMAIN:-www.coding.com}
   - key: DEBUG
     value: ${DEBUG:-true}
+    
 ```
