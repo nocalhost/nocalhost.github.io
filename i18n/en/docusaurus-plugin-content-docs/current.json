@@ -7,6 +7,10 @@
     "message": "Getting Started",
     "description": "The label for category Getting Started in sidebar docs"
   },
+  "sidebar.docs.category.Introduction": {
+    "message": "Introduction",
+    "description": "The label for category Introduction in sidebar docs"
+  },
   "sidebar.docs.category.User Guides": {
     "message": "User Guides",
     "description": "The label for category User Guides in sidebar docs"
