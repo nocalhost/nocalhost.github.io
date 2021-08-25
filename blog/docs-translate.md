@@ -1,5 +1,6 @@
 ---
 title: Nocalhost 官方文档翻译活动
+tags: [documentation]
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

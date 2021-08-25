@@ -15,7 +15,7 @@ We will support VS Code as soon as possible.
 ## Debugging Process
 
 1. Select the workload that you want to debug
-2. Right-click the workload and select **Div Config**, [configure your debugging configuration](#configuration)
+2. Right-click the workload and select **Dev Config**, [configure your debugging configuration](#configuration)
 3. Then right-click this workload again and select **Remote Debug**
 4. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
