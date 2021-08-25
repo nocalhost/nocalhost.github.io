@@ -45,7 +45,6 @@ The following config options are needed to determine the workload to be configur
 Nocalhost uses the `name` as a **unique** identifier to match a corresponding Kubernetes workload. The `name` option expects a string that specifies a workload name to select a target workload. 
 
 ```yaml {2,4}
-
 services:
   - name: foo-workload-01
   ...
@@ -59,7 +58,6 @@ services:
 Kubernetes workload type, Nocalhost currently supports all Kubernetes workloads types. 
 
 ```yaml {3}
-
 services:
     - name: deployment-workload
         serviceType: deployment
@@ -91,7 +89,6 @@ You need to install  `nocalhost-dep` for this configuration to take effect. Plea
 #### Example: Setting up start dependencies
 
 ```yml {4}
-
 services:
   - name: foo-app                   # string    | required | Name of workload
     serviceType: deployment         # string    | required | The Kubernetes workloads type
@@ -137,7 +134,6 @@ Nocalhost use container `name` as **unique** identifier to determine the contain
 #### Example: Configure containers
 
 ```yaml {6,14}
-
 services:
     - name: foo-workload
       serviceType: deployment

@@ -57,6 +57,8 @@ module.exports = {
             'guides/debug/log-viewer',
           ]
         },
+        // Remote Run
+        'guides/remote-run',
         // 'guides/clear-pvc',
       ]
     },

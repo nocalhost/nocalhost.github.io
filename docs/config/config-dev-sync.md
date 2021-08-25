@@ -17,7 +17,6 @@ Nocalhost using [Syncthing](https://syncthing.net/) to build our file synchroniz
 You can configure the files and folders that need to be synchronized or ignored.
 
 ```yml {7-8}
-
 containers:
   - name: container-01
     dev:
@@ -27,7 +26,6 @@ containers:
           filePattern: ["."]        # string[]  | optional  | List of files and directories to be synchronized to DevConatiner
           ignoreFilePattern: ["."]  # string[]  | optional  | List of ignored files and directories to be synchronized to DevConatiner
       ...
-
 ```
 
 ## File Synchronization Conflict

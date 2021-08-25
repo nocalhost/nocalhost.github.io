@@ -65,7 +65,6 @@ You can using existing `Helm Chart` to deploy application.
 If you have a Helm application that store in the remote repo and have access privilege, e.g.:
 
 ```bash {7}
-
 https://[gihub, Gitlab, etc... whateverRepo]/foo/bar/hellowrold.git
 
 Somefile.py

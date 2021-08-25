@@ -2,7 +2,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Remote Debugging
+# Remote Run
+
+When you start the new container in Kubernetes cluster, Kubernetes will not start any process within this container. Nocalhost can uses run configurations to run your code in Kubernetes cluster like to use the run feature within IDE. 
 
 ## Supported IDEs
 
@@ -56,38 +58,38 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   </tbody>
 </table>
 
-## Debugging Process
 
-1. Select the workload that you want to debug
-2. Right-click the workload and select **Dev Config**, [configure your debugging configuration](#configuration)
-3. Then right-click this workload again and select **Remote Debug**
-4. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/LDb7oDGr8gA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+## Remote Run Process
 
-### Debugging Configurations in IDE
+1. Select the workload that you want to run
+2. Right-click the workload and select **Dev Config**, [configure your run configuration](#configuration)
+3. Then right-click this workload again and select **Remote Run**
+4. Nocalhost will automatically enter the `DevMode` and start remote run
 
-Before entering debug mode, if you do not have a Nocalhost IDE debug configuration under an existing workload, Nocalhost will create a new IDE debug configuration according to your [Nocalhost configuration](#configuration). Different IDE has different configuration names and templates.
+### Remote Run Configurations in IDE
+
+Before starting remote run, if you do not have a Nocalhost IDE run configuration under an existing workload, Nocalhost will create a new IDE run configuration according to your [Nocalhost configuration](#configuration). Different IDE has different configuration names and templates.
 
 :::tip Multi Configs
 
-If you already have a Nocalhost IDE debug configuration under the existing workload, Nocalhost will use the first one to start debugging. You can change the order in the `Run/Debug Configurations` window within IDE.
+If you already have a Nocalhost IDE run configuration under the existing workload, Nocalhost will use the first one to start running. You can change the order in the `Run/Debug Configurations` window within IDE.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/debug/debug-configs.png')} />
-  <figcaption>Nocalhost debugging configurations in IDE</figcaption>
+  <figcaption>Nocalhost run configurations in IDE</figcaption>
 </figure>
 
 :::
 
 ## Configuration
 
-The development environment is different between developers. You should configure remote debug configurations according to the actual situation.
+The development environment is different between developers. You should configure remote run configurations according to the actual situation.
 
-These are important options for remote debugging:
+These are important options for remote run:
 
 - **Development Image:** the image use to start [development container](../../config/config-dev-devcontainer)
-- **Debug Command:** the command to execute in the container for remote debugging
+- **Run Command:** the command to execute in the container for remote run
 - **Remote Debug Port:** IDE listens to this port for remote debug and run
 - **Container Port-Forwarding:** the port-forwarding in development mode
 
@@ -104,7 +106,7 @@ These are important options for remote debugging:
 <TabItem value="java">
 
 ```yaml {10,15,29} title="Nocalhost Configs"
-name: java-remote-debugging
+name: java-remote-run
 serviceType: deployment
 containers:
   - name: ""
@@ -114,10 +116,9 @@ containers:
         shell: bash
         workDir: /home/nocalhost-dev
         command:
-          debug:
+          run:
             - /home/nocalhost-dev/gradlew
             - bootRun
-            - ---debug-jvm
         debug:
           remoteDebugPort: 5005
         useDevContainer: false
@@ -142,7 +143,7 @@ containers:
 <TabItem value="python">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
-name: python-remote-debugging
+name: python-remote-run
 serviceType: deployment
 containers:
   - name: ""
@@ -152,8 +153,8 @@ containers:
         shell: bash
         workDir: /home/nocalhost-dev
         command:
-          debug:
-            - ./debug.sh
+          run:
+            - ./run.sh
         debug:
           remoteDebugPort: 9009
         useDevContainer: false
@@ -173,7 +174,7 @@ containers:
 
 ```
 
-```yaml title="debug.sh"
+```yaml title="run.sh"
 
 #! /bin/sh
 
@@ -186,22 +187,12 @@ export FLASK_ENV=development
 flask run --host=0.0.0.0 --port=9999
 
 ```
-
-### How does it Works?
-
-Nocalhost using pydevd to debug Python application.
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/debug/python-debug.jpg')} />
-  <figcaption>Principle of Remote Python Debugging</figcaption>
-</figure>
-
 </TabItem>
   
 <TabItem value="go">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
-name: go-remote-debugging
+name: go-remote-run
 serviceType: deployment
 containers:
   - name: ""
@@ -211,8 +202,8 @@ containers:
         shell: bash
         workDir: /home/nocalhost-dev
         command:
-          debug:
-            - ./debug.sh
+          run:
+            - ./run.sh
         debug:
           remoteDebugPort: 9009
         useDevContainer: false
@@ -232,13 +223,11 @@ containers:
 
 ```
 
-```yaml title="debug.sh"
-
+```yaml title="run.sh"
 #! /bin/sh
 
 export GOPROXY=https://goproxy.cn
-dlv --headless --log --listen :9009 --api-version 2 --accept-multiclient debug app.go
-
+go run app.go
 ```
 
 </TabItem>
@@ -246,7 +235,7 @@ dlv --headless --log --listen :9009 --api-version 2 --accept-multiclient debug a
 <TabItem value="php">
 
 ```yaml {10,13,27} title="Nocalhost Configs"
-name: php-remote-debugging
+name: php-remote-run
 serviceType: deployment
 containers:
   - name: ""
@@ -256,8 +245,8 @@ containers:
         shell: bash
         workDir: /home/nocalhost-dev
         command:
-          debug:
-            - ./debug.sh
+          run:
+            - ./run.sh
         debug:
           remoteDebugPort: 9009
         useDevContainer: false
@@ -277,7 +266,7 @@ containers:
 
 ```
 
-```yaml title="debug.sh"
+```yaml title="run.sh"
 
 #！/bin/sh
 
@@ -285,19 +274,5 @@ php -t ./ -S 0.0.0.0:9999;
 
 ```
 
-### How does it works?
-
-Nocalhost using Xdebug to debug PHP applications.
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/debug/php-debug.jpg')} />
-  <figcaption>Principle of Remote PHP Debugging</figcaption>
-</figure>
-
 </TabItem>
 </Tabs>
-
-
-## Known Issues
-
-- Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)

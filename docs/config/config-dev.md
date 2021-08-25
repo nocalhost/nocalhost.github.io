@@ -105,7 +105,6 @@ containers:
 #### Example: Configure container's DevMode
 
 ```yaml {11}
-
 application:
   name: foo-app
   ....
@@ -190,7 +189,6 @@ Similar to [`gitURL`](#configure-git-url), you can preset it in the configuratio
 #### Example: Set the image for `DevConatiner`
   
 ```yml {5}
-
 containers:
   - name: container-01
     dev:
@@ -210,8 +208,7 @@ Configure the default shell of `DevContainer`, you can use `bin/sh` or `shell` w
 
 #### Example: Setting up the default shell
 
-```yaml {}
-
+```yaml {5}
 containers:
   - name: container-01
     dev:
@@ -230,7 +227,6 @@ Used to indicate the working directory in the remote container after entering th
 #### Example: Setting up the Work Directory
 
 ```yml {5}
-
 containers:
   - name: container-01
     dev:
@@ -249,7 +245,6 @@ Optionally specify how much of each resource a `DevContainer` needs and limits.
 #### Example: Setting up DevContainer's requests and limits
 
 ```yaml {5}
-
 containers:
   - name: container-01
     dev:
@@ -276,7 +271,6 @@ Set the storage class name for a `DevContainer`
 #### Example: Setting up storage class name
 
 ```yaml {5}
-
 containers:
   - name: container-01
     dev:
@@ -297,7 +291,6 @@ Directories that need to be persisted in `DevContainer`
 #### Example: Setting up the persistent directories
 
 ```yaml {5}
-
 containers:
   - name: container-01
     dev:
@@ -339,7 +332,6 @@ Configure the remote debugging port for the `DevContainer`.
 When using Nocalhost's remote debugging feature, the plugin will connect to the specified port to debug the remote workload.
 
 ```yaml {5}
-
 containers:
   - name: container-01
     dev:
@@ -359,7 +351,6 @@ Use `.dev-container` of VS Code to specify `DevImage`.
 #### Example: Setting up the remote debugging port
 
 ```yaml {5}
-
 containers:
   - name: container-01
     dev:
@@ -376,7 +367,6 @@ containers:
 Files synchronization configurations in DevMode.
 
 ```yml {6-8}
-
 containers:
   - name: container-01
     dev:
@@ -414,7 +404,6 @@ You need to have `nocalhost-dep` to install for this configuration to take effec
 `containers[*].dev.env # optional`
 
 ```yml {4}
-
 containers:
   dev:
     ...
@@ -433,7 +422,6 @@ containers:
 `containers[*].dev.envFrom # optional`
 
 ```yml {4}
-
 containers:
   dev:
     ...
@@ -467,7 +455,6 @@ Port-forwarding allows you to access your `DevContainer` on `localhost:[PORT]` b
 When entering the development mode, Nocalhost iterates over every item the `containers[*].dev[*].portForward` array defined in the configuration and starts port-forwarding for each of the entries and the port mappings they define in the `portForward` section.
 
 ```yml {4}
-
 containers:
   dev:
     ...
