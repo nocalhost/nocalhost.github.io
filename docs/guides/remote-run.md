@@ -88,7 +88,7 @@ The development environment is different between developers. You should configur
 
 These are important options for remote run:
 
-- **Development Image:** the image use to start [development container](../../config/config-dev-devcontainer)
+- **Development Image:** the image use to start development container
 - **Run Command:** the command to execute in the container for remote run
 - **Remote Debug Port:** IDE listens to this port for remote debug and run
 - **Container Port-Forwarding:** the port-forwarding in development mode
