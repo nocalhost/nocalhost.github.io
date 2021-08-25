@@ -243,7 +243,6 @@ Nocalhost will replace the workload containers when entering DevMode by DevImage
 #### Example: Set the image for `DevConatiner`
   
 ```yml {5}
-
 containers:
   - name: container-01
     dev:

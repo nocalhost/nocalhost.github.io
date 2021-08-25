@@ -95,7 +95,6 @@ spec:
 ```
 
 ```yaml {9,41,43,71,101,102} title="After entering DevMode"
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -213,7 +212,6 @@ spec:
             secretName: reviews-deployment-nocalhost-syncthing-secret
         - emptyDir: {}
           name: nocalhost-shared-volume
-          
 ```
 
 ## StatefulSet
