@@ -110,6 +110,11 @@ module.exports = {
           label: 'Kubernetes Compatibilities',
           id: 'practice/cloud/k8s-compatible'
         },
+        {
+          type: 'doc',
+          label: 'KubeSphere',
+          id: 'practice/cloud/kubesphere'
+        }
         // Working with Cloud
         // {
         //   type: 'category',
