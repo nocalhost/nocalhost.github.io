@@ -63,7 +63,7 @@ When you start the new container in Kubernetes cluster, Kubernetes will not star
 ## Remote Run Process
 
 1. Select the workload that you want to run
-2. Right-click the workload and select **Dev Config**, [configure your run configuration](#configuration)
+2. Right-click the workload and select **`Dev Config`**, [configure your run configuration](#configuration)
 3. Then right-click this workload again and select **Remote Run**
 4. Nocalhost will automatically enter the `DevMode` and start remote run
 
@@ -90,7 +90,6 @@ These are important options for remote run:
 
 - **Development Image:** the image use to start development container
 - **Run Command:** the command to execute in the container for remote run
-- **Remote Debug Port:** IDE listens to this port for remote debug and run
 - **Container Port-Forwarding:** the port-forwarding in development mode
 
 ### Sample Configuration
@@ -105,7 +104,7 @@ These are important options for remote run:
   ]}>
 <TabItem value="java">
 
-```yaml {10,15,29} title="Nocalhost Configs"
+```yaml {10,28} title="Nocalhost Configs"
 name: java-remote-run
 serviceType: deployment
 containers:
@@ -142,7 +141,7 @@ containers:
   
 <TabItem value="python">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {10,27} title="Nocalhost Configs"
 name: python-remote-run
 serviceType: deployment
 containers:
@@ -191,7 +190,7 @@ flask run --host=0.0.0.0 --port=9999
   
 <TabItem value="go">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {10,27} title="Nocalhost Configs"
 name: go-remote-run
 serviceType: deployment
 containers:
@@ -234,7 +233,7 @@ go run app.go
   
 <TabItem value="php">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {10,27} title="Nocalhost Configs"
 name: php-remote-run
 serviceType: deployment
 containers:

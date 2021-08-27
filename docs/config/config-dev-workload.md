@@ -2,9 +2,9 @@
 title: workloads
 ---
 
-# How Does Nocalhost DevMode Works?
+# How Does Nocalhost Handle Different Workloads?
 
-Nocalhost supports to development of all types of Kubernetes workloads. The following are the working principles.
+Nocalhost supports to development of all types of Kubernetes workloads. The following shows how does Nocalhost handle different workloads when starting DevMode.
 
 ## Deployment
 
@@ -216,21 +216,21 @@ spec:
 
 ## StatefulSet
 
-The process of `StatefulSet` entering the DevMode is basically the same as `Deployment`:
+The process of `StatefulSet` entering the DevMode is the same as `Deployment`:
 
 1. Reduce the Pod replicate to 1
 2. Modify the definition of manifest in `.spec` (Refer to [`Deployment`](#deployment))
 3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
-4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
+4. Run `syncthing` client, monitor local source code directory. Synchronize the changes in the local directory to the remote container.
 
 ## DaemonSet
 
 The process of DamonSet entering DevMode:
 
-1. Reduce the Pod replicate to 0, Since `DaemonSet’s` Pod runs one on each node, there is no way to explicitly set the number of Pods. You can only set the nodeSelector to a non-existent node and indirectly change the number of Pods to 0.
+1. Reduce the Pod replicate to 0. Since `DaemonSet’s` Pod runs one on each node, therefore can not identify the number of Pods. You can only set the `nodeSelector` to a non-existent node and indirectly change the number of Pods to 0.
 2. Use `DaemonSet`'s `.spec` to generate a `Deployment`, modify the definition of `.spec` manifest in the `Deployment` (Refer to [Deployment](#deployment) above for specific modifications).
 3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
-4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
+4. Run `syncthing` client, monitor local source code directory. Synchronize the changes in the local directory to the remote container.
 
 ## Job
 
@@ -238,7 +238,7 @@ The process of Job entering DevMode:
 
 1. Use the Job's `.spec` to generate a new Job, modify the definition of the `.spec` manifest in the Job (Refer to [Deployment](#deployment) above for specific modifications).
 3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
-4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
+4. Run `syncthing` client, monitor local source code directory. Synchronize the changes in the local directory to the remote container.
 
 ## CronJob
 
@@ -247,7 +247,7 @@ The process of CronJob entering DevMode:
 1. Set the `.spec.schedule` of CronJob to `"1 1 1 1 1"` to disable the scheduling of timed tasks
 2. Use CronJob's `.spec.jobTemplate` to generate a new Job and modify the definition of `.spec` manifest in the job (Refer to Deployment above for specific modifications)
 3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
-4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
+4. Run `syncthing` client, monitor local source code directory. Synchronize the changes in the local directory to the remote container.
 
 ## Pod 
 
@@ -256,4 +256,4 @@ The process of Pod entering DevMode:
 1. Modify the definition of .spec manifest in the Pod (Refer to Deployment above for specific modifications)
 2. Delete the original Pod and create a new Pod with the modified `.spec`
 3. Start a port-forwarding, forward a random local port to the port monitored by `syncthing` in `nocalhost-sidecar`
-4. Run `syncthing` client, monitor local source code directory. Synchronizes the changes in the local directory to the remote container.
+4. Run `syncthing` client, monitor local source code directory. Synchronize the changes in the local directory to the remote container.

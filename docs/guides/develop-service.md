@@ -1,31 +1,18 @@
+---
+title: Development
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Develop a Workload
+# Development with Nocalhost
 
-:::note about this guide
+DevSpace allows you to develop applications directly inside a Kubernetes cluster. 
 
-**Goal:** A complete Nocalhost user guide. <br />
-**Estimate Time:** 20 minutes <br />
-**Requirements:**
-- Any local or remote Kubernetes cluster (Minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [Minikube](https://minikube.sigs.k8s.io/docs/start/).
-- **[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)** must be enabled in the above cluster
-- **Configured KubeConfig file** that has namespace admin privilege
-- Kubernetes API-server can be accessed internal and external
-- Visual Studio Code (1.52+)
+## Using Cluster Inspector
 
-:::
-
-:::tip Microservice
-
-In the microservice architecture, a workload can also be considered as a sole microservice.
-
-:::
-
-## Cluster Inspector
-
-Nocalhost build-in a cluster inspector that can browse resources in the Kubernetes cluster.
+Nocalhost build-in a cluster inspector. You can use the cluster inspector to browse resources in the Kubernetes cluster, deploy your application and select the workload that wants to develop and debug.
 
 ### Resources Status
 
@@ -140,23 +127,26 @@ Nocalhost uses the following icons to describe the status of different Kubernete
     </tbody>
 </table>
 
+## Before Entering DevMode
 
-## Choose Source Code Directory
+There are some configurations that you need to take care of before DevMode.
+
+### Source Code Directory
 
 Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
 
 You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have an associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
 
-### Associate Local Directory
+#### Associate Local Directory
 
 You can associate the local source code directory to a workload before entering DevMode. Once you associated this directory, Nocalhost will save this directory path in the database. 
 
-When you enter DevMode, Nocalhost will use this path directory without asking for input.
+When you entering DevMode, Nocalhost will use this path directory without asking for input.
 
 **Steps:**
 
 1. Select the workload
-2. Right-click and select the `Associate Local DIR`
+2. Right-click and select the **`Associate Local DIR`**
 3. Choose the local directory and confirm the selection
 
 :::tip Cross IDE
@@ -167,7 +157,7 @@ For example, when a workload is associated with a directory in VS Code, then swi
 
 :::
 
-### Open Local Directory
+#### Open Local Directory
 
 You can select any local directory and confirm the selection. Nocalhost will save the directory path in the database.
 
@@ -176,45 +166,17 @@ You can select any local directory and confirm the selection. Nocalhost will sav
   <figcaption>Ask to specify the source directory in VS Code</figcaption>
 </figure>
 
-### Clone from Git Repository
+#### Clone from Git Repository
 
 :::danger Limitation
 
-Nocalhost will not clone source code from Git if you have already associated directory. 
+Nocalhost will not clone source code from Git if you have already associated or opened the directory. 
 
 :::
 
 Nocalhost can help you to clone the source code from the Git repository within the IDE. 
 
-Set the source code repository URL of the workload.
-
-- **Preset:** if you set this URL in `containers[*].dev.gitUrl` and choose to download from Git before entering development mode, Nocalhost will try to clone the source code from the URL you configured. 
-- **Not preset:** if you choose `Clone from Git Repository` when selecting the source code directory and enter the Git URL. Nocalhost will automatically set the URL you entered into the configuration.
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/plugin/vs-choose-dir.jpg')} />
-  <figcaption>Choose source code directory</figcaption>
-</figure>
-
-#### Example: Configure Git URL
-
-```yaml
-
-containers:
-  - name: container-01
-    dev:
-      gitURL: https://github.com/nocalhost/nocalhost.git
-
-```
-
-#### Cloning Source Code in IDE
-
-```bash title="Nocalhost run the git clone command within IDE"
-
-[cmd] git clone https://e.coding.net/bookinfo-ratings.git "/Users/user/Downloads/Github/ratings"
-Cloning into '/Users/garry/Downloads/Github/ratings'...
-
-```
+If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](../config/config-dev#devgiturl) section or ask you to input the Git URL.
 
 :::info Auto-associate
 
@@ -222,63 +184,20 @@ Nocalhost will associate the directory to the clone directory automatically afte
 
 :::
 
-## Choose Development Image
+### Development Container
 
-Nocalhost will replace the workload containers when entering DevMode by DevImage. You can configure `containers[*].dev.image` options before entering DevMode or Nocalhost will ask you to input the image URL.
+Nocalhost will replace the workload containers when entering DevMode by [development container](../config/config-dev-devcontainer). Nocalhost will loads the `container[*].dev` section from the Nocalhost configuration. 
 
-- **Preset:** if you set the image before entering development mode, Nocalhost will use it to replace the image of DevContainer directly.
-- **No preset:** if you do not set the DevImage, Nocalhost will ask you to enter the image name or URL. You can also use the DevImage we provided.
+#### Development Image
 
-:::tip DevImage
+Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use [`dev.image`](../config/config-dev#devimage) configuration or ask you to input the image name or URL. 
 
-`image` accepts image name or URL. If you enter the image name, Nocalhost will pull the specified image from [Docker Hub](https://hub.docker.com/). Or you can use your private image library, e.g. `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage`.
-
-:::
+You can use the docker image provide by us or use any [custom image](../config/config-dev-devcontainer#advices-for-making-devimage) for `development image`.
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/plugin/vs-devimage.jpg')} />
-  <figcaption>Choose source code directory</figcaption>
+  <img className="gif-img" src={useBaseUrl('/img/develop/vs-choose-image.jpg')} />
+  <figcaption>Select development image in VS Code</figcaption>
 </figure>
-
-#### Example: Set the image for `DevConatiner`
-  
-```yml {5}
-containers:
-  - name: container-01
-    dev:
-      ...
-      image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.7.7-slim-productpage
-
-```
-
-[Read more to learn how to build your DevImage](../config/config-dev-devcontainer)
-
-## Enter Development Mode
-
-
-### Select Workload
-
-Nocalhost supports to development of all types of Kubernetes workload. 
-
-In your IDE:
-
-1. Open the Nocalhost plugin and expand the cluster inspector
-2. Select the workload you want to develop
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/start-devmode.jpg')} />
-  <figcaption>Select workload in VS Code and JetBrains</figcaption>
-</figure>
-
-### Development Process
-
-When entering DevMoe, Nocalhost first runs the following process (1. - 5.)
-
-#### 1. Replace Image
-
-Nocalhost will first replace the remote container image with a development image (DevImage).
-
-[Read more to learn about DevImage configuration](../config/config-dev#configure-development-image)
 
 :::info Image Pull
 
@@ -286,152 +205,48 @@ Container image will handle by Kubernetes, [read more to learn about Kubernetes 
 
 :::
 
-#### 2. Replace Container and Restart POD
+## Start Development Mode
 
-In this stage, Nocalhost will: 
+### Select Workload
 
-1. Use the DevImage to start a new development container (DevContainer)
-2. Use the DevContainer to replace the original container
-3. Restart POD with the DevContainer
+1. Expand the cluster inspector
+2. Select the workload you want to develop and click **`Start DevMode`**
+3. Select the container if you have more than one container in this workload
 
-When entering DevMode, you should see the following messages in the IDE output:
+:::caution Container
 
-```bash
+If you have more than one container in a workload, you can only select one container to enter DevMode.
 
-Starting DevMode...
-No previous syncthing process (10799) found
-Deployment ratings replicas is already 1, no need to scale
-Mount workDir to emptyDir
-Updating development container...
-Previous replicaSet ratings-95c8f5cd4 has not been terminated, waiting revision 2 to be ready
-This may take several minutes, depending on the load of your k8s cluster
-Waiting pod to start...
+:::
 
- ✓  Dev container has been updated
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/start-devmode.jpg')} />
+  <figcaption>Select workload in VS Code and JetBrains</figcaption>
+</figure>
 
-```
+### DevMode Process
 
-#### 3. Start Port-Forwarding
+When entering DevMoe will do the following:
 
-[Read more to learn how to configure port-forwarding in DevMode](../config/config-dev#port-forwarding)
+1. **Replace Pods** according to your [`replacing port` configurations](../config/config-dev-devcontainer#configuration)
+2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-dev-portforward)
+3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-dev-sync) section
+4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev#devworkdir) section.
 
-If you have configured the `containers[*].dev[*].portForward`, Nocalhost will start the port-forwarding after entering DevMode and you should see the following message in IDE output:
+Once the terminal session starts, you start your application and work inside your container. 
 
-```bash
-
-Syncthing port-forward pod ratings-5dfbc89c59-r7wg5, namespace default
-Port-forward 51517:51517 has been started
-
-```
-If you have not configured `containers[*].dev[*].portForward` you can [configure the port-forwarding in IDE](#configure-port-forwarding-in-ide) after entering DevMode.
-
-#### 4. Start File Synchronization
-
-Nocalhost will check the `containers[*].dev[*].sync` section defined in the `config.yaml` and starts a real-time file synchronization between local directory and DevContainer.
-
-You should see the following messages in IDE output:
-
-```bash
-
-ignoredPattern: 
-.git
-.github
-node_modules
-syncedPattern: 
-!/
-
- ✓  File sync started
- dev start end
-
-sync file ...
-... ...
-Syncthing has been started
-sync file end
-
-```
-
-[Read more to learn how to configure file synchronization](../config/config-dev-sync)
-
-#### 5. Open Remote Terminal
-
-Nocalhost will open DevContainer's terminal right within the IDE after entering DevMode. The default directory is the one you configured in `container[*].dev.workDir`.
-
-```bash
-
+```bash title="Remote terminal session started"
 root@ratings-5dfbc89c59-r7wg5:/home/nocalhost-dev#
-
 ```
 
-You can now run the main process of your workload and check the result.
-
-:::tip Main Process
-
-In DevMode, the application main process will not automatically start by default in the DevContainer, thus the application will not respond to any request. You need to manually start the main process before you can access it.
-
-:::
-
-## Configure Port-Forwarding in IDE
-
-You can easily configure the port-forwarding for a specific container within Nocalhost in IDE.
-
-:::danger Careful
-
-Port forwarding set in different modes only corresponds to the current mode.
-
-For Example: 
-
-You have configured the port-forwarding in `DevMode`. This port-forwarding will only take effect in `DevMode`. If you end `DevMode`, this port-forwarding will lose.
-
-:::
-
-<Tabs
-  defaultValue="vs-port"
-  values={[
-    {label: 'Configure Port-Forwarding in VS Code', value: 'vs-port'},
-    {label: 'Configure Port-Forwarding in JetBrains', value: 'jb-port'},
-  ]}>
-<TabItem value="vs-port">
-
-**Start Port-Forwarding**
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/vs-port-forward.gif')} />
-  <figcaption>Start port-forwarding in VS Code</figcaption>
-</figure>
-
-**Stop Port-Forwarding**
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/vs-stop-port-forward.gif')} />
-  <figcaption>Start port-forwarding in VS Code</figcaption>
-</figure>
-
-</TabItem>
-  
-<TabItem value="jb-port">
-
-**Start Port-Forwarding**
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/jb-port-forward.gif')} />
-  <figcaption>Start port-forwarding in JetBrains</figcaption>
-</figure>
-
-**Stop Port-Forwarding**
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/jb-stop-port-forward.gif')} />
-  <figcaption>Start port-forwarding in JetBrains</figcaption>
-</figure>
-
-</TabItem>
-</Tabs>
+You can also use the [remote run](./remote-run) to run all the commands according to `dev.command` section.
 
 ## Coding in Kubernetes Cluster
 
-Nocalhost provides the same coding experience you're used in the IDE when developing in the remote Kubernetes cluster. 
+Make sure you have done the following before developing:
 
-You can make any code change in the IDE see results instantly without rebuilding the image or restarting containers.
+- [x] Start process inside the container or use the [remote run](./remote-run) to run your application.
+- [x] The port-forwarding you configured has successfully started or [configure the port-forwarding in IDE](../config/config-dev-portforward#using-ide-plugin)
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/code-change.gif')} />
@@ -451,20 +266,9 @@ Nocalhost will monitor the local files change and synchronize the changes to the
 
 If the file synchronization has disconnected, the status will change to `Nocalhost sidecar disconnected`. In this case, you can just click the status bar, Nocalhost will reconnect the file synchronization. 
 
-## Debugging
+### Open Project
 
-Nocalhost provides the same debugging experience you used in the IDE even when debugging in the remote Kubernetes cluster.
-
-You can [remote debug your Kubernetes workloads](./debug/remote-debug), [access the container's terminal](./debug/access-terminal) and [viewing the container logs](./debug/log-viewer) right within your favourite IDEs.
-
-## Open Project
-
-If you closed the source code IDE window in development mode and want to reopen it. You can select the workload from the cluster inspector and use `Open Project`.
-
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/develop/open-project.gif')} />
-  <figcaption>Open project in VS Code</figcaption>
-</figure>
+If you close the developing IDE window and want to reopen it again. Just right-click the workload which in DevMode and choose `Open Project`.
 
 :::caution DevMode Only
 
@@ -472,15 +276,19 @@ If you closed the source code IDE window in development mode and want to reopen 
 
 :::
 
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/develop/open-project.gif')} />
+  <figcaption>Open project in VS Code</figcaption>
+</figure>
+
 ## End Development Mode
 
 When you finish developing, you can now end DevMode.
 
 ### How to?
 
-**VS Code:** Click the <img src={useBaseUrl('/img/icons/dev_end.svg')} width="20" /> icon
-
-**JetBrains:** Right click the workload that in DevMode and select `End DevMode`
+- **VS Code:** Click the <img src={useBaseUrl('/img/icons/dev_end.svg')} width="20" /> icon
+- **JetBrains:** Right click the workload that in DevMode and select `End DevMode`
 
 ### Process
 
@@ -489,13 +297,15 @@ When ending DevMode, Nocalhost runs the following process:
 1. Stop file synchronization and port-forwarding (if any)
 2. Stop the DevContainer
 3. Delete the current versioned Pod
-4. Recreating and start the original versioned Pod
+4. [reset pod](#reset-pod) - Recreating and start the original versioned Pod
 
-## Reset Workload
+## Other Useful Features
 
-Nocalhost can help you to roll back any Pod to its original version. You can do this by `Reset Pod`.
+### Reset Pod
 
-For example, reset the `productpage` deployment, and you should see the similar message as below:
+Nocalhost can help you to roll back any Pod to its original version by `Reset Pod`.
+
+For example, reset the `productpage` deployment, and you should see similar messages below:
 
 ```bash
 
@@ -512,17 +322,30 @@ Service productpage has been reset.
   <figcaption>Reset pod</figcaption>
 </figure>
 
-## Manifest
+### Modify Manifest
 
-### Application Level
+Nocalhost has a built-in manifest editor that allows you to edit and apply the Kubernetes manifest within IDE. After modification, Nocalhost can apply the new manifest directly.
 
-You can apply a new [Kubernetes manifests](https://kubernetes.io/docs/reference/glossary/?all=true#term-manifest) to an [application](../config/config-ref#application). You can easily deploy/undeploy Kubernetes workloads by this feature.
+#### Edit and Apply
 
-### Workload Level
+:::danger DevMode
 
-Nocalhost has a built-in manifest editor that allows you to edit the Kubernetes manifest within IDE. After modification, Nocalhost can apply the new manifest directly.
+You can not able to edit the manifest if the workload is in DevMode.
+
+:::
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/develop/edit-manifest.gif')} />
   <figcaption>Edit manifest</figcaption>
 </figure>
+
+#### Delete
+
+COMING SOON
+
+
+### Clear PVC
+
+:::note DOCS COMING SOON
+
+:::
