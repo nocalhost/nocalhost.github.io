@@ -163,3 +163,8 @@ ul ul .table-of-contents__link--active:before {
 .svg-icon {
   margin: 0 3px;
 }
+
+/** <code> **/
+.h2 code, .h3 code {
+  text-transform: lowercase !important;
+}

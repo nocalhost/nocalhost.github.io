@@ -59,5 +59,3 @@ application:
 
 </TabItem>
 </Tabs>
-
-After configure the `config.yaml`, you can [deploy the application in IDE](../guides/deploy/deploy-by-ide)

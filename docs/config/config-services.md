@@ -1,8 +1,6 @@
 # Config services
 
-`services` gives you the options to configure the Kubernetes workloads for better deployment and development experiences.
-
-You can configure single or multiple workloads in a single configuration which depends on your [application](./config-ref#application) design. 
+`services` gives you the options to configure the Kubernetes workloads for better deployment and development experiences. You can configure single or multiple workloads in a single configuration which depends on your [application](./config-ref#application) design. 
 
 For example:
 
@@ -127,7 +125,7 @@ services:
 
 ```
 
-### `container[*].name` 
+### `containers[*].name` 
 
 Nocalhost use container `name` as **unique** identifier to determine the container to be configured. You can define more than one container with a workload in `services[*].containers`.
 
@@ -138,7 +136,7 @@ services:
     - name: foo-workload
       serviceType: deployment
       ...
-      container:
+      containers:
         - name: product
             install:                # struct  | optional | Installation parameters
               env: []
@@ -184,7 +182,7 @@ You need to install `nocalhost-dep` for this configuration to take effect. Pleas
   ]}>
 <TabItem value="c-value">
 
-`container[*].install.env # optional`
+`containers[*].install.env # optional`
 
 ```yml
 
@@ -204,7 +202,7 @@ containers:
   
 <TabItem value="c-file">
 
-`container[*].install.envFrom # optional`
+`containers[*].install.envFrom # optional`
 
 ```yml
 
@@ -235,7 +233,7 @@ If both `env` and `envFrom` configure together, Nocalhost will merge the configu
 
 #### Setting up Port-Forwarding
 
-`container[*].install.portForward`
+`containers[*].install.portForward`
 
 Port-forwarding allows you to access your container on `localhost:[PORT]` by forwarding the network traffic from a localhost port to a specified port of a container.
 
@@ -260,4 +258,4 @@ containers:
 
 ### `containers[*].dev`
 
-You can configure the container before entering development. [Learn more about how to configure development mode](../config/config-dev#example)
+You can configure the container before entering development. [Learn more about how to configure development mode](../config/config-dev)

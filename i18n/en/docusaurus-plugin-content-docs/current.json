@@ -7,17 +7,9 @@
     "message": "Getting Started",
     "description": "The label for category Getting Started in sidebar docs"
   },
-  "sidebar.docs.category.Introduction": {
-    "message": "Introduction",
-    "description": "The label for category Introduction in sidebar docs"
-  },
   "sidebar.docs.category.User Guides": {
     "message": "User Guides",
     "description": "The label for category User Guides in sidebar docs"
-  },
-  "sidebar.docs.category.Deploy Application": {
-    "message": "Deploy Application",
-    "description": "The label for category Deploy Application in sidebar docs"
   },
   "sidebar.docs.category.Debugging": {
     "message": "Debugging",
@@ -58,5 +50,9 @@
   "sidebar.docs.category.Changelogs": {
     "message": "Changelogs",
     "description": "The label for category Changelogs in sidebar docs"
+  },
+  "sidebar.docs.category.Deployment": {
+    "message": "Deployment",
+    "description": "The label for category Deployment in sidebar docs"
   }
 }
