@@ -35,7 +35,6 @@ Nocalhost will **not** create this yaml file for you by default. You need to add
 <TabItem value="helm">
 
 ```yaml
-
 configProperties:                       # struct    | required | Specify config properties
     version: v2 
 
@@ -56,6 +55,8 @@ application:
 <TabItem value="manifest">
 
 ```yaml
+configProperties:                       # struct    | required | Specify config properties
+    version: v2 
 
 application:
   name: bookinfo                        # string    | required | Application name                 
@@ -75,6 +76,8 @@ application:
 <TabItem value="kustom">
 
 ```yaml
+configProperties:                       # struct    | required | Specify config properties
+    version: v2 
 
 application:
   name: bookinfo                        # string    | required | Application name

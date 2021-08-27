@@ -37,9 +37,9 @@ module.exports = {
         // Deploy
         {
           type: 'category',
-          label: 'Deploy Application',
+          label: 'Deployment',
           items: [
-            'guides/deploy/deploy-by-ide',
+            'guides/deploy/deploy-app',
             // 'guides/deploy/deploy-from-helm',
             'guides/deploy/deploy-from-terminal',
             'guides/deploy/deploy-demo',
@@ -89,7 +89,7 @@ module.exports = {
           items: [
             'config/config-dev',
             'config/config-dev-workload',
-            'config/config-dev-command',
+            'config/config-dev-portforward',
             'config/config-dev-sync',
             'config/config-dev-devcontainer',
           ]
@@ -110,11 +110,8 @@ module.exports = {
           label: 'Kubernetes Compatibilities',
           id: 'practice/cloud/k8s-compatible'
         },
-        {
-          type: 'doc',
-          label: 'ApiSix controller',
-          id: 'practice/cloud/apisix-controller'
-        },
+        'practice/cloud/apisix-controller',
+        'practice/cloud/kubesphere',
         // Working with Cloud
         // {
         //   type: 'category',

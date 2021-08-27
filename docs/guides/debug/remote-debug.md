@@ -59,7 +59,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Debugging Process
 
 1. Select the workload that you want to debug
-2. Right-click the workload and select **Dev Config**, [configure your debugging configuration](#configuration)
+2. Right-click the workload and select **`Dev Config`**, [configure your debugging configuration](#configuration)
 3. Then right-click this workload again and select **Remote Debug**
 4. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
@@ -88,7 +88,7 @@ These are important options for remote debugging:
 
 - **Development Image:** the image use to start development container
 - **Debug Command:** the command to execute in the container for remote debugging
-- **Remote Debug Port:** IDE listens to this port for remote debug and run
+- **Remote Debug Port:** IDE listens to this port for remote debug debugging
 - **Container Port-Forwarding:** the port-forwarding in development mode
 
 ### Sample Configuration
