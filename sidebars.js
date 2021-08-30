@@ -110,6 +110,8 @@ module.exports = {
           label: 'Kubernetes Compatibilities',
           id: 'practice/cloud/k8s-compatible'
         },
+        'practice/cloud/apisix-controller',
+        'practice/cloud/kubesphere',
         // Working with Cloud
         // {
         //   type: 'category',
