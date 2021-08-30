@@ -1,6 +1,5 @@
 # Config Reference
 
-
 ## Configuration Structure
 
 ```yaml
