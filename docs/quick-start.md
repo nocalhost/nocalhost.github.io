@@ -9,9 +9,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 **Goal:** Install Nocalhost, evaluate the core features and experience efficient cloud-native application development. <br />
 **Estimate time:** 5 minutes <br />
 **Requirements:**
-- Any local or remote Kubernetes cluster (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [minikube](https://minikube.sigs.k8s.io/docs/start/).
-- **RBAC** must be enabled in above cluster
-- **Configured kubeconfig file** that has namespace admin privilege
+- Any local or remote Kubernetes cluster (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single-node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [minikube](https://minikube.sigs.k8s.io/docs/start/).
+- **RBAC** must be enabled in the above cluster
+- **Configured KubeConfig file** that has namespace admin privilege
 - Kubernetes api-server can be accessed internal and external
 - Visual Studio Code (1.52+)
 
