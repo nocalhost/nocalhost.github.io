@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/zh-CN/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2021-08-30T12:03:22.898Z</updated>
+    <updated>2021-08-31T05:35:52.548Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/zh-CN/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/zh-CN/blog/docs-translate"/>
-        <updated>2021-08-30T12:03:22.898Z</updated>
+        <updated>2021-08-31T05:35:52.548Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
     </entry>
     <entry>

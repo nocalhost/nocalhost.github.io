@@ -4,14 +4,14 @@
         <title>Nocalhost Blog</title>
         <link>https://nocalhost.dev/zh-CN/blog</link>
         <description>Nocalhost Blog</description>
-        <lastBuildDate>Mon, 30 Aug 2021 12:03:22 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 31 Aug 2021 05:35:52 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Nocalhost 官方文档翻译活动]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/docs-translate</link>
             <guid>Nocalhost 官方文档翻译活动</guid>
-            <pubDate>Mon, 30 Aug 2021 12:03:22 GMT</pubDate>
+            <pubDate>Tue, 31 Aug 2021 05:35:52 GMT</pubDate>
             <description><![CDATA[背景]]></description>
         </item>
         <item>
