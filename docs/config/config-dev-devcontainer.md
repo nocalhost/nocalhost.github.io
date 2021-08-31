@@ -64,6 +64,7 @@ This is an example configuration of our [bookinfo application](https://github.co
 
 :::caution Multi Containers
 
+ou can define multi containers in one configuration, according to the container's name. But you can only develop one at once.
 
 :::
 
