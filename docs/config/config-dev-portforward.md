@@ -19,6 +19,12 @@ If you change the configuration **after** entering development mode. The new con
 
 :::
 
+:::danger listening
+
+Nocalhost will listen to the `0.0.0.0` in the local machine and apply the port-forwarding, not the `127.0.0.1`. 
+
+:::
+
 ## Modifying the Configuration
 
 ### 1. Open Nocalhost development configuration
