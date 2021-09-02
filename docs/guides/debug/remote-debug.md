@@ -134,7 +134,22 @@ containers:
         envFrom: null
         portForward:
           - 33333:9999
+```
 
+#### Maven Example
+
+The startup command for **Maven** example:
+
+```bash title="Maven's debug.sh"
+mvn spring-boot:run -Drun.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+```
+
+#### Gradle Example
+
+The startup command for **Gradle** example:
+
+```bash title="Gradle's debug.sh"
+./gradlew bootRun --debug-jvm --no-daemon
 ```
 
 </TabItem>
