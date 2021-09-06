@@ -1,0 +1,90 @@
+.tool-wrap {
+    ul,li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background: #f5f7fa;
+    .left {
+        background: rgb(255, 255, 255);
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
+        width: 760px;
+        margin-right: 20px;
+        min-height: 788px;
+        .header {
+            height: 60px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: inset 0px -1px 0px 0px rgb(234, 236, 240);
+
+            span {
+                &:nth-child(1) {
+                    color: rgb(54, 67, 92);
+                    font-family: PingFangSC-Semibold;
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .content {
+            padding: 20px;
+            .form-line {
+                display: flex;
+                justify-content: space-between;
+            }
+            .config-wrap {
+                background: rgb(255, 255, 255);
+                border-radius: 4px;
+                border: 1px solid rgba(218, 225, 232, 0.25);
+                box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
+                min-height: 528px;
+                display: flex;
+                .menu {
+                   width: 220px; 
+                   padding: 8px 12px 0;
+                   background: #f9fbfd;
+                   .menu-list {
+                       .menu-item {
+                        height: 36px;
+                        display: flex;
+                        align-items: center;
+                        color: rgb(54, 67, 92);
+                        font-family: PingFangSC-Semibold;
+                        font-size: 14px;
+                        &.active {
+                            color: rgb(0, 128, 255);
+                            font-weight: 600; 
+                        } 
+                        span {
+                            &:nth-child(1) {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                margin-right: 10px;
+                            }
+                        }
+                       }
+                   }
+                }
+                .config {
+                    flex: 1;
+                    padding: 20px;
+                    background: #fff;
+                }
+            }
+        }
+    }
+    .right {
+        background: rgb(13, 28, 63);
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
+        width: 420px; 
+        min-height: 788px; 
+      }
+}

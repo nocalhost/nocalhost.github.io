@@ -64,6 +64,7 @@ module.exports = {
 		
 		// Image Zoom
 		'plugin-image-zoom',
+		'docusaurus-plugin-sass'
 	],
 	themeConfig: {
 		// Search
@@ -88,6 +89,8 @@ module.exports = {
 				},
 				// Video
 				{to: '/videos', label: 'Videos', position: 'left'},
+				// Tools
+				{to: '/tools', label: 'Tools', position: 'left'},
 				// Blog
 				{to: '/blog', label: 'Blog', position: 'left'},
 				// Version

@@ -95,6 +95,11 @@ export default function Home() {
 								</a>							
 							</li>
 							<li className={clsx(styles.mdTabsItem, styles.xdHide)}>
+								<a href={isZh ? '/zh-CN/tools' : '/tools'}>
+									<Translate>Tools</Translate>
+								</a>							
+							</li>
+							<li className={clsx(styles.mdTabsItem, styles.xdHide)}>
 								<a href={isZh ? '/zh-CN/blog' : '/blog'}>
 									<Translate>Blog</Translate>
 								</a>							
