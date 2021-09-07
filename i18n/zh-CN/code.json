@@ -362,5 +362,26 @@
   },
   "Release Notes": {
     "message": "发行说明"
+  },
+  "Parameter configuration": {
+    "message": "Parameter configuration"
+  },
+  "Apply": {
+    "message": "应用"
+  },
+  "Service Name": {
+    "message": "应用名称"
+  },
+  "Service Type": {
+    "message": "应用类型"
+  },
+  "Select Container": {
+    "message": "选择容器"
+  },
+  "Container Name": {
+    "message": "容器名称"
+  },
+  "Development Image": {
+    "message": "开发镜像"
   }
 }
