@@ -1,129 +1,176 @@
 .tool-wrap {
-    ul,li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    background: #f5f7fa;
-    .left {
-        background: rgb(255, 255, 255);
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
-        width: 760px;
-        margin-right: 20px;
-        min-height: 788px;
-        .header {
-            height: 60px;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: inset 0px -1px 0px 0px rgb(234, 236, 240);
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  background: #f5f7fa;
+  .left {
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
+    width: 760px;
+    margin-right: 20px;
+    min-height: 788px;
+    .header {
+      height: 60px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: inset 0px -1px 0px 0px rgb(234, 236, 240);
 
-            &-content {
-                display: flex;
-                align-items: center;
-                span {
-                    &:nth-child(1) {
-                        color: rgb(54, 67, 92);
-                        font-family: PingFangSC-Semibold;
-                        font-size: 20px;
-                        font-weight: 600;
-                        white-space: nowrap;
-                        margin-right: 10px;
-                    }
-                }
-                .warning {
-                    display: flex;
-                    align-items: center;
-                    span {
-                        margin-left: 10px;
-                        font-size: 14px;
-                        color: #ff7d00;
-                    }
-                }
-            }
-            
-        }
-        .content {
-            padding: 20px;
-            .form-line {
-                display: flex;
-                justify-content: space-between;
-            }
-            .config-wrap {
-                background: rgb(255, 255, 255);
-                border-radius: 4px;
-                border: 1px solid rgba(218, 225, 232, 0.25);
-                box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
-                min-height: 528px;
-                display: flex;
-                .menu {
-                   width: 220px; 
-                   padding: 8px 12px 0;
-                   background: #f9fbfd;
-                   .menu-list {
-                       .menu-item {
-                        height: 36px;
-                        display: flex;
-                        align-items: center;
-                        color: rgb(54, 67, 92);
-                        font-size: 14px;
-                        &.active {
-                            font-family: PingFangSC-Semibold;
-                            color: rgb(0, 128, 255);
-                            font-weight: 600; 
-                        } 
-                        span {
-                           margin-left: 12px;
-                        }
-                       }
-                   }
-                }
-                .config {
-                    flex: 1;
-                    padding: 24px;
-                    background: #fff;
-                    &-title {
-                        color: rgb(54, 67, 92);
-                        font-family: PingFangSC-Semibold;
-                        font-size: 14px;
-                        font-weight: 600;
-                    }
-                    &-others {
-                        margin-top: 16px;
-                        padding-left: 20px;
-                    }
-                }
-            }
-        }
-    }
-    .right {
-        background: rgb(13, 28, 63);
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
-        width: 420px; 
-        min-height: 788px;
-        max-height: 876px;
-        overflow: scroll;
-        color: #fff;
-        padding: 16px 20px 0;
-        .title {
+      &-content {
+        display: flex;
+        align-items: center;
+        span {
+          &:nth-child(1) {
+            color: rgb(54, 67, 92);
             font-family: PingFangSC-Semibold;
             font-size: 20px;
             font-weight: 600;
-            display: flex;
-            justify-content: space-between;
+            white-space: nowrap;
+            margin-right: 10px;
+          }
         }
-        .content {
-            margin-top: 26px;
-            white-space: pre-wrap;
-            font-family: Menlo-Regular;
-            font-size: 16px;
-            font-weight: normal;
+        .warning {
+          display: flex;
+          align-items: center;
+          span {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #ff7d00;
+          }
         }
       }
+    }
+    .content {
+      padding: 20px;
+      .form-line {
+        display: flex;
+        justify-content: space-between;
+      }
+      .config-wrap {
+        background: rgb(255, 255, 255);
+        border-radius: 4px;
+        border: 1px solid rgba(218, 225, 232, 0.25);
+        box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
+        min-height: 528px;
+        display: flex;
+        .menu {
+          width: 220px;
+          padding: 8px 12px 0;
+          background: #f9fbfd;
+          .menu-list {
+            .menu-item {
+              height: 36px;
+              display: flex;
+              align-items: center;
+              color: rgb(54, 67, 92);
+              font-size: 14px;
+              cursor: pointer;
+              &.active {
+                font-family: PingFangSC-Semibold;
+                color: rgb(0, 128, 255);
+                font-weight: 600;
+              }
+              span {
+                margin-left: 12px;
+              }
+            }
+          }
+        }
+        .config {
+          flex: 1;
+          padding: 24px;
+          background: #fff;
+          &-title {
+            color: rgb(54, 67, 92);
+            font-family: PingFangSC-Semibold;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+          &-others {
+            margin-top: 16px;
+            padding-left: 20px;
+          }
+          .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .remove {
+              cursor: pointer;
+            }
+          }
+          .add-field {
+            display: flex;
+            align-items: center;
+            color: #0080ff;
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            cursor: pointer;
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+          }
+
+          .item-label {
+            display: flex;
+            align-items: center;
+            span {
+              margin-right: 6px;
+            }
+          }
+
+          .directory-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .form-item {
+              display: flex;
+            }
+          }
+
+          .limit-item {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+  .right {
+    background: rgb(13, 28, 63);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
+    width: 420px;
+    min-height: 788px;
+    max-height: 876px;
+    overflow: scroll;
+    color: #fff;
+    padding: 16px 20px 0;
+    .title {
+      font-family: PingFangSC-Semibold;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+    }
+    .content {
+      margin-top: 26px;
+      white-space: pre-wrap;
+      font-family: Menlo-Regular;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
 }

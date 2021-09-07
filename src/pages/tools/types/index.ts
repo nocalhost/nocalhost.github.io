@@ -1,0 +1,64 @@
+export interface SearchParams {
+  name?: string
+  type?: string
+  [index: string]: string
+}
+export type ConfigType =
+  | 'Basic'
+  | 'FileSync'
+  | 'RunAndDebug'
+  | 'Volume'
+  | 'ResourceLimit'
+  | 'DevEnv'
+
+export interface MenuItem {
+  name: string
+  status: string
+  type: ConfigType
+}
+
+export interface Container {
+  name?: string
+  dev?: {
+    gitUrl?: string
+    image: string
+    shell?: string
+    workDir?: string
+    storageClass?: string
+    resources?: {
+      limits?: {
+        memory?: string
+        cpu?: string
+      }
+      requests?: {
+        memory?: string
+        cpu?: string
+      }
+    }
+    persistentVolumeDirs?: string[]
+    command?: {
+      build?: string[]
+      run?: string[]
+      debug?: string[]
+      hotReloadRun?: string[]
+      hotReloadDebug?: string[]
+    }
+    debug?: {
+      remoteDebugPort?: string
+    }
+    useDevContainer?: string
+    sync?: {
+      type?: string
+      filePattern?: string[]
+      ignoreFilePattern?: string[]
+    }
+    env?: string[]
+    portForward?: string[]
+    sidecar_image?: string
+  }
+}
+export interface YamlObj {
+  name: string
+  serviceType: string
+  containers: Container[]
+}

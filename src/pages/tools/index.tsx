@@ -3,6 +3,12 @@ import Layout from '@theme/Layout'
 
 import styles from './index.module.scss'
 import { Button, Form, Select, Input, Tooltip, message } from 'antd'
+import BasicConfig from './components/BasicConfig'
+import FileSync from './components/FileSync'
+import RunAndDebug from './components/RunAndDebug'
+import Volume from './components/Volume'
+import ResourceLimit from './components/ResourceLimit'
+import EnvVar from './components/EnvVar'
 import 'antd/dist/antd.css'
 
 import Translate, { translate } from '@docusaurus/Translate'
@@ -11,102 +17,16 @@ import IconSuccess from './images/icon_label_success.svg'
 import IconOption from './images/icon_label_option.svg'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { FieldData } from 'rc-field-form/lib/interface'
 
 const json2yaml = require('json2yaml')
 
-interface SearchParams {
-  name?: string
-  type?: string
-  [index: string]: string
-}
+import { SearchParams, MenuItem, ConfigType, YamlObj } from './types'
+import { CONFIG_TYPE } from './constants'
 
-interface MenuItem {
-  name: string
-  status: string
-}
+import { isYamlValid } from './util'
 
-type ConfigType =
-  | 'Basic'
-  | 'FileSync'
-  | 'RunAndDebug'
-  | 'Volume'
-  | 'ResourceLimit'
-  | 'DevEnv'
-
-interface Container {
-  name?: string
-  dev?: {
-    gitUrl?: string
-    image: string
-    shell?: string
-    workDir?: string
-    storageClass?: string
-    resources?: string
-    persistentVolumeDirs?: string[]
-    command?: {
-      build?: string[]
-      run?: string[]
-      debug?: string[]
-      hotReloadRun?: string[]
-      hotReloadDebug?: string[]
-    }
-    debug?: {
-      remoteDebugPort?: string
-    }
-    useDevContainer?: string
-    sync?: {
-      type?: string
-      filePattern?: string[]
-      ignoreFilePattern?: string[]
-    }
-    env?: string[]
-    portForward?: string[]
-    sidecar_image?: string
-  }
-}
-interface YamlObj {
-  name: string
-  serviceType: string
-  containers: Container[]
-}
-
-const imageOptions = [
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:11',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:11',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/ruby:3.0',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/ruby:3.0',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/node:14',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/node:14',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.9',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:3.9',
-  },
-  {
-    label:
-      'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:latest',
-    value:
-      'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:latest',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/perl:latest',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/perl:latest',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/rust:latest',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/rust:latest',
-  },
-  {
-    label: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:latest',
-    value: 'codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:latest',
-  },
-]
+import classNames from 'classnames/bind'
+const cx = classNames.bind(styles)
 
 const search2Obj = function (search: string): SearchParams {
   let obj: SearchParams = {}
@@ -136,14 +56,8 @@ const Tools = () => {
   const [yamlStr, setYamlStr] = useState('')
   const [containerOptions, setContainerOptions] = useState([])
   const [configType, setConfigType] = useState<ConfigType>('Basic')
-  const [menuList, setMenuList] = useState<MenuItem[]>([
-    { name: 'Basic Config', status: 'reject' },
-    { name: 'File synchronization', status: 'pending' },
-    { name: 'Run && Debug', status: 'pending' },
-    { name: 'Volume', status: 'pending' },
-    { name: 'Resource Limit', status: 'pending' },
-    { name: 'Development Variable', status: 'pending' },
-  ])
+  const [menuList, setMenuList] = useState<MenuItem[]>(CONFIG_TYPE)
+  const [isValid, setIsValid] = useState<boolean>(false)
 
   const timer = useRef<number | null>()
 
@@ -174,6 +88,28 @@ const Tools = () => {
             dev: {
               gitUrl: '',
               image: '',
+              storageClass: '',
+              resources: {
+                limits: {
+                  memory: '',
+                  cpu: '',
+                },
+                requests: {
+                  memory: '',
+                  cpu: '',
+                },
+              },
+              sync: {
+                type: '',
+              },
+              command: {
+                build: [],
+                run: [],
+                debug: [],
+              },
+              debug: {
+                remoteDebugPort: '',
+              },
             },
           }
         }),
@@ -189,9 +125,11 @@ const Tools = () => {
 
   useEffect(() => {
     setYamlStr(json2yaml.stringify(yamlObj))
+    setIsValid(isYamlValid(yamlObj))
   }, [yamlObj])
 
-  const handleFieldChange = (changedFields: FieldData[]) => {
+  const handleFieldChange = (changedFields: any) => {
+    console.log('change: ', changedFields)
     if (timer.current) {
       clearTimeout(timer.current)
       timer.current = null
@@ -199,46 +137,90 @@ const Tools = () => {
     timer.current = window.setTimeout(() => {
       try {
         const { containers } = form.getFieldsValue()
-        console.log(containers)
-        const field = changedFields[0]?.name[0]
+        const { name } = changedFields[0]
         const value = changedFields[0]?.value
-        switch (field) {
-          case 'workloadName':
-            {
-              yamlObj.name = value
-            }
-            break
-          case 'workloadType':
-            {
-              yamlObj.serviceType = value
-            }
-            break
-          case 'containers':
-            {
-              // switch container
-              const currentContainer = yamlObj.containers[field]
-              form.setFieldsValue({
-                name: currentContainer?.name,
-                image: currentContainer?.dev.image,
-              })
-            }
-            break
-          case 'name':
-            {
-              yamlObj.containers[containers][field] = value
-            }
-            break
-          default:
-            {
-              yamlObj.containers[containers][field] = value
-              console.log('yamlObj', yamlObj)
-            }
-            break
+        const len = name.length
+        if (len === 1) {
+          const field = changedFields[0]?.name[0]
+
+          switch (field) {
+            case 'workloadName':
+              {
+                yamlObj.name = value
+              }
+              break
+            case 'workloadType':
+              {
+                yamlObj.serviceType = value
+              }
+              break
+            case 'containers':
+              {
+                // switch container
+                const currentContainer = yamlObj.containers[containers]
+                console.log('current ', yamlObj, currentContainer)
+                form.setFieldsValue({
+                  name: currentContainer?.name,
+                  image: currentContainer?.dev.image,
+                })
+              }
+              break
+            case 'name':
+              {
+                yamlObj.containers[containers][field] = value
+              }
+              break
+            case 'syncType':
+              yamlObj.containers[containers]['dev']['sync']['type'] = value
+
+              break
+            case 'filePattern':
+            case 'ignoreFilePattern':
+              yamlObj.containers[containers]['dev']['sync'][field] = value
+              break
+            case 'command-run':
+            case 'command-debug':
+              {
+                const cmd = field.split('-')[1]
+                yamlObj.containers[containers]['dev']['command'][cmd] =
+                  value.split(' ')
+              }
+              break
+            case 'remoteDebugPort':
+              yamlObj.containers[containers]['dev']['debug'][field] = value
+              break
+            case 'limits-memory':
+            case 'requests-cpu':
+            case 'limits-cpu':
+            case 'requests-memory':
+              {
+                const [a, b] = field.split('-')
+                console.log('>>> ', yamlObj.containers[containers]['dev'])
+                yamlObj.containers[containers]['dev']['resources'][a][b] = value
+                console.log('>>> ', yamlObj)
+              }
+              break
+            default:
+              {
+                yamlObj.containers[containers]['dev'][field] = value
+              }
+              break
+          }
+        } else if (len === 2) {
+          const [field, index] = changedFields[0]?.name
+          yamlObj.containers[containers]['dev']['sync'][field][index] = value
+        } else {
+          const [a, b, c] = name
+          let obj = yamlObj.containers[containers]['dev'][a][b] || {}
+          obj[c] = value
+          yamlObj.containers[containers]['dev'][a][b] = { ...obj, [c]: value }
         }
         setYamlObj({
           ...yamlObj,
         })
-      } catch (e) {}
+      } catch (e) {
+        console.log(e)
+      }
     }, 500)
   }
 
@@ -316,8 +298,21 @@ const Tools = () => {
                   <ul className={styles['menu-list']}>
                     {menuList.map((item, index) => {
                       return (
-                        <li key={index} className={styles['menu-item']}>
-                          <IconWaring />
+                        <li
+                          key={index}
+                          className={cx({
+                            'menu-item': true,
+                            active: item.type === configType,
+                          })}
+                          onClick={() => setConfigType(item.type)}
+                        >
+                          {item.name === 'Basic Config' && isValid ? (
+                            <IconSuccess />
+                          ) : item.name === 'Basic Config' ? (
+                            <IconWaring />
+                          ) : (
+                            <IconOption />
+                          )}
                           <span>
                             <Translate>{item.name}</Translate>
                           </span>
@@ -327,81 +322,12 @@ const Tools = () => {
                   </ul>
                 </div>
                 <div className={styles['config']}>
-                  <>
-                    <Form.Item
-                      label={translate({ message: 'Container Name' })}
-                      rules={[{ required: true }]}
-                      name="name"
-                    >
-                      <Input
-                        style={{ width: 460 }}
-                        placeholder={translate({
-                          message: 'Please Input Container Name',
-                        })}
-                      />
-                    </Form.Item>
-                    <Form.Item
-                      label={translate({ message: 'Development Image' })}
-                      rules={[{ required: true }]}
-                      name="image"
-                    >
-                      <Select
-                        style={{ width: 460 }}
-                        options={imageOptions}
-                        placeholder={translate({
-                          message: 'Please Select Development Image',
-                        })}
-                      />
-                    </Form.Item>
-                    <div className={styles['config-title']}>
-                      <span></span>
-                      <span>
-                        <Translate>Other basic configuration items</Translate>
-                      </span>
-                    </div>
-                    <div className={styles['config-others']}>
-                      <Form.Item
-                        label={translate({
-                          message: 'Git Depository URL',
-                        })}
-                        name="gitUrl"
-                      >
-                        <Input
-                          style={{ width: 436 }}
-                          placeholder={translate({
-                            message: 'Please Input Git Depository URL',
-                          })}
-                        />
-                      </Form.Item>
-                      <Form.Item label="Shell" name="shell">
-                        <Input
-                          style={{ width: 436 }}
-                          placeholder={translate({
-                            message: 'Please Input Shell',
-                          })}
-                        />
-                      </Form.Item>
-                      <Form.Item
-                        label={translate({ message: 'Work Directory' })}
-                        name="workDir"
-                      >
-                        <Input
-                          style={{ width: 436 }}
-                          placeholder={translate({
-                            message: 'Please Input Work Directory',
-                          })}
-                        />
-                      </Form.Item>
-                      <Form.Item label="Sidecar" name="sidecar_image">
-                        <Input
-                          style={{ width: 436 }}
-                          placeholder={translate({
-                            message: 'Please Input Sidecar Image URL',
-                          })}
-                        />
-                      </Form.Item>
-                    </div>
-                  </>
+                  {configType === 'Basic' && <BasicConfig />}
+                  {configType === 'FileSync' && <FileSync />}
+                  {configType === 'RunAndDebug' && <RunAndDebug />}
+                  {configType === 'Volume' && <Volume />}
+                  {configType === 'ResourceLimit' && <ResourceLimit />}
+                  {configType === 'DevEnv' && <EnvVar />}
                 </div>
                 <div></div>
               </div>
