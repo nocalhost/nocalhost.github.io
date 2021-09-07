@@ -56,7 +56,7 @@ const Tools = () => {
   const [yamlStr, setYamlStr] = useState('')
   const [containerOptions, setContainerOptions] = useState([])
   const [configType, setConfigType] = useState<ConfigType>('Basic')
-  const [menuList, setMenuList] = useState<MenuItem[]>(CONFIG_TYPE)
+  const [menuList] = useState<MenuItem[]>(CONFIG_TYPE)
   const [isValid, setIsValid] = useState<boolean>(false)
 
   const timer = useRef<number | null>()
@@ -89,16 +89,6 @@ const Tools = () => {
               gitUrl: '',
               image: '',
               storageClass: '',
-              resources: {
-                limits: {
-                  memory: '',
-                  cpu: '',
-                },
-                requests: {
-                  memory: '',
-                  cpu: '',
-                },
-              },
               sync: {
                 type: '',
               },
@@ -195,9 +185,16 @@ const Tools = () => {
             case 'requests-memory':
               {
                 const [a, b] = field.split('-')
-                console.log('>>> ', yamlObj.containers[containers]['dev'])
-                yamlObj.containers[containers]['dev']['resources'][a][b] = value
-                console.log('>>> ', yamlObj)
+                let obj =
+                  yamlObj.containers[containers]['dev']['resources'] || {}
+                if (obj[a]) {
+                  obj[a][b] = value
+                } else {
+                  obj[a] = {
+                    [b]: value,
+                  }
+                }
+                yamlObj.containers[containers]['dev']['resources'] = { ...obj }
               }
               break
             default:

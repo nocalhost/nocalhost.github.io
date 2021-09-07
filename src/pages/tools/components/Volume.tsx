@@ -19,7 +19,7 @@ const Volume = () => {
           placeholder={translate({ message: 'Please Input StorageClass' })}
         />
       </Form.Item>
-      <Form.List name="storage_class">
+      <Form.List name="persistentVolumeDirs">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field) => (
@@ -28,6 +28,7 @@ const Volume = () => {
                   <Form.Item
                     {...field}
                     style={{ marginBottom: 0, marginRight: 36 }}
+                    name={[field.name, 'path']}
                   >
                     <Input
                       placeholder={translate({
@@ -36,7 +37,11 @@ const Volume = () => {
                       style={{ width: 190 }}
                     />
                   </Form.Item>
-                  <Form.Item {...field} style={{ marginBottom: 0 }}>
+                  <Form.Item
+                    {...field}
+                    style={{ marginBottom: 0 }}
+                    name={[field.name, 'capacity']}
+                  >
                     <Input
                       placeholder={translate({ message: 'Please Input Size' })}
                       style={{ width: 190 }}
