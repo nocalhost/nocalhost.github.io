@@ -24,6 +24,7 @@ import { SearchParams, MenuItem, ConfigType, YamlObj } from './types'
 import { CONFIG_TYPE } from './constants'
 
 import { isYamlValid } from './util'
+import { post } from './util/request'
 
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
@@ -60,6 +61,7 @@ const Tools = () => {
   const [isValid, setIsValid] = useState<boolean>(false)
 
   const timer = useRef<number | null>()
+  const search = location.search
 
   const handleSubmit = () => {}
 
@@ -68,7 +70,6 @@ const Tools = () => {
   }
 
   useEffect(() => {
-    const search = location.search
     if (search) {
       const searchObj: SearchParams = search2Obj(location.search)
       const { name, type, container } = searchObj
@@ -88,18 +89,6 @@ const Tools = () => {
             dev: {
               gitUrl: '',
               image: '',
-              storageClass: '',
-              sync: {
-                type: '',
-              },
-              command: {
-                build: [],
-                run: [],
-                debug: [],
-              },
-              debug: {
-                remoteDebugPort: '',
-              },
             },
           }
         }),
@@ -148,7 +137,6 @@ const Tools = () => {
               {
                 // switch container
                 const currentContainer = yamlObj.containers[containers]
-                console.log('current ', yamlObj, currentContainer)
                 form.setFieldsValue({
                   name: currentContainer?.name,
                   image: currentContainer?.dev.image,
@@ -161,12 +149,18 @@ const Tools = () => {
               }
               break
             case 'syncType':
-              yamlObj.containers[containers]['dev']['sync']['type'] = value
-
+              {
+                let obj = yamlObj.containers[containers]['dev']['sync'] || {}
+                obj.type = value
+                yamlObj.containers[containers]['dev']['sync'] = { ...obj }
+              }
               break
             case 'filePattern':
             case 'ignoreFilePattern':
-              yamlObj.containers[containers]['dev']['sync'][field] = value
+              yamlObj.containers[containers]['dev']['sync'][field] = value.map(
+                (item) => (item === undefined ? '' : item)
+              )
+
               break
             case 'command-run':
             case 'command-debug':
@@ -197,6 +191,11 @@ const Tools = () => {
                 yamlObj.containers[containers]['dev']['resources'] = { ...obj }
               }
               break
+            case 'persistentVolumeDirs':
+              yamlObj.containers[containers]['dev'][field] = value.map((item) =>
+                item === undefined ? '' : item
+              )
+              break
             default:
               {
                 yamlObj.containers[containers]['dev'][field] = value
@@ -205,7 +204,14 @@ const Tools = () => {
           }
         } else if (len === 2) {
           const [field, index] = changedFields[0]?.name
-          yamlObj.containers[containers]['dev']['sync'][field][index] = value
+          let obj = yamlObj.containers[containers]['dev']['sync'] || {}
+          if (obj[field]) {
+            obj[field][index] = value
+          } else {
+            obj[field] = {}
+            obj[field][index] = value
+          }
+          yamlObj.containers[containers]['dev']['sync'] = { ...obj }
         } else {
           const [a, b, c] = name
           let obj = yamlObj.containers[containers]['dev'][a][b] || {}
@@ -221,6 +227,12 @@ const Tools = () => {
     }, 500)
   }
 
+  const handleApply = () => {}
+
+  const handleSelectContainer = (data) => {
+    console.log('select Data: ', data)
+  }
+
   return (
     <Layout>
       <div className={styles['tool-wrap']}>
@@ -233,15 +245,16 @@ const Tools = () => {
               <div className={styles['warning']}>
                 <Tooltip
                   title={translate({
-                    message:
-                      'You have not yet completed the minimal development configuration',
+                    message: isValid
+                      ? 'You have completed the minimal development configuration'
+                      : 'You have not yet completed the minimal development configuration',
                   })}
                 >
-                  <IconWaring />
+                  {isValid ? <IconSuccess /> : <IconWaring />}
                 </Tooltip>
               </div>
             </div>
-            <Button type="primary">
+            <Button onClick={handleApply} type="primary">
               <Translate>Apply</Translate>
             </Button>
           </div>
@@ -285,10 +298,7 @@ const Tools = () => {
                 required={true}
                 name="containers"
               >
-                <Select
-                  options={containerOptions}
-                  style={{ width: 352 }}
-                ></Select>
+                <Select options={containerOptions} style={{ width: 352 }} />
               </Form.Item>
               <div className={styles['config-wrap']}>
                 <div className={styles['menu']}>

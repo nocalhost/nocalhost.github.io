@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Form, Input, Select } from 'antd'
+import { Form, Input, Select, AutoComplete } from 'antd'
 
 import Translate, { translate } from '@docusaurus/Translate'
 
@@ -32,7 +32,7 @@ const BasicConfig = () => {
         rules={[{ required: true }]}
         name="image"
       >
-        <Select
+        <AutoComplete
           style={{ width: 460 }}
           options={IMAGE_OPTIONS}
           placeholder={translate({
