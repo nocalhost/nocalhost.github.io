@@ -202,7 +202,7 @@ flask run --host=0.0.0.0 --port=9999
 
 ```
 
-### How does it Works?
+**How does it Works?**
 
 Nocalhost using pydevd to debug Python application.
 
@@ -300,7 +300,7 @@ php -t ./ -S 0.0.0.0:9999;
 
 ```
 
-### How does it works?
+**How does it works?**
 
 Nocalhost using Xdebug to debug PHP applications.
 
