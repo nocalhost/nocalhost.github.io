@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[3342],{2320:function(l){l.exports=JSON.parse('{"allTagsPath":"/zh-CN/blog/tags","slug":"/zh-CN/blog/tags/controller","name":"Controller","count":1,"permalink":"/zh-CN/blog/tags/controller"}')}}]);
