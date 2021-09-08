@@ -62,3 +62,11 @@ export interface YamlObj {
   serviceType: string
   containers: Container[]
 }
+
+export interface SaveInfo {
+  application: string
+  name: string
+  namespace: string
+  type: string
+  config: string
+}

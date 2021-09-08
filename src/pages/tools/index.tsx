@@ -24,7 +24,7 @@ import { SearchParams, MenuItem, ConfigType, YamlObj } from './types'
 import { CONFIG_TYPE } from './constants'
 
 import { isYamlValid } from './util'
-import { post } from './util/request'
+import { saveConfig } from './util/request'
 
 import classNames from 'classnames/bind'
 const cx = classNames.bind(styles)
@@ -59,7 +59,8 @@ const Tools = () => {
   const [configType, setConfigType] = useState<ConfigType>('Basic')
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE)
   const [isValid, setIsValid] = useState<boolean>(false)
-  const [containerIndex, setContainerIndex] = useState<number>(0)
+  const [URLParams, setURLParams] = useState<SearchParams>({})
+  // const [containerIndex, setContainerIndex] = useState<number>(0)
 
   const timer = useRef<number | null>()
   const search = location.search
@@ -73,6 +74,7 @@ const Tools = () => {
   useEffect(() => {
     if (search) {
       const searchObj: SearchParams = search2Obj(location.search)
+      setURLParams(searchObj)
       const { name, type, container } = searchObj
       const containerArr = container.split(',').map((item, index) => {
         return {
@@ -117,7 +119,6 @@ const Tools = () => {
     timer.current = window.setTimeout(() => {
       try {
         const { containers } = form.getFieldsValue()
-        setContainerIndex(containers)
         const { name } = changedFields[0]
         const value = changedFields[0]?.value
         const len = name.length
@@ -245,7 +246,28 @@ const Tools = () => {
     }, 500)
   }
 
-  const handleApply = () => {}
+  const handleApply = async () => {
+    const { from, application, name, namespace, type } = URLParams
+    if (from === 'daemon') {
+      try {
+        const response = await saveConfig({
+          application,
+          name,
+          namespace,
+          type,
+          config: window.btoa(yamlStr),
+        })
+        const {
+          data: { Success, Message },
+        } = response
+        if (Success) {
+          message.success(Message)
+        }
+      } catch (e) {
+        message.error('Please Check Network')
+      }
+    }
+  }
 
   const handleSelectContainer = (data) => {
     console.log('select Data: ', data)
@@ -276,7 +298,7 @@ const Tools = () => {
                 </Tooltip>
               </div>
             </div>
-            <Button onClick={handleApply} type="primary">
+            <Button onClick={handleApply} disabled={!isValid} type="primary">
               <Translate>Apply</Translate>
             </Button>
           </div>

@@ -4,14 +4,26 @@ const ajv = new Ajv()
 
 const schema = {
   type: 'object',
-  required: ['containers'],
+  required: ['name', 'serviceType', 'containers'],
   properties: {
+    name: {
+      type: 'string',
+      minLength: 1,
+    },
+    serviceType: {
+      type: 'string',
+      minLength: 1,
+    },
     containers: {
       type: 'array',
       items: {
         type: 'object',
         required: ['dev'],
         properties: {
+          name: {
+            type: 'string',
+            minLength: 1,
+          },
           dev: {
             type: 'object',
             required: ['image'],
