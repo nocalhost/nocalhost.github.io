@@ -21,7 +21,7 @@ export interface Container {
   name?: string
   dev?: {
     gitUrl?: string
-    image: string
+    image?: string
     shell?: string
     workDir?: string
     storageClass?: string
