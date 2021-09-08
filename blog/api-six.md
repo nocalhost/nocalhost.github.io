@@ -1,5 +1,5 @@
 ---
-title: Developing for APISIX Ingress Controller with Nocalhost in Kubernetes
+title: Developing APISIX Ingress Controller with Nocalhost in Kubernetes
 author: Garry Chen
 author_title: Product Manager at Nocalhost Team
 author_url: https://github.com/neaped
