@@ -41,7 +41,6 @@ module.exports = {
           items: [
             'guides/deploy/deploy-app',
             // 'guides/deploy/deploy-from-helm',
-            'guides/deploy/deploy-from-terminal',
             'guides/deploy/deploy-demo',
           ]
         },
