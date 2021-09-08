@@ -24,7 +24,9 @@ const RunAndDebug = () => {
         name="command-run"
       >
         <Input
-          placeholder={translate({ message: 'Please Input Run Command' })}
+          placeholder={translate({
+            message: 'Please Input Run Command, eg: ["/bin/sh","-c"]',
+          })}
           style={{ width: 460 }}
         />
       </Form.Item>

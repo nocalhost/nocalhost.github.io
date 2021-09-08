@@ -107,6 +107,8 @@
             align-items: center;
             .remove {
               cursor: pointer;
+              position: relative;
+              top: 14px;
             }
           }
           .add-field {

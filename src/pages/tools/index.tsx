@@ -59,6 +59,7 @@ const Tools = () => {
   const [configType, setConfigType] = useState<ConfigType>('Basic')
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE)
   const [isValid, setIsValid] = useState<boolean>(false)
+  const [containerIndex, setContainerIndex] = useState<number>(0)
 
   const timer = useRef<number | null>()
   const search = location.search
@@ -103,7 +104,7 @@ const Tools = () => {
   }, [])
 
   useEffect(() => {
-    setYamlStr(json2yaml.stringify(yamlObj))
+    setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ''))
     setIsValid(isYamlValid(yamlObj))
   }, [yamlObj])
 
@@ -116,6 +117,7 @@ const Tools = () => {
     timer.current = window.setTimeout(() => {
       try {
         const { containers } = form.getFieldsValue()
+        setContainerIndex(containers)
         const { name } = changedFields[0]
         const value = changedFields[0]?.value
         const len = name.length
@@ -157,17 +159,28 @@ const Tools = () => {
               break
             case 'filePattern':
             case 'ignoreFilePattern':
-              yamlObj.containers[containers]['dev']['sync'][field] = value.map(
-                (item) => (item === undefined ? '' : item)
-              )
+              {
+                let obj = yamlObj.containers[containers]['dev']['sync'] || {}
+                obj[field] = value.map((item) =>
+                  item === undefined ? '' : item
+                )
+                yamlObj.containers[containers]['dev']['sync'] = { ...obj }
+              }
 
               break
             case 'command-run':
             case 'command-debug':
               {
                 const cmd = field.split('-')[1]
-                yamlObj.containers[containers]['dev']['command'][cmd] =
-                  value.split(' ')
+                let obj = yamlObj.containers[containers]['dev']['command'] || {}
+                // TODO command into array
+                // obj[cmd] = value.split(' ')
+                try {
+                  obj[cmd] = JSON.parse(value)
+                } catch (e) {
+                  obj[cmd] = value
+                }
+                yamlObj.containers[containers]['dev']['command'] = { ...obj }
               }
               break
             case 'remoteDebugPort':
@@ -192,6 +205,11 @@ const Tools = () => {
               }
               break
             case 'persistentVolumeDirs':
+              yamlObj.containers[containers]['dev'][field] = value.map((item) =>
+                item === undefined ? '' : item
+              )
+              break
+            case 'env':
               yamlObj.containers[containers]['dev'][field] = value.map((item) =>
                 item === undefined ? '' : item
               )
@@ -222,7 +240,7 @@ const Tools = () => {
           ...yamlObj,
         })
       } catch (e) {
-        console.log(e)
+        throw new Error(e)
       }
     }, 500)
   }
@@ -231,6 +249,10 @@ const Tools = () => {
 
   const handleSelectContainer = (data) => {
     console.log('select Data: ', data)
+  }
+
+  const handleMenuChange = (menu: ConfigType) => {
+    setConfigType(menu)
   }
 
   return (
@@ -311,7 +333,7 @@ const Tools = () => {
                             'menu-item': true,
                             active: item.type === configType,
                           })}
-                          onClick={() => setConfigType(item.type)}
+                          onClick={() => handleMenuChange(item.type)}
                         >
                           {item.name === 'Basic Config' && isValid ? (
                             <IconSuccess />

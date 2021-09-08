@@ -22,29 +22,29 @@ const FileSync = () => {
         {(fields, { add, remove }, { errors }) => (
           <>
             {fields.map((field, index) => (
-              <Form.Item
-                {...field}
-                key={index}
-                label={
-                  index === 0 ? translate({ message: 'Sync Directory' }) : ''
-                }
-                style={{ marginBottom: 8 }}
-              >
-                <div className={styles['file-item']}>
+              <div className={styles['file-item']} key={field.fieldKey}>
+                <Form.Item
+                  {...field}
+                  key={index}
+                  label={
+                    index === 0 ? translate({ message: 'Sync Directory' }) : ''
+                  }
+                  style={{ marginBottom: 8 }}
+                >
                   <Input
                     style={{ width: 430 }}
                     placeholder={translate({
                       message: 'Please Input Sync Directory',
                     })}
                   />
-                  <span
-                    className={styles['remove']}
-                    onClick={() => remove(field.name)}
-                  >
-                    <IconDel />
-                  </span>
-                </div>
-              </Form.Item>
+                </Form.Item>
+                <span
+                  className={styles['remove']}
+                  onClick={() => remove(field.name)}
+                >
+                  <IconDel />
+                </span>
+              </div>
             ))}
             <div className={styles['add-field']} onClick={() => add()}>
               <IconAdd />
@@ -60,29 +60,31 @@ const FileSync = () => {
         {(fields, { add, remove }, { errors }) => (
           <>
             {fields.map((field, index) => (
-              <Form.Item
-                {...field}
-                key={index}
-                label={
-                  index === 0 ? translate({ message: 'Ignore Directory' }) : ''
-                }
-                style={{ marginBottom: 8 }}
-              >
-                <div className={styles['file-item']}>
+              <div className={styles['file-item']}>
+                <Form.Item
+                  {...field}
+                  key={index}
+                  label={
+                    index === 0
+                      ? translate({ message: 'Ignore Directory' })
+                      : ''
+                  }
+                  style={{ marginBottom: 8 }}
+                >
                   <Input
                     style={{ width: 430 }}
                     placeholder={translate({
                       message: 'Please Input Ignore Directory',
                     })}
                   />
-                  <span
-                    className={styles['remove']}
-                    onClick={() => remove(field.name)}
-                  >
-                    <IconDel />
-                  </span>
-                </div>
-              </Form.Item>
+                </Form.Item>
+                <span
+                  className={styles['remove']}
+                  onClick={() => remove(field.name)}
+                >
+                  <IconDel />
+                </span>
+              </div>
             ))}
             <div className={styles['add-field']} onClick={() => add()}>
               <IconAdd />
