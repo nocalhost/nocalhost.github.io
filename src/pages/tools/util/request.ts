@@ -1,13 +1,18 @@
-import axios from 'axios'
+import { BASE_URL } from '../constants'
 import { SaveInfo } from '../types'
 
-const instance = axios.create({
-  baseURL: 'http://127.0.0.1:30125',
-  timeout: 10 * 1000,
-})
-
-function post(url: string, data: any, config?: any) {
-  return instance.post(url, data, config)
+function post(url: string, data: any) {
+  return fetch(`${BASE_URL}/${url}`, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    body: Object.keys(data)
+      .map((item) => `${item}=${data[item]}`)
+      .join('&'),
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+  })
 }
 
 export const saveConfig = async (data: SaveInfo) => {

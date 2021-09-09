@@ -221,5 +221,21 @@
     box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
     height: 323px;
     width: 700px;
+    padding: 30px 40px;
+    .title {
+      margin-bottom: 12px;
+      color: #36435c;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 10px;
+      }
+    }
+    .image {
+      padding-left: 34px;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

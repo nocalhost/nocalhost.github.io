@@ -50,7 +50,7 @@ const RunAndDebug = () => {
       </Form.Item>
       <Form.Item
         label={translate({ message: 'Whether To Enable Hot Reload' })}
-        name="hotReloadRun"
+        name="hotReload"
         valuePropName="checked"
       >
         <Switch />

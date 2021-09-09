@@ -1,34 +1,34 @@
 export const IMAGE_OPTIONS = [
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/java:11',
+    label: 'java:11',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/java:11',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/ruby:3.0',
+    label: 'ruby:3.0',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/ruby:3.0',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/node:14',
+    label: 'node:14',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/node:14',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/python:3.9',
+    label: 'python:3.9',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/python:3.9',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:latest',
+    label: 'golang:latest',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:latest',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/perl:latest',
+    label: 'perl:latest',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/perl:latest',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/rust:latest',
+    label: 'rust:latest',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/rust:latest',
   },
   {
-    label: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/php:latest',
+    label: 'php:latest',
     value: 'nocalhost-docker.pkg.coding.net/nocalhost/dev-images/php:latest',
   },
 ]
@@ -48,3 +48,5 @@ export const SYNC_FILE_TYPE = [
     value: 'send',
   },
 ]
+
+export const BASE_URL = 'http://127.0.0.1:30125'

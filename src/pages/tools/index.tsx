@@ -89,7 +89,6 @@ const Tools = () => {
           return {
             name: '',
             dev: {
-              gitUrl: '',
               image: '',
             },
           }
@@ -142,7 +141,7 @@ const Tools = () => {
                 // switch container
                 const currentContainer = tmpYamlObj.containers[containers]
                 form.setFieldsValue({
-                  name: currentContainer?.name,
+                  name: containerOptions[containers]?.label,
                   image: currentContainer?.dev.image,
                 })
               }
@@ -187,7 +186,13 @@ const Tools = () => {
               }
               break
             case 'remoteDebugPort':
-              tmpYamlObj.containers[containers]['dev']['debug'][field] = value
+              {
+                let obj =
+                  tmpYamlObj.containers[containers]['dev']['debug'] || {}
+                obj[field] = value
+                tmpYamlObj.containers[containers]['dev']['debug'] = { ...obj }
+              }
+
               break
             case 'limits-memory':
             case 'requests-cpu':
@@ -270,10 +275,15 @@ const Tools = () => {
           data: { Success, Message },
         } = response
         if (Success) {
-          message.success(Message)
+          setShowResult('success')
+        } else {
+          setShowResult('fail')
         }
+        message.success(Message)
       } catch (e) {
+        setShowResult('fail')
         message.error('Please Check Network')
+        throw new Error(e)
       }
     }
   }
@@ -304,7 +314,6 @@ const Tools = () => {
       tmpYamlObj.containers.push({
         name: '',
         dev: {
-          gitUrl: '',
           image: '',
         },
       })
@@ -313,7 +322,6 @@ const Tools = () => {
         {
           name: '',
           dev: {
-            gitUrl: '',
             image: '',
           },
         },
@@ -412,6 +420,9 @@ const Tools = () => {
                         </Select.Option>
                       )
                     })}
+                    <Select.Option key="add" value="add">
+                      {translate({ message: 'Add Container' })}
+                    </Select.Option>
                   </Select>
                 </Form.Item>
                 <div className={styles['config-wrap']}>
@@ -485,7 +496,7 @@ const Tools = () => {
           </div>
         </div>
       )}
-      {showResult && <Result />}
+      {showResult && <Result status={showResult} />}
     </Layout>
   )
 }
