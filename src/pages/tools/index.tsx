@@ -59,7 +59,7 @@ const Tools = () => {
   } as YamlObj)
   const [yamlStr, setYamlStr] = useState('')
   const [containerOptions, setContainerOptions] = useState([])
-  const [configType, setConfigType] = useState<ConfigType>('PortForward')
+  const [configType, setConfigType] = useState<ConfigType>('Basic')
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE)
   const [isValid, setIsValid] = useState<boolean>(false)
   const [URLParams, setURLParams] = useState<SearchParams>({})
