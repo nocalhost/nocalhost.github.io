@@ -13,7 +13,7 @@ const EnvVar = () => {
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles['directory-item']} key={field.fieldKey}>
+              <div className={styles['directory-item']} key={field.key}>
                 <Form.Item
                   label={
                     index === 0

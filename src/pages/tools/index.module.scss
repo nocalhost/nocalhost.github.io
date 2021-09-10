@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
   }
-  padding: 20px 0;
+  padding: 20px 8%;
   display: flex;
   justify-content: center;
   background: #f5f7fa;
@@ -45,12 +45,19 @@
             margin-left: 10px;
             font-size: 14px;
             color: #ff7d00;
+            &.valid {
+              color: #4ac285;
+            }
           }
         }
       }
     }
     .content {
       padding: 20px;
+      .container-option {
+        display: flex;
+        justify-content: space-between;
+      }
       .form-line {
         display: flex;
         justify-content: space-between;
@@ -170,7 +177,7 @@
     background: rgb(13, 28, 63);
     border-radius: 8px;
     box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
-    width: 420px;
+    flex: 1;
     min-height: 788px;
     max-height: 876px;
     overflow: scroll;

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Layout from '@theme/Layout'
 
 import styles from './index.module.scss'
-import { Button, Form, Select, Input, Tooltip, message } from 'antd'
+import { Button, Form, Select, Input, message } from 'antd'
 import BasicConfig from './components/BasicConfig'
 import FileSync from './components/FileSync'
 import RunAndDebug from './components/RunAndDebug'
@@ -18,6 +18,7 @@ import IconWaring from './images/icon_label_warning.svg'
 import IconSuccess from './images/icon_label_success.svg'
 import IconOption from './images/icon_label_option.svg'
 import IconAdd from './images/icon_add.svg'
+import IconDel from './images/icon_del.svg'
 import ImageYamlEmpty from './images/image_yamlEmpty.svg'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
@@ -65,7 +66,6 @@ const Tools = () => {
   const [URLParams, setURLParams] = useState<SearchParams>({})
   const [showResult, setShowResult] = useState<string>('')
   const [containerName, setContainerName] = useState<string>('')
-  // const [containerIndex, setContainerIndex] = useState<number>(0)
 
   const timer = useRef<number | null>()
   const search = location.search
@@ -93,11 +93,8 @@ const Tools = () => {
         serviceType: type,
         containers: containerArr.map((item) => {
           return {
-            ...DEFAULT_CONTAINER,
             name: item.label,
-            dev: {
-              image: '',
-            },
+            ...DEFAULT_CONTAINER,
           }
         }),
       })
@@ -119,7 +116,6 @@ const Tools = () => {
   }, [yamlObj])
 
   const handleFieldChange = (changedFields: any) => {
-    console.log('>>> change field: ', changedFields)
     if (timer.current) {
       clearTimeout(timer.current)
       timer.current = null
@@ -520,15 +516,18 @@ const Tools = () => {
                   <Translate>Parameter configuration</Translate>
                 </span>
                 <div className={styles['warning']}>
-                  <Tooltip
-                    title={translate({
-                      message: isValid
-                        ? 'You have completed the minimal development configuration'
-                        : 'You have not yet completed the minimal development configuration',
+                  {isValid ? <IconSuccess /> : <IconWaring />}
+                  <span
+                    className={cx({
+                      valid: isValid,
                     })}
                   >
-                    {isValid ? <IconSuccess /> : <IconWaring />}
-                  </Tooltip>
+                    {translate({
+                      message: isValid
+                        ? 'Completed the minimal development configuration'
+                        : 'Not yet completed the minimal development configuration',
+                    })}
+                  </span>
                 </div>
               </div>
               <Button onClick={handleApply} disabled={!isValid} type="primary">
