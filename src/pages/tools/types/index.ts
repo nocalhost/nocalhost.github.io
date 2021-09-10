@@ -10,6 +10,7 @@ export type ConfigType =
   | 'Volume'
   | 'ResourceLimit'
   | 'DevEnv'
+  | 'PortForward'
 
 export interface MenuItem {
   name: string
@@ -46,6 +47,7 @@ export interface Container {
     debug?: {
       remoteDebugPort?: string
     }
+    hotReload?: boolean
     useDevContainer?: string
     sync?: {
       type?: string

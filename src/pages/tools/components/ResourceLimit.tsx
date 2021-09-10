@@ -14,6 +14,7 @@ const ResourceLimit = () => {
           <Input
             style={{ width: 222 }}
             placeholder={translate({ message: 'Please Input Memory' })}
+            suffix="Mi"
           />
         </Form.Item>
         <Form.Item
@@ -23,6 +24,7 @@ const ResourceLimit = () => {
           <Input
             style={{ width: 222 }}
             placeholder={translate({ message: 'Please Input Memory' })}
+            suffix="Mi"
           />
         </Form.Item>
       </div>

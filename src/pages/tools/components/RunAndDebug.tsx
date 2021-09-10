@@ -25,7 +25,7 @@ const RunAndDebug = () => {
       >
         <Input
           placeholder={translate({
-            message: 'Please Input Run Command, eg: ["/bin/sh","-c"]',
+            message: 'Please Input Run Command',
           })}
           style={{ width: 460 }}
         />

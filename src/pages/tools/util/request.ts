@@ -16,7 +16,7 @@ function post(url: string, data: any) {
 }
 
 export const saveConfig = async (data: SaveInfo) => {
-  return post('config-save', data)
+  return (await post('config-save', data)).json()
 }
 
 export { post }

@@ -14,33 +14,50 @@ const EnvVar = () => {
           <>
             {fields.map((field, index) => (
               <div className={styles['directory-item']} key={field.fieldKey}>
-                <div className={styles['form-item']}>
-                  <Form.Item
-                    {...field}
-                    name={[field.name, 'name']}
-                    fieldKey={[field.fieldKey, 'name']}
-                    style={{ marginBottom: 0, marginRight: 36 }}
-                  >
-                    <Input
-                      placeholder={translate({
-                        message: 'Please Input Directory',
-                      })}
-                      style={{ width: 190 }}
-                    />
-                  </Form.Item>
-                  <Form.Item
-                    {...field}
-                    style={{ marginBottom: 0 }}
-                    name={[field.name, 'value']}
-                    fieldKey={[field.fieldKey, 'value']}
-                  >
-                    <Input
-                      placeholder={translate({ message: 'Please Input Size' })}
-                      style={{ width: 190 }}
-                    />
-                  </Form.Item>
-                </div>
-                <div onClick={() => remove(field.name)}>
+                <Form.Item
+                  label={
+                    index === 0
+                      ? translate({
+                          message: 'Development environment variables',
+                        })
+                      : ''
+                  }
+                  style={{ marginBottom: 0 }}
+                >
+                  <div className={styles['form-item']}>
+                    <Form.Item
+                      {...field}
+                      name={[field.name, 'name']}
+                      fieldKey={[field.fieldKey, 'name']}
+                      style={{ marginBottom: 0, marginRight: 36 }}
+                    >
+                      <Input
+                        placeholder={translate({
+                          message: 'Please Input Directory',
+                        })}
+                        style={{ width: 190 }}
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      {...field}
+                      style={{ marginBottom: 0 }}
+                      name={[field.name, 'value']}
+                      fieldKey={[field.fieldKey, 'value']}
+                    >
+                      <Input
+                        placeholder={translate({
+                          message: 'Please Input Size',
+                        })}
+                        style={{ width: 190 }}
+                      />
+                    </Form.Item>
+                  </div>
+                </Form.Item>
+
+                <div
+                  className={index === 0 ? styles['remove'] : styles['normal']}
+                  onClick={() => remove(field.name)}
+                >
                   <IconRemove />
                 </div>
               </div>
@@ -48,7 +65,7 @@ const EnvVar = () => {
             <div className={styles['add-field']} onClick={() => add()}>
               <IconAdd />
               <span style={{ marginLeft: 4 }}>
-                <Translate>Add Ignore Sync Directory</Translate>
+                <Translate>Add Development environment variables</Translate>
               </span>
             </div>
           </>

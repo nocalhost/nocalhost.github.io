@@ -1,64 +1,57 @@
 import React from 'react'
 import { Form, Input } from 'antd'
 import Translate, { translate } from '@docusaurus/Translate'
-
-import { ItemLabel } from './RunAndDebug'
+import styles from '../index.module.scss'
 import IconAdd from '../images/icon_add.svg'
 import IconRemove from '../images/icon_remove.svg'
 
-import styles from '../index.module.scss'
-
-const Volume = () => {
+const PortForward = () => {
   return (
     <>
-      <Form.Item
-        label={<ItemLabel label="StorageClass" title="" />}
-        name="storageClass"
-      >
-        <Input
-          placeholder={translate({ message: 'Please Input StorageClass' })}
-        />
-      </Form.Item>
-      <Form.List name="persistentVolumeDirs">
+      <Form.List name="portForward">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles['directory-item']} key={field.key}>
+              <div key={field.fieldKey} className={styles['directory-item']}>
                 <Form.Item
-                  label={index === 0 ? translate({ message: 'Directory' }) : ''}
+                  label={
+                    index === 0
+                      ? translate({ message: 'Port Forward List' })
+                      : ''
+                  }
                   style={{ marginBottom: 0 }}
                 >
                   <div className={styles['form-item']}>
                     <Form.Item
                       {...field}
+                      name={[field.name, 'local']}
                       style={{ marginBottom: 0, marginRight: 36 }}
-                      name={[field.name, 'path']}
-                      fieldKey={[field.fieldKey, 'path']}
                     >
                       <Input
                         placeholder={translate({
-                          message: 'Please Input Directory',
+                          message: 'Please Input Local Port',
                         })}
                         style={{ width: 190 }}
                       />
                     </Form.Item>
                     <Form.Item
                       {...field}
+                      name={[field.name, 'container']}
                       style={{ marginBottom: 0 }}
-                      name={[field.name, 'capacity']}
-                      fieldKey={[field.fieldKey, 'capacity']}
                     >
                       <Input
                         placeholder={translate({
-                          message: 'Please Input Size',
+                          message: 'Please Input Container Port',
                         })}
                         style={{ width: 190 }}
                       />
                     </Form.Item>
                   </div>
                 </Form.Item>
-
-                <div onClick={() => remove(field.name)}>
+                <div
+                  className={index === 0 ? styles['remove'] : styles['normal']}
+                  onClick={() => remove(field.name)}
+                >
                   <IconRemove />
                 </div>
               </div>
@@ -66,7 +59,7 @@ const Volume = () => {
             <div className={styles['add-field']} onClick={() => add()}>
               <IconAdd />
               <span style={{ marginLeft: 4 }}>
-                <Translate>Add Directory</Translate>
+                <Translate>Add Port Forward</Translate>
               </span>
             </div>
           </>
@@ -76,4 +69,4 @@ const Volume = () => {
   )
 }
 
-export default Volume
+export default PortForward
