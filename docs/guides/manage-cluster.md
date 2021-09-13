@@ -2,7 +2,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Manger Cluster
+# Manage Cluster
 
 ## Connect to Kubernetes Cluster
 
@@ -13,7 +13,9 @@ Nocalhost supports multi cluster management, There are two methods that you can 
 Select the `KubeConfig` file from any local directory.
 
 :::tip Default KubeConfig
+
 Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by default.
+
 :::
 
 **Paste KubeConfig as Text**
@@ -21,11 +23,13 @@ Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by defa
 Past the `KubeConfig` as a text.
 
 :::tip Get KubeConfig
+
 You can use the following command to view your `KubeConfig`, copy and paste to the Nocalhost plugin.
 
 ```bash
 kubectl config view --minify --raw --flattern
 ```
+
 :::
 
 <Tabs
@@ -56,7 +60,9 @@ kubectl config view --minify --raw --flattern
 ## Remove Cluster
 
 :::note KubeConfig Unchanged
-Nocalhost will only remove the cluster from the tree list, it will not modify your `KubeConfig`
+
+Nocalhost will only remove the cluster from inspector, it will not modify your `KubeConfig`.
+
 :::
 
 <Tabs
@@ -97,7 +103,7 @@ Right-click the specified cluster and select `View KubeConfig`, the Nocalhost pl
 <TabItem value="vscode">
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/opt/idea-view-config.gif')} width="600" />
+  <img className="gif-img" src={useBaseUrl('/img/opt/vscode-view-config.gif')} width="600" />
   <figcaption>View KubeConfig in VS Code</figcaption>
 </figure>
 
@@ -106,7 +112,7 @@ Right-click the specified cluster and select `View KubeConfig`, the Nocalhost pl
 <TabItem value="jet">
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/opt/vscode-view-config.gif')} width="600" />
+  <img className="gif-img" src={useBaseUrl('/img/opt/idea-view-config.gif')} width="600" />
   <figcaption>View KubeConfig in JetBrains IDE</figcaption>
 </figure>
 

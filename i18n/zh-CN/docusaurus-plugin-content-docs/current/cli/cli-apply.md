@@ -1,3 +1,0 @@
----
-title: nhctl apply
----

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>status_running</title>
+    <g id="Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Visual-Studio" transform="translate(-227.000000, -182.000000)" fill="#70D47C">
+            <g id="status_running" transform="translate(227.000000, 182.000000)">
+                <circle id="椭圆形" cx="7" cy="7" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

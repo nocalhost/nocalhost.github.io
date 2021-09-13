@@ -259,12 +259,6 @@ application:
                 capacity: 100Gi
 
             command: 
-              # Build command of the service(Not currently implemented)
-              # type: string[]
-              # default value: [""]
-              # optional
-              build: ["./gradlew", "package"]
-
               # Run command of the service
               # default value: [""]
               # optional
@@ -275,18 +269,6 @@ application:
               # default value: [""]
               # optional
               debug: ["./gradlew", "bootRun", "--debug-jvm"]
-
-              # Hot-reload run command of the service(Not currently implemented)
-              # type: string[]
-              # default value: [""]
-              # optional
-              hotReloadRun: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun"]
-
-              # Hot-reload debug command of the service(Not currently implemented)
-              # type: string[]
-              # default value: [""]
-              # optional
-              hotReloadDebug: ["bash", "-c", "kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`; gradlew bootRun --debug-jvm"]
 
             # Specify debug parameter
             # type: object

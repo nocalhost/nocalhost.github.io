@@ -101,6 +101,10 @@
     -webkit-box-orient: vertical;
 }
 
+.video-frame {
+  height: 400px;
+}
+
 /** Tab **/
 [role=tabpanel] {
   background-color: var(--ifm-color-lightest);
@@ -158,4 +162,9 @@ ul ul .table-of-contents__link--active:before {
 /** Icon **/
 .svg-icon {
   margin: 0 3px;
+}
+
+/** <code> **/
+.h2 code, .h3 code {
+  text-transform: lowercase !important;
 }
