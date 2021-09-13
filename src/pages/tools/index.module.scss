@@ -52,13 +52,15 @@
         }
       }
     }
+
     .content {
       padding: 20px;
-      .container-option {
+
+      .form-line {
         display: flex;
         justify-content: space-between;
       }
-      .form-line {
+      .container-option {
         display: flex;
         justify-content: space-between;
       }
@@ -259,5 +261,33 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+}
+
+.container-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .delete {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .option-left {
+    display: flex;
+    align-items: center;
+    .icon {
+      display: flex;
+      align-items: center;
+      margin-right: 4px;
+    }
+  }
+}
+
+:global(.ant-select-single) {
+  .delete {
+    visibility: hidden;
   }
 }

@@ -1,34 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { Form, Input, Select, AutoComplete } from 'antd'
+import { Form, Input, Select, AutoComplete } from "antd";
 
-import Translate, { translate } from '@docusaurus/Translate'
+import Translate, { translate } from "@docusaurus/Translate";
 
-import styles from '../index.module.scss'
+import styles from "../index.module.scss";
 
-import { IMAGE_OPTIONS } from '../constants'
-import IconArrowDown from '../images/arrow_down.svg'
-import IconArrowRight from '../images/arrow_right.svg'
+import { IMAGE_OPTIONS } from "../constants";
+import IconArrowDown from "../images/arrow_down.svg";
+import IconArrowRight from "../images/arrow_right.svg";
+import DownArrow from "./DownArrow";
 
 const BasicConfig = () => {
-  const [unfold, setUnfold] = useState<boolean>(false)
+  const [unfold, setUnfold] = useState<boolean>(false);
 
   return (
     <>
       <Form.Item
-        label={translate({ message: 'Container Name' })}
+        label={translate({ message: "Container Name" })}
         rules={[{ required: true }]}
         name="name"
       >
         <Input
           style={{ width: 460 }}
           placeholder={translate({
-            message: 'Please Input Container Name',
+            message: "Please Input Container Name",
           })}
         />
       </Form.Item>
       <Form.Item
-        label={translate({ message: 'Development Image' })}
+        label={translate({ message: "Development Image" })}
         rules={[{ required: true }]}
         name="image"
       >
@@ -36,12 +37,13 @@ const BasicConfig = () => {
           style={{ width: 460 }}
           options={IMAGE_OPTIONS}
           placeholder={translate({
-            message: 'Please Select Development Image',
+            message: "Please Select Development Image",
           })}
+          suffixIcon={DownArrow}
         />
       </Form.Item>
       <div
-        className={styles['config-title']}
+        className={styles["config-title"]}
         onClick={() => setUnfold(!unfold)}
       >
         {unfold ? <IconArrowDown /> : <IconArrowRight />}
@@ -50,17 +52,17 @@ const BasicConfig = () => {
         </span>
       </div>
       {unfold && (
-        <div className={styles['config-others']}>
+        <div className={styles["config-others"]}>
           <Form.Item
             label={translate({
-              message: 'Git Depository URL',
+              message: "Git Depository URL",
             })}
             name="gitUrl"
           >
             <Input
               style={{ width: 436 }}
               placeholder={translate({
-                message: 'Please Input Git Depository URL',
+                message: "Please Input Git Depository URL",
               })}
             />
           </Form.Item>
@@ -68,18 +70,18 @@ const BasicConfig = () => {
             <Input
               style={{ width: 436 }}
               placeholder={translate({
-                message: 'Please Input Shell',
+                message: "Please Input Shell",
               })}
             />
           </Form.Item>
           <Form.Item
-            label={translate({ message: 'Work Directory' })}
+            label={translate({ message: "Work Directory" })}
             name="workDir"
           >
             <Input
               style={{ width: 436 }}
               placeholder={translate({
-                message: 'Please Input Work Directory',
+                message: "Please Input Work Directory",
               })}
             />
           </Form.Item>
@@ -87,14 +89,14 @@ const BasicConfig = () => {
             <Input
               style={{ width: 436 }}
               placeholder={translate({
-                message: 'Please Input Sidecar Image URL',
+                message: "Please Input Sidecar Image URL",
               })}
             />
           </Form.Item>
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default BasicConfig
+export default BasicConfig;
