@@ -25,6 +25,12 @@
       align-items: center;
       box-shadow: inset 0px -1px 0px 0px rgb(234, 236, 240);
 
+      :global(.ant-btn-primary[disabled]) {
+        background: #7fc0ff;
+        position: relative;
+        color: #fff;
+      }
+
       &-content {
         display: flex;
         align-items: center;
@@ -184,13 +190,19 @@
     max-height: 876px;
     overflow: scroll;
     color: #fff;
-    padding: 16px 20px 0;
+    padding: 16px 0;
     .title {
+      padding: 0 20px;
       font-family: PingFangSC-Semibold;
       font-size: 20px;
       font-weight: 600;
       display: flex;
       justify-content: space-between;
+
+      :global(.ant-btn) {
+        background: transparent;
+        color: #fff;
+      }
     }
     .content {
       margin-top: 26px;

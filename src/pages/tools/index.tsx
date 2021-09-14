@@ -551,9 +551,15 @@ const Tools = () => {
                   </span>
                 </div>
               </div>
-              <Button onClick={handleApply} disabled={!isValid} type="primary">
-                <Translate>Apply</Translate>
-              </Button>
+              {URLParams?.from === 'daemon' && (
+                <Button
+                  onClick={handleApply}
+                  disabled={!isValid}
+                  type="primary"
+                >
+                  <Translate>Apply</Translate>
+                </Button>
+              )}
             </div>
             <div className={styles['content']}>
               <Form
@@ -693,11 +699,13 @@ const Tools = () => {
           <div className={styles['right']}>
             <div className={styles['title']}>
               <Translate>Yaml Preview</Translate>
-              <CopyToClipboard onCopy={handleCopy} text={yamlStr}>
-                <Button>
-                  <Translate>Copy</Translate>
-                </Button>
-              </CopyToClipboard>
+              {isValid && (
+                <CopyToClipboard onCopy={handleCopy} text={yamlStr}>
+                  <Button>
+                    <Translate>Copy</Translate>
+                  </Button>
+                </CopyToClipboard>
+              )}
             </div>
             <div className={styles['content']}>
               <Input.TextArea
