@@ -1,10 +1,11 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .tool-wrap {
-  ul,
-  li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
   padding: 20px 8%;
   display: flex;
   justify-content: center;
@@ -188,11 +189,12 @@
     flex: 1;
     min-height: 788px;
     max-height: 876px;
-    overflow: scroll;
+    overflow: hidden;
     color: #fff;
     padding: 16px 0;
     .title {
       padding: 0 20px;
+      margin-bottom: 26px;
       font-family: PingFangSC-Semibold;
       font-size: 20px;
       font-weight: 600;
@@ -205,7 +207,6 @@
       }
     }
     .content {
-      margin-top: 26px;
       white-space: pre-wrap;
       font-family: Menlo-Regular;
       font-size: 16px;
@@ -237,6 +238,47 @@
       box-shadow: 0px 4px 8px 0px rgba(40, 47, 55, 0.05);
       border-radius: 8px;
     }
+
+    .fail {
+      &-list {
+        font-size: 16px;
+      }
+      &-item {
+        word-break: break-all;
+        .number {
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+          justify-content: center;
+          align-items: center;
+          background: rgb(0, 128, 255);
+          border: 2px solid rgb(255, 255, 255);
+          box-shadow: 0px 3px 8px 0px rgba(0, 128, 255, 0.3);
+          border-radius: 50%;
+          color: #fff;
+        }
+        :global(.ant-btn) {
+          height: 28px;
+          width: 68px;
+          padding: 0;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          background: #d9ecff;
+          border-radius: 4px;
+          span {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        &:not(:first-child) {
+          margin-top: 22px;
+        }
+      }
+    }
   }
   &-title {
     margin-top: 20px;
@@ -250,12 +292,12 @@
     color: #79879c;
   }
   &-content {
-    margin-top: 20px;
+    margin: 20px 0 40px;
     background: rgb(255, 255, 255);
     border-radius: 8px;
     border: 1px solid rgba(218, 225, 232, 0.25);
     box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
-    height: 323px;
+    min-height: 323px;
     width: 700px;
     padding: 30px 40px;
     .title {

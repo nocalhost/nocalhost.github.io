@@ -342,7 +342,6 @@ const Tools = () => {
   }
 
   const handleSelectSearch = (value) => {
-    console.log('>>> value')
     setContainerName(value)
   }
 
@@ -728,7 +727,7 @@ const Tools = () => {
           </div>
         </div>
       )}
-      {showResult && <Result status={showResult} />}
+      {showResult && <Result status={showResult} workload={yamlObj.name} />}
     </Layout>
   )
 }
