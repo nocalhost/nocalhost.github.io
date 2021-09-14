@@ -42,8 +42,10 @@ const Result = ({ status, workload = '', yamlStr = '' }) => {
         <div className={styles['result-content']}>
           {status === 'success' ? (
             <>
-              <div className={styles['title']}>
-                <IconLamp />
+              <div className={cx(styles['title'], styles['success-item'])}>
+                <span className={styles['number']}>
+                  <IconLamp />
+                </span>
                 <span>
                   {translate(
                     {
