@@ -67,7 +67,7 @@ const Tools = () => {
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE)
   const [isValid, setIsValid] = useState<boolean>(false)
   const [URLParams, setURLParams] = useState<SearchParams>({})
-  const [showResult, setShowResult] = useState<string>('success')
+  const [showResult, setShowResult] = useState<string>('')
   const [containerName, setContainerName] = useState<string>('')
 
   const timer = useRef<number | null>()
