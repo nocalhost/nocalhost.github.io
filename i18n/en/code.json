@@ -544,5 +544,32 @@
   },
   "Add Directory": {
     "message": "Add Directory"
+  },
+  "Completed the minimal development configuration": {
+    "message": "Completed the minimal development configuration"
+  },
+  "Not yet completed the minimal development configuration": {
+    "message": "Not yet completed the minimal development configuration"
+  },
+  "Basic Config": {
+    "message": "Basic Config"
+  },
+  "File Synchronization": {
+    "message": "File Synchronization"
+  },
+  "Run And Debug": {
+    "message": "Run And Debug"
+  },
+  "Volume": {
+    "message": "Volume"
+  },
+  "Resource Limit": {
+    "message": "Resource Limit"
+  },
+  "Development Variable": {
+    "message": "Development Variable"
+  },
+  "Port Forward": {
+    "message": "Port Forward"
   }
 }

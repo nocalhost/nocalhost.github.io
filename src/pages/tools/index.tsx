@@ -539,11 +539,15 @@ const Tools = () => {
                       valid: isValid,
                     })}
                   >
-                    {translate({
-                      message: isValid
-                        ? 'Completed the minimal development configuration'
-                        : 'Not yet completed the minimal development configuration',
-                    })}
+                    {isValid ? (
+                      <Translate>
+                        Completed the minimal development configuration
+                      </Translate>
+                    ) : (
+                      <Translate>
+                        Not yet completed the minimal development configuration
+                      </Translate>
+                    )}
                   </span>
                 </div>
               </div>
