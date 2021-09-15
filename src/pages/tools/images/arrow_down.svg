@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow_down</title>
+    <g id="官网相关" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-参数配置-基础配置-其他项折叠" transform="translate(-810.000000, -458.000000)" fill="#36435C">
+            <g id="编组-4" transform="translate(120.000000, 92.000000)">
+                <g id="编组-5" transform="translate(20.000000, 240.000000)">
+                    <g id="编组-6备份-3" transform="translate(240.000000, 92.000000)">
+                        <g id="编组-12" transform="translate(0.000000, 28.000000)">
+                            <g id="Arrows/Caret-Down" transform="translate(430.000000, 6.000000)">
+                                <path d="M5.92318723,8.78033009 L9.29289322,12.1500361 C9.68341751,12.5405604 10.3165825,12.5405604 10.7071068,12.1500361 L14.0768128,8.78033009 C14.369706,8.48743687 14.369706,8.01256313 14.0768128,7.71966991 C13.9361605,7.57901763 13.7453951,7.5 13.5464827,7.5 L6.45351731,7.5 C6.03930375,7.5 5.70351731,7.83578644 5.70351731,8.25 C5.70351731,8.44891237 5.78253494,8.6396778 5.92318723,8.78033009 Z" id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

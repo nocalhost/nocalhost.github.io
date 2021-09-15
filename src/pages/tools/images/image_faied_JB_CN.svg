@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="283px" height="228px" viewBox="0 0 283 228" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>image_faied_JB_CN</title>
+    <defs>
+        <path d="M4,0 L279,0 C281.209139,-4.05812251e-16 283,1.790861 283,4 L283,224 C283,226.209139 281.209139,228 279,228 L4,228 C1.790861,228 2.705415e-16,226.209139 0,224 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="path-1"></path>
+        <path d="M2,0 L99,0 C100.104569,-2.02906125e-16 101,0.8954305 101,2 L101,67 C101,68.1045695 100.104569,69 99,69 L2,69 C0.8954305,69 1.3527075e-16,68.1045695 0,67 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="path-3"></path>
+        <filter x="-13.4%" y="-19.6%" width="126.7%" height="139.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.211764706   0 0 0 0 0.262745098   0 0 0 0 0.360784314  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="10-应用状态-失败" transform="translate(-747.000000, -536.000000)">
+            <g id="编组-4" transform="translate(120.000000, 92.000000)">
+                <g id="编组-13" transform="translate(250.000000, 335.000000)">
+                    <g id="编组-10备份" transform="translate(377.000000, 109.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="image_faied_JB_CN" fill="#F9FBFD" xlink:href="#path-1"></use>
+                        <g id="编组-11" mask="url(#mask-2)">
+                            <g id="编组-12">
+                                <path d="M4,0 L279,0 C281.209139,-4.05812251e-16 283,1.790861 283,4 L283,54 L283,54 L0,54 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="矩形" fill="#E5F2FF"></path>
+                                <circle id="椭圆形" stroke="#FFFFFF" fill="#0080FF" cx="13" cy="17" r="4"></circle>
+                                <text id="Jetbrains-插件请右击服务，选择" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal">
+                                    <tspan x="26" y="22" fill="#36435C">Jetbrains</tspan>
+                                    <tspan x="89.126186" y="22" letter-spacing="-5" fill="#36435C"> </tspan>
+                                    <tspan x="96.3466977" y="22" fill="#36435C">插件请右击服务，选择“</tspan>
+                                    <tspan x="248.715953" y="22" fill="#0080FF">Dev </tspan>
+                                    <tspan x="26" y="42" fill="#0080FF">Config</tspan>
+                                    <tspan x="69.008" y="42" fill="#36435C">”进入配置页，并粘贴开发参数</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="编组-14" mask="url(#mask-2)">
+                            <g transform="translate(6.000000, 64.000000)">
+                                <rect id="矩形" stroke="none" fill="#0080FF" fill-rule="evenodd" x="40" y="77" width="231" height="20" rx="2"></rect>
+                                <line x1="7" y1="14" x2="7" y2="176" id="路径-6" stroke="#D4DFEB" stroke-width="1" fill="none" opacity="0.5"></line>
+                                <line x1="17" y1="34" x2="17" y2="196" id="路径-6备份" stroke="#D4DFEB" stroke-width="1" fill="none" opacity="0.5"></line>
+                                <line x1="27" y1="54" x2="27" y2="216" id="路径-6备份-2" stroke="#D4DFEB" stroke-width="1" fill="none" opacity="0.5"></line>
+                                <line x1="37" y1="74" x2="37" y2="236" id="路径-6备份-3" stroke="#D4DFEB" stroke-width="1" fill="none" opacity="0.5"></line>
+                                <g id="编组-7" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="namespace备份-2" transform="translate(20.000000, 0.000000)" fill="#D4DFEB" fill-rule="nonzero">
+                                        <g id="应用" transform="translate(1.000000, 0.419851)">
+                                            <path d="M5.46114286,12.5384047 L5.46114286,7.47263923 C5.46114286,7.03832946 5.17371429,6.60401971 4.81428572,6.38656937 L0.64685715,3.78189259 C0.287428571,3.63653178 0,3.78189259 0,4.14352195 L0,9.20928739 C0,9.64359715 0.287428571,10.0779069 0.64685715,10.2947663 L4.81428572,12.9006249 C5.17371429,13.1174843 5.46114286,12.9727144 5.46114286,12.5384047 Z M1.29314286,2.91327308 L5.38914286,5.51854075 C5.74857143,5.73540018 6.252,5.73540018 6.61085715,5.59063026 L10.7068572,3.49176186 C11.0657143,3.27490243 11.0657143,2.98536258 10.7068572,2.76850315 L6.39542858,0.162644572 C6.10800001,-0.0542148573 5.53257144,-0.0542148573 5.17371429,0.162644572 L1.29371429,2.18942347 C0.934285721,2.4062829 0.934285721,2.69582274 1.29314286,2.91327308 Z M7.25771429,12.900034 L11.3531429,10.8011656 C11.7125714,10.5843062 12,10.1499964 12,9.71568666 L12,4.65051213 C12,4.21620236 11.7125714,4.07143244 11.3531429,4.28888277 L7.25771429,6.38716027 C6.89771428,6.60461059 6.61085715,7.03892036 6.61085715,7.47323012 L6.61085715,12.5389956 C6.61085715,12.9727144 6.89828572,13.1174844 7.25771429,12.900034 Z" id="形状"></path>
+                                        </g>
+                                    </g>
+                                    <g id="arrow_down" stroke="#D4DFEB" stroke-width="2">
+                                        <polyline id="路径-7" points="2.5 5 7 9.5 11.5 5"></polyline>
+                                    </g>
+                                    <path d="M44,3 L96,3 C98.209139,3 100,4.790861 100,7 C100,9.209139 98.209139,11 96,11 L44,11 C41.790861,11 40,9.209139 40,7 C40,4.790861 41.790861,3 44,3 Z" id="矩形" fill="#D4DFEB"></path>
+                                </g>
+                                <g id="编组-7备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(10.000000, 20.000000)">
+                                    <g id="app_connected备份-2" transform="translate(20.000000, 0.000000)" fill="#D4DFEB">
+                                        <path d="M7,2 C8.87116425,2 10.4422446,3.2848121 10.8791657,5.02036107 C12.6334179,5.2088765 14,6.69484707 14,8.5 C14,10.2629068 12.6966339,11.7213961 11.0009499,11.9644196 L11,12 L4,12 C1.790861,12 0,10.209139 0,8 C0,5.95358546 1.53674929,4.26609794 3.5191836,4.02860171 C4.20617545,2.81725705 5.50764742,2 7,2 Z M8.84877393,5.57471429 L6.0203468,8.40314142 L4.60613324,6.98892785 L3.89902646,7.69603463 L6.0203468,9.81735498 L9.55588071,6.28182107 L8.84877393,5.57471429 Z" id="形状结合"></path>
+                                    </g>
+                                    <g id="arrow_down" stroke="#D4DFEB" stroke-width="2">
+                                        <polyline id="路径-7" points="2.5 5 7 9.5 11.5 5"></polyline>
+                                    </g>
+                                    <path d="M44,3 L86,3 C88.209139,3 90,4.790861 90,7 C90,9.209139 88.209139,11 86,11 L44,11 C41.790861,11 40,9.209139 40,7 C40,4.790861 41.790861,3 44,3 Z" id="矩形" fill="#D4DFEB"></path>
+                                </g>
+                                <g id="编组-7备份-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(20.000000, 40.000000)">
+                                    <g id="arrow_down" stroke="#D4DFEB" stroke-width="2">
+                                        <polyline id="路径-7" points="2.5 5 7 9.5 11.5 5"></polyline>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="90" height="8" rx="4"></rect>
+                                </g>
+                                <g id="编组-7备份-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(30.000000, 60.000000)">
+                                    <g id="arrow_down" stroke="#D4DFEB" stroke-width="2">
+                                        <polyline id="路径-7" points="2.5 5 7 9.5 11.5 5"></polyline>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="80" height="8" rx="4"></rect>
+                                </g>
+                                <g id="编组-7备份-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 80.000000)">
+                                    <g id="status_running备份-2" fill="#5DE29E">
+                                        <circle id="椭圆形" cx="7" cy="7" r="3"></circle>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="100" height="8" rx="4"></rect>
+                                </g>
+                                <g id="编组-7备份-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 100.000000)">
+                                    <g id="status_running备份-2" fill="#5DE29E">
+                                        <circle id="椭圆形" cx="7" cy="7" r="3"></circle>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="100" height="8" rx="4"></rect>
+                                </g>
+                                <g id="编组-7备份-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 120.000000)">
+                                    <g id="status_running备份-2" fill="#5DE29E">
+                                        <circle id="椭圆形" cx="7" cy="7" r="3"></circle>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="100" height="8" rx="4"></rect>
+                                </g>
+                                <g id="编组-7备份-7" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 140.000000)">
+                                    <g id="status_running备份-2" fill="#5DE29E">
+                                        <circle id="椭圆形" cx="7" cy="7" r="3"></circle>
+                                    </g>
+                                    <rect id="矩形" fill="#D4DFEB" x="20" y="3" width="100" height="8" rx="4"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="编组-16" mask="url(#mask-2)">
+                            <g transform="translate(176.000000, 137.000000)">
+                                <g id="矩形" fill="none">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                                    <use fill="#F9FBFD" fill-rule="evenodd" xlink:href="#path-3"></use>
+                                </g>
+                                <g id="编组-17" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(6.000000, 43.000000)">
+                                    <path d="M2,0 L87,0 C88.1045695,-8.05134447e-15 89,0.8954305 89,2 L89,18 C89,19.1045695 88.1045695,20 87,20 L2,20 C0.8954305,20 1.3527075e-16,19.1045695 0,18 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="矩形" fill="#0080FF"></path>
+                                    <g id="setting_normal备份-2" transform="translate(3.000000, 3.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                        <path d="M8.1,3.4 L7.6,1 L6.4,1 L5.9,3.4 L5.2,3.7 L3.2,2.4 L2.3,3.2 L3.6,5.2 L3.4,5.9 L1,6.4 L1,7.6 L3.4,8.1 L3.7,8.9 L2.4,10.9 L3.2,11.7 L5.2,10.4 L6,10.7 L6.4,13 L7.6,13 L8.1,10.6 L8.9,10.3 L10.9,11.6 L11.7,10.8 L10.4,8.8 L10.7,8 L13,7.6 L13,6.4 L10.6,5.9 L10.3,5.1 L11.6,3.1 L10.8,2.3 L8.8,3.6 L8.1,3.4 L8.1,3.4 Z M8.4,0 L8.9,2.4 L11,1.1 L13,3.1 L11.6,5.2 L14,5.6 L14,8.4 L11.6,8.9 L13,11 L11,13 L8.9,11.6 L8.4,14 L5.6,14 L5.1,11.6 L3,12.9 L1,10.9 L2.4,8.8 L0,8.4 L0,5.6 L2.4,5.1 L1.1,3 L3.1,1 L5.2,2.4 L5.6,0 L8.4,0 Z M9,7 C9,8.1 8.1,9 7,9 C5.9,9 5,8.1 5,7 C5,5.9 5.9,5 7,5 C8.1,5 9,5.9 9,7 Z M7,8 C7.6,8 8,7.6 8,7 C8,6.4 7.6,6 7,6 C6.4,6 6,6.4 6,7 C6,7.6 6.4,8 7,8 Z" id="形状"></path>
+                                    </g>
+                                    <text id="Dev-Config" font-family="PingFangSC-Semibold, PingFang SC" font-size="12" font-weight="500" line-spacing="14" fill="#FFFFFF">
+                                        <tspan x="21" y="16">Dev Config</tspan>
+                                    </text>
+                                </g>
+                                <rect id="矩形" fill="#D4DFEB" fill-rule="evenodd" x="27" y="9" width="65" height="8" rx="4"></rect>
+                                <rect id="矩形备份-4" fill="#D4DFEB" fill-rule="evenodd" x="27" y="29" width="65" height="8" rx="4"></rect>
+                                <rect id="矩形备份" fill="#D4DFEB" fill-rule="evenodd" x="9" y="6" width="14" height="14" rx="2"></rect>
+                                <rect id="矩形备份-3" fill="#D4DFEB" fill-rule="evenodd" x="9" y="26" width="14" height="14" rx="2"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

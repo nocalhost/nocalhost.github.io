@@ -15,7 +15,9 @@ In the actual development process, users do not need to know the concept of Clus
 #### Cluster Management
 
 :::tip KubeConfig
+
 If you want to manage a Cluster，then need to maintain a `KubeConfig` with the cluster's Cluster-Admin role.
+
 :::
 
 Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./manage-cluster) 
@@ -68,7 +70,7 @@ So **DevSpace** can actually be approximated as **Application** + **Kubeconfig**
 
 #### Application Management
 
-If you need to manage **Applications**, you can refer to [Manage User](./manage-user) 
+If you need to manage **Applications**, you can refer to [Manage Application](./manage-app) 
 
 ### Service
 
@@ -78,7 +80,9 @@ If you need to manage **Applications**, you can refer to [Manage User](./manage-
 - [Read more to learn how to configure application development](../config/config-dev)
 
 :::caution Service Configs
+
 Service configurations are not necessary, only needs when essential.
+
 :::
 
 ### User
@@ -87,7 +91,7 @@ Service configurations are not necessary, only needs when essential.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/server/user-and-space.png')} width="800"/>
-  <figcaption>Nocalhost DevSpace</figcaption>
+  <figcaption>Nocalhost DevSpace and user</figcaption>
 </figure>
 
 There are two types of **User** in Nocalhost: **Standard User** and **System Admin**
@@ -95,9 +99,7 @@ There are two types of **User** in Nocalhost: **Standard User** and **System Adm
 #### Standard User
 
 - Can only log in IDE Plugin, users can develop under their own DevSpace. these DevSpace are all created by Administrator.
-
 - User can only see their own DevSpace, and have all the permissions under these DevSpace, such as install, uninstall (deploy and destroy), enter DevMode and port-forwarding.
-
 - Cannot log in to Nocalhost-Web, nor can they delete the DevSpace, or disassociate it from the DevSpace, which is very similar to the admin permission under a certain namespace of Kubernetes.
 
 #### System Admin

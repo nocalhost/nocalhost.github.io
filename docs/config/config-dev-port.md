@@ -34,5 +34,7 @@ containers:
 It is also possible to support not specifying the local port, such as `:10000`. Nocalhost will randomly forward the designated remote port to a local port.
 
 :::tip "More Configuration Information"
+
 Please refer to [Nocalhost Configuration](../reference/nh-config) for more detailed configuration of Nocalhost.
+
 :::

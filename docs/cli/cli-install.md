@@ -2,7 +2,7 @@
 title: nhctl install
 ---
 
-Install Application
+Deploy Application
 
 ## Usage
 
