@@ -109,8 +109,6 @@ module.exports = {
           label: 'Kubernetes Compatibilities',
           id: 'practice/cloud/k8s-compatible'
         },
-        // 'practice/apisix-controller',
-        // 'practice/kubesphere',
         // Working with Cloud
         // {
         //   type: 'category',
@@ -140,10 +138,18 @@ module.exports = {
           items: [
             'server/server-overview',
             'server/deploy-server',
-            // 'server/manage-user',
-            // 'server/manage-cluster',
-            // 'server/manage-devspace',
-            // 'server/manage-app'
+            'server/manage-user',
+            'server/manage-cluster',
+            // DevSpace
+            {
+              type: 'category',
+              label: 'Manage DevSpace',
+              items: [
+                'server/manage-devspace-iso',
+                'server/manage-devspace-mesh'
+              ]
+            },
+            'server/manage-app'
           ]
         }
       ]
