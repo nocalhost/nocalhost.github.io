@@ -1,12 +1,12 @@
-import React from 'react'
-import { Form, Input } from 'antd'
-import Translate, { translate } from '@docusaurus/Translate'
+import React from "react";
+import { Form, Input, InputNumber } from "antd";
+import Translate, { translate } from "@docusaurus/Translate";
 
-import { ItemLabel } from './RunAndDebug'
-import IconAdd from '../images/icon_add.svg'
-import IconRemove from '../images/icon_remove.svg'
+import { ItemLabel } from "./RunAndDebug";
+import IconAdd from "../images/icon_add.svg";
+import IconRemove from "../images/icon_remove.svg";
 
-import styles from '../index.module.scss'
+import styles from "../index.module.scss";
 
 const Volume = () => {
   return (
@@ -16,28 +16,33 @@ const Volume = () => {
         name="storageClass"
       >
         <Input
-          placeholder={translate({ message: 'Please Input StorageClass' })}
+          placeholder={translate({ message: "Please Input StorageClass" })}
         />
       </Form.Item>
       <Form.List name="persistentVolumeDirs">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles['directory-item']} key={field.key}>
+              <div className={styles["directory-item"]} key={field.key}>
                 <Form.Item
-                  label={index === 0 ? translate({ message: 'Directory' }) : ''}
+                  label={index === 0 ? translate({ message: "Directory" }) : ""}
                   style={{ marginBottom: 0 }}
                 >
-                  <div className={styles['form-item']}>
+                  <div className={styles["form-item"]}>
                     <Form.Item
                       {...field}
                       style={{ marginBottom: 0, marginRight: 36 }}
-                      name={[field.name, 'path']}
-                      fieldKey={[field.fieldKey, 'path']}
+                      name={[field.name, "path"]}
+                      fieldKey={[field.fieldKey, "path"]}
+                      rules={[
+                        {
+                          type: "string",
+                        },
+                      ]}
                     >
                       <Input
                         placeholder={translate({
-                          message: 'Please Input Directory',
+                          message: "Please Input Directory",
                         })}
                         style={{ width: 190 }}
                       />
@@ -45,25 +50,48 @@ const Volume = () => {
                     <Form.Item
                       {...field}
                       style={{ marginBottom: 0 }}
-                      name={[field.name, 'capacity']}
-                      fieldKey={[field.fieldKey, 'capacity']}
+                      name={[field.name, "capacity"]}
+                      fieldKey={[field.fieldKey, "capacity"]}
+                      rules={[
+                        {
+                          type: "number",
+                          message: translate({
+                            message: "Please input number",
+                          }),
+                          transform(value) {
+                            if (value) {
+                              return Number(value) + "Gi";
+                            }
+                          },
+                        },
+                      ]}
                     >
-                      <Input
+                      <InputNumber
                         placeholder={translate({
-                          message: 'Please Input Size',
+                          message: "Please Input Size",
                         })}
                         style={{ width: 190 }}
                       />
                     </Form.Item>
                   </div>
                 </Form.Item>
-
-                <div onClick={() => remove(field.name)}>
+                <div
+                  className={styles["remove-icon"]}
+                  onClick={() => remove(field.name)}
+                  style={
+                    index === 0
+                      ? {
+                          position: "relative",
+                          top: 14,
+                        }
+                      : {}
+                  }
+                >
                   <IconRemove />
                 </div>
               </div>
             ))}
-            <div className={styles['add-field']} onClick={() => add()}>
+            <div className={styles["add-field"]} onClick={() => add()}>
               <IconAdd />
               <span style={{ marginLeft: 4 }}>
                 <Translate>Add Directory</Translate>
@@ -73,7 +101,7 @@ const Volume = () => {
         )}
       </Form.List>
     </>
-  )
-}
+  );
+};
 
-export default Volume
+export default Volume;

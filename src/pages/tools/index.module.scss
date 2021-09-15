@@ -161,8 +161,14 @@ li {
 
             .remove {
               position: relative;
-              top: 16px;
+              top: 18px;
             }
+
+            .remove-icon {
+              display: flex;
+              align-items: center;
+            }
+
             .normal {
               position: relative;
               top: 4px;
