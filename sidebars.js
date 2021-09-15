@@ -58,6 +58,8 @@ module.exports = {
         },
         // Remote Run
         'guides/remote-run',
+        // Hot Reload
+        'guides/hot-reload',
         // 'guides/clear-pvc',
       ]
     },
