@@ -558,17 +558,17 @@ export default function Home() {
                     ></img>
                     <div className={styles.title}>
                       <Translate id="XiaoyingTechnology.title">
-                        Xiaoying Technology{' '}
+                        Xiaoying Technology
                       </Translate>
                     </div>
                     <div className={styles.text}>
                       <Translate id="XiaoyingTechnology.info">
-                        Xiaoying Technology is an Internet company focusing on
-                        mobile video creation tools and services. The company
-                        was established in June 2012 and is headquartered in
-                        Hangzhou. Round of financing. Use Nocalhost to improve
-                        the research and development efficiency of machine
-                        learning projects in the K8s environment.
+                        is an Internet company focusing on mobile video creation
+                        tools and services. The company was established in June
+                        2012 and is headquartered in Hangzhou. Round of
+                        financing. Use Nocalhost to improve the research and
+                        development efficiency of machine learning projects in
+                        the K8s environment.
                       </Translate>
                     </div>
                   </div>
