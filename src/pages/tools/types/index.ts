@@ -36,7 +36,10 @@ export interface Container {
         cpu?: string;
       };
     };
-    persistentVolumeDirs?: string[];
+    persistentVolumeDirs?: {
+      path: string;
+      capacity: string;
+    }[];
     command?: {
       build?: string[];
       run?: string[];

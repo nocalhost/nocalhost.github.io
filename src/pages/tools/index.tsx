@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
 
 import styles from "./index.module.scss";
-import { Button, Form, Select, Input, message } from "antd";
+import { Button, Form, Select, Input, message, Modal } from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -11,6 +11,7 @@ import ResourceLimit from "./components/ResourceLimit";
 import EnvVar from "./components/EnvVar";
 import Result from "./components/Result";
 import PortForward from "./components/PortForward";
+import GuidCard from "./components/GuideCard";
 import "antd/dist/antd.css";
 
 import Translate, { translate } from "@docusaurus/Translate";
@@ -31,7 +32,15 @@ const json2yaml = require("json2yaml");
 import { SearchParams, MenuItem, ConfigType, YamlObj } from "./types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "./constants";
 
-import { isYamlValid } from "./util";
+import {
+  isYamlValid,
+  isFileSyncValid,
+  isCommandValid,
+  isVolumeValid,
+  isLimitValid,
+  isEnvVarValid,
+  isPortForwardValid,
+} from "./util";
 import { saveConfig } from "./util/request";
 
 import classNames from "classnames/bind";
@@ -63,12 +72,19 @@ const Tools = () => {
   } as YamlObj);
   const [yamlStr, setYamlStr] = useState("");
   const [containerOptions, setContainerOptions] = useState([]);
-  const [configType, setConfigType] = useState<ConfigType>("Volume");
+  const [configType, setConfigType] = useState<ConfigType>("Basic");
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE);
   const [isValid, setIsValid] = useState<boolean>(false);
+  const [fileSyncValid, setFileSyncValid] = useState<boolean>(false);
+  const [commandValid, setCommandValid] = useState<boolean>(false);
+  const [volumeValid, setVolumeValid] = useState<boolean>(false);
+  const [limitValid, setLimitValid] = useState<boolean>(false);
+  const [envVarValid, setEnvVarValid] = useState<boolean>(false);
+  const [portForwardValid, setPortForwardValid] = useState<boolean>(false);
   const [URLParams, setURLParams] = useState<SearchParams>({});
   const [showResult, setShowResult] = useState<string>("");
   const [containerName, setContainerName] = useState<string>("");
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const timer = useRef<number | null>();
   const search = location.search;
@@ -116,6 +132,12 @@ const Tools = () => {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
     setIsValid(isYamlValid(yamlObj));
+    setFileSyncValid(isFileSyncValid(yamlObj));
+    setCommandValid(isCommandValid(yamlObj));
+    setVolumeValid(isVolumeValid(yamlObj));
+    setLimitValid(isLimitValid(yamlObj));
+    setEnvVarValid(isEnvVarValid(yamlObj));
+    setPortForwardValid(isPortForwardValid(yamlObj));
   }, [yamlObj]);
 
   const handleFieldChange = (changedFields: any) => {
@@ -127,7 +149,7 @@ const Tools = () => {
       try {
         const { containerIndex } = form.getFieldsValue();
         const { name } = changedFields[0];
-        const value = changedFields[0]?.value;
+        let value = changedFields[0]?.value;
         const len = name.length;
         const tmpYamlObj =
           yamlObj ||
@@ -289,6 +311,9 @@ const Tools = () => {
               portForward[index]?.container || "",
             ].join(":");
           } else {
+            if (field === "persistentVolumeDirs" && prop === "capacity") {
+              value = value + "Gi";
+            }
             let obj =
               tmpYamlObj.containers[containerIndex]["dev"][field][index] || {};
             obj[prop] = value;
@@ -332,6 +357,8 @@ const Tools = () => {
         message.error("Please Check Network");
         throw new Error(e);
       }
+    } else {
+      setShowModal(true);
     }
   };
 
@@ -363,7 +390,7 @@ const Tools = () => {
     tmpYamlObj.containers = tmpYamlObj.containers || [];
     tmpYamlObj.containers.push({
       name: value,
-      ...DEFAULT_CONTAINER,
+      ...JSON.parse(JSON.stringify(DEFAULT_CONTAINER)),
     });
     setYamlObj({ ...tmpYamlObj });
     setContainerOptions(tmpOptions);
@@ -440,7 +467,13 @@ const Tools = () => {
         sidecar_image,
         hotReload: !!hotReload,
         storageClass,
-        persistentVolumeDirs: persistentVolumeDirs || [],
+        persistentVolumeDirs:
+          persistentVolumeDirs?.map((item) => {
+            return {
+              ...item,
+              capacity: item?.capacity.replace("Gi", ""),
+            };
+          }) || [],
       });
 
       if (currentContainer.dev?.sync) {
@@ -550,15 +583,9 @@ const Tools = () => {
                   </span>
                 </div>
               </div>
-              {URLParams?.from === "daemon" && (
-                <Button
-                  onClick={handleApply}
-                  disabled={!isValid}
-                  type="primary"
-                >
-                  <Translate>Apply</Translate>
-                </Button>
-              )}
+              <Button onClick={handleApply} disabled={!isValid} type="primary">
+                <Translate>Apply</Translate>
+              </Button>
             </div>
             <div className={styles["content"]}>
               <Form
@@ -666,13 +693,31 @@ const Tools = () => {
                             })}
                             onClick={() => handleMenuChange(item.type)}
                           >
-                            {item.name === "Basic Config" && isValid ? (
-                              <IconSuccess />
-                            ) : item.name === "Basic Config" ? (
-                              <IconWaring />
-                            ) : (
-                              <IconOption />
-                            )}
+                            {
+                              /*Basic Config*/
+                              index === 0 &&
+                                (isValid ? <IconSuccess /> : <IconWaring />)
+                            }
+                            {index === 1 &&
+                              (fileSyncValid ? (
+                                <IconSuccess />
+                              ) : (
+                                <IconOption />
+                              ))}
+                            {index === 2 &&
+                              (commandValid ? <IconSuccess /> : <IconOption />)}
+                            {index === 3 &&
+                              (volumeValid ? <IconSuccess /> : <IconOption />)}
+                            {index === 4 &&
+                              (limitValid ? <IconSuccess /> : <IconOption />)}
+                            {index === 5 &&
+                              (envVarValid ? <IconSuccess /> : <IconOption />)}
+                            {index === 6 &&
+                              (portForwardValid ? (
+                                <IconSuccess />
+                              ) : (
+                                <IconOption />
+                              ))}
                             <span>
                               <Translate>{item.name}</Translate>
                             </span>
@@ -727,7 +772,17 @@ const Tools = () => {
           </div>
         </div>
       )}
-      {showResult && <Result status={showResult} workload={yamlObj.name} />}
+      {showResult && (
+        <Result status={showResult} workload={yamlObj.name} yamlStr={yamlStr} />
+      )}
+      <Modal
+        width={700}
+        footer={null}
+        visible={showModal}
+        onCancel={() => setShowModal(false)}
+      >
+        <GuidCard workload={yamlObj.name} yamlStr={yamlStr} />
+      </Modal>
     </Layout>
   );
 };

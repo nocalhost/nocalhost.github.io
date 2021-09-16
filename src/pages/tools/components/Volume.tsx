@@ -55,22 +55,24 @@ const Volume = () => {
                       rules={[
                         {
                           type: "number",
+
                           message: translate({
                             message: "Please input number",
                           }),
                           transform(value) {
                             if (value) {
-                              return Number(value) + "Gi";
+                              return Number(value);
                             }
                           },
                         },
                       ]}
                     >
-                      <InputNumber
+                      <Input
                         placeholder={translate({
                           message: "Please Input Size",
                         })}
                         style={{ width: 190 }}
+                        suffix="Gi"
                       />
                     </Form.Item>
                   </div>
