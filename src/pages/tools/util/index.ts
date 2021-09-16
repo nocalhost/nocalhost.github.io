@@ -184,7 +184,8 @@ export const isVolumeValid = (data) => {
               minLength: 1,
             },
             capacity: {
-              type: "number",
+              type: "string",
+              minLength: 3,
             },
           },
         },
