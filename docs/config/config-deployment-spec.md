@@ -6,10 +6,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<span id="danger"></span>
+
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Spec](config-deployment-spec.md)
 ******
+# Nocalhost 提供了哪些部署配置？
 
-## 启动顺序依赖控制
+:::danger 部分配置需额外组件
+
+
+部署配置的部分功能依赖于 **Nocalhost-Dep 组件**，如果你使用 Nocalhost Server，我们会自动帮你处理这个组件的安装，否则需要进行额外的安装。
+
+如果没有安装 **Nocalhost-Dep 组件**，部分功能将受限，文章中将会标记出那些需要借助 ** Nocalhost-Dep ** 才能实现的功能。
+
+:::
+
+## 启动顺序依赖控制 ([组件依赖](#danger))
 范例：
 ```yaml
 
@@ -41,7 +53,7 @@ application:
 
 ******
 
-## 环境变量注入
+## 环境变量注入 ([组件依赖](#danger))
 
 ### 全局变量注入
 范例：
