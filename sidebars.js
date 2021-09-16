@@ -94,6 +94,7 @@ module.exports = {
             'config/config-deployment',
             'config/config-deployment-quickstart',
             'config/config-deployment-spec',
+            'config/config-deployment-advance'
           ]
         },
       ]
