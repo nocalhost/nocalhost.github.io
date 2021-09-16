@@ -69,34 +69,35 @@ module.exports = {
       label: 'Configuration',
       collapsed: false,
       items: [
-        'config/config-ref',
-        'config/config-services',
-        'config/config-hooks',
-        // Deployments
+        'config/config',
+        'config/config-overview',
         {
           type: 'category',
-          label: 'Deployments',
+          label: 'Spec',
           items: [
-            'config/config-deploy',
-            'config/config-deploy-helm',
-            'config/config-deploy-manifest',
-            'config/config-deploy-kustomize',
+            'config/config-spec',
+            'config/config-dev-container',
+            'config/config-enhance',
+            {
+              type: 'category',
+              label: 'Pattern',
+              items: [
+                'config/config-pattern',
+              ]
+            },
+            'config/config-develop',
           ]
         },
-        // Development
+        'config/configure',
         {
           type: 'category',
-          label: 'Development',
+          label: 'Deploy',
           items: [
-            'config/config-dev',
-            'config/config-dev-workload',
-            'config/config-dev-portforward',
-            'config/config-dev-sync',
-            'config/config-dev-devcontainer',
+            'config/config-deployment',
+            'config/config-deployment-quickstart',
+            'config/config-deployment-spec',
           ]
         },
-        // ConfigMap
-        // 'config/config-configmap'
       ]
     },
     // Best Practice
