@@ -42,11 +42,18 @@ application:
 <br/>
 
 
-:::danger 部署配置放哪里？有什么命名要求？
+:::danger 部署配置独特的配置方式 ———— `config.yaml`
 
 部署配置的命名一般为 `config.yaml`，也可以使用其他命名，推荐使用 `config.yaml`。
 
 `config.yaml` 需固定放在 git 主目录下的 .nocalhost 文件夹中。
+
+```dotenv
+├── .nocalhost
+│   └── config.yaml
+└── YourManifests
+...
+```
 
 :::
 
@@ -122,7 +129,7 @@ git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/
 
 <br/>
 
-#### 定制化 resourcePath
+#### 定制化 resourcePath 以及 ignoredPath
 
 resourcePath 是一个数组，可以自由定制需要部署的 RawManifest，例如对于上述的应用来说，如果只想应用那些 job.yaml ，可以更改配置为：
 
@@ -134,6 +141,21 @@ application:
   name: bookinfo
   manifestType: rawManifestGit
   resourcePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
+```
+
+<br/>
+
+此外，部署配置同样支持 `ignoredPath`，例如对于上述的应用来说，如果不想应用所有 job.yaml ，可以更改配置为：
+
+```yaml
+configProperties:
+  version: v2
+
+application:
+  name: bookinfo
+  manifestType: rawManifestGit
+  resourcePath: [ "manifest/templates" ]
+  ignorePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
 ```
 
 <br/>

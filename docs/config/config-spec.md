@@ -31,6 +31,7 @@ serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
+      
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
       shell: /bin/zsh
       persistentVolumeDirs:
@@ -69,6 +70,7 @@ serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
+      
       gitUrl: git@github.com:nocalhost/nocalhost.git
       portForward:
         - 8080:80
@@ -89,21 +91,28 @@ containers:
 <br/>
 
 ******
-## 一键开发、一键调试、hotReload 配置
+## [一键开发、一键调试、hotReload 配置](config-develop.md)
 
 第三类为面向开发过程的配置，包括：
  - 一键运行
  - 一键调试
- - 热重启
+ - HotReload
 
 :::tip Quickview
 
 ```yaml
-name: nocalhost-api
+name: example
 serviceType: deployment
 containers:
-  - name: nocalhost-api
+  - name: you-container
     dev:
+      
+      command:
+        run: [ "./gradlew", "bootRun" ]
+        debug: [ "./gradlew", "bootRun", "--debug-jvm" ]
+      debug:
+        remoteDebugPort: 5005
+      hotReload: true
 ```
 
 :::

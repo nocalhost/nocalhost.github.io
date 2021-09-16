@@ -83,6 +83,7 @@ module.exports = {
                 'config/config-pattern',
               ]
             },
+            'config/config-develop',
           ]
         },
         'config/configure',
@@ -92,6 +93,7 @@ module.exports = {
           items: [
             'config/config-deployment',
             'config/config-deployment-quickstart',
+            'config/config-deployment-spec',
           ]
         },
       ]
