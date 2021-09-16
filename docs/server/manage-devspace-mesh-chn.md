@@ -6,7 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Manage MeshSpace
 
-- 基础开发空间：即隔离开发空间，但对应 K8s 命名空间带`istio-injection=enabled`标签， Istio 边车会自动注入；命名空间中拥有一套完整服务，命名空间中的服务共享给共享开发空间
+- 基础开发空间：即隔离开发空间，但对应 K8s 命名空间带`istio-injection=enabled`标签， Istio 边车会自动注入命名空间中的 pods；命名空间中拥有一套完整服务，命名空间中的服务共享给共享开发空间
 
 - 共享开发空间：对应一个 K8s 命名空间。基于 Istio Service Mesh，通过指定 header 路由分发来共享基础开发空间的服务
 
