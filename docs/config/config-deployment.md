@@ -32,5 +32,4 @@ Nocalhost 支持 Helm、RawManifest 与 Kustomize 进行 K8s 应用的部署，�
 ******
 
 ## [Dep 组件与其他配置方式的支持](config-deployment-advance.md)
-
-Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 等。实际上，这些配置方式**同样适用于**部署配置。但有些功能是需要配合 K8s WebHook 功能来实现，在 Nocalhost 中，是由一个叫做 `Nocalhost-Dep` 的组件来承担这个角色，`Nocalhost Server` 将自动为你部署这个组件。
+Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 等。实际上，这些配置方式**同样适用于**部署配置。但有些功能是需要配合 K8s WebHook 功能来实现，在 Nocalhost 中，是由一个叫做 `Nocalhost-Dep` 的组件来承担这个角色，`Nocalhost Server` 将自动为你部署这个组件，如果你没有使用 `Nocalhost Server`，那么则需要额外进行 `Nocalhost Dep` 的部署。

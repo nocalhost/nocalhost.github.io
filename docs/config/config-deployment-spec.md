@@ -24,10 +24,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## 启动顺序依赖控制 ([组件依赖](#danger))
 范例：
 ```yaml
-
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -58,10 +54,6 @@ application:
 ### 全局变量注入
 范例：
 ```yaml
-
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -98,10 +90,6 @@ DOMAIN=nocalhost.dev
 ### 容器级变量注入
 范例：
 ```yaml
-
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -135,10 +123,6 @@ application:
 ## 安装后自动端口转发
 范例：
 ```yaml
-
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -169,10 +153,6 @@ application:
 ## Hook
 范例：
 ```yaml
-
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -229,9 +209,6 @@ Hook 与 Helm 的 Hook 类似，Hook 本身是为了弥补非 Helm 应用的不�
 ## HelmValues 的定制
 范例：
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: example
   manifestType: rawManifestGit
