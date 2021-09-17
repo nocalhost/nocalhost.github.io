@@ -24,16 +24,13 @@ plugin. Nocalhost supports to use the following types to deploy application:
 [开发配置](config-overview.md)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
 
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: ""
   manifestType: ""
   resourcePath: []
 ```
 
-`configProperties.version` 为必填字段，值固定为 `v2`。`application` 层级下分别为应用名、应用类型、与资源所在数组。
+`application` 层级下分别为应用名、应用类型、与资源所在数组。
 
 - 应用名用于在 Nocalhost 插件中展示并归档聚合资源，如果是 Helm 类型的应用，它也将成为 `Release.Name`
 - 应用类型大体分为 RawManifest、Helm 与 Kustomize 三种，不同的类型部署方式有所不同，所以需要类型来加以区分。
@@ -71,9 +68,6 @@ application:
 这是一个实际可用的 Nocalhost 部署配置，表明这是一个 RawManifest 应用，并且将 apply manifest/templates 目录下的所有资源，部署后，这个应用的应用名字是 bookinfo。
 
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: bookinfo
   manifestType: rawManifestGit
@@ -134,9 +128,6 @@ git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/
 resourcePath 是一个数组，可以自由定制需要部署的 RawManifest，例如对于上述的应用来说，如果只想应用那些 job.yaml ，可以更改配置为：
 
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: bookinfo
   manifestType: rawManifestGit
@@ -148,9 +139,6 @@ application:
 此外，部署配置同样支持 `ignoredPath`，例如对于上述的应用来说，如果不想应用所有 job.yaml ，可以更改配置为：
 
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: bookinfo
   manifestType: rawManifestGit
@@ -164,9 +152,6 @@ application:
 
 与 RawManifest 类似，Kustomize 类型的 config.yaml 如下，意为这是一个 Kustomize 应用，名字为 bookinfo-kustomize，配置的 resourcePath 对应为 `kubectl apply -k` 使用的目录。
 ```shell
-configProperties:
-  version: v2
-
 application:
   name: bookinfo-kustomize
   manifestType: kustomizeGit
@@ -217,9 +202,6 @@ git clone https://github.com/nocalhost/bookinfo && git checkout kustomize/config
 
 与 Kustomize 类似，Helm 类型的 config.yaml 如下，意为这是一个 Helm 应用，`Release.Name` 为 bookinfo-helm，配置的 resourcePath 对应为 `helm install` 使用的目录。
 ```shell
-configProperties:
-  version: v2
-
 application:
   name: bookinfo-helm
   manifestType: helmGit
@@ -286,9 +268,6 @@ git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/exam
 除了上述的最小化配置以外，我们引入了 services 这个数组，数组内的元素则是我们熟悉的**[开发配置](config-spec.md)**：
 
 ```yaml
-configProperties:
-  version: v2
-
 application:
   name: bookinfo
   manifestType: rawManifestGit
