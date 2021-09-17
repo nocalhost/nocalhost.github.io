@@ -1,3 +1,5 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Hot Reload
 
 ## What is Hot-Reload?
@@ -96,3 +98,8 @@ containers:
           remoteDebugPort: 5005
 
 ```
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/blog/apisix/apisix-ingress-remote-run.gif')} />
+  <figcaption>Remote run</figcaption>
+</figure>
