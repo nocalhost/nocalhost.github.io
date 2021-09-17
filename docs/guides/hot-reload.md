@@ -99,7 +99,4 @@ containers:
 
 ```
 
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/blog/apisix/apisix-ingress-remote-run.gif')} />
-  <figcaption>Remote run</figcaption>
-</figure>
+
