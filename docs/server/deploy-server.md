@@ -59,22 +59,16 @@ You can now [access the Nocalhost Web Service](#access-the-web-service).
 
 ## Deploy Nocalhost Server by Helm
 
-### 1. Clone the Repository
+### 1. Add the Chart Repository
 
 ```bash
-
-git clone https://github.com/nocalhost/nocalhost.git
-
+helm repo add nocalhost "https://nocalhost-helm.pkg.coding.net/nocalhost/nocalhost"
 ``` 
 
 ### 2. Deploy the Nocalhost Server
 
-You can customize the deployed components by editing the helm chart in `nocalhost/deployments/chart/values.yaml` before deployment.
-
 ```bash
-
-helm install nocalhost-server ./nocalhost/deployments/chart --kubeconfig=<path>/your-kubeconfig-file -n nocalhost-demo
-
+helm install nocalhost nocalhost/nocalhost -n nocalhost --create-namespace --kubeconfig=<path>/your-kubeconfig-file
 ```
 
 :::caution No PVC

@@ -58,6 +58,8 @@ module.exports = {
         },
         // Remote Run
         'guides/remote-run',
+        // Hot Reload
+        'guides/hot-reload',
         // 'guides/clear-pvc',
       ]
     },
@@ -67,34 +69,35 @@ module.exports = {
       label: 'Configuration',
       collapsed: false,
       items: [
-        'config/config-ref',
-        'config/config-services',
-        'config/config-hooks',
-        // Deployments
+        'config/config',
+        'config/config-overview',
         {
           type: 'category',
-          label: 'Deployments',
+          label: 'Spec',
           items: [
-            'config/config-deploy',
-            'config/config-deploy-helm',
-            'config/config-deploy-manifest',
-            'config/config-deploy-kustomize',
+            'config/config-spec',
+            'config/config-dev-container',
+            'config/config-enhance',
+            {
+              type: 'category',
+              label: 'Pattern',
+              items: [
+                'config/config-pattern',
+              ]
+            },
+            'config/config-develop',
           ]
         },
-        // Development
+        'config/configure',
         {
           type: 'category',
-          label: 'Development',
+          label: 'Deploy',
           items: [
-            'config/config-dev',
-            'config/config-dev-workload',
-            'config/config-dev-portforward',
-            'config/config-dev-sync',
-            'config/config-dev-devcontainer',
+            'config/config-deployment',
+            'config/config-deployment-quickstart',
+            'config/config-deployment-spec',
           ]
         },
-        // ConfigMap
-        // 'config/config-configmap'
       ]
     },
     // Best Practice
@@ -109,8 +112,6 @@ module.exports = {
           label: 'Kubernetes Compatibilities',
           id: 'practice/cloud/k8s-compatible'
         },
-        // 'practice/apisix-controller',
-        // 'practice/kubesphere',
         // Working with Cloud
         // {
         //   type: 'category',
@@ -131,29 +132,6 @@ module.exports = {
       type: 'category',
       label: 'Advanced Guides',
       items: [
-        // Nocalhost Dep
-        'server/nh-dep',
-        // Nocalhost Server
-        {
-          type: 'category',
-          label: 'Nocalhost Server',
-          items: [
-            'server/server-overview',
-            'server/deploy-server',
-            // 'server/manage-user',
-            // 'server/manage-cluster',
-            // 'server/manage-devspace',
-            // 'server/manage-app'
-          ]
-        }
-      ]
-    },
-    //Reference
-    {
-      type: 'category',
-      label: 'Reference',
-      items: [
-        'reference/nh-config',
         // CLI Reference
         {
           type: 'category',
@@ -165,6 +143,37 @@ module.exports = {
             },
           ]
         },
+        // Nocalhost Server
+        {
+          type: 'category',
+          label: 'Nocalhost Server',
+          items: [
+            'server/server-overview',
+            'server/deploy-server',
+            'server/manage-user',
+            'server/manage-cluster',
+            // DevSpace
+            {
+              type: 'category',
+              label: 'Manage DevSpace',
+              items: [
+                'server/manage-devspace-iso',
+                'server/manage-devspace-mesh'
+              ]
+            },
+            'server/manage-app'
+          ]
+        },
+        // Nocalhost Dep
+        'server/nh-dep',
+      ]
+    },
+    //Reference
+    {
+      type: 'category',
+      label: 'Reference',
+      items: [
+        'reference/nh-config',
       ]
     },
     // FAQ

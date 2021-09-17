@@ -81,7 +81,7 @@ containers:
               - 8080:8080
 ```
 
-#### What did I configured?
+#### What did I configure?
 
 - We deployed a development workload called `apisix-ingress-controller`
 - When starting development mode, Nocalhost will:
@@ -270,7 +270,7 @@ Then add a `run.sh` file into your source folder:
 go run main.go ingress --config-path conf/config-default.yaml
 ```
 
-Now you can using the remote run feature by:]
+Now you can using the remote run feature by:
 
 1. Right-click `apisix-ingress-controller` in cluster inspector, choose **`Remote Run`**
 2. Nocalhost will put `apisix-ingress-controller` into development mode and start the scripts in `run.sh` automatically
