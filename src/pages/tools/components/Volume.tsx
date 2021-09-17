@@ -12,7 +12,12 @@ const Volume = () => {
   return (
     <>
       <Form.Item
-        label={<ItemLabel label="StorageClass" title="" />}
+        label={
+          <ItemLabel
+            label="StorageClass"
+            title={translate({ message: "storageClass tooltip" })}
+          />
+        }
         name="storageClass"
       >
         <Input

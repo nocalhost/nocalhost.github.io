@@ -725,6 +725,29 @@ const Tools = () => {
                         );
                       })}
                     </ul>
+                    <ul className={styles["menu-tip"]}>
+                      <div className={styles["menu-tip-title"]}>
+                        <Translate>Menu Tip Title</Translate>
+                      </div>
+                      <li className={styles["menu-tip-item"]}>
+                        <IconSuccess />
+                        <span>
+                          <Translate>Menu Success Tip</Translate>
+                        </span>
+                      </li>
+                      <li className={styles["menu-tip-item"]}>
+                        <IconWaring />
+                        <span>
+                          <Translate>Menu Finish Tip</Translate>
+                        </span>
+                      </li>
+                      <li className={styles["menu-tip-item"]}>
+                        <IconOption />
+                        <span>
+                          <Translate>Menu Option Tip</Translate>
+                        </span>
+                      </li>
+                    </ul>
                   </div>
                   <div className={styles["config"]}>
                     {configType === "Basic" && <BasicConfig />}

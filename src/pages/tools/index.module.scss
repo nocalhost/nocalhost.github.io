@@ -80,8 +80,11 @@ li {
         display: flex;
         .menu {
           width: 220px;
-          padding: 8px 12px 0;
+          padding: 8px 12px;
           background: #f9fbfd;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           .menu-list {
             .menu-item {
               height: 36px;
@@ -97,6 +100,32 @@ li {
               }
               span {
                 margin-left: 12px;
+              }
+            }
+          }
+          .menu-tip {
+            padding: 6px 6px 12px;
+            font-size: 12px;
+            background: rgb(72, 83, 106);
+            color: #fff;
+            border-radius: 4px;
+            word-break: break-all;
+            &-title {
+              padding: 2px 6px;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 4px;
+              box-shadow: 0px 0px 4px 0px rgba(32, 41, 60, 0.1);
+              font-weight: normal;
+              line-height: 16px;
+            }
+            &-item {
+              display: flex;
+              align-items: center;
+              padding: 0 6px;
+              margin-top: 8px;
+              span {
+                flex: 1;
+                margin-left: 6px;
               }
             }
           }
@@ -188,6 +217,7 @@ li {
     }
   }
   .right {
+    min-width: 420px;
     position: relative;
     background: rgb(13, 28, 63);
     border-radius: 8px;

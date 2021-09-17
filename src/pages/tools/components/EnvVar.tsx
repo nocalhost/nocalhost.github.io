@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Tooltip } from "antd";
 import Translate, { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
@@ -53,12 +53,13 @@ const EnvVar = () => {
                     </Form.Item>
                   </div>
                 </Form.Item>
-
                 <div
                   className={index === 0 ? styles["remove"] : styles["normal"]}
                   onClick={() => remove(field.name)}
                 >
-                  <IconRemove />
+                  <Tooltip title={translate({ message: "Remove" })}>
+                    <IconRemove />
+                  </Tooltip>
                 </div>
               </div>
             ))}

@@ -1,19 +1,19 @@
-import React from 'react'
-import { Form, Input, Select } from 'antd'
-import Translate, { translate } from '@docusaurus/Translate'
+import React from "react";
+import { Form, Input, Select, Tooltip } from "antd";
+import Translate, { translate } from "@docusaurus/Translate";
 
-import styles from '../index.module.scss'
-import { SYNC_FILE_TYPE } from '../constants'
+import styles from "../index.module.scss";
+import { SYNC_FILE_TYPE } from "../constants";
 
-import IconDel from '../images/icon_remove.svg'
-import IconAdd from '../images/icon_add.svg'
+import IconDel from "../images/icon_remove.svg";
+import IconAdd from "../images/icon_add.svg";
 
 const FileSync = () => {
   return (
     <>
-      <Form.Item label={translate({ message: 'Sync Type' })} name="syncType">
+      <Form.Item label={translate({ message: "Sync Type" })} name="syncType">
         <Select
-          placeholder={translate({ message: 'Please Select Sync Type' })}
+          placeholder={translate({ message: "Please Select Sync Type" })}
           options={SYNC_FILE_TYPE}
           style={{ width: 460 }}
         ></Select>
@@ -22,31 +22,37 @@ const FileSync = () => {
         {(fields, { add, remove }, { errors }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles['file-item']} key={field.fieldKey}>
+              <div className={styles["file-item"]} key={field.fieldKey}>
                 <Form.Item
                   {...field}
                   key={index}
                   label={
-                    index === 0 ? translate({ message: 'Sync Directory' }) : ''
+                    index === 0 ? translate({ message: "Sync Directory" }) : ""
                   }
                   style={{ marginBottom: 8 }}
                 >
                   <Input
                     style={{ width: 430 }}
                     placeholder={translate({
-                      message: 'Please Input Sync Directory',
+                      message: "Please Input Sync Directory",
                     })}
                   />
                 </Form.Item>
                 <span
-                  className={styles['remove']}
+                  className={styles["remove"]}
                   onClick={() => remove(field.name)}
                 >
-                  <IconDel />
+                  <Tooltip
+                    title={translate({
+                      message: "Remove",
+                    })}
+                  >
+                    <IconDel />
+                  </Tooltip>
                 </span>
               </div>
             ))}
-            <div className={styles['add-field']} onClick={() => add()}>
+            <div className={styles["add-field"]} onClick={() => add()}>
               <IconAdd />
               <span style={{ marginLeft: 4 }}>
                 <Translate>Add Sync Directory</Translate>
@@ -60,33 +66,35 @@ const FileSync = () => {
         {(fields, { add, remove }, { errors }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles['file-item']}>
+              <div className={styles["file-item"]}>
                 <Form.Item
                   {...field}
                   key={index}
                   label={
                     index === 0
-                      ? translate({ message: 'Ignore Directory' })
-                      : ''
+                      ? translate({ message: "Ignore Directory" })
+                      : ""
                   }
                   style={{ marginBottom: 8 }}
                 >
                   <Input
                     style={{ width: 430 }}
                     placeholder={translate({
-                      message: 'Please Input Ignore Directory',
+                      message: "Please Input Ignore Directory",
                     })}
                   />
                 </Form.Item>
                 <span
-                  className={styles['remove']}
+                  className={styles["remove"]}
                   onClick={() => remove(field.name)}
                 >
-                  <IconDel />
+                  <Tooltip title={translate({ message: "Remove" })}>
+                    <IconDel />
+                  </Tooltip>
                 </span>
               </div>
             ))}
-            <div className={styles['add-field']} onClick={() => add()}>
+            <div className={styles["add-field"]} onClick={() => add()}>
               <IconAdd />
               <span style={{ marginLeft: 4 }}>
                 <Translate>Add Ignore Sync Directory</Translate>
@@ -96,7 +104,7 @@ const FileSync = () => {
         )}
       </Form.List>
     </>
-  )
-}
+  );
+};
 
-export default FileSync
+export default FileSync;

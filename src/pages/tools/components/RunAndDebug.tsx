@@ -4,14 +4,13 @@ import { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
 import IconQuery from "../images/icon_label_query.svg";
+import CommonIcon from "./CommonIcon";
 
 export const ItemLabel = ({ label, title }) => {
   return (
     <div className={styles["item-label"]}>
       <span>{label}</span>
-      <Tooltip title={title}>
-        <IconQuery />
-      </Tooltip>
+      <CommonIcon title={title} />
     </div>
   );
 };
@@ -20,7 +19,12 @@ const RunAndDebug = () => {
   return (
     <>
       <Form.Item
-        label={<ItemLabel label="Run Command" title="" />}
+        label={
+          <ItemLabel
+            label="Run Command"
+            title={translate({ message: "run tooltip" })}
+          />
+        }
         name="command-run"
       >
         <Input
@@ -31,7 +35,12 @@ const RunAndDebug = () => {
         />
       </Form.Item>
       <Form.Item
-        label={<ItemLabel label="Debug Command" title="" />}
+        label={
+          <ItemLabel
+            label="Debug Command"
+            title={translate({ message: "debug tooltip" })}
+          />
+        }
         name="command-debug"
       >
         <Input
@@ -40,7 +49,12 @@ const RunAndDebug = () => {
         />
       </Form.Item>
       <Form.Item
-        label={<ItemLabel label="Debug Port" title="" />}
+        label={
+          <ItemLabel
+            label="Debug Port"
+            title={translate({ message: "debug port tooltip" })}
+          />
+        }
         name="remoteDebugPort"
         rules={[
           {
