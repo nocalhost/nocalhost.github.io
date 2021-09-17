@@ -20,7 +20,7 @@ If you want to manage a Cluster，then need to maintain a `KubeConfig` with the 
 
 :::
 
-Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./mmanage-devspace-iso) 
+Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./manage-devspace-iso) 
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/server/cluster.png')} />
@@ -40,7 +40,7 @@ Nocalhost also allow developers to share their DevSpaces with other developers f
 
 #### DevSpace Management
 
-If you need to manage **DevSpace**, you can refer to [Manage DevSpace](./manage-devspace) 
+If you need to manage **DevSpace**, you can refer to [Manage DevSpace](./manage-devspace-iso) 
 
 ### Application
 
