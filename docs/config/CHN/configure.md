@@ -6,7 +6,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Overview](config.md) / [Configure](configure.md)
 ******
-
 # Nocalhost 的配置方式
 
 除了将配置放置在插件的右键 `DevConfig`  中， Nocalhost 还支持将配置放置在源码目录、configMap 、以及 annotation 中。例如可以将 Nocalhost 配置流程化地配置在 CD 、或者配置在 helm chart、rawManifest 中，通过上述的几种配置方式，来避免重复配置。
