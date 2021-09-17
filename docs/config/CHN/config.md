@@ -4,6 +4,14 @@ title: Overview
 [Overview](config.md)
 ******
 
+
+## [Configuration - What, How and Features](./config-overview.md)
+
+We will introduce what the Nocalhost configuration is, how to modify the configuration, and what features Nocalhost has in this article. If you have no idea of Nocalhost configuration or want to understand the structure and characteristics of Nocalhost configuration, you can refer to this article.
+
+******
+
+
 ## [Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)
 
 这里会介绍 Nocalhost 配置是什么、如何进行配置的修改、有哪些特性等介绍，如果你对 Nocalhost 配置**完全没有概念**，或者想要了解 Nocalhost 配置的结构、特性等，可以阅读本篇文章。
