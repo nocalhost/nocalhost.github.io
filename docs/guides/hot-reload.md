@@ -1,3 +1,5 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Hot Reload
 
 ## What is Hot-Reload?
