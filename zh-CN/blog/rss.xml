@@ -4,21 +4,21 @@
         <title>Nocalhost Blog</title>
         <link>https://nocalhost.dev/zh-CN/blog</link>
         <description>Nocalhost Blog</description>
-        <lastBuildDate>Fri, 17 Sep 2021 08:50:09 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 17 Sep 2021 12:41:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/api-six</link>
             <guid>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</guid>
-            <pubDate>Fri, 17 Sep 2021 08:50:09 GMT</pubDate>
+            <pubDate>Fri, 17 Sep 2021 12:41:27 GMT</pubDate>
             <description><![CDATA[Introduction]]></description>
         </item>
         <item>
             <title><![CDATA[Nocalhost 官方文档翻译活动]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/docs-translate</link>
             <guid>Nocalhost 官方文档翻译活动</guid>
-            <pubDate>Fri, 17 Sep 2021 08:50:09 GMT</pubDate>
+            <pubDate>Fri, 17 Sep 2021 12:41:27 GMT</pubDate>
             <description><![CDATA[背景]]></description>
         </item>
         <item>
