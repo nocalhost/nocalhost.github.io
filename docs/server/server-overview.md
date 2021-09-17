@@ -20,7 +20,7 @@ If you want to manage a Cluster，then need to maintain a `KubeConfig` with the 
 
 :::
 
-Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./manage-cluster) 
+Cluster is generally used with DevSpace, if you need to manage Cluster, you refer to [Manage Cluster](./mmanage-devspace-iso) 
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/server/cluster.png')} />
