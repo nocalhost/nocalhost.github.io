@@ -758,7 +758,9 @@ const Tools = () => {
                     {configType === "DevEnv" && <EnvVar />}
                     {configType === "PortForward" && <PortForward />}
                   </div>
-                  <div></div>
+                  {!form.getFieldValue("name") && (
+                    <div className={styles["mask"]}></div>
+                  )}
                 </div>
               </Form>
             </div>
