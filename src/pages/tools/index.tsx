@@ -85,6 +85,7 @@ const Tools = () => {
   const [showResult, setShowResult] = useState<string>("");
   const [containerName, setContainerName] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showLoading, setShowLoading] = useState<boolean>(false);
 
   const timer = useRef<number | null>();
   const search = location.search;
@@ -336,6 +337,7 @@ const Tools = () => {
     const { from, application, name, namespace, type, kubeconfig } = URLParams;
     if (from === "daemon") {
       try {
+        setShowLoading(true);
         const response = await saveConfig({
           application,
           name,
@@ -352,7 +354,9 @@ const Tools = () => {
           setShowResult("fail");
           message.error(Message);
         }
+        setShowLoading(false);
       } catch (e) {
+        setShowLoading(false);
         setShowResult("fail");
         message.error("Please Check Network");
         throw new Error(e);
@@ -583,7 +587,12 @@ const Tools = () => {
                   </span>
                 </div>
               </div>
-              <Button onClick={handleApply} disabled={!isValid} type="primary">
+              <Button
+                loading={showLoading}
+                onClick={handleApply}
+                disabled={!isValid}
+                type="primary"
+              >
                 <Translate>Apply</Translate>
               </Button>
             </div>
