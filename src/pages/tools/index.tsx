@@ -108,7 +108,7 @@ const Tools = () => {
         };
       });
       setContainerOptions(containerArr);
-      setYamlObj({
+      const tmpObj = {
         name,
         serviceType: type,
         containers: containerArr.map((item) => {
@@ -117,13 +117,15 @@ const Tools = () => {
             ...DEFAULT_CONTAINER,
           };
         }),
-      });
+      };
+      setYamlObj(tmpObj);
       form.setFieldsValue({
         workloadName: name,
         workloadType: type,
         name: containerArr[0]?.label,
         containerIndex: containerArr[0]?.value,
       });
+      coverFormField(tmpObj.containers[0]);
     }
     return clearTimeout(timer.current);
   }, []);
@@ -427,7 +429,7 @@ const Tools = () => {
     }
   };
 
-  function coverFormField(reset?: boolean) {
+  function coverFormField(container = null) {
     form.setFieldsValue({
       image: "",
       gitUrl: "",
@@ -451,7 +453,8 @@ const Tools = () => {
       portForward: [],
     });
     const { containerIndex } = form.getFieldsValue();
-    const currentContainer = yamlObj.containers[containerIndex] || {};
+    const currentContainer =
+      container || yamlObj.containers[containerIndex] || {};
     if (currentContainer?.dev) {
       const {
         image,
