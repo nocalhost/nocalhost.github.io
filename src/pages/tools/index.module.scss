@@ -78,10 +78,26 @@ li {
         box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08);
         min-height: 528px;
         display: flex;
+        position: relative;
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 4px;
+          z-index: 10;
+          background: #000;
+          opacity: 0.5;
+        }
         .menu {
           width: 220px;
-          padding: 8px 12px 0;
+          padding: 8px 12px;
           background: #f9fbfd;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
           .menu-list {
             .menu-item {
               height: 36px;
@@ -97,6 +113,32 @@ li {
               }
               span {
                 margin-left: 12px;
+              }
+            }
+          }
+          .menu-tip {
+            padding: 6px 6px 12px;
+            font-size: 12px;
+            background: rgb(72, 83, 106);
+            color: #fff;
+            border-radius: 4px;
+            word-break: break-all;
+            &-title {
+              padding: 2px 6px;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 4px;
+              box-shadow: 0px 0px 4px 0px rgba(32, 41, 60, 0.1);
+              font-weight: normal;
+              line-height: 16px;
+            }
+            &-item {
+              display: flex;
+              align-items: center;
+              padding: 0 6px;
+              margin-top: 8px;
+              span {
+                flex: 1;
+                margin-left: 6px;
               }
             }
           }
@@ -161,8 +203,14 @@ li {
 
             .remove {
               position: relative;
-              top: 16px;
+              top: 18px;
             }
+
+            .remove-icon {
+              display: flex;
+              align-items: center;
+            }
+
             .normal {
               position: relative;
               top: 4px;
@@ -182,6 +230,7 @@ li {
     }
   }
   .right {
+    min-width: 420px;
     position: relative;
     background: rgb(13, 28, 63);
     border-radius: 8px;
@@ -342,4 +391,76 @@ li {
   .delete {
     visibility: hidden;
   }
+}
+
+.guide-card {
+  padding: 0 16px;
+  .title {
+    padding-top: 6px;
+    margin-bottom: 22px;
+    color: rgb(54, 67, 92);
+    font-size: 20px;
+    font-family: PingFangSC-Semibold;
+    font-weight: 600;
+  }
+}
+
+.fail,
+.success {
+  &-list {
+    font-size: 16px;
+  }
+  &-item {
+    word-break: break-all;
+    .number {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      justify-content: center;
+      align-items: center;
+      background: rgb(0, 128, 255);
+      border: 2px solid rgb(255, 255, 255);
+      box-shadow: 0px 3px 8px 0px rgba(0, 128, 255, 0.3);
+      border-radius: 50%;
+      color: #fff;
+    }
+    .desc {
+      display: flex;
+    }
+    :global(.ant-btn) {
+      height: 28px;
+      width: 68px;
+      padding: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: #d9ecff;
+      border-radius: 4px;
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 22px;
+    }
+  }
+}
+
+.image {
+  padding-left: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+
+:global(.ant-modal-content) {
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 18px 0px rgba(40, 47, 55, 0.08) !important;
+}
+
+:global(.ant-modal-mask) {
+  background-color: rgba(54, 67, 92, 0.5) !important;
 }

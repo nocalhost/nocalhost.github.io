@@ -114,10 +114,13 @@ containers:
         shell: bash
         workDir: /home/nocalhost-dev
         command:
+          build: []
+          run:
+            - ./run.sh
           debug:
-            - /home/nocalhost-dev/gradlew
-            - bootRun
-            - ---debug-jvm
+            - ./debug.sh
+          hotReloadRun: []
+          hotReloadDebug: []
         debug:
           remoteDebugPort: 5005
         useDevContainer: false
@@ -141,7 +144,9 @@ containers:
 The startup command for **Maven** example:
 
 ```bash title="Maven's debug.sh"
-mvn spring-boot:run -Drun.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+ jdk>=1.8  and springBoot >=2.2.1.RELEASE(May be lower)   mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+ jdk <=1.7 you  should  replace "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" with "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+ Lower version of the springBoot  you should replace "-Drun.jvmArguments" with "-Dspring-boot.run.jvmArguments" 
 ```
 
 #### Gradle Example

@@ -1,4 +1,7 @@
 {
+  "lang": {
+    "message": "en"
+  },
   "Home": {
     "message": "Home"
   },
@@ -571,5 +574,62 @@
   },
   "Port Forward": {
     "message": "Port Forward"
+  },
+  "Menu Tip Title": {
+    "message": "Complete 「Required Configuration」 Information to minimize development."
+  },
+  "Menu Success Tip": {
+    "message": "Configuration information is complete"
+  },
+  "Menu Finish Tip": {
+    "message": "Required configuration information to be completed"
+  },
+  "Menu Option Tip": {
+    "message": "Non-required configuration information to be completed"
+  },
+  "Please Input Name": {
+    "message": "Please Input Name"
+  },
+  "Please Input Value": {
+    "message": "Please Input Value"
+  },
+  "Remove": {
+    "message": "Remove"
+  },
+  "Configure the development parameters follow the guide below": {
+    "message": "Configure the development parameters follow the guide below"
+  },
+  "Click the button on the right to copy and generate \"Nocalhost Yaml\" development parameters": {
+    "message": "Click the button on the right to copy and generate \"Nocalhost Yaml\" development parameters"
+  },
+  "Find the workload name 「{workload}」 and paste the development parameters to the configuration page of the service": {
+    "message": "Find the workload name 「{workload}」 and paste the development parameters to the configuration page of the service"
+  },
+  "Save configuration (Windows: Ctrl+s ｜ Mac: Command+s)": {
+    "message": "Save configuration (Windows: Ctrl+s ｜ Mac: Command+s)"
+  },
+  "Configuration Successful": {
+    "message": "Configuration Successful"
+  },
+  "Configuration Failed": {
+    "message": "Configuration Failed"
+  },
+  "Find the workload name \"{workload}\" to enter the development mode.": {
+    "message": "Find the workload name \"{workload}\" to enter the development mode."
+  },
+  "run tooltip": {
+    "message": "Apply the startup command, click the Run button in the IDE, it will be automatically executed in the container"
+  },
+  "debug tooltip": {
+    "message": "Apply debugging commands, click the Debug button in the IDE, it will be automatically executed in the container and linked to the debugger"
+  },
+  "debug port tooltip": {
+    "message": "The debugging port for application startup, such as port 5005 for common JAVA applications, which will be automatically forwarded to the local"
+  },
+  "storageClass tooltip": {
+    "message": "Specify the Clsss used by the storage, empty represents the default Class"
+  },
+  "Please input number": {
+    "message": "Please input number"
   }
 }

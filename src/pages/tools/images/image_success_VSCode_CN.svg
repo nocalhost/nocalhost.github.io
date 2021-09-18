@@ -9,7 +9,7 @@
             <mask id="mask-2" fill="white">
                 <use xlink:href="#path-1"></use>
             </mask>
-            <use id="矩形" fill="#F9FBFD" xlink:href="#path-1"></use>
+            <use id="image_success_VSCode_CN" fill="#F9FBFD" xlink:href="#path-1"></use>
             <g id="编组-11" mask="url(#mask-2)">
                 <g id="编组-12">
                     <path d="M4,0 L279,0 C281.209139,-4.05812251e-16 283,1.790861 283,4 L283,54 L283,54 L0,54 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="矩形" fill="#E5F2FF"></path>
