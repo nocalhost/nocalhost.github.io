@@ -25,7 +25,6 @@ module.exports = {
       items: [
         'quick-start',
         'installation',
-        'whats-new',
       ]
     },
     // Guides
