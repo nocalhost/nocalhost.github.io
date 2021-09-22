@@ -86,6 +86,7 @@ const Tools = () => {
   const [containerName, setContainerName] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(false);
+  const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
 
   const timer = useRef<number | null>();
   const search = location.search;
@@ -413,14 +414,9 @@ const Tools = () => {
 
   const handleSelect = (value) => {
     if (value === "add") {
-      if (containerName) {
-        generateContainer(containerName);
-      } else {
-        form.setFieldsValue({
-          containerIndex: "",
-        });
-        message.warning(translate({ message: "Please Input Container Name!" }));
-      }
+      generateContainer(containerName || `container-${newContainerIndex + 1}`);
+      setNewContainerIndex(newContainerIndex + 1);
+      localStorage.setItem("containerIndex", newContainerIndex + 1 + "");
     } else {
       form.setFieldsValue({
         name: containerOptions[value].label,
@@ -435,7 +431,7 @@ const Tools = () => {
       gitUrl: "",
       shell: "",
       workDir: "",
-      sidecar_image: "",
+      sidecarImage: "",
       syncType: "",
       filePattern: [],
       ignoreFilePattern: [],
@@ -461,7 +457,7 @@ const Tools = () => {
         gitUrl,
         shell,
         workDir,
-        sidecar_image,
+        sidecarImage,
         hotReload,
         storageClass,
         persistentVolumeDirs,
@@ -471,7 +467,7 @@ const Tools = () => {
         gitUrl,
         shell,
         workDir,
-        sidecar_image,
+        sidecarImage,
         hotReload: !!hotReload,
         storageClass,
         persistentVolumeDirs:
@@ -555,10 +551,15 @@ const Tools = () => {
       ...yamlObj,
     });
     setContainerOptions([...containerOptions]);
-    form.setFieldsValue({
-      containerIndex: "",
-    });
-    setContainerName("");
+    const containerIndex = form.getFieldValue("containerIndex");
+    console.log(index, containerIndex, index === containerIndex);
+    if (index === form.getFieldValue("containerIndex")) {
+      form.setFieldsValue({
+        containerIndex: "",
+        name: "",
+      });
+      setContainerName("");
+    }
   };
 
   return (
@@ -618,7 +619,12 @@ const Tools = () => {
                     ]}
                     name="workloadName"
                   >
-                    <Input style={{ width: 352 }} />
+                    <Input
+                      style={{ width: 352 }}
+                      placeholder={translate({
+                        message: "Please input workload name ",
+                      })}
+                    />
                   </Form.Item>
                   <Form.Item
                     label={translate({
@@ -635,6 +641,9 @@ const Tools = () => {
                       options={WORKLOAD_TYPE}
                       style={{ width: 352 }}
                       suffixIcon={DownArrow}
+                      placeholder={translate({
+                        message: "Please select workload type",
+                      })}
                     />
                   </Form.Item>
                 </div>
@@ -644,7 +653,6 @@ const Tools = () => {
                   name="containerIndex"
                 >
                   <Select
-                    showSearch
                     style={{ width: 352 }}
                     filterOption={false}
                     notFoundContent={null}
@@ -652,6 +660,9 @@ const Tools = () => {
                     onSearch={handleSelectSearch}
                     onSelect={handleSelect}
                     suffixIcon={DownArrow}
+                    placeholder={translate({
+                      message: "Please input or select container name",
+                    })}
                   >
                     {containerOptions.map((item, index) => {
                       return (
@@ -692,7 +703,12 @@ const Tools = () => {
                     </Select.Option>
                   </Select>
                 </Form.Item>
-                <div className={styles["config-wrap"]}>
+                <div
+                  className={cx({
+                    "config-wrap": true,
+                    disabled: !form.getFieldValue("name"),
+                  })}
+                >
                   <div className={styles["menu"]}>
                     <ul className={styles["menu-list"]}>
                       {menuList.map((item, index) => {

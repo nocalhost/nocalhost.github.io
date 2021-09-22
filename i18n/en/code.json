@@ -438,28 +438,28 @@
     "message": "Git Depository URL"
   },
   "Please Input Git Depository URL": {
-    "message": "Please Input Git Depository URL"
+    "message": "Please input git depository URL"
   },
   "Please Input Shell": {
-    "message": "Please Input Shell"
+    "message": "Please input shell"
   },
   "Work Directory": {
     "message": "Work Directory"
   },
   "Please Input Work Directory": {
-    "message": "Please Input Work Directory"
+    "message": "Please input work directory"
   },
   "Please Input Sidecar Image URL": {
-    "message": "Please Input Sidecar Image URL"
+    "message": "Please input sidecar image URL"
   },
   "Development environment variables": {
     "message": "Development environment variables"
   },
   "Please Input Directory": {
-    "message": "Please Input Directory"
+    "message": "Please input directory"
   },
   "Please Input Size": {
-    "message": "Please Input Size"
+    "message": "Please input size"
   },
   "Add Development environment variables": {
     "message": "Add Development environment variables"
@@ -468,13 +468,13 @@
     "message": "Sync Type"
   },
   "Please Select Sync Type": {
-    "message": "Please Select Sync Type"
+    "message": "Please select sync type"
   },
   "Sync Directory": {
     "message": "Sync Directory"
   },
   "Please Input Sync Directory": {
-    "message": "Please Input Sync Directory"
+    "message": "Please input sync directory"
   },
   "Add Sync Directory": {
     "message": "Add Sync Directory"
@@ -483,7 +483,7 @@
     "message": "Ignore Directory"
   },
   "Please Input Ignore Directory": {
-    "message": "Please Input Ignore Directory"
+    "message": "Please input ignore directory"
   },
   "Add Ignore Sync Directory": {
     "message": "Add Ignore Sync Directory"
@@ -492,10 +492,10 @@
     "message": "Port Forward List"
   },
   "Please Input Local Port": {
-    "message": "Please Input Local Port"
+    "message": "Please input local port"
   },
   "Please Input Container Port": {
-    "message": "Please Input Container Port"
+    "message": "Please input container port"
   },
   "Add Port Forward": {
     "message": "Add Port Forward"
@@ -504,7 +504,7 @@
     "message": "Request total memory (MiB)"
   },
   "Please Input Memory": {
-    "message": "Please Input Memory"
+    "message": "Please input memory"
   },
   "Limit the total memory (MiB)": {
     "message": "Limit the total memory (MiB)"
@@ -513,7 +513,7 @@
     "message": "Request total CPU (core)"
   },
   "Please Input CPU": {
-    "message": "Please Input CPU"
+    "message": "Please input CPU"
   },
   "Limit the total CPU (core)": {
     "message": "Limit the total CPU (core)"
@@ -528,19 +528,19 @@
     "message": "Find the workload name \"{bookinfo}\" to enter the development mode."
   },
   "Please Input Run Command": {
-    "message": "Please Input Run Command"
+    "message": "Please input run command"
   },
   "Please Input Debug Command": {
-    "message": "Please Input Debug Command"
+    "message": "Please input debug command"
   },
   "Please Input Debug Port": {
-    "message": "Please Input Debug Port"
+    "message": "Please input debug port"
   },
   "Whether To Enable Hot Reload": {
     "message": "Whether To Enable Hot Reload"
   },
   "Please Input StorageClass": {
-    "message": "Please Input StorageClass"
+    "message": "Please input storageClass"
   },
   "Directory": {
     "message": "Directory"
@@ -588,10 +588,10 @@
     "message": "Non-required configuration information to be completed"
   },
   "Please Input Name": {
-    "message": "Please Input Name"
+    "message": "Please input name"
   },
   "Please Input Value": {
-    "message": "Please Input Value"
+    "message": "Please input value"
   },
   "Remove": {
     "message": "Remove"
@@ -631,5 +631,14 @@
   },
   "Please input number": {
     "message": "Please input number"
+  },
+  "Please input workload name ": {
+    "message": "Please input workload name "
+  },
+  "Please select workload type": {
+    "message": "Please select workload type"
+  },
+  "Please input or select container name": {
+    "message": "Please input or select container name"
   }
 }

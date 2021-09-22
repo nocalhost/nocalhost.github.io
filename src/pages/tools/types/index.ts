@@ -59,7 +59,7 @@ export interface Container {
     };
     env?: string[];
     portForward?: string[];
-    sidecar_image?: string;
+    sidecarImage?: string;
   };
 }
 export interface YamlObj {
