@@ -4,29 +4,29 @@
         <title>Nocalhost Blog</title>
         <link>https://nocalhost.dev/zh-CN/blog</link>
         <description>Nocalhost Blog</description>
-        <lastBuildDate>Wed, 22 Sep 2021 08:15:10 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 22 Sep 2021 08:32:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/api-six</link>
             <guid>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</guid>
-            <pubDate>Wed, 22 Sep 2021 08:15:10 GMT</pubDate>
+            <pubDate>Wed, 22 Sep 2021 08:32:32 GMT</pubDate>
             <description><![CDATA[Introduction]]></description>
         </item>
         <item>
             <title><![CDATA[Nocalhost 官方文档翻译活动]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/docs-translate</link>
             <guid>Nocalhost 官方文档翻译活动</guid>
-            <pubDate>Wed, 22 Sep 2021 08:15:10 GMT</pubDate>
+            <pubDate>Wed, 22 Sep 2021 08:32:32 GMT</pubDate>
             <description><![CDATA[背景]]></description>
         </item>
         <item>
-            <title><![CDATA[Announcing Nocalhost v0.5.6]]></title>
+            <title><![CDATA[Nocalhost v0.5.6 发布]]></title>
             <link>https://nocalhost.dev/zh-CN/blog/0.5.6</link>
-            <guid>Announcing Nocalhost v0.5.6</guid>
-            <pubDate>Wed, 22 Sep 2021 08:15:10 GMT</pubDate>
-            <description><![CDATA[Nocalhost v0.5.6 has been released, we've fixed some bugs, improved the performance and add some new features.]]></description>
+            <guid>Nocalhost v0.5.6 发布</guid>
+            <pubDate>Wed, 22 Sep 2021 08:32:32 GMT</pubDate>
+            <description><![CDATA[Nocalhost v0.5.6已经发布，我们已经修复了一些缺陷，提高了性能并添加了一些新功能。]]></description>
         </item>
         <item>
             <title><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
