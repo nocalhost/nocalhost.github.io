@@ -102,6 +102,6 @@ export const DEFAULT_CONTAINER: Container = {
     },
     env: [],
     portForward: [],
-    sidecar_image: "",
+    sidecarImage: "",
   },
 };

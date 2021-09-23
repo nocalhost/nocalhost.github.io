@@ -86,8 +86,10 @@ const Tools = () => {
   const [containerName, setContainerName] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(false);
+  const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
 
   const timer = useRef<number | null>();
+  const flagRef = useRef<string>("change");
   const search = location.search;
 
   const handleSubmit = () => {};
@@ -187,7 +189,7 @@ const Tools = () => {
               {
                 // change container name
                 const tmpObj = containerOptions;
-                containerOptions[containerIndex].label = value;
+                tmpObj[containerIndex].label = value;
                 setContainerOptions(tmpObj);
                 tmpYamlObj.containers[containerIndex][field] = value;
               }
@@ -413,19 +415,17 @@ const Tools = () => {
 
   const handleSelect = (value) => {
     if (value === "add") {
-      if (containerName) {
-        generateContainer(containerName);
+      generateContainer(containerName || `container-${newContainerIndex + 1}`);
+      setNewContainerIndex(newContainerIndex + 1);
+    } else {
+      if (flagRef.current === "delete") {
+        flagRef.current = "change";
       } else {
         form.setFieldsValue({
-          containerIndex: "",
+          name: containerOptions[value]?.label,
+          containerIndex: value,
         });
-        message.warning(translate({ message: "Please Input Container Name!" }));
       }
-    } else {
-      form.setFieldsValue({
-        name: containerOptions[value].label,
-        containerIndex: value,
-      });
     }
   };
 
@@ -435,7 +435,7 @@ const Tools = () => {
       gitUrl: "",
       shell: "",
       workDir: "",
-      sidecar_image: "",
+      sidecarImage: "",
       syncType: "",
       filePattern: [],
       ignoreFilePattern: [],
@@ -461,7 +461,7 @@ const Tools = () => {
         gitUrl,
         shell,
         workDir,
-        sidecar_image,
+        sidecarImage,
         hotReload,
         storageClass,
         persistentVolumeDirs,
@@ -471,7 +471,7 @@ const Tools = () => {
         gitUrl,
         shell,
         workDir,
-        sidecar_image,
+        sidecarImage,
         hotReload: !!hotReload,
         storageClass,
         persistentVolumeDirs:
@@ -549,16 +549,36 @@ const Tools = () => {
 
   const handleDeleteContainer = (index: number) => {
     const containers = yamlObj.containers;
+    flagRef.current = "delete";
+
     containers.splice(index, 1);
     containerOptions.splice(index, 1);
     setYamlObj({
       ...yamlObj,
     });
-    setContainerOptions([...containerOptions]);
-    form.setFieldsValue({
-      containerIndex: "",
-    });
-    setContainerName("");
+    const tmpOptions = containerOptions.map((item, index) => ({
+      ...item,
+      value: index,
+    }));
+    setContainerOptions([...tmpOptions]);
+    const containerIndex = form.getFieldValue("containerIndex");
+    setTimeout(() => {
+      if (index === containerIndex) {
+        form.setFieldsValue({
+          containerIndex: "",
+          name: "",
+        });
+        setContainerName("");
+      } else if (index < containerIndex) {
+        form.setFieldsValue({
+          containerIndex: containerIndex - 1,
+        });
+      } else {
+        form.setFieldsValue({
+          containerIndex: containerIndex,
+        });
+      }
+    }, 0);
   };
 
   return (
@@ -618,7 +638,12 @@ const Tools = () => {
                     ]}
                     name="workloadName"
                   >
-                    <Input style={{ width: 352 }} />
+                    <Input
+                      style={{ width: 352 }}
+                      placeholder={translate({
+                        message: "Please input workload name ",
+                      })}
+                    />
                   </Form.Item>
                   <Form.Item
                     label={translate({
@@ -635,6 +660,9 @@ const Tools = () => {
                       options={WORKLOAD_TYPE}
                       style={{ width: 352 }}
                       suffixIcon={DownArrow}
+                      placeholder={translate({
+                        message: "Please select workload type",
+                      })}
                     />
                   </Form.Item>
                 </div>
@@ -644,7 +672,6 @@ const Tools = () => {
                   name="containerIndex"
                 >
                   <Select
-                    showSearch
                     style={{ width: 352 }}
                     filterOption={false}
                     notFoundContent={null}
@@ -652,6 +679,9 @@ const Tools = () => {
                     onSearch={handleSelectSearch}
                     onSelect={handleSelect}
                     suffixIcon={DownArrow}
+                    placeholder={translate({
+                      message: "Please input or select container name",
+                    })}
                   >
                     {containerOptions.map((item, index) => {
                       return (
@@ -692,7 +722,12 @@ const Tools = () => {
                     </Select.Option>
                   </Select>
                 </Form.Item>
-                <div className={styles["config-wrap"]}>
+                <div
+                  className={cx({
+                    "config-wrap": true,
+                    disabled: !form.getFieldValue("name"),
+                  })}
+                >
                   <div className={styles["menu"]}>
                     <ul className={styles["menu-list"]}>
                       {menuList.map((item, index) => {
