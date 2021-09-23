@@ -627,7 +627,7 @@
     "message": "The debugging port for application startup, such as port 5005 for common JAVA applications, which will be automatically forwarded to the local"
   },
   "storageClass tooltip": {
-    "message": "Specify the Clsss used by the storage, empty represents the default Class"
+    "message": "Specify the Class used by the storage, empty represents the default Class"
   },
   "Please input number": {
     "message": "Please input number"
