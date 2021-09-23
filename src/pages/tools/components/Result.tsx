@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "../index.module.scss";
 import ImageSuccess from "../images/image_succeed.svg";
@@ -14,15 +14,15 @@ import IconLamp from "../images/icon_lamp.svg";
 import Translate, { translate } from "@docusaurus/Translate";
 import classNames from "classnames";
 
-import { message } from "antd";
 import Card from "./Card";
 
 const Result = ({ status, workload = "", yamlStr = "" }) => {
-  const handleCopy = () => {
-    message.success(translate({ message: "Copy Successfully!" }));
-  };
   const cx = classNames.bind(styles);
-  const lang = translate({ message: "lang" });
+  const [lang, setLang] = useState<string>("en");
+
+  useEffect(() => {
+    setLang(location.pathname.indexOf("zh-CN") > -1 ? "zh-cn" : "en");
+  }, []);
   return (
     <div className={styles["result-wrap"]}>
       <div className={styles["main"]}>
