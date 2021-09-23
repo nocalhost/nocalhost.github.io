@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[9356],{37388:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/apisix","name":"APISIX","count":1,"permalink":"/blog/tags/apisix"}')}}]);

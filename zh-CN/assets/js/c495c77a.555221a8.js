@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[5576],{27588:function(n){n.exports=JSON.parse('{"allTagsPath":"/zh-CN/blog/tags","slug":"/zh-CN/blog/tags/announcement","name":"Announcement","count":1,"permalink":"/zh-CN/blog/tags/announcement"}')}}]);
