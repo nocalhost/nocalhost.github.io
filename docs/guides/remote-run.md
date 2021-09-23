@@ -55,6 +55,17 @@ When you start the new container in Kubernetes cluster, Kubernetes will not star
       <td>Professional</td>
       <td>N/A</td>
     </tr>
+    <tr>
+      <td rowSpan="2">Node.js</td>
+      <td>IntelliJ IDEA</td>
+      <td>Ultimate</td>
+      <td>Node.js plugin</td>
+    </tr>
+    <tr>
+      <td>WebStrom</td>
+      <td>Professional</td>
+      <td>N/A</td>
+    </tr>
   </tbody>
 </table>
 
@@ -101,6 +112,7 @@ These are important options for remote run:
     {label: 'Python', value: 'python'},
     {label: 'Go', value: 'go'},
     {label: 'PHP', value: 'php'},
+    {label: 'Node.js', value: 'node'},
   ]}>
 <TabItem value="java">
 
@@ -270,6 +282,50 @@ containers:
 #！/bin/sh
 
 php -t ./ -S 0.0.0.0:9999;
+
+```
+
+</TabItem>
+
+<TabItem value="node">
+
+```yaml {10,27} title="Nocalhost Configs"
+name: node-remote-run
+serviceType: deployment
+containers:
+  - name: ""
+    dev:
+        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
+        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
+        shell: bash
+        workDir: /home/nocalhost-dev
+        command:
+          run:
+            - ./run.sh
+        debug:
+          remoteDebugPort: 9229
+        useDevContainer: false
+        sync:
+            type: send
+            filePattern:
+              - ./
+            ignoreFilePattern:
+              - .git
+              - .github
+        env:
+          - name: DEBUG
+            value: "true"
+        envFrom: null
+        portForward:
+          - 33333:9999
+
+```
+
+```yaml title="run.sh"
+
+#！/bin/sh
+
+npm install && node ratings.js 9080
 
 ```
 
