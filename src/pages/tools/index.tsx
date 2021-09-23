@@ -90,7 +90,6 @@ const Tools = () => {
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
-  const search = location.search;
 
   const handleSubmit = () => {};
 
@@ -99,6 +98,8 @@ const Tools = () => {
   };
 
   useEffect(() => {
+    const search = location?.search;
+
     if (search) {
       const searchObj: SearchParams = search2Obj(location.search);
       setURLParams(searchObj);
