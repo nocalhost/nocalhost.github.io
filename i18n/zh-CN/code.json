@@ -525,120 +525,120 @@
     "message": "请按照下面的指南在插件中输入开发模式"
   },
   "Find the workload name \"{bookinfo}\" to enter the development mode.": {
-    "message": "Find the workload name \"{bookinfo}\" to enter the development mode."
+    "message": "找到工作负载名称 \"{bookinfo}\" 进入开发模式。"
   },
   "Please Input Run Command": {
-    "message": "Please input run command"
+    "message": "请输入运行命令"
   },
   "Please Input Debug Command": {
-    "message": "Please input debug command"
+    "message": "请输入调试命令"
   },
   "Please Input Debug Port": {
-    "message": "Please input debug port"
+    "message": "请输入调试端口"
   },
   "Whether To Enable Hot Reload": {
-    "message": "Whether To Enable Hot Reload"
+    "message": "是否启用热加载"
   },
   "Please Input StorageClass": {
-    "message": "Please input storageClass"
+    "message": "请输入 StorageClass"
   },
   "Directory": {
-    "message": "Directory"
+    "message": "目录"
   },
   "Add Directory": {
-    "message": "Add Directory"
+    "message": "添加目录"
   },
   "Completed the minimal development configuration": {
-    "message": "Completed the minimal development configuration"
+    "message": "你已完成最小化的开发配置"
   },
   "Not yet completed the minimal development configuration": {
-    "message": "Not yet completed the minimal development configuration"
+    "message": "你还未完成最小化开发配置"
   },
   "Basic Config": {
-    "message": "Basic Config"
+    "message": "基础配置"
   },
   "File Synchronization": {
-    "message": "File Synchronization"
+    "message": "文件同步"
   },
   "Run And Debug": {
-    "message": "Run And Debug"
+    "message": "一键 Run 和 Debug"
   },
   "Volume": {
-    "message": "Volume"
+    "message": "持久化"
   },
   "Resource Limit": {
-    "message": "Resource Limit"
+    "message": "资源限制"
   },
   "Development Variable": {
-    "message": "Development Variable"
+    "message": "开发环境变量"
   },
   "Port Forward": {
-    "message": "Port Forward"
+    "message": "端口转发"
   },
   "Menu Tip Title": {
-    "message": "Complete 「Required Configuration」 Information to minimize development."
+    "message": "完成「配置信息必填项」即可最小化进行开发"
   },
   "Menu Success Tip": {
-    "message": "Configuration information is complete"
+    "message": "配置信息已完成"
   },
   "Menu Finish Tip": {
-    "message": "Required configuration information to be completed"
+    "message": "必填配置信息待完成"
   },
   "Menu Option Tip": {
-    "message": "Non-required configuration information to be completed"
+    "message": "非必填配置信息待完成"
   },
   "Please Input Name": {
-    "message": "Please input name"
+    "message": "请输入名称"
   },
   "Please Input Value": {
-    "message": "Please input value"
+    "message": "请输入值"
   },
   "Remove": {
-    "message": "Remove"
+    "message": "移除"
   },
   "Configure the development parameters follow the guide below": {
-    "message": "Configure the development parameters follow the guide below"
+    "message": "按照下面的指南配置开发参数"
   },
   "Click the button on the right to copy and generate \"Nocalhost Yaml\" development parameters": {
-    "message": "Click the button on the right to copy and generate \"Nocalhost Yaml\" development parameters"
+    "message": "点击右边的按钮复制并生成 “Nocalhost Yaml” 开发参数"
   },
   "Find the workload name 「{workload}」 and paste the development parameters to the configuration page of the service": {
-    "message": "Find the workload name 「{workload}」 and paste the development parameters to the configuration page of the service"
+    "message": "查找工作负载名称 \"{workload}\"，并将开发参数粘贴到服务的配置页面"
   },
   "Save configuration (Windows: Ctrl+s ｜ Mac: Command+s)": {
-    "message": "Save configuration (Windows: Ctrl+s ｜ Mac: Command+s)"
+    "message": "保存配置 (Windows: Ctrl+s | Mac: Command+s)"
   },
   "Configuration Successful": {
-    "message": "Configuration Successful"
+    "message": "配置成功"
   },
   "Configuration Failed": {
-    "message": "Configuration Failed"
+    "message": "配置失败"
   },
   "Find the workload name \"{workload}\" to enter the development mode.": {
-    "message": "Find the workload name \"{workload}\" to enter the development mode."
+    "message": "找到工作负载名称 \"{bookinfo}\" 进入开发模式。"
   },
   "run tooltip": {
-    "message": "Apply the startup command, click the Run button in the IDE, it will be automatically executed in the container"
+    "message": "应用启动命令，点击 IDE 内的 Run 按钮后将自动在容器内执行\b"
   },
   "debug tooltip": {
-    "message": "Apply debugging commands, click the Debug button in the IDE, it will be automatically executed in the container and linked to the debugger"
+    "message": "应用调试命令，点击 IDE 内的 Debug 按钮后将自动在容器内执行。"
   },
   "debug port tooltip": {
-    "message": "The debugging port for application startup, such as port 5005 for common JAVA applications, which will be automatically forwarded to the local"
+    "message": "启动应用程序的调试端口，例如常见 JAVA 应用程序为 5005 端口，该端口将自动转发给本地的"
   },
   "storageClass tooltip": {
-    "message": "Specify the Clsss used by the storage, empty represents the default Class"
+    "message": "指定存储所使用的Class，空表示默认类"
   },
   "Please input number": {
-    "message": "Please input number"
+    "message": "请输入数字"
   },
   "Please input workload name ": {
-    "message": "Please input workload name "
+    "message": "请输入工作负载名称 "
   },
   "Please select workload type": {
-    "message": "Please select workload type"
+    "message": "请选择工作类型"
   },
   "Please input or select container name": {
-    "message": "Please input or select container name"
+    "message": "请输入或选择容器名称"
   }
 }
