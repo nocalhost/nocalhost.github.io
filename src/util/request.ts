@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constants";
-import { SaveInfo } from "../../../types";
+import { BASE_URL } from "../pages/tools/constants";
+import { SaveInfo } from "../types";
 
 function post(url: string, data: any) {
   return fetch(`${BASE_URL}/${url}`, {

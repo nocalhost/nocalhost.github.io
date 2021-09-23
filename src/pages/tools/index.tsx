@@ -40,8 +40,8 @@ import {
   isLimitValid,
   isEnvVarValid,
   isPortForwardValid,
-} from "./util";
-import { saveConfig } from "./util/request";
+} from "../../util";
+import { saveConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
