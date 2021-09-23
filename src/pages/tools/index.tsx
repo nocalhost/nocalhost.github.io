@@ -29,7 +29,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { SearchParams, MenuItem, ConfigType, YamlObj } from "./types";
+import { SearchParams, MenuItem, ConfigType, YamlObj } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "./constants";
 
 import {

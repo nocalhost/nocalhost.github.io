@@ -32,7 +32,7 @@ export const IMAGE_OPTIONS = [
     value: "nocalhost-docker.pkg.coding.net/nocalhost/dev-images/php:latest",
   },
 ];
-import { MenuItem, Container } from "../types";
+import { MenuItem, Container } from "../../../types";
 export const CONFIG_TYPE: MenuItem[] = [
   { name: "Basic Config", status: "reject", type: "Basic" },
   { name: "File Synchronization", status: "pending", type: "FileSync" },
