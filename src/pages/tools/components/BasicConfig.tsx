@@ -6,7 +6,7 @@ import Translate, { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
 
-import { IMAGE_OPTIONS } from "../constants";
+import { IMAGE_OPTIONS } from "../../../constants";
 import IconArrowDown from "../images/arrow_down.svg";
 import IconArrowRight from "../images/arrow_right.svg";
 import DownArrow from "./DownArrow";

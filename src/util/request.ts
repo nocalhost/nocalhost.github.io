@@ -1,4 +1,4 @@
-import { BASE_URL } from "../pages/tools/constants";
+import { BASE_URL } from "../constants";
 import { SaveInfo } from "../types";
 
 function post(url: string, data: any) {

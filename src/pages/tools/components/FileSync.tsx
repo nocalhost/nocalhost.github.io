@@ -3,7 +3,7 @@ import { Form, Input, Select, Tooltip } from "antd";
 import Translate, { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
-import { SYNC_FILE_TYPE } from "../constants";
+import { SYNC_FILE_TYPE } from "../../../constants";
 
 import IconDel from "../images/icon_remove.svg";
 import IconAdd from "../images/icon_add.svg";
