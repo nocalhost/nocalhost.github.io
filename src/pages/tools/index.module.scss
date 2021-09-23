@@ -476,3 +476,7 @@ li {
   font-size: 14px;
   font-weight: 600;
 }
+
+:global(.ant-tooltip-hidden) {
+  display: none;
+}
