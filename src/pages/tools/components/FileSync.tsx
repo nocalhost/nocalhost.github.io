@@ -71,7 +71,7 @@ const FileSync = () => {
         {(fields, { add, remove }, { errors }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles["file-item"]}>
+              <div className={styles["file-item"]} key={field.fieldKey}>
                 <Form.Item
                   {...field}
                   key={index}

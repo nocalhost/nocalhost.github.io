@@ -28,7 +28,7 @@ const Volume = () => {
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (
-              <div className={styles["directory-item"]} key={field.key}>
+              <div className={styles["directory-item"]} key={field.fieldKey}>
                 <Form.Item
                   label={index === 0 ? translate({ message: "Directory" }) : ""}
                   style={{ marginBottom: 0 }}
