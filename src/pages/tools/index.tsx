@@ -178,14 +178,11 @@ const Tools = () => {
             case "containerIndex":
               {
                 // switch container
-                if (flagRef.current !== "delete") {
-                  const currentContainer =
-                    tmpYamlObj.containers[containerIndex];
-                  form.setFieldsValue({
-                    image: currentContainer?.dev.image,
-                  });
-                  coverFormField();
-                }
+                const currentContainer = tmpYamlObj.containers[containerIndex];
+                form.setFieldsValue({
+                  image: currentContainer?.dev.image,
+                });
+                coverFormField();
               }
               break;
             case "name":
