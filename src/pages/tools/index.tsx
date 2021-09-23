@@ -89,6 +89,7 @@ const Tools = () => {
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
 
   const timer = useRef<number | null>();
+  const flagRef = useRef<string>("change");
   const search = location.search;
 
   const handleSubmit = () => {};
@@ -177,18 +178,21 @@ const Tools = () => {
             case "containerIndex":
               {
                 // switch container
-                const currentContainer = tmpYamlObj.containers[containerIndex];
-                form.setFieldsValue({
-                  image: currentContainer?.dev.image,
-                });
-                coverFormField();
+                if (flagRef.current !== "delete") {
+                  const currentContainer =
+                    tmpYamlObj.containers[containerIndex];
+                  form.setFieldsValue({
+                    image: currentContainer?.dev.image,
+                  });
+                  coverFormField();
+                }
               }
               break;
             case "name":
               {
                 // change container name
                 const tmpObj = containerOptions;
-                containerOptions[containerIndex].label = value;
+                tmpObj[containerIndex].label = value;
                 setContainerOptions(tmpObj);
                 tmpYamlObj.containers[containerIndex][field] = value;
               }
@@ -416,12 +420,15 @@ const Tools = () => {
     if (value === "add") {
       generateContainer(containerName || `container-${newContainerIndex + 1}`);
       setNewContainerIndex(newContainerIndex + 1);
-      localStorage.setItem("containerIndex", newContainerIndex + 1 + "");
     } else {
-      form.setFieldsValue({
-        name: containerOptions[value].label,
-        containerIndex: value,
-      });
+      if (flagRef.current === "delete") {
+        flagRef.current = "change";
+      } else {
+        form.setFieldsValue({
+          name: containerOptions[value]?.label,
+          containerIndex: value,
+        });
+      }
     }
   };
 
@@ -545,21 +552,36 @@ const Tools = () => {
 
   const handleDeleteContainer = (index: number) => {
     const containers = yamlObj.containers;
+    flagRef.current = "delete";
+
     containers.splice(index, 1);
     containerOptions.splice(index, 1);
     setYamlObj({
       ...yamlObj,
     });
-    setContainerOptions([...containerOptions]);
+    const tmpOptions = containerOptions.map((item, index) => ({
+      ...item,
+      value: index,
+    }));
+    setContainerOptions([...tmpOptions]);
     const containerIndex = form.getFieldValue("containerIndex");
-    console.log(index, containerIndex, index === containerIndex);
-    if (index === form.getFieldValue("containerIndex")) {
-      form.setFieldsValue({
-        containerIndex: "",
-        name: "",
-      });
-      setContainerName("");
-    }
+    setTimeout(() => {
+      if (index === containerIndex) {
+        form.setFieldsValue({
+          containerIndex: "",
+          name: "",
+        });
+        setContainerName("");
+      } else if (index < containerIndex) {
+        form.setFieldsValue({
+          containerIndex: containerIndex - 1,
+        });
+      } else {
+        form.setFieldsValue({
+          containerIndex: containerIndex,
+        });
+      }
+    }, 0);
   };
 
   return (
