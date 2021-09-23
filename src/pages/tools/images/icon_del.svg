@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_del</title>
+    <g id="官网相关" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="14-交互补充" transform="translate(-342.000000, -580.000000)">
+            <g id="编组-6备份-4" transform="translate(50.000000, 442.000000)">
+                <g id="编组-2备份-7" transform="translate(0.000000, 64.000000)">
+                    <g id="row备份-6" transform="translate(0.000000, 68.000000)">
+                        <g id="编组-14" transform="translate(292.000000, 6.000000)">
+                            <line x1="1.5" y1="3.5" x2="18.5" y2="3.5" id="路径-14" stroke="#FF3F3F" stroke-width="1.5"></line>
+                            <path d="M6,3.5 L7.70710678,1.79289322 C7.89464316,1.60535684 8.14899707,1.5 8.41421356,1.5 L11.5857864,1.5 C11.8510029,1.5 12.1053568,1.60535684 12.2928932,1.79289322 L14,3.5 L14,3.5 L6,3.5 Z" id="路径-15" fill="#FF3F3F"></path>
+                            <path d="M4,3.5 L16,3.5 L16,16 C16,17.1045695 15.1045695,18 14,18 L6,18 C4.8954305,18 4,17.1045695 4,16 L4,3.5 L4,3.5 Z" id="矩形" stroke="#FF3F3F" stroke-width="1.5"></path>
+                            <line x1="8" y1="7" x2="8" y2="14.5" id="路径-16" stroke="#FF3F3F" stroke-width="1.5"></line>
+                            <line x1="12" y1="7" x2="12" y2="14.5" id="路径-16备份" stroke="#FF3F3F" stroke-width="1.5"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -54,5 +54,21 @@
   "sidebar.docs.category.Deployment": {
     "message": "Deployment",
     "description": "The label for category Deployment in sidebar docs"
+  },
+  "sidebar.docs.category.Spec": {
+    "message": "Spec",
+    "description": "The label for category Spec in sidebar docs"
+  },
+  "sidebar.docs.category.Pattern": {
+    "message": "Pattern",
+    "description": "The label for category Pattern in sidebar docs"
+  },
+  "sidebar.docs.category.Deploy": {
+    "message": "Deploy",
+    "description": "The label for category Deploy in sidebar docs"
+  },
+  "sidebar.docs.category.Manage DevSpace": {
+    "message": "Manage DevSpace",
+    "description": "The label for category Manage DevSpace in sidebar docs"
   }
 }
