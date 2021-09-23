@@ -7,8 +7,10 @@ import { SYNC_FILE_TYPE } from "../constants";
 
 import IconDel from "../images/icon_remove.svg";
 import IconAdd from "../images/icon_add.svg";
+import classNames from "classnames";
 
 const FileSync = () => {
+  const cx = classNames.bind(styles);
   return (
     <>
       <Form.Item label={translate({ message: "Sync Type" })} name="syncType">
@@ -39,7 +41,10 @@ const FileSync = () => {
                   />
                 </Form.Item>
                 <span
-                  className={styles["remove"]}
+                  className={cx(
+                    styles["remove"],
+                    index === 0 ? styles["first"] : ""
+                  )}
                   onClick={() => remove(field.name)}
                 >
                   <Tooltip
@@ -85,7 +90,10 @@ const FileSync = () => {
                   />
                 </Form.Item>
                 <span
-                  className={styles["remove"]}
+                  className={cx(
+                    styles["remove"],
+                    index === 0 ? styles["first"] : ""
+                  )}
                   onClick={() => remove(field.name)}
                 >
                   <Tooltip title={translate({ message: "Remove" })}>
