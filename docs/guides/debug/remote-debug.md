@@ -53,6 +53,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
       <td>Professional</td>
       <td>N/A</td>
     </tr>
+    <tr>
+      <td rowSpan="2">Node.js</td>
+      <td>IntelliJ IDEA</td>
+      <td>Ultimate</td>
+      <td>Node.js plugin</td>
+    </tr>
+    <tr>
+      <td>WebStrom</td>
+      <td>Professional</td>
+      <td>N/A</td>
+    </tr>
   </tbody>
 </table>
 
@@ -100,6 +111,7 @@ These are important options for remote debugging:
     {label: 'Python', value: 'python'},
     {label: 'Go', value: 'go'},
     {label: 'PHP', value: 'php'},
+    {label: 'Node.js', value: 'node'},
   ]}>
 <TabItem value="java">
 
@@ -141,13 +153,15 @@ containers:
 
 #### Maven Example
 
-The startup command for **Maven** example:
+The shell command for **Maven** example:
 
-```bash title="Maven's debug.sh"
- jdk>=1.8  and springBoot >=2.2.1.RELEASE(May be lower)   mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
- jdk <=1.7 you  should  replace "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" with "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
- Lower version of the springBoot  you should replace "-Drun.jvmArguments" with "-Dspring-boot.run.jvmArguments" 
+```bash title="jdk >= 1.8 and springBoot >=2.2.1.RELEASE"
+ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 ```
+
+For jdk <=1.7 you  should  replace `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005` with `-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005`
+
+For lower version of the springBoot  you should replace `-Drun.jvmArguments` with `-Dspring-boot.run.jvmArguments`
 
 #### Gradle Example
 
@@ -313,6 +327,51 @@ Nocalhost using Xdebug to debug PHP applications.
   <img className="gif-img" src={useBaseUrl('/img/debug/php-debug.jpg')} />
   <figcaption>Principle of Remote PHP Debugging</figcaption>
 </figure>
+
+</TabItem>
+
+<TabItem value="node">
+
+```yaml {10,13,27} title="Nocalhost Configs"
+name: nodejs-remote-debugging
+serviceType: deployment
+containers:
+  - name: ""
+    dev:
+        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
+        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
+        shell: bash
+        workDir: /home/nocalhost-dev
+        command:
+          debug:
+            - ./debug.sh
+        debug:
+          remoteDebugPort: 9229
+        useDevContainer: false
+        sync:
+            type: send
+            filePattern:
+              - ./
+            ignoreFilePattern:
+              - .git
+              - .github
+        env:
+          - name: DEBUG
+            value: "true"
+        envFrom: null
+        portForward:
+          - 33333:9999
+
+```
+
+```yaml title="debug.sh"
+
+#！/bin/sh
+
+npm install
+node --inspect=0.0.0.0:9229 ./index.js
+
+```
 
 </TabItem>
 </Tabs>

@@ -6,6 +6,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The files you modify in the IDE will be synchronized to the remote container in real time, and your Run/Debug command will be re-executed.
 
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/debug/hotreload.gif')} />
+</figure>
+
 ## Supported IDEs
 
 <table>

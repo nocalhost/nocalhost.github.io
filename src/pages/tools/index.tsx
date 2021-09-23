@@ -29,8 +29,8 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { SearchParams, MenuItem, ConfigType, YamlObj } from "./types";
-import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "./constants";
+import { SearchParams, MenuItem, ConfigType, YamlObj } from "../../types";
+import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
 import {
   isYamlValid,
@@ -40,8 +40,8 @@ import {
   isLimitValid,
   isEnvVarValid,
   isPortForwardValid,
-} from "./util";
-import { saveConfig } from "./util/request";
+} from "../../util";
+import { saveConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
@@ -90,7 +90,6 @@ const Tools = () => {
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
-  const search = location.search;
 
   const handleSubmit = () => {};
 
@@ -99,6 +98,8 @@ const Tools = () => {
   };
 
   useEffect(() => {
+    const search = location?.search;
+
     if (search) {
       const searchObj: SearchParams = search2Obj(location.search);
       setURLParams(searchObj);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "../index.module.scss";
 import classNames from "classnames";
@@ -16,10 +16,15 @@ import { Button, message } from "antd";
 const cx = classNames.bind(styles);
 
 const Card = ({ workload = "", yamlStr = "" }) => {
+  const [lang, setLang] = useState<string>("en");
+
+  useEffect(() => {
+    setLang(location.pathname.indexOf("zh-CN") > -1 ? "zh-cn" : "en");
+  }, []);
+
   const handleCopy = () => {
     message.success(translate({ message: "Copy Successfully!" }));
   };
-  const lang = translate({ message: "lang" });
   return (
     <ul className={styles["fail-list"]}>
       <li className={cx(styles["fail-item"], styles["inline"])}>
