@@ -1282,7 +1282,3 @@ a:hover {
 
 @media (max-width: 600px) {
 }
-
-:global(.ant-tooltip.ant-tooltip-placement-top.ant-tooltip-hidden) {
-  display: none;
-}

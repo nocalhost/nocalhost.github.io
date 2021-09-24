@@ -484,6 +484,10 @@ li {
   }
 }
 
+:global(.ant-tooltip.ant-tooltip-placement-top.ant-tooltip-hidden) {
+  display: none;
+}
+
 :global(.ant-switch.ant-switch-checked) {
   background-color: #1890ff;
 }
