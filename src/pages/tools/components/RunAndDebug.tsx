@@ -3,7 +3,6 @@ import { Form, Input, Tooltip, Switch } from "antd";
 import { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
-import IconQuery from "../images/icon_label_query.svg";
 import CommonIcon from "./CommonIcon";
 
 export const ItemLabel = ({ label, title }) => {

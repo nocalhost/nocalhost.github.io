@@ -87,6 +87,7 @@ const Tools = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
+  const [hasContainer, setHasContainer] = useState<boolean>(false);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
@@ -99,7 +100,6 @@ const Tools = () => {
 
   useEffect(() => {
     const search = location?.search;
-
     if (search) {
       const searchObj: SearchParams = search2Obj(location.search);
       setURLParams(searchObj);
@@ -129,6 +129,7 @@ const Tools = () => {
         containerIndex: containerArr[0]?.value,
       });
       coverFormField(tmpObj.containers[0]);
+      setHasContainer(tmpObj.containers[0] ? true : false);
     }
     return clearTimeout(timer.current);
   }, []);
@@ -418,6 +419,7 @@ const Tools = () => {
     if (value === "add") {
       generateContainer(containerName || `container-${newContainerIndex + 1}`);
       setNewContainerIndex(newContainerIndex + 1);
+      setHasContainer(true);
     } else {
       if (flagRef.current === "delete") {
         flagRef.current = "change";
@@ -551,7 +553,6 @@ const Tools = () => {
   const handleDeleteContainer = (index: number) => {
     const containers = yamlObj.containers;
     flagRef.current = "delete";
-
     containers.splice(index, 1);
     containerOptions.splice(index, 1);
     setYamlObj({
@@ -570,6 +571,7 @@ const Tools = () => {
           name: "",
         });
         setContainerName("");
+        setHasContainer(false);
       } else if (index < containerIndex) {
         form.setFieldsValue({
           containerIndex: containerIndex - 1,
@@ -677,7 +679,6 @@ const Tools = () => {
                     filterOption={false}
                     notFoundContent={null}
                     onInputKeyDown={handleInputContainer}
-                    onSearch={handleSelectSearch}
                     onSelect={handleSelect}
                     suffixIcon={DownArrow}
                     placeholder={translate({
@@ -726,7 +727,7 @@ const Tools = () => {
                 <div
                   className={cx({
                     "config-wrap": true,
-                    disabled: !form.getFieldValue("name"),
+                    disabled: !hasContainer,
                   })}
                 >
                   <div className={styles["menu"]}>
@@ -773,29 +774,6 @@ const Tools = () => {
                         );
                       })}
                     </ul>
-                    <ul className={styles["menu-tip"]}>
-                      <div className={styles["menu-tip-title"]}>
-                        <Translate>Menu Tip Title</Translate>
-                      </div>
-                      <li className={styles["menu-tip-item"]}>
-                        <IconSuccess />
-                        <span>
-                          <Translate>Menu Success Tip</Translate>
-                        </span>
-                      </li>
-                      <li className={styles["menu-tip-item"]}>
-                        <IconWaring />
-                        <span>
-                          <Translate>Menu Finish Tip</Translate>
-                        </span>
-                      </li>
-                      <li className={styles["menu-tip-item"]}>
-                        <IconOption />
-                        <span>
-                          <Translate>Menu Option Tip</Translate>
-                        </span>
-                      </li>
-                    </ul>
                   </div>
                   <div className={styles["config"]}>
                     {configType === "Basic" && <BasicConfig />}
@@ -806,11 +784,32 @@ const Tools = () => {
                     {configType === "DevEnv" && <EnvVar />}
                     {configType === "PortForward" && <PortForward />}
                   </div>
-                  {!form.getFieldValue("name") && (
-                    <div className={styles["mask"]}></div>
-                  )}
+                  {!hasContainer && <div className={styles["mask"]}></div>}
                 </div>
               </Form>
+              <ul className={styles["menu-tip"]}>
+                <div className={styles["menu-tip-title"]}>
+                  <Translate>Menu Tip Title</Translate>
+                </div>
+                <li className={styles["menu-tip-item"]}>
+                  <IconSuccess />
+                  <span>
+                    <Translate>Menu Success Tip</Translate>
+                  </span>
+                </li>
+                <li className={styles["menu-tip-item"]}>
+                  <IconWaring />
+                  <span>
+                    <Translate>Menu Finish Tip</Translate>
+                  </span>
+                </li>
+                <li className={styles["menu-tip-item"]}>
+                  <IconOption />
+                  <span>
+                    <Translate>Menu Option Tip</Translate>
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
           <div className={styles["right"]}>
