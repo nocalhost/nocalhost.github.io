@@ -483,3 +483,7 @@ li {
     display: none;
   }
 }
+
+:global(.ant-switch.ant-switch-checked) {
+  background-color: #1890ff;
+}
