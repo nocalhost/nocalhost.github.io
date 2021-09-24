@@ -21,6 +21,7 @@ const Volume = () => {
         name="storageClass"
       >
         <Input
+          style={{ width: 460 }}
           placeholder={translate({ message: "Please Input StorageClass" })}
         />
       </Form.Item>

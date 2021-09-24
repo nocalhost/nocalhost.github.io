@@ -27,7 +27,10 @@ const Card = ({ workload = "", yamlStr = "" }) => {
   };
   return (
     <ul className={styles["fail-list"]}>
-      <li className={cx(styles["fail-item"], styles["inline"])}>
+      <li
+        className={cx(styles["fail-item"], styles["inline"])}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <div className={styles["desc"]}>
           <span className={styles["number"]}>1</span>
           <div style={{ flex: 1 }}>
@@ -67,7 +70,10 @@ const Card = ({ workload = "", yamlStr = "" }) => {
           {lang === "zh-cn" ? <ImageJBFailCN /> : <ImageJBFail />}
         </div>
       </li>
-      <li className={styles["fail-item"]}>
+      <li
+        className={styles["fail-item"]}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <span className={styles["number"]}>3</span>
         <span>
           <Translate>
