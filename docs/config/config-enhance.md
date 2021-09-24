@@ -52,7 +52,7 @@ containers:
 
 ******
 
-### 开发模式同步 Pattern
+### 文件同步
 
 ```yaml
 name: nocalhost-api
@@ -71,8 +71,11 @@ containers:
           - "node_modules"
 ```
 
+文件同步的配置包括两个部分，其一是同步类型 `containers[].dev.sync.type`，可配置为
 
+ - send，意为仅发送，所有的变更以本地为准
+ - sendReceive，意为双向同步，即一端的新增、修改、删除等操作将同步到另一端
 
-我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件。如果想要对同步的内容使用模式匹配，可使用强大的 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
+另外，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件。如果想要对同步的内容使用模式匹配，可使用强大的 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
 
 [点击这里查看 Pattern 的详细配置](config-pattern.md)

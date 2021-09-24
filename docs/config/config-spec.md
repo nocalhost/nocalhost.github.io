@@ -19,10 +19,10 @@ Nocalhost 配置大体可分为三类。
 
 第一类为开发容器本身的配置，包括：
 
-- 开发镜像配置
-- 开发容器默认 shell
-- 开发容器持久化
-- 开发容器的资源的申请与限制
+ - 开发镜像配置
+ - 开发容器默认 shell
+ - 开发容器持久化
+ - 开发容器的资源的申请与限制
 
 :::tip Quickview
 ```yaml
@@ -58,9 +58,10 @@ containers:
 ## [增强配置](config-enhance.md)
 
 第二类为增强配置，与开发容器本身无关，包括：
+
  - 容器 git 源码目录 
  - 是否自动在进入开发模式后自动开启端口转发
- - 文件同步的同步 pattern 忽略 pattern
+ - 文件同步如何配置，及其同步 pattern 忽略 pattern
 
 :::tip Quickview
 
@@ -94,6 +95,7 @@ containers:
 ## [一键开发、一键调试、hotReload 配置](config-develop.md)
 
 第三类为面向开发过程的配置，包括：
+
  - 一键运行
  - 一键调试
  - HotReload

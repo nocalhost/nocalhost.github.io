@@ -57,7 +57,10 @@ export interface Container {
       filePattern?: string[];
       ignoreFilePattern?: string[];
     };
-    env?: string[];
+    env?: {
+      name: string;
+      value: string;
+    }[];
     portForward?: string[];
     sidecarImage?: string;
   };
