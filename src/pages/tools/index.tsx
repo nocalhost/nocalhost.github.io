@@ -786,40 +786,24 @@ const Tools = () => {
               </Form>
               <ul className={styles["menu-tip"]}>
                 <div className={styles["menu-tip-title"]}>
-<<<<<<< HEAD
                   <Translate>Development configuration tips</Translate>
-=======
-                  <Translate>Menu Tip Title</Translate>
->>>>>>> dev
                 </div>
                 <li className={styles["menu-tip-item"]}>
                   <IconSuccess />
                   <span>
-<<<<<<< HEAD
                     <Translate>Completed</Translate>
-=======
-                    <Translate>Menu Success Tip</Translate>
->>>>>>> dev
                   </span>
                 </li>
                 <li className={styles["menu-tip-item"]}>
                   <IconWaring />
                   <span>
-<<<<<<< HEAD
                     <Translate>Incomplete</Translate>
-=======
-                    <Translate>Menu Finish Tip</Translate>
->>>>>>> dev
                   </span>
                 </li>
                 <li className={styles["menu-tip-item"]}>
                   <IconOption />
                   <span>
-<<<<<<< HEAD
                     <Translate>Non-required fields</Translate>
-=======
-                    <Translate>Menu Option Tip</Translate>
->>>>>>> dev
                   </span>
                 </li>
               </ul>
