@@ -69,36 +69,35 @@ module.exports = {
       label: 'Configuration',
       collapsed: false,
       items: [
-        'config/config',
         'config/config-overview',
-        {
-          type: 'category',
-          label: 'Spec',
-          items: [
-            'config/config-spec',
-            'config/config-dev-container',
-            'config/config-enhance',
-            {
-              type: 'category',
-              label: 'Pattern',
-              items: [
-                'config/config-pattern',
-              ]
-            },
-            'config/config-develop',
-          ]
-        },
-        'config/configure',
-        {
-          type: 'category',
-          label: 'Deploy',
-          items: [
-            'config/config-deployment',
-            'config/config-deployment-quickstart',
-            'config/config-deployment-spec',
-            'config/config-deployment-advance'
-          ]
-        },
+        // {
+        //   type: 'category',
+        //   label: 'Spec',
+        //   items: [
+        //     'config/config-spec',
+        //     'config/config-dev-container',
+        //     'config/config-enhance',
+        //     {
+        //       type: 'category',
+        //       label: 'Pattern',
+        //       items: [
+        //         'config/config-pattern',
+        //       ]
+        //     },
+        //     'config/config-develop',
+        //   ]
+        // },
+        // 'config/configure',
+        // {
+        //   type: 'category',
+        //   label: 'Deploy',
+        //   items: [
+        //     'config/config-deployment',
+        //     'config/config-deployment-quickstart',
+        //     'config/config-deployment-spec',
+        //     'config/config-deployment-advance'
+        //   ]
+        // },
       ]
     },
     // Best Practice
