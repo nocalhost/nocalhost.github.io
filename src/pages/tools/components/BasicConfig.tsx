@@ -37,7 +37,7 @@ const BasicConfig = () => {
           style={{ width: 460 }}
           options={IMAGE_OPTIONS}
           placeholder={translate({
-            message: "Please Select Development Image",
+            message: "Please Select OR Enter A Development Image",
           })}
           suffixIcon={DownArrow}
         />
