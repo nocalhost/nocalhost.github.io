@@ -237,7 +237,7 @@ const Tools = () => {
               {
                 let obj =
                   tmpYamlObj.containers[containerIndex]["dev"]["debug"] || {};
-                obj[field] = value;
+                obj[field] = +value;
                 tmpYamlObj.containers[containerIndex]["dev"]["debug"] = {
                   ...obj,
                 };
@@ -378,10 +378,6 @@ const Tools = () => {
     }
   };
 
-  const handleSelectSearch = (value) => {
-    setContainerName(value);
-  };
-
   const generateContainer = (value: string) => {
     if (containerOptions.map((item) => item.label).includes(value)) {
       form.setFieldsValue({
@@ -428,6 +424,7 @@ const Tools = () => {
           name: containerOptions[value]?.label,
           containerIndex: value,
         });
+        setHasContainer(true);
       }
     }
   };
