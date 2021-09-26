@@ -640,5 +640,23 @@
   },
   "Please input or select container name": {
     "message": "Please input or select container name"
+  },
+  "Development Configuration": {
+    "message": "Development Configuration"
+  },
+  "Development configuration tips": {
+    "message": "Development configuration tips"
+  },
+  "Completed": {
+    "message": "Completed"
+  },
+  "Incomplete": {
+    "message": "Incomplete"
+  },
+  "Non-required fields": {
+    "message": "Non-required fields"
+  },
+  "Please Select OR Enter A Development Image": {
+    "message": "Please Select OR Enter A Development Image"
   }
 }
