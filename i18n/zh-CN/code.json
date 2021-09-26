@@ -429,7 +429,7 @@
     "message": "开发镜像"
   },
   "Please Select Development Image": {
-    "message": "请选择开发镜像"
+    "message": "请选择或者输入镜像"
   },
   "Other basic configuration items": {
     "message": "其它基本配置项"
@@ -576,16 +576,16 @@
     "message": "端口转发"
   },
   "Menu Tip Title": {
-    "message": "Complete \"Required Configuration\" Information to minimize development."
+    "message": "开发配置提示"
   },
   "Menu Success Tip": {
-    "message": "配置信息已完成"
+    "message": "已完成"
   },
   "Menu Finish Tip": {
-    "message": "必填配置信息待完成"
+    "message": "未完成"
   },
   "Menu Option Tip": {
-    "message": "非必填配置信息待完成"
+    "message": "非必填项"
   },
   "Please Input Name": {
     "message": "请输入名称"
