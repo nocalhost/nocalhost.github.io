@@ -396,7 +396,7 @@
     "message": "Please Input Container Name!"
   },
   "Parameter configuration": {
-    "message": "Parameter configuration"
+    "message": "Development Configuration"
   },
   "Apply": {
     "message": "Apply"
@@ -429,7 +429,7 @@
     "message": "Development Image"
   },
   "Please Select Development Image": {
-    "message": "Please Select Development Image"
+    "message": "Please Select OR Enter A Development Image"
   },
   "Other basic configuration items": {
     "message": "Other basic configuration items"
@@ -576,16 +576,16 @@
     "message": "Port Forward"
   },
   "Menu Tip Title": {
-    "message": "Complete \"Required Configuration\" Information to minimize development."
+    "message": "Development configuration tips."
   },
   "Menu Success Tip": {
-    "message": "Configuration information is complete"
+    "message": "Completed"
   },
   "Menu Finish Tip": {
-    "message": "Required configuration information to be completed"
+    "message": "Incomplete"
   },
   "Menu Option Tip": {
-    "message": "Non-required configuration information to be completed"
+    "message": "Non-required fields"
   },
   "Please Input Name": {
     "message": "Please input name"
@@ -640,5 +640,23 @@
   },
   "Please input or select container name": {
     "message": "Please input or select container name"
+  },
+  "Development Configuration": {
+    "message": "Development Configuration"
+  },
+  "Development configuration tips": {
+    "message": "Development configuration tips"
+  },
+  "Completed": {
+    "message": "Completed"
+  },
+  "Incomplete": {
+    "message": "Incomplete"
+  },
+  "Non-required fields": {
+    "message": "Non-required fields"
+  },
+  "Please Select OR Enter A Development Image": {
+    "message": "Please Select OR Enter A Development Image"
   }
 }
