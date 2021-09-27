@@ -5,7 +5,9 @@ title: Quick Start
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Quick Start](config-deployment-quickstart.md)
+
 ******
+
 # 部署配置入门 ——— Nocalhost 基础部署配置
 
 You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE

@@ -7,15 +7,19 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Advance](config-deployment-advance.md)
+
 ******
 
 # Dep 组件与其他配置方式的支持
+
 Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 等。实际上，这些配置方式**同样适用于**部署配置。但有些功能是需要配合 K8s WebHook 功能来实现，在 Nocalhost 中，是由一个叫做 `Nocalhost-Dep` 的组件来承担这个角色，`Nocalhost Server` 将自动为你部署这个组件，如果你没有使用 `Nocalhost Server`，那么则需要额外进行 `Nocalhost Dep` 的部署。
 
 <br/>
 
 :::info
+
 [Nocalhost 提供了哪些部署配置？](config-deployment-spec.md) 中介绍了哪些部署配置需要额外部署 `Nocalhost Dep` 来进行支持。
+
 :::
 
 ******
@@ -68,6 +72,7 @@ data:
 <br/>
 
 :::danger
+
 这个 ConfigMap 需要最先被提交的 Api Server，如在 Helm 的应用场景下，它应该被声明为 `pre-install`
 
 ```yaml
@@ -215,5 +220,6 @@ containers:
 我们推荐使用 `Nocalhost Server` 来获得 `Nocalhost Dep` 的全部功能。
 
 :::danger COMING SOON
+
 
 :::

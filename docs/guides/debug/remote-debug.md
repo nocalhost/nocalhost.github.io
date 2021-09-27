@@ -67,6 +67,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   </tbody>
 </table>
 
+:::danger ISSUES
+
+Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)
+
+:::
+
 ## Debugging Process
 
 1. Select the workload that you want to debug
@@ -74,7 +80,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 3. Then right-click this workload again and select **Remote Debug**
 4. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/LDb7oDGr8gA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="100%" height="600" src="//player.bilibili.com/player.html?aid=378208000&bvid=BV12f4y1w7EX&cid=415232277&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### Debugging Configurations in IDE
 
@@ -95,13 +101,6 @@ If you already have a Nocalhost IDE debug configuration under the existing workl
 
 The development environment is different between developers. You should configure remote debug configurations according to the actual situation.
 
-These are important options for remote debugging:
-
-- **Development Image:** the image use to start development container
-- **Debug Command:** the command to execute in the container for remote debugging
-- **Remote Debug Port:** IDE listens to this port for remote debug debugging
-- **Container Port-Forwarding:** the port-forwarding in development mode
-
 ### Sample Configuration
 
 <Tabs
@@ -115,40 +114,19 @@ These are important options for remote debugging:
   ]}>
 <TabItem value="java">
 
-```yaml {10,15,29} title="Nocalhost Configs"
+```yaml {8,11} title="Nocalhost Configs"
 name: java-remote-debugging
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
-          build: []
-          run:
-            - ./run.sh
           debug:
             - ./debug.sh
-          hotReloadRun: []
-          hotReloadDebug: []
         debug:
           remoteDebugPort: 5005
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
+        ...
 ```
 
 #### Maven Example
@@ -175,36 +153,19 @@ The startup command for **Gradle** example:
   
 <TabItem value="python">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {8,11} title="Nocalhost Configs"
 name: python-remote-debugging
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           debug:
             - ./debug.sh
         debug:
           remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
-
+        ...
 ```
 
 ```yaml title="debug.sh"
@@ -234,36 +195,19 @@ Nocalhost using pydevd to debug Python application.
   
 <TabItem value="go">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {8,11} title="Nocalhost Configs"
 name: go-remote-debugging
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           debug:
             - ./debug.sh
         debug:
           remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
-
+        ...
 ```
 
 ```yaml title="debug.sh"
@@ -279,36 +223,19 @@ dlv --headless --log --listen :9009 --api-version 2 --accept-multiclient debug a
   
 <TabItem value="php">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {8,11} title="Nocalhost Configs"
 name: php-remote-debugging
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           debug:
             - ./debug.sh
         debug:
           remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
-
+        ...
 ```
 
 ```yaml title="debug.sh"
@@ -332,36 +259,19 @@ Nocalhost using Xdebug to debug PHP applications.
 
 <TabItem value="node">
 
-```yaml {10,13,27} title="Nocalhost Configs"
+```yaml {8,11} title="Nocalhost Configs"
 name: nodejs-remote-debugging
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           debug:
             - ./debug.sh
         debug:
           remoteDebugPort: 9229
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
-
+        ...
 ```
 
 ```yaml title="debug.sh"
@@ -375,8 +285,3 @@ node --inspect=0.0.0.0:9229 ./index.js
 
 </TabItem>
 </Tabs>
-
-
-## Known Issues
-
-- Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)

@@ -30,7 +30,9 @@ Nocalhost 支持多种方式来配置开发模式，为多种丰富的使用场�
 Nocalhost 拥有应用部署的功能，在 Nocalhost Server 版本下，这是一个高频功能。Nocalhost 提供了工作负载 **依赖控制、部署 env 注入**等功能。
 
 :::tip 小提示
+
 如果你不需要工作负载依赖控制、env 注入等功能，或拥有自己完善的部署方式，不需要阅读本小节。
+
 :::
 
 Nocalhost 支持 Helm、rawManifest 与 Kustomize 进行 K8s 应用的部署，同样支持 **configMap 、以及 annotation** 等多种配置方式。

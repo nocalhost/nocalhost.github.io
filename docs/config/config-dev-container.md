@@ -24,7 +24,9 @@ containers:
 官方的开发镜像没有什么特殊的魔改，就是一个普通的镜像。除了各个语言的基本环境，如 Java 的 JRE、Maven 等，还内置了一些如 git、openssh-client、zsh、bash、net-tools、tmux 等基本软件。如果官方的开发镜像不合适，你可以随意的定制自己的开发镜像，我们的 DockerFile 放置在 [dev-container](https://github.com/nocalhost/dev-container)。
 
 :::tip 自制开发镜像
+
 如果你定制了自己的开发镜像，请将它放置在一个你所使用的 K8s 集群可拉取到的仓库。
+
 :::
 
 <br/>
@@ -86,11 +88,10 @@ containers:
 持久化需要借助 storageclass 的能力（`kubectl get storageclass `），如果没有配置 storageClass，Nocalhost 将会使用集群中默认的 storageclass 来进行 PVC 的创建。反之，则使用指定的 storageClass 来进行创建。
 
 :::info 注意
+
 capacity 需要符合 K8s 对资源限定的约定。
+
 :::
-
-
-
 
 <br/>
 
@@ -122,5 +123,7 @@ Nocalhost 对开发容器的资源设置继承自原容器，如果原容器没�
 通常，在进入开发模式后，资源的用量会超过原镜像。如果原容器配置了资源相关的设置，往往会导致开发模式无法正常运转，如内存不够导致 OOM 等。那么此时就需要通过配置 `resources` 来提高开发镜像所用资源。
 
 :::info 注意
+
 memory 和 cpu 需要符合 K8s 对资源限定的约定。
+
 :::
