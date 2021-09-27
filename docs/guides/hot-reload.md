@@ -6,9 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The files you modify in the IDE will be synchronized to the remote container in real time, and your Run/Debug command will be re-executed.
 
-<figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/debug/hotreload.gif')} />
-</figure>
+<iframe width="100%" height="600" src="//player.bilibili.com/player.html?aid=335688273&bvid=BV1sR4y1p7RM&cid=415232002&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## Supported IDEs
 
@@ -100,7 +98,5 @@ containers:
           remoteDebugPort: 5005
 
 ```
-
-<iframe width="100%" height="600" src="//player.bilibili.com/player.html?aid=335688273&bvid=BV1sR4y1p7RM&cid=415232002&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
