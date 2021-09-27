@@ -104,32 +104,36 @@ const Tools = () => {
       const searchObj: SearchParams = search2Obj(location.search);
       setURLParams(searchObj);
       const { name, type, container } = searchObj;
-      const containerArr = container.split(",").map((item, index) => {
-        return {
-          label: item,
-          value: index,
-        };
-      });
-      setContainerOptions(containerArr);
-      const tmpObj = {
-        name,
-        serviceType: type,
-        containers: containerArr.map((item) => {
+      try {
+        const containerArr = container.split(",").map((item, index) => {
           return {
-            name: item.label,
-            ...DEFAULT_CONTAINER,
+            label: item,
+            value: index,
           };
-        }),
-      };
-      setYamlObj(tmpObj);
-      form.setFieldsValue({
-        workloadName: name,
-        workloadType: type,
-        name: containerArr[0]?.label,
-        containerIndex: containerArr[0]?.value,
-      });
-      coverFormField(tmpObj.containers[0]);
-      setHasContainer(tmpObj.containers[0] ? true : false);
+        });
+        setContainerOptions(containerArr);
+        const tmpObj = {
+          name,
+          serviceType: type,
+          containers: containerArr.map((item) => {
+            return {
+              name: item.label,
+              ...DEFAULT_CONTAINER,
+            };
+          }),
+        };
+        setYamlObj(tmpObj);
+        form.setFieldsValue({
+          workloadName: name,
+          workloadType: type,
+          name: containerArr[0]?.label,
+          containerIndex: containerArr[0]?.value,
+        });
+        coverFormField(tmpObj.containers[0]);
+        setHasContainer(tmpObj.containers[0] ? true : false);
+      } catch (e) {
+        console.log(e);
+      }
     }
     return clearTimeout(timer.current);
   }, []);
@@ -604,7 +608,7 @@ const Tools = () => {
                       </Translate>
                     ) : (
                       <Translate>
-                        Not yet completed the minimal development configuration
+                        Minimal development configuration is incomplete
                       </Translate>
                     )}
                   </span>
