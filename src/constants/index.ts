@@ -57,16 +57,16 @@ export const SYNC_FILE_TYPE = [
 export const WORKLOAD_TYPE = [
   {
     label: "Deployment",
-    value: "Deployment",
+    value: "deployment",
   },
-  { label: "StatefulSet", value: "StatefulSet" },
+  { label: "StatefulSet", value: "statefulSet" },
   {
     label: "DaemonSet",
-    value: "DaemonSet",
+    value: "daemonSet",
   },
-  { label: "Job", value: "Job" },
-  { label: "CronJob", value: "CornJob" },
-  { label: "Pods", value: "Pods" },
+  { label: "Job", value: "job" },
+  { label: "CronJob", value: "cornJob" },
+  { label: "Pods", value: "pods" },
 ];
 
 export const BASE_URL = "http://127.0.0.1:30125";

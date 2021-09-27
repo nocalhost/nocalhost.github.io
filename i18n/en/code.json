@@ -658,5 +658,8 @@
   },
   "Please Select OR Enter A Development Image": {
     "message": "Please Select OR Enter A Development Image"
+  },
+  "Minimal development configuration is incomplete": {
+    "message": "Minimal development configuration is incomplete"
   }
 }
