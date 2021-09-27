@@ -17,17 +17,16 @@ title: What is Nocalhost Config?
 总而言之，**开发配置是为了更好的定义 `开发模式 ` 的行为**。
 
 :::tip 关于开发配置与部署配置
+
  Nocalhost 配置大体可分为两部分，一部分是开发配置，另一部分是部署配置。
 
  - 部署配置，用于定义如何进行 K8s 应用部署，包括服务依赖控制，变量注入等。
  - 开发配置，围绕 `开发模式` 来进行，例如使用什么镜像来进入`开发模式`，是否需要开启持久化来保存开发容器的内容，将哪些文件同步到开发容器中，如何一键调试、一键运行容器内的服务等。
+ 
 :::
 <br/>
+
 通常，我们只需要关心**开发配置**。在配置文档的说明中，**如果没有特殊说明，我们提到的配置，指的都是开发配置**。
-
-
-
-
 
 ******
 ## 查看与保存配置
@@ -36,7 +35,9 @@ title: What is Nocalhost Config?
 如果你从未进行过某个服务的 Nocalhost 的配置，**右键点击它选择 `Dev Config`**，你将看到下面的这些配置，它们都为空，这些都是 Nocalhost **开发模式**中比较常用的配置。
 
 :::tip 配置并不是必须的
+
 不进行任何配置也可以正常使用 Nocalhost 开发模式
+
 :::
 
 ```yaml
@@ -100,7 +101,9 @@ containers:
         shell: "zsh"
 ```
 :::danger container 名字要配置正确
+
 如果你在 Nocalhost 配置中写明了错误的 `containers.[].name`，配置可能会不生效。
+
 :::
 
 <br/>
@@ -147,11 +150,13 @@ containers:
 这是一个需要长篇大论进行说明的内容，我们这里先以一个简单的例子为例，可以快速入门 Nocalhost 配置。
 
 :::info 需要一个应用来进行操作？
+
 如果没有现成的工作负载可以操作可以调用下面这个命令来安装一个示例应用：
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
+
 :::
 
 <br/>
@@ -179,7 +184,9 @@ nocalhost=example
 ```
 
 :::tip 更多
+
 想了解更多的配置项及其作用，可以查看 [Nocalhost 提供了哪些配置？](config-spec.md)
+
 :::
 
 <br/>
@@ -201,11 +208,13 @@ Nocalhost 的开发配置并非实时生效，需要在**保存过后**，**重�
 
 Nocalhost 会在每个命名空间下创建一个前缀为 `dev.nocalhost.application.` 的 `secret` 作为 “微型数据库”，配置将会被保存在这个 `secret` 中。
 
-
-
 在这个 `secret` 被销毁之前，数据都将一直保留。
+
 :::info HELM 应用
-如果你的应用是一个 helm 应用，例如它的 `Release.Name` 叫 `bookinfo` 。那么这个 `secret` 将命名为 `dev.nocalhost.application.bookinfo`，且当 `bookinfo` 被卸载后，保存数据的 `secret` 将会被销毁
+
+如果你的应用是一个 helm 应用，例如它的 `Release.Name` 叫 `bookinfo` 。那么这个 `secret` 将命名为 `dev.nocalhost.application.bookinfo`，且当 `bookinfo` 被卸载
+后，保存数据的 `secret` 将会被销毁
+
 :::
 
 <br/>
