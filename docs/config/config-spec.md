@@ -7,7 +7,9 @@ title: Spec
 # Nocalhost 提供了哪些配置？
 
 :::info PRE-REQUIRE
+
 在阅读本文章之前，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)来进行了解。
+
 :::
 
 Nocalhost 配置大体可分为三类。
@@ -25,6 +27,7 @@ Nocalhost 配置大体可分为三类。
  - 开发容器的资源的申请与限制
 
 :::tip Quickview
+
 ```yaml
 name: nocalhost-api
 serviceType: deployment
@@ -48,6 +51,7 @@ containers:
           memory: 2Gi
           cpu: "0.5"
 ```
+
 :::
 
 

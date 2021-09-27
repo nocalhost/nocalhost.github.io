@@ -97,12 +97,6 @@ If you already have a Nocalhost IDE run configuration under the existing workloa
 
 The development environment is different between developers. You should configure remote run configurations according to the actual situation.
 
-These are important options for remote run:
-
-- **Development Image:** the image use to start development container
-- **Run Command:** the command to execute in the container for remote run
-- **Container Port-Forwarding:** the port-forwarding in development mode
-
 ### Sample Configuration
 
 <Tabs
@@ -116,72 +110,35 @@ These are important options for remote run:
   ]}>
 <TabItem value="java">
 
-```yaml {10,28} title="Nocalhost Configs"
+```yaml {7,8} title="Nocalhost Configs"
 name: java-remote-run
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/java:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           run:
             - /home/nocalhost-dev/gradlew
             - bootRun
-        debug:
-          remoteDebugPort: 5005
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
-
+        ...
 ```
 
 </TabItem>
   
 <TabItem value="python">
 
-```yaml {10,27} title="Nocalhost Configs"
+```yaml {7,8} title="Nocalhost Configs"
 name: python-remote-run
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/python:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+       ...
         command:
           run:
             - ./run.sh
-        debug:
-          remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
+        ...
 
 ```
 
@@ -202,35 +159,17 @@ flask run --host=0.0.0.0 --port=9999
   
 <TabItem value="go">
 
-```yaml {10,27} title="Nocalhost Configs"
+```yaml {7,8} title="Nocalhost Configs"
 name: go-remote-run
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:latest
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           run:
             - ./run.sh
-        debug:
-          remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
+        ...
 
 ```
 
@@ -245,35 +184,17 @@ go run app.go
   
 <TabItem value="php">
 
-```yaml {10,27} title="Nocalhost Configs"
+```yaml {7,8} title="Nocalhost Configs"
 name: php-remote-run
 serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           run:
             - ./run.sh
-        debug:
-          remoteDebugPort: 9009
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
+        ...
 
 ```
 
@@ -295,29 +216,11 @@ serviceType: deployment
 containers:
   - name: ""
     dev:
-        gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
-        image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/php:zsh
-        shell: bash
-        workDir: /home/nocalhost-dev
+        ...
         command:
           run:
             - ./run.sh
-        debug:
-          remoteDebugPort: 9229
-        useDevContainer: false
-        sync:
-            type: send
-            filePattern:
-              - ./
-            ignoreFilePattern:
-              - .git
-              - .github
-        env:
-          - name: DEBUG
-            value: "true"
-        envFrom: null
-        portForward:
-          - 33333:9999
+        ...
 
 ```
 
