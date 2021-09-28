@@ -716,16 +716,22 @@ a:hover {
   margin: 0 auto 100px;
 }
 
-.txHeroContent4 .table {
+.table {
   display: flex;
   justify-content: center;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
+@media (min-width: 1200px) {
+  .txHeroContent4 .table {
+    max-width: 1200px;
+  }
+}
+
 .txHeroContent4 .table img {
-  min-width: 1200px;
-  width: 1200px;
+  /* min-width: 1200px;
+  width: 1200px; */
+  z-index: 10;
 }
 
 .startBtnSection .bottomBanner {
