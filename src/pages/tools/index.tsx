@@ -340,7 +340,7 @@ const Tools = () => {
       } catch (e) {
         throw new Error(e);
       }
-    }, 500);
+    }, 200);
   };
 
   const handleApply = async () => {
@@ -778,7 +778,7 @@ const Tools = () => {
                   </div>
                   <div className={styles["config"]}>
                     {configType === "Basic" && <BasicConfig />}
-                    {configType === "FileSync" && <FileSync />}
+                    {configType === "FileSync" && <FileSync form={form} />}
                     {configType === "RunAndDebug" && <RunAndDebug />}
                     {configType === "Volume" && <Volume />}
                     {configType === "ResourceLimit" && <ResourceLimit />}
