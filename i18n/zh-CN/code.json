@@ -658,5 +658,8 @@
   },
   "Please Select OR Enter A Development Image": {
     "message": "请选择或者输入开发镜像"
+  },
+  "Minimal development configuration is incomplete": {
+    "message": "你还未完成最小化开发配置"
   }
 }
