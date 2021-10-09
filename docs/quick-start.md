@@ -122,7 +122,7 @@ Make sure you have successfully deployed workloads within your Kubernetes Cluste
 **1.** Run the following command in the remote terminal to start main process
 
 ```bash
-sh run.sh
+python productpage.py 9080
 ```
 
 :::tip Main Process
