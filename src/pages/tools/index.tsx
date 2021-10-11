@@ -210,6 +210,24 @@ const Tools = () => {
                 };
               }
               break;
+            case "syncMode":
+              {
+                let obj =
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                obj.mode = value;
+                if (value === "gitIgnore") {
+                  delete obj["filePattern"];
+                  delete obj["ignoreFilePattern"];
+                } else {
+                  obj.filePattern = form.getFieldValue("filePattern");
+                  obj.ignoreFilePattern =
+                    form.getFieldValue("ignoreFilePattern");
+                }
+                tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
+                  ...obj,
+                };
+              }
+              break;
             case "filePattern":
             case "ignoreFilePattern":
               {
@@ -490,11 +508,13 @@ const Tools = () => {
       if (currentContainer.dev?.sync) {
         const {
           type,
+          mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
+          syncMode: mode,
           filePattern,
           ignoreFilePattern,
         });

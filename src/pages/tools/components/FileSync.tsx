@@ -23,10 +23,10 @@ const FileSync = ({ form }) => {
       <Form.Item label={translate({ message: "Sync Mode" })} name="syncMode">
         <Radio.Group>
           <Radio value="pattern">
-            <Translate>Pattern</Translate>
+            <Translate>pattern</Translate>
           </Radio>
-          <Radio value="gitignore">
-            <Translate>Gitignore</Translate>
+          <Radio value="gitIgnore">
+            <Translate>gitIgnore</Translate>
           </Radio>
         </Radio.Group>
       </Form.Item>
