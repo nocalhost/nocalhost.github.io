@@ -23,6 +23,7 @@ Nocalhost 配置大体可分为三类。
  - 开发容器默认 shell
  - 开发容器持久化
  - 开发容器的资源的申请与限制
+ - Sidecar 镜像定制
 
 :::tip Quickview
 ```yaml
@@ -33,6 +34,7 @@ containers:
     dev:
       
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
+      sidecarImage: nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion
       shell: /bin/zsh
       persistentVolumeDirs:
         - path: /the/path/you/want/to/persistent/in/container
@@ -78,6 +80,7 @@ containers:
         - 3306:3306
       sync:
         type: send
+        mode: pattern
         filePattern:
           - .
         ignoreFilePattern:

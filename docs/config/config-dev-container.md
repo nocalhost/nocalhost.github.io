@@ -124,3 +124,24 @@ Nocalhost 对开发容器的资源设置继承自原容器，如果原容器没�
 :::info 注意
 memory 和 cpu 需要符合 K8s 对资源限定的约定。
 :::
+
+<br/>
+
+******
+
+### Sidecar 镜像定制
+
+范例：
+
+```yaml
+name: nocalhost-api
+serviceType: deployment
+containers:
+  - name: nocalhost-api
+    dev:
+      sidecarImage: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
+```
+
+`sidecarImage` 是进入开发模式所必须的镜像，负责代码同步、debug 连接管理等，默认为 `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh`，且不需要手动进行配置。
+
+如果你的集群由于特殊的网络环境无法获取该镜像，可以将当前这个镜像拉取下来，推送到你的集群可以正常访问的镜像仓库，并将其配置为新的地址。
