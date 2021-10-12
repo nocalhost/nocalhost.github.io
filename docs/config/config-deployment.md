@@ -2,6 +2,9 @@
 title: Deploy Config
 ---
 [Overview](config.md) / [Deploy Config](config-deployment.md)
+
+<br/>
+
 ******
 
 # Nocalhost 的 "部署配置"
@@ -11,10 +14,11 @@ title: Deploy Config
 Nocalhost 支持 Helm、RawManifest 与 Kustomize 进行 K8s 应用的部署，提供了控制工作负载启动时的依赖顺序、部署 env 注入、hook 等功能，并且，同样支持 configMap 、以及 annotation 等多种配置方式。
 
 :::info PRE-REQUIRE
-
 在阅读本文章之前，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)来进行了解。
-
 :::
+
+<br/>
+
 ******
 
 ## [部署配置入门 ——— Nocalhost 基础部署配置](config-deployment-quickstart.md)

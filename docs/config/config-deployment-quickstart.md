@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import use
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Quick Start](config-deployment-quickstart.md)
 
+<br/>
+
 ******
 
 # 部署配置入门 ——— Nocalhost 基础部署配置
@@ -56,6 +58,7 @@ application:
 
 :::
 
+<br/>
 
 ******
 
@@ -338,4 +341,4 @@ application:
 
 在部署完毕的 Demo 应用中，随意右键点击应用底下的一个工作负载，如 `Deployment/details` ，发现它已经提前配置好了一系列开发配置，我们可以按照预设的配置直接进入开发模式。
 
-:::
+:

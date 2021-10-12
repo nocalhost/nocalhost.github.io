@@ -2,6 +2,9 @@
 title: Enhance configuration
 ---
 [Overview](config.md) / [Spec](config-spec.md) / [Enhance](config-enhance.md)
+
+<br/>
+
 ******
 
 ### 开发模式后自动端口转发
@@ -75,6 +78,8 @@ containers:
           - ".vscode"
           - "node_modules"
 ```
+
+<br/>
 
 ******
 

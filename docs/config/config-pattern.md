@@ -2,6 +2,9 @@
 title: Pattern
 ---
 [Overview](config.md) / [Spec](config-spec.md) / [Enhance](config-enhance.md) / [Pattern](config-pattern.md)
+
+<br/>
+
 ******
 
 ### Description
@@ -9,9 +12,7 @@ title: Pattern
 If some files should be or not be synchronized to (or from) other devices, configure the corresponding `SyncFilePattern`/`IgnoreFilePattern`. All patterns are relative to the folder root (The folder you select while get into `DevMode`).
 
 :::danger Caution
-
 The priority of the `IgnoreFilePattern` is higher than `SyncFilePattern`, so if your pattern both covered the same file, the file will be ignored.
-
 :::
 
 
@@ -39,9 +40,7 @@ The priority of the `IgnoreFilePattern` is higher than `SyncFilePattern`, so if 
 
 
 :::info Note
-
 Prefixes can be specified in any order (e.g. “(?i){foo,bar}/\*/bar”), but cannot be in a single pair of parentheses (not "{foo,(?i),bar}/*/bar").
-
 :::
 
 
