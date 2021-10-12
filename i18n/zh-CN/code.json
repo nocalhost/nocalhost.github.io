@@ -396,7 +396,7 @@
     "message": "请输入容器名称！"
   },
   "Parameter configuration": {
-    "message": "参数设置"
+    "message": "开发配置"
   },
   "Apply": {
     "message": "应用"
@@ -429,7 +429,7 @@
     "message": "开发镜像"
   },
   "Please Select Development Image": {
-    "message": "请选择开发镜像"
+    "message": "请选择或者输入开发镜像"
   },
   "Other basic configuration items": {
     "message": "其它基本配置项"
@@ -576,16 +576,16 @@
     "message": "端口转发"
   },
   "Menu Tip Title": {
-    "message": "完成「配置信息必填项」即可最小化进行开发"
+    "message": "开发配置"
   },
   "Menu Success Tip": {
-    "message": "配置信息已完成"
+    "message": "已完成"
   },
   "Menu Finish Tip": {
-    "message": "必填配置信息待完成"
+    "message": "未完成"
   },
   "Menu Option Tip": {
-    "message": "非必填配置信息待完成"
+    "message": "非必填字段"
   },
   "Please Input Name": {
     "message": "请输入名称"
@@ -640,5 +640,26 @@
   },
   "Please input or select container name": {
     "message": "请输入或选择容器名称"
+  },
+  "Development Configuration": {
+    "message": "开发配置"
+  },
+  "Development configuration tips": {
+    "message": "开发配置提示"
+  },
+  "Completed": {
+    "message": "已完成"
+  },
+  "Incomplete": {
+    "message": "未完成"
+  },
+  "Non-required fields": {
+    "message": "非必填字段"
+  },
+  "Please Select OR Enter A Development Image": {
+    "message": "请选择或者输入开发镜像"
+  },
+  "Minimal development configuration is incomplete": {
+    "message": "你还未完成最小化开发配置"
   }
 }

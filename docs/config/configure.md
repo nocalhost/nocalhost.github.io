@@ -12,7 +12,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 除了将配置放置在插件的右键 `DevConfig`  中， Nocalhost 还支持将配置放置在源码目录、configMap 、以及 annotation 中。例如可以将 Nocalhost 配置流程化地配置在 CD 、或者配置在 helm chart、rawManifest 中，通过上述的几种配置方式，来避免重复配置。
 
 :::info PRE-REQUIRE
+
 除了零配置相关内容，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)来进行了解。
+
 :::
 <br/>
 
@@ -28,8 +30,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 </figure>
 
 ### 零配置下的行为预期
+
 :::info 为什么要关心行为预期
+
 零配置情况下，往往不需要去关心 Nocalhost 做了哪些行为。但如果以下行为不符合你的预期，就需要进行 Nocalhost 配置来进行定制了。
+
 :::
 
 <br/>
@@ -39,10 +44,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - 不启用持久化，你在开发容器内产生的本地数据将在容器关闭或重启后丢失。
 - 无法使用一键调试与一键 Debug
 - 同步所选同步目录的所有内容到容器内
-
-
-
-
 
 ******
 
@@ -95,12 +96,15 @@ containers:
 ### Q&A
 
 :::tip 忘记具体服务关联的本地目录是哪一个了怎么办？
+
 右键具体服务点击 Open Project 可以打开关联过的目录，或点击 Associate Local DIR 重新关联某个新目录。
+
 :::
 
 <br/>
 
 :::tip 我的多个服务都放置在同一个源码中怎么办？
+
 可以同时配置多个服务，只需要将某个服务的配置内容增加一个层级，并将其变成数组即可：
 
 ```yaml
@@ -201,9 +205,11 @@ data:
 ### Configmap 配置的注意事项
 
 :::danger 注意
+
 1. 命名规则，它的命名规则必须是 dev.nocalhost.config.${appName}，也就是 `name: "dev.nocalhost.config.{{ .Release.Name }}"`
 2. 标签，它需要有一个标签键值对，固定写死为 `dep-management: nocalhost`
 3. config 以文本块的方式放置在 data.config 下，注意配置整体缩进。
+
 :::
 
 <br/>
@@ -245,11 +251,7 @@ metadata:
       {{ .Files.Get .Values.nocalhost.annotations.path.authors | nindent 6 }}
 ```
 
-
-
 我们发现 annotations 的配置非常简单，**它只需要声明一个 annotation， key 固定为 `dev.nocalhost`，值为一个文本块，且需要固定 6 个缩进。**
-
-
 
 实际配置因为：
 
@@ -291,7 +293,9 @@ kind: Deployment
 ### Annotations 配置的注意事项
 
 :::danger
+
 key 必须是 `dev.nocalhost`，值则为 `Nocalhost Config` 的文本块，注意整体缩进。
+
 :::
 
 <br/>
