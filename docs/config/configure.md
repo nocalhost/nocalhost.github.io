@@ -287,7 +287,10 @@ kind: Deployment
       containers:        
         - name: nocalhost-api          
            dev:            
-           image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh            env:              - name: NOCALHOST_INJECT_DEV_ENV                value: WHATEVER
+           image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh            
+           env:              
+             - name: NOCALHOST_INJECT_DEV_ENV                
+               value: WHATEVER
 ```
 <br/>
 
