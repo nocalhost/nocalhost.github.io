@@ -108,7 +108,7 @@ Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
 
 
 
-#### 使用 Pattern 模式
+#### 使用 pattern 模式
 
 如果想要对同步的内容使用模式匹配，可配置 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
 
