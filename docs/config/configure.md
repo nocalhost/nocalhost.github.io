@@ -277,7 +277,7 @@ metadata:
 
 由于一个工作负载下，不会存在多个配置，所以这里不需要声明成数组（也支持声明成数组），且配置所绑定的工作负载已经固定（不管是 Deployment、StatefulSet、DaemonSet 还是什么其他的），所以不需要申明其名字与类型，如：
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
   metadata:  
@@ -286,7 +286,8 @@ kind: Deployment
     dev.nocalhost: |-
       containers:        
         - name: nocalhost-api          
-        dev:            image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh            env:              - name: NOCALHOST_INJECT_DEV_ENV                value: WHATEVER
+           dev:            
+           image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh            env:              - name: NOCALHOST_INJECT_DEV_ENV                value: WHATEVER
 ```
 <br/>
 
