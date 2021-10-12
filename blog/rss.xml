@@ -4,28 +4,28 @@
         <title>Nocalhost Blog</title>
         <link>https://nocalhost.dev/blog</link>
         <description>Nocalhost Blog</description>
-        <lastBuildDate>Tue, 12 Oct 2021 08:26:25 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Oct 2021 09:55:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Announcing Nocalhost v0.5.6]]></title>
             <link>https://nocalhost.dev/blog/0.5.6</link>
             <guid>Announcing Nocalhost v0.5.6</guid>
-            <pubDate>Tue, 12 Oct 2021 08:26:25 GMT</pubDate>
+            <pubDate>Tue, 12 Oct 2021 09:55:00 GMT</pubDate>
             <description><![CDATA[Nocalhost v0.5.6 has been released, we've fixed some bugs, improved the performance and add some new features.]]></description>
         </item>
         <item>
             <title><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
             <link>https://nocalhost.dev/blog/api-six</link>
             <guid>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</guid>
-            <pubDate>Tue, 12 Oct 2021 08:26:25 GMT</pubDate>
+            <pubDate>Tue, 12 Oct 2021 09:55:00 GMT</pubDate>
             <description><![CDATA[Introduction]]></description>
         </item>
         <item>
             <title><![CDATA[Nocalhost 官方文档翻译活动]]></title>
             <link>https://nocalhost.dev/blog/docs-translate</link>
             <guid>Nocalhost 官方文档翻译活动</guid>
-            <pubDate>Tue, 12 Oct 2021 08:26:25 GMT</pubDate>
+            <pubDate>Tue, 12 Oct 2021 09:55:00 GMT</pubDate>
             <description><![CDATA[背景]]></description>
         </item>
         <item>
