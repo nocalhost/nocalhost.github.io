@@ -186,7 +186,8 @@ module.exports = {
       label: 'Changelogs',
       items: [
         'changelogs/0.4.x',
-        'changelogs/0.5.x'
+        'changelogs/0.5.x',
+        'changelogs/0.6.x'
       ]
     }
   ],
