@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import use
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Quick Start](config-deployment-quickstart.md)
 
+<br/>
+
 ******
 
 # 部署配置入门 ——— Nocalhost 基础部署配置
@@ -56,6 +58,7 @@ application:
 
 :::
 
+<br/>
 
 ******
 

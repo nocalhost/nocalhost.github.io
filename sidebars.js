@@ -96,7 +96,8 @@ module.exports = {
             'config/config-deployment',
             'config/config-deployment-quickstart',
             'config/config-deployment-spec',
-            'config/config-deployment-advance'
+            'config/config-deployment-advance',
+            'config/config-deployment-syntax'
           ]
         },
       ]
@@ -185,7 +186,8 @@ module.exports = {
       label: 'Changelogs',
       items: [
         'changelogs/0.4.x',
-        'changelogs/0.5.x'
+        'changelogs/0.5.x',
+        'changelogs/0.6.x'
       ]
     }
   ],

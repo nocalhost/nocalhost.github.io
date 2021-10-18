@@ -2,6 +2,9 @@
 title: Enhance configuration
 ---
 [Overview](config.md) / [Spec](config-spec.md) / [Enhance](config-enhance.md)
+
+<br/>
+
 ******
 
 ### 开发模式后自动端口转发
@@ -66,6 +69,7 @@ containers:
     dev:
       sync:
         type: send
+        mode: pattern
         filePattern:
           - .
         ignoreFilePattern:
@@ -75,11 +79,84 @@ containers:
           - "node_modules"
 ```
 
+<br/>
+
+******
+
 文件同步的配置包括两个部分，其一是同步类型 `containers[].dev.sync.type`，可配置为
 
- - send，意为仅发送，所有的变更以本地为准
+:::note
+
+ - send，意为仅发送，所有的变更以本地为准，远程的变更不会影响到本地（默认方式）
  - sendReceive，意为双向同步，即一端的新增、修改、删除等操作将同步到另一端
 
-另外，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件。如果想要对同步的内容使用模式匹配，可使用强大的 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
+:::
 
-[点击这里查看 Pattern 的详细配置](config-pattern.md)
+<br/>
+
+******
+
+其二是同步忽略控制，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件，如果不想要同步所有内容，则可以进行定制。
+
+Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
+
+:::note
+
+ - pattern，意为使用模式匹配来进行同步内容控制（默认方式）
+ - gitIgnore，意为使用目录的 gitIgnore 来忽略部分文件进行上传
+
+:::
+
+<br/>
+
+******
+
+
+
+#### 使用 pattern 模式
+
+如果想要对同步的内容使用模式匹配，可配置 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
+
+如本小节所给出的示例意为，以 **只发送** 的形式来进行文件同步，同步所有的文件内容，并忽略命名为 `.git`、`.github`、`.vscode` 以及 `node_modules` 的文件与目录。
+
+:::info Pattern
+
+[点击这里查看 Pattern 的详细配置与语法](config-pattern.md)
+
+:::
+
+<br/>
+
+#### 使用 gitIgnore 模式 (功能未发布)
+
+使用这种模式较为简便，它将自动使用该 `git` 项目的忽略配置，例如 `.gitignore` 等。
+
+:::warning 限制
+
+由于此功能基于 `git` 实现，所以当前使用的设备上必须安装 `git`。另外，同步目录需要是一个 `git` 项目所在的目录。
+
+如果不满足上述两个条件，Nocalhost 将不启用同步内容控制，表现的行为为"同步目录下的所有文件"，**相当于没有进行任何同步配置控制**。
+
+:::
+
+<br/>
+
+:::tip 哪些文件被忽略了？
+
+你可以定位到同步目录下（如 `cd /yourpath`），输入 `git status --ignored=matching -s` 来查看那些被忽略的文件/文件夹。以 `!!` 开头的文件/文件夹将不会被同步到远端。
+
+:::
+
+<br/>
+
+示例：
+```yaml
+name: nocalhost-api
+serviceType: deployment
+containers:
+  - name: nocalhost-api
+    dev:
+      sync:
+        type: send
+        mode: gitIgnore
+```

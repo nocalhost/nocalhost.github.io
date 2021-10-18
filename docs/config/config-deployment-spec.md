@@ -9,7 +9,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <span id="danger"></span>
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Spec](config-deployment-spec.md)
+
+<br/>
+
 ******
+
 # Nocalhost 提供了哪些部署配置？
 
 :::danger 部分配置需额外组件
@@ -75,14 +79,12 @@ application:
 全局变量注入需要声明在 `application` 这一级，在部署时，它将往所有部署的 `Deployment`、`DaemonSet`、`ReplicaSet`、`StatefulSet`、`Job`、`CronJob` 中注入对应的环境变量。
 
 :::tip 变量注入支持两种写法，可以混搭
-
 - 第一种是直接声明键值对
 - 第二种是声明一个相对于 `config.yaml` 的 env 文件，内容为逐行的 `Key=Value`：
 ```dotenv
 DEBUG=true
 DOMAIN=nocalhost.dev
 ```
-
 :::
 
 其中，`env` 的优先级高于 `envFrom`
@@ -190,22 +192,18 @@ Nocalhost 支持在应用的生命周期注入各种 Hook，**Hook 目前只支�
 <br/>
 
 :::danger Hook的限制
-
 Hook 与 Helm 的 Hook 类似，Hook 本身是为了弥补非 Helm 应用的不足，所以**Helm 类型应用无法配置 Hook（你可以直接使用 Helm 的 Hook）**。
-
 :::
 
 <br/>
 
 :::info Hook的解释
-
 - `onPreInstall` 发生在应用部署之前，例如执行集群、数据库之类的的一些初始化操作。会在 Job 状态为 `Successed` 后，才开始真正执行部署，如果失败，则安装终止。
 - `onPostInstall` 发生在应用部署之后，当所有资源都提交到 K8s Api Server，会执行此 Job，状态为 `Successed` 后，部署成功。否则将回滚，执行卸载操作。
 
 <br/>
 
 依次类推，UpgradeHook 和 DeleteHook 不同的是，它们在执行失败后都不会进行回滚，仅提示失败。
-
 :::
 
 <br/>
@@ -238,8 +236,6 @@ application:
 <br/>
 
 :::tip HelmValues 支持两种写法
-
 - 第一种写法仅支持纯字符串，优先级更高。
 - 第二种写法与 `values.yaml` 别无二致，可穿插 Helm 语法。
-
 :::

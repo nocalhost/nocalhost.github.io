@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Overview](config.md) / [Deploy Config](config-deployment.md) / [Advance](config-deployment-advance.md)
 
+<br/>
+
 ******
 
 # Dep 组件与其他配置方式的支持
@@ -21,6 +23,8 @@ Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 
 [Nocalhost 提供了哪些部署配置？](config-deployment-spec.md) 中介绍了哪些部署配置需要额外部署 `Nocalhost Dep` 来进行支持。
 
 :::
+
+<br/>
 
 ******
 
@@ -219,7 +223,8 @@ containers:
 
 我们推荐使用 `Nocalhost Server` 来获得 `Nocalhost Dep` 的全部功能。
 
-:::danger COMING SOON
+:::danger 
 
+COMING SOON
 
 :::

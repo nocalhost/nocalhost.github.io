@@ -2,14 +2,15 @@
 title: Spec
 ---
 [Overview](config.md) / [Spec](config-spec.md)
+
+<br/>
+
 ******
 
 # Nocalhost 提供了哪些配置？
 
 :::info PRE-REQUIRE
-
 在阅读本文章之前，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)来进行了解。
-
 :::
 
 Nocalhost 配置大体可分为三类。
@@ -17,6 +18,7 @@ Nocalhost 配置大体可分为三类。
 <br/>
 
 ******
+
 ## [开发容器配置](config-dev-container.md)
 
 第一类为开发容器本身的配置，包括：
@@ -25,9 +27,9 @@ Nocalhost 配置大体可分为三类。
  - 开发容器默认 shell
  - 开发容器持久化
  - 开发容器的资源的申请与限制
+ - Sidecar 镜像定制
 
 :::tip Quickview
-
 ```yaml
 name: nocalhost-api
 serviceType: deployment
@@ -36,6 +38,7 @@ containers:
     dev:
       
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
+      sidecarImage: nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion
       shell: /bin/zsh
       persistentVolumeDirs:
         - path: /the/path/you/want/to/persistent/in/container
@@ -51,7 +54,6 @@ containers:
           memory: 2Gi
           cpu: "0.5"
 ```
-
 :::
 
 
@@ -59,6 +61,7 @@ containers:
 <br/>
 
 ******
+
 ## [增强配置](config-enhance.md)
 
 第二类为增强配置，与开发容器本身无关，包括：
@@ -82,6 +85,7 @@ containers:
         - 3306:3306
       sync:
         type: send
+        mode: pattern
         filePattern:
           - .
         ignoreFilePattern:
@@ -96,6 +100,7 @@ containers:
 <br/>
 
 ******
+
 ## [一键开发、一键调试、hotReload 配置](config-develop.md)
 
 第三类为面向开发过程的配置，包括：
