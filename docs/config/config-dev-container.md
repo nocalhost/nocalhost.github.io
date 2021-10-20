@@ -17,6 +17,33 @@ serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
+      workDir: /home/nocalhost-dev
+```
+
+在进入开发模式后，我们要求用户在本地选择并关联一个本地目录，或者用户可以点击指定工作负载右键，选择 `Associate Local DIR` 来主动关联一个本地目录。这个目录的内容会在进入开发模式以后，与容器的 `workDir` 做实时同步。
+
+`workDir` 默认为 `/home/nocalhost-dev`
+
+:::danger workDir 的注意事项
+
+`workDir` 使用了 emptyDir 来在 `container` 中进行共享，所以这个卷所挂载的目录**最初会是空的**。
+
+:::
+
+<br/>
+
+******
+
+### 文件同步的远端目录
+
+范例：
+
+```yaml
+name: nocalhost-api
+serviceType: deployment
+containers:
+  - name: nocalhost-api
+    dev:
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
 ```
 

@@ -24,6 +24,7 @@ Nocalhost 配置大体可分为三类。
 第一类为开发容器本身的配置，包括：
 
  - 开发镜像配置
+ - 文件同步的远端目录
  - 开发容器默认 shell
  - 开发容器持久化
  - 开发容器的资源的申请与限制
@@ -38,6 +39,7 @@ containers:
     dev:
       
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
+      workDir: /home/nocalhost-dev
       sidecarImage: nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion
       shell: /bin/zsh
       persistentVolumeDirs:
@@ -66,7 +68,7 @@ containers:
 
 第二类为增强配置，与开发容器本身无关，包括：
 
- - 容器 git 源码目录 
+ - git 源码目录
  - 是否自动在进入开发模式后自动开启端口转发
  - 文件同步如何配置，及其同步 pattern 忽略 pattern
 
