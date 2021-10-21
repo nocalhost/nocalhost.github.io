@@ -8,6 +8,7 @@ import { SYNC_FILE_TYPE } from "../../../constants";
 import IconDel from "../images/icon_remove.svg";
 import IconAdd from "../images/icon_add.svg";
 import classNames from "classnames";
+import { ItemLabel } from "./RunAndDebug";
 
 const FileSync = ({ form }) => {
   const cx = classNames.bind(styles);
@@ -20,7 +21,15 @@ const FileSync = ({ form }) => {
           style={{ width: 460 }}
         ></Select>
       </Form.Item>
-      <Form.Item label={translate({ message: "Sync Mode" })} name="syncMode">
+      <Form.Item
+        label={
+          <ItemLabel
+            label={translate({ message: "Sync Mode" })}
+            title={translate({ message: "syncMode tip" })}
+          />
+        }
+        name="syncMode"
+      >
         <Radio.Group>
           <Radio value="pattern">
             <Translate>pattern</Translate>

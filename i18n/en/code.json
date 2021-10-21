@@ -661,5 +661,20 @@
   },
   "Minimal development configuration is incomplete": {
     "message": "Minimal development configuration is incomplete"
+  },
+  "sidecar tip": {
+    "message": "Nocalhost will use 'nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion' as the sidecar by default. If your cluster cannot pull this image, you can push this image to your own repo."
+  },
+  "syncMode tip": {
+    "message": "If some files should be or not be synchronized to (or from) other devices, you can configure the corresponding SyncFilePattern/IgnoreFilePattern (pattern mode), or analysis the gitIgnore file in the local directory (gitIgnore mode) to avoid synchronizing some meaningless files to the container and improve the transmission efficiency."
+  },
+  "Sync Mode": {
+    "message": "Sync Mode"
+  },
+  "pattern": {
+    "message": "pattern"
+  },
+  "gitIgnore": {
+    "message": "gitIgnore"
   }
 }
