@@ -39,7 +39,7 @@ const FileSync = ({ form }) => {
           </Radio>
         </Radio.Group>
       </Form.Item>
-      {form.getFieldValue("syncMode") === "pattern" && (
+      {form?.getFieldValue("syncMode") === "pattern" && (
         <>
           <Form.List name="filePattern">
             {(fields, { add, remove }, { errors }) => (
