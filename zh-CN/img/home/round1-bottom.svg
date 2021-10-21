@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <path fill="#21084A" fill-rule="evenodd" d="M200,200 L200,0 L0,0 C110.45695,-2.02906125e-14 200,89.54305 200,200 L200,200 L200,200 Z"/>
-</svg>
+<svg height="200" viewBox="0 0 200 200" width="200" xmlns="http://www.w3.org/2000/svg"><path d="m200 200v-200h-200c110.45695 0 200 89.54305 200 200z" fill="#21084a" fill-rule="evenodd"/></svg>
