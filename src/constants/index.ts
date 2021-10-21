@@ -49,8 +49,8 @@ export const SYNC_FILE_TYPE = [
     value: "send",
   },
   {
-    label: "sendreceive",
-    value: "sendreceive",
+    label: "sendReceive",
+    value: "sendReceive",
   },
 ];
 
@@ -97,6 +97,7 @@ export const DEFAULT_CONTAINER: Container = {
     hotReload: false,
     sync: {
       type: "send",
+      mode: "pattern",
       filePattern: ["."],
       ignoreFilePattern: [".git"],
     },

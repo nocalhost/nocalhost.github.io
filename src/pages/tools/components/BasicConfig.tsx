@@ -10,6 +10,7 @@ import { IMAGE_OPTIONS } from "../../../constants";
 import IconArrowDown from "../images/arrow_down.svg";
 import IconArrowRight from "../images/arrow_right.svg";
 import DownArrow from "./DownArrow";
+import { ItemLabel } from "./RunAndDebug";
 
 const BasicConfig = () => {
   const [unfold, setUnfold] = useState<boolean>(false);
@@ -85,7 +86,15 @@ const BasicConfig = () => {
               })}
             />
           </Form.Item>
-          <Form.Item label="Sidecar" name="sidecarImage">
+          <Form.Item
+            label={
+              <ItemLabel
+                label="Sidecar"
+                title={translate({ message: "sidecar tip" })}
+              />
+            }
+            name="sidecarImage"
+          >
             <Input
               style={{ width: 436 }}
               placeholder={translate({

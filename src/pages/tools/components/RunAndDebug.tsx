@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Tooltip, Switch } from "antd";
+import { Form, Input, Switch } from "antd";
 import { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";

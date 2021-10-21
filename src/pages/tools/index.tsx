@@ -210,6 +210,24 @@ const Tools = () => {
                 };
               }
               break;
+            case "syncMode":
+              {
+                let obj =
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                obj.mode = value;
+                if (value === "gitIgnore") {
+                  delete obj["filePattern"];
+                  delete obj["ignoreFilePattern"];
+                } else {
+                  obj.filePattern = form.getFieldValue("filePattern");
+                  obj.ignoreFilePattern =
+                    form.getFieldValue("ignoreFilePattern");
+                }
+                tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
+                  ...obj,
+                };
+              }
+              break;
             case "filePattern":
             case "ignoreFilePattern":
               {
@@ -340,7 +358,7 @@ const Tools = () => {
       } catch (e) {
         throw new Error(e);
       }
-    }, 500);
+    }, 200);
   };
 
   const handleApply = async () => {
@@ -490,11 +508,13 @@ const Tools = () => {
       if (currentContainer.dev?.sync) {
         const {
           type,
+          mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
+          syncMode: mode,
           filePattern,
           ignoreFilePattern,
         });
@@ -778,7 +798,7 @@ const Tools = () => {
                   </div>
                   <div className={styles["config"]}>
                     {configType === "Basic" && <BasicConfig />}
-                    {configType === "FileSync" && <FileSync />}
+                    {configType === "FileSync" && <FileSync form={form} />}
                     {configType === "RunAndDebug" && <RunAndDebug />}
                     {configType === "Volume" && <Volume />}
                     {configType === "ResourceLimit" && <ResourceLimit />}

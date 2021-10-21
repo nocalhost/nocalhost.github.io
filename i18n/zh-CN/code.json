@@ -661,5 +661,20 @@
   },
   "Minimal development configuration is incomplete": {
     "message": "你还未完成最小化开发配置"
+  },
+  "sidecar tip": {
+    "message": "Nocalhost 默认使用“nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion”作为 Sidecar。如果您的集群无法拉取此镜像，您可以将此镜像推送到您自己的仓库中。"
+  },
+  "syncMode tip": {
+    "message": "如果某些文件应与(或从) 其他设备同步，您可以配置相应的 SyncFilePattern/IgnorereFileModule (pattern 模式)， 或分析本地目录中的 gitIgnore 文件 (gitIgnore 模式) 以避免将某些无意义的文件同步到容器并提高传输效率。"
+  },
+  "Sync Mode": {
+    "message": "同步模式"
+  },
+  "pattern": {
+    "message": "pattern"
+  },
+  "gitIgnore": {
+    "message": "gitIgnore"
   }
 }

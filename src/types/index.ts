@@ -53,9 +53,10 @@ export interface Container {
     hotReload?: boolean;
     useDevContainer?: string;
     sync?: {
-      type?: string;
+      type: string;
       filePattern?: string[];
       ignoreFilePattern?: string[];
+      mode: "pattern" | "gitIgnore";
     };
     env?: {
       name: string;
