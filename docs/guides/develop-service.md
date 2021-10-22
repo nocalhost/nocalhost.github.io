@@ -1,5 +1,5 @@
 ---
-title: DevMode
+title: DevMode(Replace)
 ---
 
 import Tabs from '@theme/Tabs';
