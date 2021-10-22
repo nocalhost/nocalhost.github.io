@@ -44,7 +44,15 @@ module.exports = {
             'guides/deploy/deploy-demo',
           ]
         },
-        'guides/develop-service',
+        {
+          type: 'category',
+          label: 'Development',
+          items: [
+            'guides/develop-service',
+            'guides/develop-service-dup',
+              ],
+
+        },
         // Debugging
         { 
           type: 'category',
