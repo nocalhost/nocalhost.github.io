@@ -1,5 +1,5 @@
 ---
-title: DevMode(Duplicate)-English
+title: DevMode(Duplicate)
 ---
 
 import Tabs from '@theme/Tabs';
