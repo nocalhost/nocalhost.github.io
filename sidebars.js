@@ -152,6 +152,7 @@ module.exports = {
           items: [
             'server/server-overview',
             'server/deploy-server',
+            'server/upgrade',
             'server/manage-user',
             'server/manage-cluster',
             // DevSpace
