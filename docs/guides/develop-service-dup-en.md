@@ -16,7 +16,7 @@ Using `Replace DevMode` can well maintain the original call relation between ser
 
 * It may destroy the original environment. The problems in the service being developed may cause problems to the whole environment.
 * It may affect the normal use of the environment by other team members. Other members may only want to access the normal environment rather than the development environment.
-* Multiple team members cannot develop the same service in the same K8s cluster.
+* Multiple team members cannot develop the same service in the same K8s cluster at the same time.
 
 To solve these problems, we can use `Duplicate DevMode`.
 
