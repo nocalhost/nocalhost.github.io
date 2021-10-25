@@ -16,7 +16,7 @@ Using `Replace DevMode` can well maintain the original call relation between ser
 
 * It may destroy the original environment. The problems in the service being developed may cause problems to the whole environment.
 * It may affect the normal use of the environment by other team members. Other members may only want to access the normal environment rather than the development environment.
-* Multiple team members cannot develop the same service in the same environment
+* Multiple team members cannot develop the same service in the same K8s cluster.
 
 To solve these problems, we can use `Duplicate DevMode`.
 
@@ -28,9 +28,9 @@ In `Duplicate DevMode`, instead of modifying the original workload, Nocalhost cr
 
 ![image](/img/develop-dup/duplicate-devmode.jpg)
 
-The duplicate and the pod managed by it will use different labels from the original workload, so it will not receive any traffic that wants to access the original workload. The reason for doing so is that `Duplicate DevMode` enables you to enter the development mode on many devices, which is different from  `Replace DevMode`, so if both the duplicate and the original workload can receive the online traffic, we cannot know which device is being used in the current environment. Therefore, the result of accessing the environment will be unpredictable.
+The duplicate and the pod managed by it will use different labels from the original workload, so it will not receive any traffic that wants to access the original workload. The reason for doing so is that `Duplicate DevMode` enables you to enter the development mode on many devices, which is different from  `Replace DevMode`, so if both the duplicate and the original workload can receive the online traffic, we cannot know which device is being used in the current environment and the result of accessing the environment will be unpredictable.
 
-> If the microservice application uses a third-party service discovery component (such as NACOS) instead of K8s, it is still possible that other services in the cluster access the duplicate created by `Duplicate Mode`.  That also makes the result of accessing the environment unpredictable. In this case, you need to decide whether to register the start service in the registration center.
+> If the microservice application uses a third-party service discovery component (such as NACOS) instead of K8s Service, it is still possible that other services in the cluster access the duplicate created by `Duplicate Mode`.  That also makes the result of accessing the environment unpredictable. In this case, you need to decide whether to register the service in the duplicate to the registration center.
 
 `Duplicate Mode` and  `Replace Mode` can be run in different devices in the same time, but you can only choose one for development on one device.
 
