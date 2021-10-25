@@ -5,7 +5,7 @@
 ## Prerequisites
 - Helm 3+
 
-## Get Repo Info
+## Add Helm Chart Repository
 
 ```console
 helm repo add nocalhost "https://nocalhost-helm.pkg.coding.net/nocalhost/nocalhost"
