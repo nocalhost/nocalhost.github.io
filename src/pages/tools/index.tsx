@@ -29,7 +29,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { SearchParams, MenuItem, ConfigType, YamlObj } from "../../types";
+import { MenuItem, ConfigType, YamlObj, SaveInfo } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
 import {
@@ -41,13 +41,13 @@ import {
   isEnvVarValid,
   isPortForwardValid,
 } from "../../util";
-import { saveConfig } from "../../util/request";
+import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
-const search2Obj = (search: string): SearchParams => {
-  let obj: SearchParams = {};
+const search2Obj = (search: string): SaveInfo => {
+  let obj: SaveInfo = {} as SaveInfo;
   try {
     if (search) {
       search
@@ -59,7 +59,7 @@ const search2Obj = (search: string): SearchParams => {
         });
     }
   } catch (e) {
-    obj = {};
+    obj = {} as SaveInfo;
   }
   return obj;
 };
@@ -101,36 +101,31 @@ const Tools = () => {
   useEffect(() => {
     const search = location?.search;
     if (search) {
-      const searchObj: SearchParams = search2Obj(location.search);
+      const searchObj: SaveInfo = search2Obj(location.search);
       setURLParams(searchObj);
-      const { name, type, container } = searchObj;
+
       try {
-        const containerArr = container.split(",").map((item, index) => {
-          return {
-            label: item,
-            value: index,
-          };
-        });
-        setContainerOptions(containerArr);
-        const tmpObj = {
-          name,
-          serviceType: type,
-          containers: containerArr.map((item) => {
-            return {
-              name: item.label,
-              ...DEFAULT_CONTAINER,
-            };
-          }),
-        };
-        setYamlObj(tmpObj);
-        form.setFieldsValue({
-          workloadName: name,
-          workloadType: type,
-          name: containerArr[0]?.label,
-          containerIndex: containerArr[0]?.value,
-        });
-        coverFormField(tmpObj.containers[0]);
-        setHasContainer(tmpObj.containers[0] ? true : false);
+        getConfig(searchObj);
+        // setContainerOptions(containerArr);
+        // const tmpObj = {
+        //   name,
+        //   serviceType: type,
+        //   containers: containerArr.map((item) => {
+        //     return {
+        //       name: item.label,
+        //       ...DEFAULT_CONTAINER,
+        //     };
+        //   }),
+        // };
+        // setYamlObj(tmpObj);
+        // form.setFieldsValue({
+        //   workloadName: name,
+        //   workloadType: type,
+        //   name: containerArr[0]?.label,
+        //   containerIndex: containerArr[0]?.value,
+        // });
+        // coverFormField(tmpObj.containers[0]);
+        // setHasContainer(tmpObj.containers[0] ? true : false);
       } catch (e) {
         console.log(e);
       }
@@ -150,6 +145,26 @@ const Tools = () => {
     setEnvVarValid(isEnvVarValid(yamlObj));
     setPortForwardValid(isPortForwardValid(yamlObj));
   }, [yamlObj]);
+
+  const getConfig = async (params: SaveInfo) => {
+    const config = await queryConfig(params);
+    const containerArr = config.containers.map((item, index) => ({
+      label: item.name,
+      value: index,
+    }));
+    setContainerOptions(containerArr);
+
+    setYamlObj(config);
+    form.setFieldsValue({
+      workloadName: config.name,
+      workloadType: config.serviceType,
+      name: containerArr[0]?.label,
+      containerIndex: containerArr[0]?.value,
+    });
+    coverFormField(config.containers[0]);
+    setHasContainer(config.containers[0] ? true : false);
+    console.log(config);
+  };
 
   const handleFieldChange = (changedFields: any) => {
     if (timer.current) {
