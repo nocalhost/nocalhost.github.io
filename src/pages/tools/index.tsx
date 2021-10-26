@@ -106,26 +106,6 @@ const Tools = () => {
 
       try {
         getConfig(searchObj);
-        // setContainerOptions(containerArr);
-        // const tmpObj = {
-        //   name,
-        //   serviceType: type,
-        //   containers: containerArr.map((item) => {
-        //     return {
-        //       name: item.label,
-        //       ...DEFAULT_CONTAINER,
-        //     };
-        //   }),
-        // };
-        // setYamlObj(tmpObj);
-        // form.setFieldsValue({
-        //   workloadName: name,
-        //   workloadType: type,
-        //   name: containerArr[0]?.label,
-        //   containerIndex: containerArr[0]?.value,
-        // });
-        // coverFormField(tmpObj.containers[0]);
-        // setHasContainer(tmpObj.containers[0] ? true : false);
       } catch (e) {
         console.log(e);
       }
