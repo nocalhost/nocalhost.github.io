@@ -79,4 +79,5 @@ export interface SaveInfo {
   type: string;
   config: string;
   kubeconfig: string;
+  container?: string;
 }
