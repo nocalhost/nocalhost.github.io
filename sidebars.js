@@ -78,7 +78,7 @@ module.exports = {
       collapsed: false,
       items: [
         'config/config',
-        'config/config-overview',
+        'config/config-overview-en',
         {
           type: 'category',
           label: 'Spec',
