@@ -1,5 +1,5 @@
 ---
-title: Development
+title: DevMode(Replace)
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Development with Nocalhost
 
-DevSpace allows you to develop applications directly inside a Kubernetes cluster. 
+Nocalhost allows you to develop applications directly inside a Kubernetes cluster. 
 
 ## Using Cluster Inspector
 
