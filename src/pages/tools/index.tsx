@@ -154,15 +154,28 @@ const Tools = () => {
     }));
     setContainerOptions(containerArr);
 
+    let currentContainer = containerArr[0];
+
+    if (params?.container) {
+      const result = containerArr.find(
+        (item) => item.label === params.container
+      );
+      if (result) {
+        currentContainer = result;
+      }
+    }
+
     setYamlObj(config);
     form.setFieldsValue({
       workloadName: config.name,
       workloadType: config.serviceType,
-      name: containerArr[0]?.label,
-      containerIndex: containerArr[0]?.value,
+      name: currentContainer?.label,
+      containerIndex: currentContainer?.value,
     });
-    coverFormField(config.containers[0]);
-    setHasContainer(config.containers[0] ? true : false);
+    coverFormField(config.containers[currentContainer?.value || 0]);
+    setHasContainer(
+      config.containers[currentContainer?.value || 0] ? true : false
+    );
     console.log(config);
   };
 
