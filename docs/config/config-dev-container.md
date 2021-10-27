@@ -7,7 +7,7 @@ title: Dev Container configuration
 
 ******
 
-### 开发镜像
+### 文件同步的远端目录
 
 范例：
 
@@ -34,7 +34,7 @@ containers:
 
 ******
 
-### 文件同步的远端目录
+### 开发镜像
 
 范例：
 
@@ -172,9 +172,9 @@ serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
-      sidecarImage: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
+      sidecarImage: nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion
 ```
 
-`sidecarImage` 是进入开发模式所必须的镜像，负责代码同步、debug 连接管理等，默认为 `codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh`，且不需要手动进行配置。
+`sidecarImage` 是进入开发模式所必须的镜像，负责代码同步、debug 连接管理等，默认为 `nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion`，且不需要手动进行配置。
 
 如果你的集群由于特殊的网络环境无法获取该镜像，可以将当前这个镜像拉取下来，推送到你的集群可以正常访问的镜像仓库，并将其配置为新的地址。
