@@ -29,7 +29,7 @@ Overall, development configuration is to better define the behavior of `Developm
 
 The configuration of Nocalhost can be divided into two parts: development configuration and deployment configuration.
 
- - Deployment configuration defines how to deploy K8s applications, including control dependency, variable injection, etc.
+ - Deployment configuration defines how to deploy K8s applications, including dependency control, variable injection, etc.
 
  - Development configuration is set around `Development Mode`, such as which image should be used to enter  `Development Mode`, whether the persistence is needed to save the content in the development container, which files should be synchronized to the development container, how to debug and run the service in the container by one-click, etc.
 :::
@@ -200,7 +200,7 @@ nocalhost=example
 
 :::tip More information
 
-To learn more about configuration items and correpsonding functions, see  [What configurations does Nocalhost offer ？](config-spec.md)
+To learn more about configuration items and corresponding functions, see  [What configurations does Nocalhost offer ？](config-spec.md)
 
 :::
 
@@ -237,4 +237,4 @@ If it is a HELM application, for example, its  `Release.Name`  is  `bookinfo`,  
 
 ### Visibility
 
-From the storage design, you can find that the configuration of Nocalhost is shared. Specifically, in the same `namespace` of the same cluster, the configuration of one workload is visible on any computer and can be modified (with the modification permission of the  `secret` of RBAC ). The configuration all computers got is the same duplicate.
+From the storage design, you can find that the configuration of Nocalhost is shared. Specifically, in the same `namespace` of the same cluster, the configuration of one workload is visible on any computer and can be modified (with the modification permission of the  `secret` of RBAC ). The configuration all computers get is from the same duplicate.
