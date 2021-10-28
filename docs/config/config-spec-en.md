@@ -11,7 +11,7 @@ title: Spec
 
 :::info PRE-REQUIRE
 
-Before starting this section, please make sure you have already known how to configure Nocalhost. If not, please read [Nocalhost Overview ?](config-overview.md) first.
+Before starting this section, please make sure you have already known how to configure Nocalhost. If not, please read [Nocalhost Overview](config-overview.md) first.
 
 :::
 
