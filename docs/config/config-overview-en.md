@@ -32,6 +32,7 @@ The configuration of Nocalhost can be divided into two parts: development config
  - Deployment configuration defines how K8s applications deployed, including dependency control, variable injection, etc.
 
  - Development configuration is set around `DevMode`, such as which image should be used in `DevMode`, whether the persistence is needed in the development container, which files should be synchronized to the development container, how to debug and run the service in the container by one-click, etc.
+
 :::
 
    <br/>
@@ -139,6 +140,7 @@ If there is no workload to operate, you can use the following command to install
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
+
 :::
 
 <br/>
