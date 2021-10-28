@@ -1,7 +1,7 @@
 ---
 title: What is Nocalhost Config?
 ---
-[Overview](config.md) / [What is Nocalhost Config?](config-overview.md)
+[Overview](config.md) / [What is Nocalhost Config?](config-overview-en.md)
 <br/>
 
 ******
@@ -171,7 +171,7 @@ nocalhost=example
 
 :::tip More information
 
-To learn more about configuration items and corresponding functions, see  [What configurations does Nocalhost offer?](config-spec.md)
+To learn more about configuration items and corresponding functions, see  [What configurations does Nocalhost offer?](config-spec-en.md)
 
 :::
 

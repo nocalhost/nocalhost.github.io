@@ -1,7 +1,7 @@
 ---
 title: Spec
 ---
-[Overview](config.md) / [Spec](config-spec.md)
+[Overview](config.md) / [Spec](config-spec-en.md)
 
 <br/>
 
@@ -11,7 +11,7 @@ title: Spec
 
 :::info PRE-REQUIRE
 
-Before starting this section, please make sure you have already known how to configure Nocalhost. If not, please read [Nocalhost Overview](config-overview.md) first.
+Before starting this section, please make sure you have already known how to configure Nocalhost. If not, please read [Nocalhost Overview](config-overview-en.md) first.
 
 :::
 
