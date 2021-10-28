@@ -77,7 +77,7 @@ module.exports = {
       label: 'Configuration',
       collapsed: false,
       items: [
-        'config/config',
+        'config/config-en',
         'config/config-overview-en',
         {
           type: 'category',
