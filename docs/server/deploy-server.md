@@ -15,6 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - **Nocalhost IDE Plugin** installed
 - Kubernetes api-server can be accessed internal and external
 - **[Helm](https://helm.sh/docs/intro/install/)** 3+
+
 :::
 
 
@@ -58,7 +59,7 @@ Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 ```
 
-You can now access the nocalhost dashboard with [http://127.0.0.1:8080](http://127.0.0.1:8080)
+You can now access the nocalhost dashboard with [http://127.0.0.1:8080](http://127.0.0.1:8080)  
 
 ```yaml title="Default username and password to access web service"
 Email: admin@admin.com

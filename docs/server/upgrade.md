@@ -18,5 +18,7 @@ helm repo update
 helm upgrade nocalhost nocalhost/nocalhost -n nocalhost
 ```
 :::tip
+
 use the flag `--reset-values` when upgrade nocalhost, if you install nocalhost server with `nhctl init`
+
 :::
