@@ -2,38 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/zh-CN/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2021-10-28T06:00:19.288Z</updated>
+    <updated>2021-10-28T06:06:47.318Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/zh-CN/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
     <icon>https://nocalhost.dev/zh-CN/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
-        <id>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</id>
-        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
-        <updated>2021-10-28T06:00:19.288Z</updated>
-        <summary type="html"><![CDATA[Introduction]]></summary>
-        <author>
-            <name>Garry Chen</name>
-            <uri>https://github.com/neaped</uri>
-        </author>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/zh-CN/blog/docs-translate"/>
-        <updated>2021-10-28T06:00:19.288Z</updated>
+        <updated>2021-10-28T06:06:47.318Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Nocalhost v0.5.6 发布]]></title>
         <id>Nocalhost v0.5.6 发布</id>
         <link href="https://nocalhost.dev/zh-CN/blog/0.5.6"/>
-        <updated>2021-10-28T06:00:19.284Z</updated>
+        <updated>2021-10-28T06:06:47.314Z</updated>
         <summary type="html"><![CDATA[Nocalhost v0.5.6已经发布，我们已经修复了一些缺陷，提高了性能并添加了一些新功能。]]></summary>
         <author>
             <name>Anur</name>
             <uri>https://github.com/anurnomeru</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
+        <id>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
+        <updated>2021-10-28T06:06:47.314Z</updated>
+        <summary type="html"><![CDATA[Introduction]]></summary>
+        <author>
+            <name>Garry Chen</name>
+            <uri>https://github.com/neaped</uri>
         </author>
     </entry>
     <entry>
