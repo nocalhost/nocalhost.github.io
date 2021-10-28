@@ -78,12 +78,12 @@ module.exports = {
       collapsed: false,
       items: [
         'config/config',
-        'config/config-overview',
+        'config/config-overview-en',
         {
           type: 'category',
           label: 'Spec',
           items: [
-            'config/config-spec',
+            'config/config-spec-en',
             'config/config-dev-container',
             'config/config-enhance',
             {
@@ -160,6 +160,7 @@ module.exports = {
           items: [
             'server/server-overview',
             'server/deploy-server',
+            'server/upgrade',
             'server/manage-user',
             'server/manage-cluster',
             // DevSpace
