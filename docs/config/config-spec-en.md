@@ -7,7 +7,7 @@ title: Spec
 
 ******
 
-# What types of configurations does Nocalhost have? 
+# Nocalhost configurations Spec
 
 :::info PRE-REQUIRE
 
@@ -15,7 +15,7 @@ Before starting this section, please make sure you have already known how to con
 
 :::
 
-The configuration of Nocalhost can be divided into three types.
+The configuration of Nocalhost can be divided into three parts.
 
 <br/>
 
@@ -23,12 +23,12 @@ The configuration of Nocalhost can be divided into three types.
 
 ## [Development Container Configuration](config-dev-container.md)
 
-The first type is the development container configuration, including:
+The first part is the development container configuration, including:
 
- - The development image configuration
+ - The development image
  - The remote directory for file synchronization 
  - The default shell of development container
- - The persistence of development container
+ - The persistence of development container (Volume)
  - Requests and limits of development container resources
  - Sidecar image customization
 
@@ -68,10 +68,10 @@ containers:
 
 ## [Enhance Configuration](config-enhance.md)
 
-The second type is enhance configuration, which is independent of the development container, including:
+The second part is enhance configuration, which is independent of the development container, including:
 
  - The source code directory for git
- - Whether to automatically turn on the port forwarding after entering development mode
+ - Whether to automatically turn on the port forwarding after entering `DevMode`
  - File synchronization configuration, including the synchronizing pattern and the ignoring pattern
 
 :::tip Quickview
@@ -105,9 +105,9 @@ containers:
 
 ******
 
-## [One-click Running, One-click Debugging and HotReload Configuration](config-develop.md)
+## [Configuration of one-click Running, One-click Debugging and HotReload](config-develop.md)
 
-The third type is the configuration for development process, including:
+The third part is the configuration for development process, including:
 
  - One-click running
  - One-click debugging
