@@ -81,7 +81,7 @@ const Tools = () => {
   const [limitValid, setLimitValid] = useState<boolean>(false);
   const [envVarValid, setEnvVarValid] = useState<boolean>(false);
   const [portForwardValid, setPortForwardValid] = useState<boolean>(false);
-  const [URLParams, setURLParams] = useState<SearchParams>({});
+  const [URLParams, setURLParams] = useState<SaveInfo>({} as SaveInfo);
   const [showResult, setShowResult] = useState<string>("");
   const [containerName, setContainerName] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -413,9 +413,7 @@ const Tools = () => {
       form.setFieldsValue({
         containerIndex: "",
       });
-      return message.warning(
-        translate({ message: "Container Name Is Duplicate!" })
-      );
+      message.warning(translate({ message: "Container Name Is Duplicate!" }));
     }
     const tmpOptions = containerOptions || [];
     tmpOptions.push({
@@ -544,22 +542,24 @@ const Tools = () => {
         });
       }
 
+      const formatMemory = (memory: string) => {
+        const num = parseFloat(memory);
+        return isNaN(num) ? "" : memory.indexOf("Gi") > -1 ? num * 1024 : num;
+      };
+
       if (currentContainer?.dev?.resources) {
         if (currentContainer?.dev?.resources?.limits) {
           const { memory, cpu } = currentContainer?.dev?.resources?.limits;
+
           form.setFieldsValue({
-            "limits-memory": isNaN(parseFloat(memory))
-              ? ""
-              : parseFloat(memory),
+            "limits-memory": formatMemory(memory),
             "limits-cpu": cpu,
           });
         }
         if (currentContainer?.dev?.resources?.requests) {
           const { memory, cpu } = currentContainer?.dev?.resources?.requests;
           form.setFieldsValue({
-            "requests-memory": isNaN(parseFloat(memory))
-              ? ""
-              : parseFloat(memory),
+            "requests-memory": formatMemory(memory),
             "requests-cpu": cpu,
           });
         }
