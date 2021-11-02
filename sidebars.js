@@ -135,6 +135,11 @@ module.exports = {
         //     'practice/cloud/ms-azure'
         //   ]
         // },
+        {
+          type: 'doc',
+          label: 'Nocalhost Server in KubeSphere',
+          id: 'server/deploy-in-kubesphere',
+        },
       ]
     },
     // Advanced
