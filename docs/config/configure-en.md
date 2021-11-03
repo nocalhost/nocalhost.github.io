@@ -4,19 +4,19 @@ title: Configure
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Overview](config.md) / [Configure](configure.md)
+[Overview](config.md) / [Configure](configure-en.md)
 
 <br/>
 
 ******
 
-# Nocalhost Configuration Methods
+# Multiple ways to configure Nocalhost Configuration
 
-Apart from putting the configuration in `DevConfig` of IDE plugin (right-click), Nocalhost also supports putting it in source code directory, ConfigMap and Annotation. For example, Nocalhost configuration can automatically configure CD, Helm chart or rawManifest. These methods can avoid repeated configuration.
+Apart from putting the configuration in `DevConfig` of IDE plugin (right-click), Nocalhost also supports putting it in source code directory, ConfigMap or Annotation. For example, You can putting your configuration into Annotation, Helm chart or rawManifest to avoid repeated configuration through IDE.
 
 :::info PRE-REQUIRE
 
-Please make sure you have already known how to configure Nocahost correctly. If not, please read [Nocalhost Overview ](config-overview.md) first.
+Please make sure you have already known how to configure Nocahost correctly. If not, please read [Nocalhost Overview ](config-overview-en.md) first.
 
 :::
 
@@ -43,7 +43,7 @@ In zero-configuration, you normally do not need to care about what Nocalhost has
 <br/>
 
 - Use  `/home/nocalhost-dev`  in the container as the target directory for file synchronization.
-- Try to enter the development container by using the following commands in order: zsh、bash、sh.
+- Try to enter the development container by using the following commands in order: zsh, bash, sh.
 - Without persistence enabled, the local data generated in the development container will be lost after closing or restarting the container.
 - Unable to use one-click running and debugging
 - Synchronize all contents of the selected directory into the container
@@ -52,7 +52,7 @@ In zero-configuration, you normally do not need to care about what Nocalhost has
 
 ## Configuration in source code directory
 
-Nocalhost supports putting the configuration in source code directory, which can be done by experienced  developers, so that other team members can share the configuration.
+Nocalhost supports putting the configuration in source code directory, which can be done by experienced developers, so that other team members can share the configuration.
 
 <br/>
 
@@ -72,13 +72,13 @@ containers:
           value: WHATEVER
 ```
 
-Create `.nocalhost` directory in the corresponding source code directory, and then create  `config.yaml`.  Paste and save the content in `config.yaml`.
+Create `.nocalhost` directory in the corresponding source code directory, and then create a file named `config.yaml`. Paste and save the content in `config.yaml`.
 
 <br/>
 
 ### Take effect
 
-Right-click this workload again and click `DevConfig`. You will find that the configuration has been read from the local directory and there is a "Tips" at the top,  indicating that this configuration is a in-memory replica of local file.
+Right-click this workload again and click `DevConfig`. You will find that the configuration has been read from the local directory and there is a "Tips" at the top, indicating that this configuration is a in-memory replica of local file.
 
 ```yaml
 # Tips: This configuration is a in-memory replica of local file: 
@@ -94,6 +94,7 @@ Right-click this workload again and click `DevConfig`. You will find that the co
 # https://github.com/nocalhost/bookinfo/blob/main/.nocalhost/config.yaml
 # 
 ```
+
 <br/>
 
 ### Q&A
@@ -107,6 +108,7 @@ Right-click this workload and click `Open Project` to open the associated direct
 <br/>
 
 :::tip Multiple workloads in one source code
+
 You can configure multiple workloads in one source code. To do this, add a layer to make the configuration items an array, as shown below: 
 
 ```yaml
@@ -136,7 +138,7 @@ You can configure multiple workloads in one source code. To do this, add a layer
 
 ## Configuration in Configmap
 
-Nocalhost supports putting the configuration in Configmap, which helps to customize the association with the environment. For example, you can write some customized configurations in the deployment script or CD of the test environment.
+Nocalhost supports putting the configuration in Configmap, which helps to customize the association with the environment. For example, you can write some customized configurations in Configmap and apply it througth the deployment script or CD.
 
 <br/>
 
@@ -157,11 +159,12 @@ data:
   config: |-
     {{ .Files.Get .Values.nocalhost.config.path | nindent 4 }}
 ```
+
 <br/>
 
 :::tip What is `{{ .Release.Name }}` 
 
-You can find that there are two parts in configmap that are introduced as placeholders. The first is  `{{ .Release.Name }}` in the fourth line, which is the name of application. If you are using Helm or Nocalhost to install the application,  you need to write the corresponding application name in it, otherwise it should be  `default.application` all the time.
+You can find that there are two parts in configmap that are introduced as placeholders. The first is `{{ .Release.Name }}` in the fourth line, which is the name of application. If you are using Helm or Nocalhost to install the application, you need to write the corresponding application name in it, otherwise it should be `default.application` all the time.
 
 :::
 
@@ -210,16 +213,20 @@ data:
 ### Notes for Configmap Configuration  
 
 :::danger Notes
-1. Naming rules: It must follow the format `dev.nocalhost.config.${appName}`, namely  `name: "dev.nocalhost.config.{{ .Release.Name }}"`.
-2. Tags: It needs a key-value tag, which is fixed as  `dep-management: nocalhost` . 
+
+1. Naming rules: It must follow the format `dev.nocalhost.config.${appName}`, namely `name: "dev.nocalhost.config.{{ .Release.Name }}"`.
+
+2. Labels: It needs a key-value label, which is fixed as `dep-management: nocalhost`. 
+
 3. config is in `data.config` as a text block and please pay attention to the indent of the configuration. 
+
 :::
 
 <br/>
 
 ### Take effect
 
-After configuring Configmap, right-click this workload again and click `DevConfig`. If you get the following tips as below,  indicating that this configuration is a in-memory replica of local file, that means the configuration has taken effect.
+After configuring Configmap, right-click this workload again and click `DevConfig`. If you get the following tips as below, indicating that this configuration is a in-memory replica of local file, that means the configuration has taken effect.
 
 ```yaml
 # Tips: This configuration is a in-memory replica of configmap: 
@@ -277,7 +284,9 @@ metadata:
 
 <br/>
 
-Since one workload will not have multiple configurations, there is no need to declare it as array (although array is also supported). Moreover, the configuration has been fixedly bound to the workload (whether it is Deployment, StatefulSet, DaemonSet or others), so there is also no need to declare its name and type. As shown below:
+Since one workload will not have multiple configurations, there is no need to declare it as array (although array is also supported). 
+
+Moreover, the configuration has been fixedly bound to the workload (whether it is Deployment, StatefulSet, DaemonSet or others), so there is also no need to declare its name and type. As shown below:
 
 ```yaml
 apiVersion: apps/v1
@@ -288,21 +297,23 @@ kind: Deployment
     dev.nocalhost: |-
       containers:        
         - name: nocalhost-api          
-           dev:            
+          dev:            
            image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh            
            env:              
              - name: NOCALHOST_INJECT_DEV_ENV                
                value: WHATEVER
 ```
+
 <br/>
 
 ### Notes for Annotations Configuration
 
-:::danger
+:::danger Notes
 
-The key must be  `dev.nocalhost`, and the value must be a text block of  `Nocalhost Config`. 
+1. The key must be `dev.nocalhost`, and the value must be a text block of  `Nocalhost Config`. 
 
-Pay attention to the indent.
+2. Pay attention to the indent.
+
 :::
 
 <br/>
@@ -322,18 +333,20 @@ After configuring the Annotation, right-click this workload again and click `Dev
 # take effect immediately. (Dev modification will take effect the next time you enter the DevMode)
 # 
 ```
+
 <br/>
 
 *****
 
 ## Features of local, Configmap and Annotations configuration
+
 <br/>
 
 ### Granularity and priority of configuration
 
 Nocalhost supports hybrid configurations, for example, if there are ten workloads, three of them can be local, three are Configmap, three are Annotations, and the last one is zero-configuration.
 
-:::info If a workload is configured with multiple methods, the priority is as follows:
+:::info If a workload is configured with multiple ways, the priority is as follows:
 
 Local > Annotations > Configmap > in DevConfig 
 
