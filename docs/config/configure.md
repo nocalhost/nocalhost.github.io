@@ -4,7 +4,7 @@ title: Configure
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Overview](config.md) / [Configure](configure.md)
+[Overview](config-en.md) / [Configure](configure-en.md)
 
 <br/>
 

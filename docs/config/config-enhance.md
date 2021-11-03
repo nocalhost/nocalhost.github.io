@@ -1,7 +1,7 @@
 ---
 title: Enhance configuration
 ---
-[Overview](config.md) / [Spec](config-spec-en.md) / [Enhance](config-enhance.md)
+[Overview](config-en.md) / [Spec](config-spec-en.md) / [Enhance](config-enhance.md)
 
 <br/>
 

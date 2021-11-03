@@ -1,7 +1,7 @@
 ---
 title: Deploy Config
 ---
-[Overview](config.md) / [Deploy Config](config-deployment.md)
+[Overview](config-en.md) / [Deploy Config](config-deployment-en.md)
 
 <br/>
 

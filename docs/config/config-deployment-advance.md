@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Overview](config.md) / [Deploy Config](config-deployment.md) / [Advance](config-deployment-advance.md)
+[Overview](config-en.md) / [Deploy Config](config-deployment-en.md) / [Advance](config-deployment-advance.md)
 
 <br/>
 
@@ -30,7 +30,7 @@ Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 
 
 ## 使用 ConfigMap 配置部署配置
 
-在 [部署配置入门 ——— Nocalhost 基础部署配置](config-deployment-quickstart.md) 提到了如何配置一个简单的部署配置。结合 [Nocalhost 支持哪些配置方式 —— 将配置放置在 configmap 中](configure.md#将配置放置在-configmap-中)，我们可以得到 ConfigMap 部署配置：
+在 [部署配置入门 ——— Nocalhost 基础部署配置](config-deployment-quickstart.md) 提到了如何配置一个简单的部署配置。结合 [Nocalhost 支持哪些配置方式 —— 将配置放置在 configmap 中](configure-en.md#将配置放置在-configmap-中)，我们可以得到 ConfigMap 部署配置：
 
 我们为此准备了一个体验项目，它将自动部署 `Nocalhost Dep`，并且使用 ConfigMap 的形式进行部署配置的配置。
 
@@ -156,7 +156,7 @@ application:
 
 ## 使用 Annotations 配置部署配置
 
-使用方式与 [Nocalhost 支持哪些配置方式 —— 将配置放置在 annotations 中](configure.md#将配置放置在-annotations-中) 完全一致。
+使用方式与 [Nocalhost 支持哪些配置方式 —— 将配置放置在 annotations 中](configure-en.md#将配置放置在-annotations-中) 完全一致。
 
 :::danger 额外注意
 

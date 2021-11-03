@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <span id="danger"></span>
 
-[Overview](config.md) / [Deploy Config](config-deployment.md) / [Spec](config-deployment-spec.md)
+[Overview](config-en.md) / [Deploy Config](config-deployment-en.md) / [Spec](config-deployment-spec.md)
 
 <br/>
 

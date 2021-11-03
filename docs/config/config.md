@@ -16,7 +16,7 @@
 
 ******
 
-## [Nocalhost 支持哪些配置方式？](configure.md)
+## [Nocalhost 支持哪些配置方式？](configure-en.md)
 
 Nocalhost 支持多种方式来配置开发模式，为多种丰富的使用场景提供了支持。最常见的配置方式是在插件点击具体工作负载右键，选择 `DevConfig` 进入开发配置编辑界面。修改完毕后点击保存即可。
 
@@ -30,7 +30,7 @@ Nocalhost 支持多种方式来配置开发模式，为多种丰富的使用场�
 
 ******
 
-## [Nocalhost 的 "部署配置"](config-deployment.md)
+## [Nocalhost 的 "部署配置"](config-deployment-en.md)
 
 Nocalhost 拥有应用部署的功能，在 Nocalhost Server 版本下，这是一个高频功能。Nocalhost 提供了工作负载 **依赖控制、部署 env 注入**等功能。
 
