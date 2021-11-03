@@ -96,12 +96,12 @@ module.exports = {
             'config/config-develop',
           ]
         },
-        'config/configure',
+        'config/configure-en',
         {
           type: 'category',
           label: 'Deploy',
           items: [
-            'config/config-deployment',
+            'config/config-deployment-en',
             'config/config-deployment-quickstart',
             'config/config-deployment-spec',
             'config/config-deployment-advance',
