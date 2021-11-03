@@ -1,6 +1,6 @@
 # Overview
 
-## [Nocalhost overview (what is it, how to configure, and what features does it have?)](config-overview.md)
+## [Nocalhost overview (what is it, how to configure, and what features does it have?)](config-overview-en.md)
 
 This section introduces some information such as what Nocalhost configuration is, how to modify the configuration, and what features does it have. **If you have no concept of Nocalhost configuration** or want to understand the structure and features of Nocalhost configuration, you can read this section.
 
@@ -8,7 +8,7 @@ This section introduces some information such as what Nocalhost configuration is
 
 ******
 
-## [What configuration does Nocalhost provide?](config-spec.md)
+## [What configuration does Nocalhost provide?](config-spec-en.md)
 
 Development configuration defines the behavior of entering `DevMode`. If you want to **make some customized configuration when entering `DevMode`**, development configuration would be helpful. If you want to know what configurations Nocalhost provides, you can read this section.
 

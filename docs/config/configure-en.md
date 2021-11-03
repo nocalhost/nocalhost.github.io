@@ -362,4 +362,4 @@ Before using Nocalhost configuration, Nocalhost will check all configuration met
 
 ### DevConfig Features
 
-Please read [Nocalhost DevConfig Features](config-overview.md#四、开发配置的特性)
+Please read [Nocalhost DevConfig Features](config-overview-en.md#四、开发配置的特性)
