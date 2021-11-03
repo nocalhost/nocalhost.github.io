@@ -16,7 +16,7 @@ Development configuration defines the behavior of entering `DevMode`. If you wan
 
 ******
 
-## [What configuration ways does Nocalhost support?](configure.md)
+## [What configuration ways does Nocalhost support?](configure-en.md)
 
 Nocalhost supports multiple ways to configure the DevMode and provides support for various rich usage scenarios. The most common configuration way is to right-click the specific workload in the IDE plug-in and select `DevConfig` to enter the Development configuration editing UI.
 
@@ -30,7 +30,7 @@ If you want to learn more about multiple configure ways of development configura
 
 ******
 
-## [Deployment Configuration](config-deployment.md)
+## [Deployment Configuration](config-deployment-en.md)
 
 Nocalhost has the function of application deployment. Under `Nocalhost Server`, this is a high-frequency function. Nocalhost provides features such as **dependency control and env injection** to workloads.
 

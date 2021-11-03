@@ -2,7 +2,7 @@
 title: Syntax
 ---
 
-[Overview](config.md) / [Deploy Config](config-deployment.md) / [Syntax](config-deployment-syntax.md)
+[Overview](config-en.md) / [Deploy Config](config-deployment-en.md) / [Syntax](config-deployment-syntax.md)
 
 <br/>
 
