@@ -1,7 +1,7 @@
 ---
 title: Develop configuration
 ---
-[Overview](config.md) / [Spec](config-spec.md) / [Develop](config-develop.md)
+[Overview](config.md) / [Spec](config-spec-en.md) / [Develop](config-develop.md)
 
 <br/>
 

@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 除了将配置放置在插件的右键 `DevConfig`  中， Nocalhost 还支持将配置放置在源码目录、configMap 、以及 annotation 中。例如可以将 Nocalhost 配置流程化地配置在 CD 、或者配置在 helm chart、rawManifest 中，通过上述的几种配置方式，来避免重复配置。
 
 :::info PRE-REQUIRE
-除了零配置相关内容，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview.md)来进行了解。
+除了零配置相关内容，请确保你已经知晓如何正确进行 Nocalhost 配置，如果还不知如何进行配置，请阅读[Nocalhost 概述 —— 是什么，怎么配置，有哪些特性？](config-overview-enmd)来进行了解。
 :::
 
 <br/>
@@ -343,4 +343,4 @@ Nocalhost 配置支持 “混搭”，例如拥有十个服务，可以其中三
 
 ### 配置的固有特性
 
-请参考 [Nocalhost 开发配置的特性](config-overview.md#四、开发配置的特性)
+请参考 [Nocalhost 开发配置的特性](config-overview-enmd#四、开发配置的特性)

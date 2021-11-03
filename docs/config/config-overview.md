@@ -1,7 +1,7 @@
 ---
 title: What is Nocalhost Config?
 ---
-[Overview](config.md) / [What is Nocalhost Config?](config-overview.md)
+[Overview](config.md) / [What is Nocalhost Config?](config-overview-enmd)
 <br/>
 
 ******
@@ -185,7 +185,7 @@ nocalhost=example
 ```
 
 :::tip 更多
-想了解更多的配置项及其作用，可以查看 [Nocalhost 提供了哪些配置？](config-spec.md)
+想了解更多的配置项及其作用，可以查看 [Nocalhost 提供了哪些配置？](config-spec-en.md)
 :::
 
 <br/>

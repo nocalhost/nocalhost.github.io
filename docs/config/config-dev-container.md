@@ -1,7 +1,7 @@
 ---
 title: Dev Container configuration
 ---
-[Overview](config.md) / [Spec](config-spec.md) / [Container](config-dev-container.md)
+[Overview](config.md) / [Spec](config-spec-en.md) / [Container](config-dev-container.md)
 
 <br/>
 

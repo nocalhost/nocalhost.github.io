@@ -25,7 +25,7 @@ plugin. Nocalhost supports to use the following types to deploy application:
 
 ## 部署配置的结构
 
-[开发配置](config-overview.md)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
+[开发配置](config-overview-enmd)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
 
 ```yaml
 application:
@@ -270,7 +270,7 @@ git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/exam
 
 例如，在前面的部署示例中，我们始终部署 bookinfo 这个应用，里面有几个类型为 Deployment 的工作负载，我们来对它们进行一些配置，最终如下。
 
-除了上述的最小化配置以外，我们引入了 services 这个数组，数组内的元素则是我们熟悉的**[开发配置](config-spec.md)**：
+除了上述的最小化配置以外，我们引入了 services 这个数组，数组内的元素则是我们熟悉的**[开发配置](config-spec-en.md)**：
 
 ```yaml
 application:
