@@ -25,7 +25,7 @@ plugin. Nocalhost supports to use the following types to deploy application:
 
 ## 部署配置的结构
 
-[开发配置](config-overview-enmd)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
+[开发配置](config-overview-en.md)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
 
 ```yaml
 application:
