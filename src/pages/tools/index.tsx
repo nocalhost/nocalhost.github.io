@@ -12,6 +12,7 @@ import EnvVar from "./components/EnvVar";
 import Result from "./components/Result";
 import PortForward from "./components/PortForward";
 import GuidCard from "./components/GuideCard";
+import Patches from "./components/Patches";
 import "antd/dist/antd.css";
 
 import Translate, { translate } from "@docusaurus/Translate";
@@ -812,6 +813,7 @@ const Tools = () => {
                     {configType === "ResourceLimit" && <ResourceLimit />}
                     {configType === "DevEnv" && <EnvVar />}
                     {configType === "PortForward" && <PortForward />}
+                    {configType === "Patches" && <Patches />}
                   </div>
                   {!hasContainer && <div className={styles["mask"]}></div>}
                 </div>

@@ -41,6 +41,11 @@ export const CONFIG_TYPE: MenuItem[] = [
   { name: "Resource Limit", status: "pending", type: "ResourceLimit" },
   { name: "Development Variable", status: "pending", type: "DevEnv" },
   { name: "Port Forward", status: "pending", type: "PortForward" },
+  {
+    name: "Patches",
+    status: "pending",
+    type: "Patches",
+  },
 ];
 
 export const SYNC_FILE_TYPE = [

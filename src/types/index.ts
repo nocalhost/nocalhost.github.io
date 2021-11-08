@@ -10,7 +10,8 @@ export type ConfigType =
   | "Volume"
   | "ResourceLimit"
   | "DevEnv"
-  | "PortForward";
+  | "PortForward"
+  | "Patches";
 
 export interface MenuItem {
   name: string;
