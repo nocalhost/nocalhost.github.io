@@ -41,6 +41,7 @@ import {
   isLimitValid,
   isEnvVarValid,
   isPortForwardValid,
+  isPatchesValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
 
@@ -126,6 +127,7 @@ const Tools = () => {
     setLimitValid(isLimitValid(yamlObj));
     setEnvVarValid(isEnvVarValid(yamlObj));
     setPortForwardValid(isPortForwardValid(yamlObj));
+    setPatchesValid(isPatchesValid(yamlObj));
   }, [yamlObj]);
 
   const getConfig = async (params: SaveInfo) => {
@@ -178,7 +180,6 @@ const Tools = () => {
             name: "",
             serviceType: "",
           } as YamlObj);
-        debugger;
         if (len === 1) {
           const field = changedFields[0]?.name[0];
           switch (field) {
@@ -365,6 +366,20 @@ const Tools = () => {
             if (field === "persistentVolumeDirs" && prop === "capacity") {
               value = value + "Gi";
             }
+
+            if (field === "patches" && prop === "patch") {
+              const arr =
+                tmpYamlObj?.containers?.[containerIndex]?.dev?.patches || [];
+              const result = arr.map((item) => {
+                const obj = item || ({} as { type: string });
+                return {
+                  ...obj,
+                  type: obj.type || "strategic",
+                };
+              });
+              tmpYamlObj.containers[containerIndex].dev.patches = result;
+            }
+
             let obj =
               tmpYamlObj.containers[containerIndex]["dev"][field][index] || {};
             obj[prop] = value;

@@ -44,6 +44,7 @@ const Patches = ({ form }) => {
                         name={[field.name, "patch"]}
                         fieldKey={[field.fieldKey, "patch"]}
                         style={{ marginBottom: 0 }}
+                        initialValue=""
                       >
                         <Input
                           style={{ width: 190 }}
