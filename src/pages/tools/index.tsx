@@ -493,6 +493,7 @@ const Tools = () => {
       "limits-cpu": "",
       env: [],
       portForward: [],
+      patches: [],
     });
     const { containerIndex } = form.getFieldsValue();
     const currentContainer =
@@ -588,6 +589,14 @@ const Tools = () => {
               container: container || "",
             };
           }),
+        });
+      }
+
+      // patches
+      const patches = currentContainer?.dev?.patches;
+      if (patches) {
+        form.setFieldsValue({
+          patches,
         });
       }
     }

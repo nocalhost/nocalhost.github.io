@@ -171,11 +171,22 @@ li {
             }
           }
 
+          .patches-json {
+            position: relative;
+
+            &-remove {
+              position: absolute;
+              right: -30px;
+              bottom: 2px;
+            }
+          }
+
           .directory-item {
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
 
             .form-item {
               display: flex;
@@ -204,6 +215,20 @@ li {
               position: relative;
               top: 4px;
             }
+            .patches-remove,
+            .patches-remove-first {
+              position: absolute;
+              right: 0;
+              top: 6px;
+            }
+
+            .patches-remove-first {
+              top: 34px;
+            }
+          }
+
+          .patches-area {
+            margin-left: 20px;
           }
 
           .limit-item {

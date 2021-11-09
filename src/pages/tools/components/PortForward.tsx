@@ -8,7 +8,7 @@ import IconRemove from "../images/icon_remove.svg";
 const PortForward = () => {
   return (
     <>
-      <Form.List name="portForward">
+      <Form.List name="portForward" initialValue={[{}]}>
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (
