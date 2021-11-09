@@ -73,7 +73,7 @@ const Tools = () => {
   } as YamlObj);
   const [yamlStr, setYamlStr] = useState("");
   const [containerOptions, setContainerOptions] = useState([]);
-  const [configType, setConfigType] = useState<ConfigType>("Basic");
+  const [configType, setConfigType] = useState<ConfigType>("Patches");
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE);
   const [isValid, setIsValid] = useState<boolean>(false);
   const [fileSyncValid, setFileSyncValid] = useState<boolean>(false);
@@ -82,6 +82,7 @@ const Tools = () => {
   const [limitValid, setLimitValid] = useState<boolean>(false);
   const [envVarValid, setEnvVarValid] = useState<boolean>(false);
   const [portForwardValid, setPortForwardValid] = useState<boolean>(false);
+  const [patchesValid, setPatchesValid] = useState<boolean>(false);
   const [URLParams, setURLParams] = useState<SaveInfo>({} as SaveInfo);
   const [showResult, setShowResult] = useState<string>("");
   const [containerName, setContainerName] = useState<string>("");
@@ -177,6 +178,7 @@ const Tools = () => {
             name: "",
             serviceType: "",
           } as YamlObj);
+        debugger;
         if (len === 1) {
           const field = changedFields[0]?.name[0];
           switch (field) {
@@ -336,6 +338,17 @@ const Tools = () => {
             obj[field][index] = value;
           }
           yamlObj.containers[containerIndex]["dev"]["sync"] = { ...obj };
+        } else if (len === 5) {
+          const [field, index, prop, subIndex, attr] = name;
+          let obj =
+            tmpYamlObj?.containers?.[containerIndex]?.dev?.[field]?.[index]?.[
+              prop
+            ]?.[subIndex] || {};
+          obj[attr] = value;
+          yamlObj.containers[containerIndex].dev[field][index][prop][subIndex] =
+            {
+              ...obj,
+            };
         } else {
           const [field, index, prop] = name;
 
@@ -774,29 +787,31 @@ const Tools = () => {
                           >
                             {
                               /*Basic Config*/
-                              index === 0 &&
+                              item.name === "Basic Config" &&
                                 (isValid ? <IconSuccess /> : <IconWaring />)
                             }
-                            {index === 1 &&
+                            {item.name === "File Synchronization" &&
                               (fileSyncValid ? (
                                 <IconSuccess />
                               ) : (
                                 <IconOption />
                               ))}
-                            {index === 2 &&
+                            {item.name === "Run And Debug" &&
                               (commandValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 3 &&
+                            {item.name === "Volume" &&
                               (volumeValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 4 &&
+                            {item.name === "Resource Limit" &&
                               (limitValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 5 &&
+                            {item.name === "Development Variable" &&
                               (envVarValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 6 &&
+                            {item.name === "Port Forward" &&
                               (portForwardValid ? (
                                 <IconSuccess />
                               ) : (
                                 <IconOption />
                               ))}
+                            {item.name === "Patches" &&
+                              (patchesValid ? <IconSuccess /> : <IconOption />)}
                             <span>
                               <Translate>{item.name}</Translate>
                             </span>
@@ -813,7 +828,7 @@ const Tools = () => {
                     {configType === "ResourceLimit" && <ResourceLimit />}
                     {configType === "DevEnv" && <EnvVar />}
                     {configType === "PortForward" && <PortForward />}
-                    {configType === "Patches" && <Patches />}
+                    {configType === "Patches" && <Patches form={form} />}
                   </div>
                   {!hasContainer && <div className={styles["mask"]}></div>}
                 </div>

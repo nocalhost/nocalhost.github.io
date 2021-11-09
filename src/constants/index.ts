@@ -111,3 +111,37 @@ export const DEFAULT_CONTAINER: Container = {
     sidecarImage: "",
   },
 };
+
+export const PATCHES_OP_OPTION = [
+  {
+    label: "add",
+    value: "add",
+  },
+  {
+    label: "remove",
+    value: "remove",
+  },
+  {
+    label: "replace",
+    value: "replace",
+  },
+  {
+    label: "move",
+    value: "move",
+  },
+  {
+    label: "copy",
+    value: "copy",
+  },
+];
+
+export const PATCHES_TYPE = [
+  {
+    label: "strategic",
+    value: "strategic",
+  },
+  {
+    label: "json",
+    value: "json",
+  },
+];
