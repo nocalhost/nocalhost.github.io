@@ -73,7 +73,7 @@ const Tools = () => {
   } as YamlObj);
   const [yamlStr, setYamlStr] = useState("");
   const [containerOptions, setContainerOptions] = useState([]);
-  const [configType, setConfigType] = useState<ConfigType>("Patches");
+  const [configType, setConfigType] = useState<ConfigType>("Basic");
   const [menuList] = useState<MenuItem[]>(CONFIG_TYPE);
   const [isValid, setIsValid] = useState<boolean>(false);
   const [fileSyncValid, setFileSyncValid] = useState<boolean>(false);
