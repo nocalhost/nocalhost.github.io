@@ -341,15 +341,18 @@ const Tools = () => {
           yamlObj.containers[containerIndex]["dev"]["sync"] = { ...obj };
         } else if (len === 5) {
           const [field, index, prop, subIndex, attr] = name;
+          tmpYamlObj.containers[containerIndex].dev[field][index][prop] =
+            yamlObj.containers[containerIndex].dev[field][index][prop] || [];
           let obj =
             tmpYamlObj?.containers?.[containerIndex]?.dev?.[field]?.[index]?.[
               prop
             ]?.[subIndex] || {};
           obj[attr] = value;
-          yamlObj.containers[containerIndex].dev[field][index][prop][subIndex] =
-            {
-              ...obj,
-            };
+          tmpYamlObj.containers[containerIndex].dev[field][index][prop][
+            subIndex
+          ] = {
+            ...obj,
+          };
         } else {
           const [field, index, prop] = name;
 
@@ -377,7 +380,32 @@ const Tools = () => {
                   type: obj.type || "strategic",
                 };
               });
+              // @ts-ignore
               tmpYamlObj.containers[containerIndex].dev.patches = result;
+            }
+
+            if (field === "patches" && prop === "type") {
+              if (value === "strategic") {
+                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                  type: value,
+                  patch: "",
+                };
+              } else {
+                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                  type: value,
+                  patch: [
+                    {
+                      op: "",
+                      path: "",
+                      value: "",
+                    },
+                  ],
+                };
+              }
+              // set field
+              form.setFieldsValue({
+                patches: tmpYamlObj.containers[containerIndex].dev.patches,
+              });
             }
 
             let obj =

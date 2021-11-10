@@ -44,7 +44,6 @@ const Patches = ({ form }) => {
                         name={[field.name, "patch"]}
                         fieldKey={[field.fieldKey, "patch"]}
                         style={{ marginBottom: 0 }}
-                        initialValue=""
                       >
                         <Input
                           style={{ width: 190 }}
@@ -135,6 +134,7 @@ const Patches = ({ form }) => {
                           <div
                             className={styles["add-field"]}
                             onClick={() => add()}
+                            style={{ marginTop: 8 }}
                           >
                             <IconAdd />
                             <span style={{ marginLeft: 4 }}>
