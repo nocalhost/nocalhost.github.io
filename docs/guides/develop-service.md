@@ -1,5 +1,5 @@
 ---
-title: DevMode(Replace)
+title: Overview
 ---
 
 import Tabs from '@theme/Tabs';
@@ -133,7 +133,7 @@ There are some configurations that you need to take care of before DevMode.
 
 ### Source Code Directory
 
-Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
+Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize your source code files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
 
 You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have an associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
 
@@ -141,7 +141,7 @@ You can [Associate Local Directory](#associate-local-directory) before entering 
 
 You can associate the local source code directory to a workload before entering DevMode. Once you associated this directory, Nocalhost will save this directory path in the database. 
 
-When you entering DevMode, Nocalhost will use this path directory without asking for input.
+When you entering DevMode, Nocalhost will use this path directory instead of asking for input.
 
 **Steps:**
 
@@ -186,13 +186,13 @@ Nocalhost will associate the directory to the clone directory automatically afte
 
 ### Development Container
 
-Nocalhost will replace the workload containers when entering DevMode by [development container](../config/config-dev-devcontainer). Nocalhost will loads the `container[*].dev` section from the Nocalhost configuration. 
+Nocalhost will replace the workload containers when entering DevMode with [development container](../config/config-dev-devcontainer). Nocalhost will load the `container[*].dev` section from the Nocalhost configuration. 
 
 #### Development Image
 
-Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use [`dev.image`](../config/config-dev#devimage) configuration or ask you to input the image name or URL. 
+Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use image defined in [`dev.image`](../config/config-dev#devimage) or ask you to input one. 
 
-You can use the docker image provide by us or use any [custom image](../config/config-dev-devcontainer#advices-for-making-devimage) for `development image`.
+You can use the docker image provided by us or use any [custom image](../config/config-dev-devcontainer#advices-for-making-devimage) for `development image`.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/develop/vs-choose-image.jpg')} />
@@ -210,8 +210,8 @@ Container image will handle by Kubernetes, [read more to learn about Kubernetes 
 ### Select Workload
 
 1. Expand the cluster inspector
-2. Select the workload you want to develop and click **`Start DevMode`**
-3. Select the container if you have more than one container in this workload
+2. Select the workload you want to develop and click **`Start DevMode`** or **`Start DevMode(Duplicate)`**
+3. Select a container if you have more than one container in this workload
 
 :::caution Container
 
@@ -226,7 +226,7 @@ If you have more than one container in a workload, you can only select one conta
 
 ### DevMode Process
 
-When entering DevMoe will do the following:
+When entering DevMoe, Nocalhost will do the following things:
 
 1. **Replace Pods** according to your [`replacing port` configurations](../config/config-dev-devcontainer#configuration)
 2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-dev-portforward)
