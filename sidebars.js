@@ -139,7 +139,7 @@ module.exports = {
         {
           type: 'doc',
           label: 'Nocalhost Server in KubeSphere',
-          id: 'server/deploy-in-kubesphere',
+          id: 'server/deploy-in-kubesphere-en',
         },
       ]
     },
