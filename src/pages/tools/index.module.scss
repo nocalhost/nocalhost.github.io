@@ -173,6 +173,9 @@ li {
 
           .patches-json {
             position: relative;
+            border: 1px dashed #999;
+            padding: 0 10px;
+            margin: 8px 0;
 
             &-remove {
               position: absolute;
@@ -198,6 +201,16 @@ li {
                   display: inline-block;
                   width: 40px;
                 }
+              }
+            }
+
+            .label-field {
+              display: flex;
+              align-items: center;
+              .label {
+                display: inline-block;
+                width: 40px;
+                font-size: 12px;
               }
             }
 
@@ -525,4 +538,9 @@ li {
 
 :global(.ant-switch.ant-switch-checked) {
   background-color: #1890ff;
+}
+
+:global(.ant-select-single.ant-select-show-arrow .ant-select-selection-item) {
+  display: flex;
+  align-items: center;
 }

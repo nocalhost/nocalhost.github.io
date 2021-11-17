@@ -33,7 +33,6 @@ const Result = ({ status, workload = "", yamlStr = "" }) => {
           ) : (
             <Translate>Configuration Failed</Translate>
           )}
-          {translate({ message: "Configuration Successful" })}
         </h3>
         <span className={styles["result-desc"]}>
           {translate({

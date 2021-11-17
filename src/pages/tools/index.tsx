@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
 
 import styles from "./index.module.scss";
-import { Button, Form, Select, Input, message, Modal } from "antd";
+import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -130,6 +130,30 @@ const Tools = () => {
     setPatchesValid(isPatchesValid(yamlObj));
   }, [yamlObj]);
 
+  // check duplicate container name
+  const checkContainerName = (name?: string) => {
+    const containerNames = yamlObj.containers.map((item) => item.name);
+
+    if (name) {
+      if (containerNames.includes(name)) {
+        message.warning(
+          translate({
+            message: "Container name has duplicate!",
+          })
+        );
+        return false;
+      }
+    } else {
+      if (new Set(containerNames).size !== containerNames.length) {
+        message.warning(
+          translate({ message: "Container name has duplicate, please check!" })
+        );
+        return false;
+      }
+    }
+    return true;
+  };
+
   const getConfig = async (params: SaveInfo) => {
     const config = await queryConfig(params);
     const containerArr = config.containers.map((item, index) => ({
@@ -210,6 +234,7 @@ const Tools = () => {
                 tmpObj[containerIndex].label = value;
                 setContainerOptions(tmpObj);
                 tmpYamlObj.containers[containerIndex][field] = value;
+                checkContainerName();
               }
               break;
             case "syncType":
@@ -428,34 +453,40 @@ const Tools = () => {
 
   const handleApply = async () => {
     const { from, application, name, namespace, type, kubeconfig } = URLParams;
-    if (from === "daemon") {
-      try {
-        setShowLoading(true);
-        const response = await saveConfig({
-          application,
-          name,
-          namespace,
-          type,
-          kubeconfig,
-          config: window.btoa(yamlStr),
-        });
-        const { Success, Message } = response;
-        if (Success) {
-          setShowResult("success");
-          message.success(Message);
-        } else {
+    if (checkContainerName()) {
+      if (from === "daemon") {
+        try {
+          setShowLoading(true);
+          const response = await saveConfig({
+            application,
+            name,
+            namespace,
+            type,
+            kubeconfig,
+            config: window.btoa(yamlStr),
+          });
+          const { Success, Message } = response;
+          if (Success) {
+            setShowResult("success");
+            message.success(Message);
+          } else {
+            if (Message.indexOf("[Configuration Validate Error]") > -1) {
+              message.error(Message, 10);
+            } else {
+              setShowResult("fail");
+              message.error(Message);
+            }
+          }
+          setShowLoading(false);
+        } catch (e) {
+          setShowLoading(false);
           setShowResult("fail");
-          message.error(Message);
+          message.error("Please Check Network");
+          throw new Error(e);
         }
-        setShowLoading(false);
-      } catch (e) {
-        setShowLoading(false);
-        setShowResult("fail");
-        message.error("Please Check Network");
-        throw new Error(e);
+      } else {
+        setShowModal(true);
       }
-    } else {
-      setShowModal(true);
     }
   };
 

@@ -68,6 +68,7 @@ const Patches = ({ form }) => {
                                 style={{ marginTop: 8 }}
                               >
                                 <div className={styles["label-field"]}>
+                                  <span className={styles["label"]}>Op:</span>
                                   <Form.Item
                                     {...patch}
                                     name={[patch.name, "op"]}
@@ -76,7 +77,7 @@ const Patches = ({ form }) => {
                                   >
                                     <Select
                                       options={PATCHES_OP_OPTION}
-                                      style={{ width: 170 }}
+                                      style={{ width: 120 }}
                                       placeholder={translate({
                                         message: "Please Select Op",
                                       })}
@@ -89,6 +90,7 @@ const Patches = ({ form }) => {
                                 style={{ marginTop: 8 }}
                               >
                                 <div className={styles["label-field"]}>
+                                  <span className={styles["label"]}>Path:</span>
                                   <Form.Item
                                     {...patch}
                                     name={[patch.name, "path"]}
@@ -99,11 +101,14 @@ const Patches = ({ form }) => {
                                       placeholder={translate({
                                         message: "Please Input Path",
                                       })}
-                                      style={{ width: 170 }}
+                                      style={{ width: 120 }}
                                     />
                                   </Form.Item>
                                 </div>
                                 <div className={styles["label-field"]}>
+                                  <span className={styles["label"]}>
+                                    Value:
+                                  </span>
                                   <Form.Item
                                     {...patch}
                                     name={[patch.name, "value"]}
@@ -111,7 +116,7 @@ const Patches = ({ form }) => {
                                     style={{ marginBottom: 0 }}
                                   >
                                     <Input
-                                      style={{ width: 170 }}
+                                      style={{ width: 120 }}
                                       placeholder={translate({
                                         message: "Please Input Value",
                                       })}
