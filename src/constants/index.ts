@@ -64,14 +64,14 @@ export const WORKLOAD_TYPE = [
     label: "Deployment",
     value: "deployment",
   },
-  { label: "StatefulSet", value: "statefulSet" },
+  { label: "StatefulSet", value: "statefulset" },
   {
     label: "DaemonSet",
-    value: "daemonSet",
+    value: "daemonset",
   },
   { label: "Job", value: "job" },
-  { label: "CronJob", value: "cornJob" },
-  { label: "Pods", value: "pods" },
+  { label: "CronJob", value: "cornjob" },
+  { label: "Pod", value: "pod" },
 ];
 
 export const BASE_URL = "http://127.0.0.1:30125";
