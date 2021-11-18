@@ -418,13 +418,7 @@ const Tools = () => {
               } else {
                 tmpYamlObj.containers[containerIndex].dev.patches[index] = {
                   type: value,
-                  patch: [
-                    {
-                      op: "",
-                      path: "",
-                      value: "",
-                    },
-                  ],
+                  patch: [{}],
                 };
               }
               // set field
