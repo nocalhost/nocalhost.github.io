@@ -496,7 +496,10 @@ export default function Home() {
                     className={styles.whoUseCar}
                     style={{ marginTop: 0, paddingTop: 0 }}
                   >
-                    <img src="img/home/consumer-uisee.svg"></img>
+                    <img
+                      src="img/home/consumer-uisee.svg"
+                      style={{ position: "relative", top: "-10px" }}
+                    ></img>
                     <div
                       className={styles.title}
                       style={{ position: "relative", top: "-40px" }}
