@@ -494,20 +494,19 @@ export default function Home() {
                 <div className={styles.whoUseCardBox}>
                   <div className={styles.whoUseCar}>
                     <img
-                      src="img/home/consumer-1.png"
+                      src="img/home/consumer-uisee.svg"
                       className={styles.logo}
                     ></img>
                     <div className={styles.title}>
-                      <Translate id="Litchi.title">Litchi Microclass</Translate>
+                      <Translate id="uisee.title">UISEE </Translate>
                     </div>
                     <div className={styles.text}>
-                      <Translate id="Litchi.info">
-                        Litchi Microclass is a platform dedicated to the sharing
-                        of public knowledge, and all functions of the whole
-                        platform are free for life. Here, everyone can start and
-                        share classes anytime, anywhere, or listen to classes
-                        and learn. Use Nocalhost to improve the development
-                        efficiency of infrastructure components.
+                      <Translate id="uisee.info">
+                        UISEE is China's leading autonomous driving company,
+                        using Nocalhost Server to pull up a development
+                        environment for AI applications with one click, using
+                        IDE plug-ins and one-click debugging to shorten the
+                        development cycle.
                       </Translate>
                     </div>
                   </div>
@@ -529,25 +528,6 @@ export default function Home() {
                         school-enterprise cooperation. It uses Nocalhost to
                         improve business R&D efficiency (green pepper
                         classroom).
-                      </Translate>
-                    </div>
-                  </div>
-                  <div className={styles.whoUseCar}>
-                    <img
-                      src="img/home/consumer-3.png"
-                      className={styles.logo}
-                    ></img>
-                    <div className={styles.title}>
-                      <Translate id="GengmeiApp.title">Gengmei App </Translate>
-                    </div>
-                    <div className={styles.text}>
-                      <Translate id="GengmeiApp.info">
-                        Gengmei App is a plastic surgery communication
-                        community, a medical beauty e-commerce platform, and a
-                        reputation database for plastic surgery doctors. Its
-                        business covers China, South Korea, Thailand, Singapore,
-                        etc., and Nocalhost is used to improve business R&D
-                        efficiency.
                       </Translate>
                     </div>
                   </div>
