@@ -41,6 +41,11 @@ export const CONFIG_TYPE: MenuItem[] = [
   { name: "Resource Limit", status: "pending", type: "ResourceLimit" },
   { name: "Development Variable", status: "pending", type: "DevEnv" },
   { name: "Port Forward", status: "pending", type: "PortForward" },
+  {
+    name: "Patches",
+    status: "pending",
+    type: "Patches",
+  },
 ];
 
 export const SYNC_FILE_TYPE = [
@@ -59,14 +64,14 @@ export const WORKLOAD_TYPE = [
     label: "Deployment",
     value: "deployment",
   },
-  { label: "StatefulSet", value: "statefulSet" },
+  { label: "StatefulSet", value: "statefulset" },
   {
     label: "DaemonSet",
-    value: "daemonSet",
+    value: "daemonset",
   },
   { label: "Job", value: "job" },
-  { label: "CronJob", value: "cornJob" },
-  { label: "Pods", value: "pods" },
+  { label: "CronJob", value: "cornjob" },
+  { label: "Pod", value: "pod" },
 ];
 
 export const BASE_URL = "http://127.0.0.1:30125";
@@ -106,3 +111,37 @@ export const DEFAULT_CONTAINER: Container = {
     sidecarImage: "",
   },
 };
+
+export const PATCHES_OP_OPTION = [
+  {
+    label: "add",
+    value: "add",
+  },
+  {
+    label: "remove",
+    value: "remove",
+  },
+  {
+    label: "replace",
+    value: "replace",
+  },
+  {
+    label: "move",
+    value: "move",
+  },
+  {
+    label: "copy",
+    value: "copy",
+  },
+];
+
+export const PATCHES_TYPE = [
+  {
+    label: "strategic",
+    value: "strategic",
+  },
+  {
+    label: "json",
+    value: "json",
+  },
+];
