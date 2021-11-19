@@ -230,8 +230,8 @@ When entering DevMoe, Nocalhost will do the following things:
 
 1. **Replace Pods** according to your [`replacing port` configurations](../config/config-spec-en.md)
 2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-enhance.md#开发模式后自动端口转发)
-3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-dev-sync) section
-4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev#devworkdir) section.
+3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-enhance.md#文件同步) section
+4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev-container.md#文件同步的远端目录) section.
 
 Once the terminal session starts, you start your application and work inside your container. 
 
