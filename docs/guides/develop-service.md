@@ -176,7 +176,7 @@ Nocalhost will not clone source code from Git if you have already associated or 
 
 Nocalhost can help you to clone the source code from the Git repository within the IDE. 
 
-If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](/docs/config/config-enhance#源码地址) section or ask you to input the Git URL.
+If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](../config/config-enhance.md#源码地址) section or ask you to input the Git URL.
 
 :::info Auto-associate
 
@@ -186,13 +186,13 @@ Nocalhost will associate the directory to the clone directory automatically afte
 
 ### Development Container
 
-Nocalhost will replace the workload containers when entering DevMode with [development container](../config/config-dev-devcontainer). Nocalhost will load the `container[*].dev` section from the Nocalhost configuration. 
+Nocalhost will replace the workload containers when entering DevMode with development container. Nocalhost will load the `container[*].dev` section from the Nocalhost configuration. 
 
 #### Development Image
 
-Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use image defined in [`dev.image`](../config/config-dev#devimage) or ask you to input one. 
+Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use image defined in [`dev.image`](../config/config-dev-container.md#开发镜像) or ask you to input one. 
 
-You can use the docker image provided by us or use any [custom image](../config/config-dev-devcontainer#advices-for-making-devimage) for `development image`.
+You can use the docker image provided by us or use any [custom image](../config/config-dev-container#开发镜像) for `development image`.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/develop/vs-choose-image.jpg')} />
@@ -228,8 +228,8 @@ If you have more than one container in a workload, you can only select one conta
 
 When entering DevMoe, Nocalhost will do the following things:
 
-1. **Replace Pods** according to your [`replacing port` configurations](../config/config-dev-devcontainer#configuration)
-2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-dev-portforward)
+1. **Replace Pods** according to your [`replacing port` configurations](../config/config-spec-en.md)
+2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-enhance.md#开发模式后自动端口转发)
 3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-dev-sync) section
 4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev#devworkdir) section.
 
@@ -246,7 +246,7 @@ You can also use the [remote run](./remote-run) to run all the commands accordin
 Make sure you have done the following before developing:
 
 - [x] Start process inside the container or use the [remote run](./remote-run) to run your application.
-- [x] The port-forwarding you configured has successfully started or [configure the port-forwarding in IDE](../config/config-dev-portforward#using-ide-plugin)
+- [x] The port-forwarding you configured has successfully started or configure the port-forwarding in IDE
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/code-change.gif')} />

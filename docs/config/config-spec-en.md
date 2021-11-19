@@ -1,7 +1,7 @@
 ---
 title: Spec
 ---
-[Overview](config.md) / [Spec](config-spec-en.md)
+[Overview](config-en.md) / [Spec](config-spec-en.md)
 
 <br/>
 
