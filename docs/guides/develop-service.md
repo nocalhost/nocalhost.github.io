@@ -176,7 +176,7 @@ Nocalhost will not clone source code from Git if you have already associated or 
 
 Nocalhost can help you to clone the source code from the Git repository within the IDE. 
 
-If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](../config/config-dev#devgiturl) section or ask you to input the Git URL.
+If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](/docs/config/config-enhance#源码地址) section or ask you to input the Git URL.
 
 :::info Auto-associate
 
