@@ -1,7 +1,7 @@
 ---
 title: Dev Container configuration
 ---
-[Overview](config.md) / [Spec](config-spec.md) / [Container](config-dev-container.md)
+[Overview](config-en.md) / [Spec](config-spec-en.md) / [Container](config-dev-container.md)
 
 <br/>
 
@@ -178,3 +178,33 @@ containers:
 `sidecarImage` 是进入开发模式所必须的镜像，负责代码同步、debug 连接管理等，默认为 `nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion`，且不需要手动进行配置。
 
 如果你的集群由于特殊的网络环境无法获取该镜像，可以将当前这个镜像拉取下来，推送到你的集群可以正常访问的镜像仓库，并将其配置为新的地址。
+
+******
+
+### Patches
+
+范例：
+
+```yaml
+name: nocalhost-api
+serviceType: deployment
+containers:
+  - name: nocalhost-api
+    dev:
+      patches:
+        - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-dev","resources":{"limits":{"cpu":"2"}}}]}}}}'
+        - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-sidecar","resources":{"limits":{"cpu":"2"}}}]}}}}'
+          type: strategic
+        - patch: '[{"op": "add","path":"/metadata/annotations/nocalhost-patch","value":"hello-world"}]'
+          type: json
+```
+
+`patches` 配置项提供了类似 `kubectl patch` 的能力，用户可以使用 `patches` 灵活地对进入 Nocalhost DevMode 的工作负载的 Spec 进行适当的修改，需要特别注意的是 `patches` 是对进入 `DevMode` 之后的工作负载进行修改，所以修改的容器名一般是 `nocalhost-dev` 或 `nocalhost-sidecar`，而不是进入 `DevMode` 前的工作负载里的容器名。
+其中：<br></br>
+** &nbsp • ** **type**: 为 patch 的类型，可选的值有： `json`, `merge`, `strategic`, 默认值为 `strategic`<br></br>
+** &nbsp • ** **patch**: 为 patch 的内容<br></br>
+可以简单地理解为，`type` 配置项等同于 `kubectl patch` 命令的 `--type` 参数，`patch` 配置项等同于 `kubectl patch` 命令的 `--patch` 参数。关于 `kuebctl patch` 命令的具体用法，可以参考 [使用 kubectl patch 更新 K8s API 对象](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+:::caution
+Nocalhost 不会对 patch 的内容做任何的校验和限制，有可能会因为 patch 的内容不当导致 Nocalhost 进入 DevMode 失败，所以请确保 patch 的正确性。
+:::

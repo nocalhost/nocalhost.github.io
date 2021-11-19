@@ -1,5 +1,5 @@
 ---
-title: DevMode(Replace)
+title: Overview
 ---
 
 import Tabs from '@theme/Tabs';
@@ -133,7 +133,7 @@ There are some configurations that you need to take care of before DevMode.
 
 ### Source Code Directory
 
-Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
+Before developing the application, you need to tell Nocalhost the location of your source code, so Nocalhost can synchronize your source code files to the remote container. You can either specify a local directory or clone your source code from the Git repository through Nocalhost.
 
 You can [Associate Local Directory](#associate-local-directory) before entering DevMode. Alternatively, Nocalhost will check the directory path. If you do not have an associated directory, Nocalhost will pop the selection menu to ask you to `specify the source directory. You can [Open Local Directory](#open-local-directory) or [Clone from Git Repo](#clone-from-git-repository).
 
@@ -141,7 +141,7 @@ You can [Associate Local Directory](#associate-local-directory) before entering 
 
 You can associate the local source code directory to a workload before entering DevMode. Once you associated this directory, Nocalhost will save this directory path in the database. 
 
-When you entering DevMode, Nocalhost will use this path directory without asking for input.
+When you entering DevMode, Nocalhost will use this path directory instead of asking for input.
 
 **Steps:**
 
@@ -176,7 +176,7 @@ Nocalhost will not clone source code from Git if you have already associated or 
 
 Nocalhost can help you to clone the source code from the Git repository within the IDE. 
 
-If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](../config/config-dev#devgiturl) section or ask you to input the Git URL.
+If you choose **`Clone from Git Repository`**, Nocalhost will try to clone the source code from URL according to the [`dev.gitUrl`](../config/config-enhance.md#源码地址) section or ask you to input the Git URL.
 
 :::info Auto-associate
 
@@ -186,13 +186,13 @@ Nocalhost will associate the directory to the clone directory automatically afte
 
 ### Development Container
 
-Nocalhost will replace the workload containers when entering DevMode by [development container](../config/config-dev-devcontainer). Nocalhost will loads the `container[*].dev` section from the Nocalhost configuration. 
+Nocalhost will replace the workload containers when entering DevMode with development container. Nocalhost will load the `container[*].dev` section from the Nocalhost configuration. 
 
 #### Development Image
 
-Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use [`dev.image`](../config/config-dev#devimage) configuration or ask you to input the image name or URL. 
+Nocalhost needs to know which `development image` to use before entering DevMode. Nocalhost will use image defined in [`dev.image`](../config/config-dev-container.md#开发镜像) or ask you to input one. 
 
-You can use the docker image provide by us or use any [custom image](../config/config-dev-devcontainer#advices-for-making-devimage) for `development image`.
+You can use the docker image provided by us or use any [custom image](../config/config-dev-container#开发镜像) for `development image`.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/develop/vs-choose-image.jpg')} />
@@ -210,8 +210,8 @@ Container image will handle by Kubernetes, [read more to learn about Kubernetes 
 ### Select Workload
 
 1. Expand the cluster inspector
-2. Select the workload you want to develop and click **`Start DevMode`**
-3. Select the container if you have more than one container in this workload
+2. Select the workload you want to develop and click **`Start DevMode`** or **`Start DevMode(Duplicate)`**
+3. Select a container if you have more than one container in this workload
 
 :::caution Container
 
@@ -226,12 +226,12 @@ If you have more than one container in a workload, you can only select one conta
 
 ### DevMode Process
 
-When entering DevMoe will do the following:
+When entering DevMoe, Nocalhost will do the following things:
 
-1. **Replace Pods** according to your [`replacing port` configurations](../config/config-dev-devcontainer#configuration)
-2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-dev-portforward)
-3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-dev-sync) section
-4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev#devworkdir) section.
+1. **Replace Pods** according to your [`replacing port` configurations](../config/config-spec-en.md)
+2. **Forward ports** according to your [`port-forwarding` configurations](../config/config-enhance.md#开发模式后自动端口转发)
+3. **Sync file changes** between your local project directory and the Kubernetes pods according to the [`dev.sync`](../config/config-enhance.md#文件同步) section
+4. **Open a terminal** right within IDE after the container started. The opened working directory is according to your [`dev.workDir`](../config/config-dev-container.md#文件同步的远端目录) section.
 
 Once the terminal session starts, you start your application and work inside your container. 
 
@@ -246,7 +246,7 @@ You can also use the [remote run](./remote-run) to run all the commands accordin
 Make sure you have done the following before developing:
 
 - [x] Start process inside the container or use the [remote run](./remote-run) to run your application.
-- [x] The port-forwarding you configured has successfully started or [configure the port-forwarding in IDE](../config/config-dev-portforward#using-ide-plugin)
+- [x] The port-forwarding you configured has successfully started or configure the port-forwarding in IDE
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/code-change.gif')} />

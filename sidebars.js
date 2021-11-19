@@ -49,6 +49,7 @@ module.exports = {
           label: 'Development',
           items: [
             'guides/develop-service',
+            'guides/develop-service-replace',
             'guides/develop-service-dup-en',
               ],
 
@@ -77,7 +78,7 @@ module.exports = {
       label: 'Configuration',
       collapsed: false,
       items: [
-        'config/config',
+        'config/config-en',
         'config/config-overview-en',
         {
           type: 'category',
@@ -96,12 +97,12 @@ module.exports = {
             'config/config-develop',
           ]
         },
-        'config/configure',
+        'config/configure-en',
         {
           type: 'category',
           label: 'Deploy',
           items: [
-            'config/config-deployment',
+            'config/config-deployment-en',
             'config/config-deployment-quickstart',
             'config/config-deployment-spec',
             'config/config-deployment-advance',
@@ -135,6 +136,11 @@ module.exports = {
         //     'practice/cloud/ms-azure'
         //   ]
         // },
+        {
+          type: 'doc',
+          label: 'Nocalhost Server in KubeSphere',
+          id: 'server/deploy-in-kubesphere',
+        },
       ]
     },
     // Advanced

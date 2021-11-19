@@ -1,7 +1,7 @@
 ---
 title: Pattern
 ---
-[Overview](config.md) / [Spec](config-spec.md) / [Enhance](config-enhance.md) / [Pattern](config-pattern.md)
+[Overview](config-en.md) / [Spec](config-spec-en.md) / [Enhance](config-enhance.md) / [Pattern](config-pattern.md)
 
 <br/>
 
