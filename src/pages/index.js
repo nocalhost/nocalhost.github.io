@@ -492,13 +492,10 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className={styles.whoUseCardBox}>
-                  <div
-                    className={styles.whoUseCar}
-                    style={{ marginTop: 0, paddingTop: 0 }}
-                  >
+                  <div className={styles.whoUseCar} style={{ paddingTop: 0 }}>
                     <img
                       src="img/home/consumer-uisee.svg"
-                      style={{ position: "relative", top: "-10px" }}
+                      style={{ position: "relative", top: "-20px" }}
                     ></img>
                     <div
                       className={styles.title}
