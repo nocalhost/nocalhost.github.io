@@ -9,7 +9,7 @@ import IconRemove from "../images/icon_remove.svg";
 const EnvVar = () => {
   return (
     <>
-      <Form.List name="env">
+      <Form.List name="env" initialValue={[{}]}>
         {(fields, { add, remove }) => (
           <>
             {fields.map((field, index) => (

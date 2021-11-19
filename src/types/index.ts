@@ -10,7 +10,8 @@ export type ConfigType =
   | "Volume"
   | "ResourceLimit"
   | "DevEnv"
-  | "PortForward";
+  | "PortForward"
+  | "Patches";
 
 export interface MenuItem {
   name: string;
@@ -62,9 +63,21 @@ export interface Container {
       name: string;
       value: string;
     }[];
+    patches?: IPatches[];
     portForward?: string[];
     sidecarImage?: string;
   };
+}
+
+interface IPatches {
+  type: "json" | "strategic";
+  patch: IPatch[] | string;
+}
+
+interface IPatch {
+  op: string;
+  path: string;
+  value: string;
 }
 export interface YamlObj {
   name: string;
