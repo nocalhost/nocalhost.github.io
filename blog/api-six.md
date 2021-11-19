@@ -122,7 +122,7 @@ Debugging an application is not easy, and debugging an application in the Kubern
 We can start remote debugging by:
 
 1. Right-click `apisix-ingress-controller` and choose **`Remote Debug`**
-2. Nocalhost will put `apisix-ingress-controller` into DevMode and run debug command defined in [`dev config`](../docs/config/config-develop) automatically
+2. Nocalhost will put `apisix-ingress-controller` into DevMode and run debug command defined in [`dev config`](/docs/config/config-develop) automatically
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/blog/apisix/apisix-ingress-remote-debug.gif')} />
@@ -147,7 +147,7 @@ Not just remote debugging, Nocalhost also provides an easy way to run your Go se
 You can using the remote run feature by:
 
 1. Right-click `apisix-ingress-controller` in cluster inspector, choose **`Remote Run`**
-2. Nocalhost will put `apisix-ingress-controller` into DevMode and start run command defined in [`dev config`] automatically
+2. Nocalhost will put `apisix-ingress-controller` into DevMode and start run command defined in [`dev config`](/docs/config/config-develop) automatically
 
 Now every time you make code changes, Nocalhost will automatically trigger the run command. You can now enjoy the hot reload for Go without complex configuration.
 
