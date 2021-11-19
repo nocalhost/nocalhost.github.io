@@ -492,21 +492,15 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className={styles.whoUseCardBox}>
-                  <div className={styles.whoUseCar} style={{ paddingTop: 0 }}>
+                  <div className={styles.whoUseCar}>
                     <img
-                      src="img/home/consumer-uisee.svg"
-                      style={{ position: "relative", top: "-20px" }}
+                      src="img/home/consumer-uisee.png"
+                      className={styles.logo}
                     ></img>
-                    <div
-                      className={styles.title}
-                      style={{ position: "relative", top: "-40px" }}
-                    >
+                    <div className={styles.title}>
                       <Translate id="uisee.title">UISEE </Translate>
                     </div>
-                    <div
-                      className={styles.text}
-                      style={{ position: "relative", top: "-40px" }}
-                    >
+                    <div className={styles.text}>
                       <Translate id="uisee.info">
                         UISEE is China's leading autonomous driving company,
                         using Nocalhost Server to pull up a development
