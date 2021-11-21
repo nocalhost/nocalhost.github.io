@@ -179,6 +179,8 @@ containers:
 
 如果你的集群由于特殊的网络环境无法获取该镜像，可以将当前这个镜像拉取下来，推送到你的集群可以正常访问的镜像仓库，并将其配置为新的地址。
 
+******
+
 ### Patches
 
 范例：
@@ -192,11 +194,12 @@ containers:
       patches:
         - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-dev","resources":{"limits":{"cpu":"2"}}}]}}}}'
         - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-sidecar","resources":{"limits":{"cpu":"2"}}}]}}}}'
+          type: strategic
         - patch: '[{"op": "add","path":"/metadata/annotations/nocalhost-patch","value":"hello-world"}]'
           type: json
 ```
 
-`patches` 配置项提供了类似 `kubectl patch` 的能力，用户可以使用 `patches` 灵活地对进入 Nocalhost DevMode 的工作负载的 Spec 进行适当的修改。 
+`patches` 配置项提供了类似 `kubectl patch` 的能力，用户可以使用 `patches` 灵活地对进入 Nocalhost DevMode 的工作负载的 Spec 进行适当的修改，需要特别注意的是 `patches` 是对进入 `DevMode` 之后的工作负载进行修改，所以修改的容器名一般是 `nocalhost-dev` 或 `nocalhost-sidecar`，而不是进入 `DevMode` 前的工作负载里的容器名。
 其中：<br></br>
 ** &nbsp • ** **type**: 为 patch 的类型，可选的值有： `json`, `merge`, `strategic`, 默认值为 `strategic`<br></br>
 ** &nbsp • ** **patch**: 为 patch 的内容<br></br>

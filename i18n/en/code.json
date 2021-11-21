@@ -676,5 +676,35 @@
   },
   "gitIgnore": {
     "message": "gitIgnore"
+  },
+  "Container name has duplicate!": {
+    "message": "Container name has duplicate!"
+  },
+  "Container name has duplicate, please check!": {
+    "message": "Container name has duplicate, please check!"
+  },
+  "Patches": {
+    "message": "Patches"
+  },
+  "Please Input patche": {
+    "message": "Please Input patche"
+  },
+  "Please Select Op": {
+    "message": "Please Select Op"
+  },
+  "Please Input Path": {
+    "message": "Please Input Path"
+  },
+  "Add Patche Item": {
+    "message": "Add Patche Item"
+  },
+  "Add Patches": {
+    "message": "Add Patches"
+  },
+  "uisee.title": {
+    "message": "UISEE"
+  },
+  "uisee.info": {
+    "message": "UISEE is China's leading autonomous driving company, using Nocalhost Server to pull up a development environment for AI applications with one click, using IDE plug-ins and one-click debugging to shorten the development cycle."
   }
 }

@@ -676,5 +676,35 @@
   },
   "gitIgnore": {
     "message": "gitIgnore"
+  },
+  "Container name has duplicate!": {
+    "message": "容器名称重复！"
+  },
+  "Container name has duplicate, please check!": {
+    "message": "容器名称有重复，请检查！"
+  },
+  "Patches": {
+    "message": "Patches"
+  },
+  "Please Input patche": {
+    "message": "请输入 Patche"
+  },
+  "Please Select Op": {
+    "message": "请选择 Op"
+  },
+  "Please Input Path": {
+    "message": "请输入 Path"
+  },
+  "Add Patche Item": {
+    "message": "添加 Patch 项"
+  },
+  "Add Patches": {
+    "message": "添加 Patche"
+  },
+  "uisee.title": {
+    "message": "驭势科技"
+  },
+  "uisee.info": {
+    "message": "驭势科技 UISEE 是中国领先的自动驾驶公司，使用 Nocalhost Server 一键拉起 AI 应用的开发环境，使用 IDE 插件和一键调试缩短开发循环。"
   }
 }

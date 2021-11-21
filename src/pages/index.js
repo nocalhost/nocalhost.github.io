@@ -1,72 +1,72 @@
-import React, { useState, useEffect } from 'react'
-import clsx from 'clsx'
+import React, { useState, useEffect } from "react";
+import clsx from "clsx";
 // import Layout from '@theme/Layout'
-import Link from '@docusaurus/Link'
-import styles from './index.module.css'
-import VideoModal from '../components/VideoModal'
-import Translate from '@docusaurus/Translate'
-import Head from '@docusaurus/Head'
-import LayoutProviders from '@theme/LayoutProviders'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Link from "@docusaurus/Link";
+import styles from "./index.module.css";
+import VideoModal from "../components/VideoModal";
+import Translate from "@docusaurus/Translate";
+import Head from "@docusaurus/Head";
+import LayoutProviders from "@theme/LayoutProviders";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 // Global namespace (backwards-compatibility)
 // eslint-disable-next-line no-unused-vars
 
 function newUrl(record) {
-  var new_script = document.createElement('script')
-  new_script.src = record
-  document.getElementsByTagName('head')[0].appendChild(new_script)
+  var new_script = document.createElement("script");
+  new_script.src = record;
+  document.getElementsByTagName("head")[0].appendChild(new_script);
   return new Promise((resolve) => {
     new_script.onload = function () {
-      resolve()
-    }
-  })
+      resolve();
+    };
+  });
 }
 
 function checkFile(item) {
   return (
-    item?.outerHTML.indexOf('js/three.min.js') !== -1 ||
-    item?.outerHTML.indexOf('js/anime.min.js') !== -1 ||
-    item?.outerHTML.indexOf('js/spline.runtime.min.js') !== -1 ||
-    item?.outerHTML.indexOf('js/assets.js') !== -1 ||
-    item?.outerHTML.indexOf('js/scene.js') !== -1 ||
-    item?.outerHTML.indexOf('js/main.js') !== -1
-  )
+    item?.outerHTML.indexOf("js/three.min.js") !== -1 ||
+    item?.outerHTML.indexOf("js/anime.min.js") !== -1 ||
+    item?.outerHTML.indexOf("js/spline.runtime.min.js") !== -1 ||
+    item?.outerHTML.indexOf("js/assets.js") !== -1 ||
+    item?.outerHTML.indexOf("js/scene.js") !== -1 ||
+    item?.outerHTML.indexOf("js/main.js") !== -1
+  );
 }
 
 function removeFile() {
-  const head = document.getElementsByTagName('head')[0]
-  const scriptList = head.getElementsByTagName('script')
+  const head = document.getElementsByTagName("head")[0];
+  const scriptList = head.getElementsByTagName("script");
   Array.prototype.slice.call(scriptList).forEach((item) => {
     if (checkFile(item)) {
-      head.removeChild(item)
+      head.removeChild(item);
     }
-  })
+  });
 }
 
 export default function Home() {
-  const [isZh, setIsZh] = useState(false)
-  const [showVideoModal, setShowVideoModa] = useState(false)
-  const { siteConfig } = useDocusaurusContext()
-  const description = siteConfig.tagline
+  const [isZh, setIsZh] = useState(false);
+  const [showVideoModal, setShowVideoModa] = useState(false);
+  const { siteConfig } = useDocusaurusContext();
+  const description = siteConfig.tagline;
   useEffect(() => {
-    window.SPE = {}
+    window.SPE = {};
     const loadJs = async () => {
-      await newUrl('js/three.min.js')
-      await newUrl('js/anime.min.js')
-      await newUrl('js/spline.runtime.min.js')
-      await newUrl('js/assets.js')
-      await newUrl('js/scene.js')
-      await newUrl('js/main.js')
-    }
+      await newUrl("js/three.min.js");
+      await newUrl("js/anime.min.js");
+      await newUrl("js/spline.runtime.min.js");
+      await newUrl("js/assets.js");
+      await newUrl("js/scene.js");
+      await newUrl("js/main.js");
+    };
     if (!window.runtime) {
-      loadJs()
+      loadJs();
     }
 
-    setIsZh(location.pathname.indexOf('zh-CN') !== -1)
+    setIsZh(location.pathname.indexOf("zh-CN") !== -1);
     return () => {
-      removeFile()
-    }
-  }, [])
+      removeFile();
+    };
+  }, []);
 
   return (
     <LayoutProviders>
@@ -90,7 +90,7 @@ export default function Home() {
         <header className={styles.mdHeader}>
           <nav className={clsx(styles.mdGridTop, styles.mdHeaderNav)}>
             <div>
-              <a href={isZh ? '/zh-CN' : '/'}>
+              <a href={isZh ? "/zh-CN" : "/"}>
                 <img src="./img/home/logo-white.svg"></img>
               </a>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
                 <li className={clsx(styles.mdTabsItem, styles.xdHide)}>
                   <a
                     href={
-                      isZh ? '/zh-CN/docs/introduction' : '/docs/introduction'
+                      isZh ? "/zh-CN/docs/introduction" : "/docs/introduction"
                     }
                   >
                     <Translate>Documentation</Translate>
@@ -114,25 +114,25 @@ export default function Home() {
                 <li className={clsx(styles.mdTabsItem, styles.xdHide)}>
                   <a
                     href={
-                      isZh ? '/zh-CN/docs/quick-start' : '/docs/quick-start'
+                      isZh ? "/zh-CN/docs/quick-start" : "/docs/quick-start"
                     }
                   >
                     <Translate>Quick Start</Translate>
                   </a>
                 </li>
                 <li className={clsx(styles.mdTabsItem, styles.xdHide)}>
-                  <a href={isZh ? '/zh-CN/tools' : '/tools'}>
+                  <a href={isZh ? "/zh-CN/tools" : "/tools"}>
                     <Translate>Tools</Translate>
                   </a>
                 </li>
                 <li className={clsx(styles.mdTabsItem, styles.xdHide)}>
-                  <a href={isZh ? '/zh-CN/blog' : '/blog'}>
+                  <a href={isZh ? "/zh-CN/blog" : "/blog"}>
                     <Translate>Blog</Translate>
                   </a>
                 </li>
                 <li className={clsx(styles.mdTabsItem)}>
-                  <a href={isZh ? '/' : '/zh-CN'}>
-                    {isZh ? 'English' : '中文'}
+                  <a href={isZh ? "/" : "/zh-CN"}>
+                    {isZh ? "English" : "中文"}
                   </a>
                 </li>
                 <li className={clsx(styles.mdTabsItem, styles.xdHide)}>
@@ -182,7 +182,7 @@ export default function Home() {
                   </h1>
 
                   <p>
-                    <strong>Nocalhost </strong>{' '}
+                    <strong>Nocalhost </strong>{" "}
                     <Translate>
                       is a cloud-native development tool based on IDE
                     </Translate>
@@ -191,7 +191,7 @@ export default function Home() {
                     <div className={styles.startBtn}>
                       <a
                         href={
-                          isZh ? '/zh-CN/docs/quick-start' : '/docs/quick-start'
+                          isZh ? "/zh-CN/docs/quick-start" : "/docs/quick-start"
                         }
                       >
                         <Translate>Quick Start</Translate>
@@ -265,7 +265,7 @@ export default function Home() {
                     </div>
                     <div
                       className={styles.cardsGroupSection}
-                      style={{ backgroundColor: '#0f2b34' }}
+                      style={{ backgroundColor: "#0f2b34" }}
                     >
                       <strong>
                         <Translate>It&apos;s a</Translate>
@@ -287,7 +287,7 @@ export default function Home() {
                     </div>
                     <div
                       className={styles.cardsGroupSection}
-                      style={{ backgroundColor: '#0f2b34' }}
+                      style={{ backgroundColor: "#0f2b34" }}
                     >
                       <strong>
                         <Translate>It&apos;s a</Translate>
@@ -314,7 +314,7 @@ export default function Home() {
                         styles.cardsGroupSection3,
                         styles.cardsGroupSection
                       )}
-                      style={{ backgroundColor: '#fff' }}
+                      style={{ backgroundColor: "#fff" }}
                     >
                       <strong>
                         <Translate>It&apos;s a</Translate>
@@ -477,8 +477,8 @@ export default function Home() {
                   <img
                     src={
                       isZh
-                        ? 'img/home/section4-table-zh.png'
-                        : 'img/home/section4-table.svg'
+                        ? "img/home/section4-table-zh.png"
+                        : "img/home/section4-table.svg"
                     }
                   ></img>
                   {/* <img src='img/home/section4-table.svg'></img> */}
@@ -487,27 +487,26 @@ export default function Home() {
               <div className={styles.whoUse}>
                 <div className={styles.h2}>
                   <span className={styles.circle}></span>
-                  <h2 style={{ color: '#fff' }}>
+                  <h2 style={{ color: "#fff" }}>
                     <Translate>See who uses Nocalhost</Translate>
                   </h2>
                 </div>
                 <div className={styles.whoUseCardBox}>
                   <div className={styles.whoUseCar}>
                     <img
-                      src="img/home/consumer-1.png"
+                      src="img/home/consumer-uisee.png"
                       className={styles.logo}
                     ></img>
                     <div className={styles.title}>
-                      <Translate id="Litchi.title">Litchi Microclass</Translate>
+                      <Translate id="uisee.title">UISEE </Translate>
                     </div>
                     <div className={styles.text}>
-                      <Translate id="Litchi.info">
-                        Litchi Microclass is a platform dedicated to the sharing
-                        of public knowledge, and all functions of the whole
-                        platform are free for life. Here, everyone can start and
-                        share classes anytime, anywhere, or listen to classes
-                        and learn. Use Nocalhost to improve the development
-                        efficiency of infrastructure components.
+                      <Translate id="uisee.info">
+                        UISEE is China's leading autonomous driving company,
+                        using Nocalhost Server to pull up a development
+                        environment for AI applications with one click, using
+                        IDE plug-ins and one-click debugging to shorten the
+                        development cycle.
                       </Translate>
                     </div>
                   </div>
@@ -529,25 +528,6 @@ export default function Home() {
                         school-enterprise cooperation. It uses Nocalhost to
                         improve business R&D efficiency (green pepper
                         classroom).
-                      </Translate>
-                    </div>
-                  </div>
-                  <div className={styles.whoUseCar}>
-                    <img
-                      src="img/home/consumer-3.png"
-                      className={styles.logo}
-                    ></img>
-                    <div className={styles.title}>
-                      <Translate id="GengmeiApp.title">Gengmei App </Translate>
-                    </div>
-                    <div className={styles.text}>
-                      <Translate id="GengmeiApp.info">
-                        Gengmei App is a plastic surgery communication
-                        community, a medical beauty e-commerce platform, and a
-                        reputation database for plastic surgery doctors. Its
-                        business covers China, South Korea, Thailand, Singapore,
-                        etc., and Nocalhost is used to improve business R&D
-                        efficiency.
                       </Translate>
                     </div>
                   </div>
@@ -585,7 +565,7 @@ export default function Home() {
                     <div className={styles.bigStartBtn}>
                       <a
                         href={
-                          isZh ? '/zh-CN/docs/quick-start' : '/docs/quick-start'
+                          isZh ? "/zh-CN/docs/quick-start" : "/docs/quick-start"
                         }
                       >
                         <Translate>Quick start</Translate>
@@ -598,6 +578,16 @@ export default function Home() {
           </div>
         </section>
         <footer id="nocalhost-footer" className={styles.footer}>
+          <div className={styles["cncf-box"]}>
+            <h4 class="text-center">
+              Nocalhost is a &nbsp;
+              <a href="https://www.cncf.io">
+                Cloud Native Computing Foundation
+              </a>
+              &nbsp;sandbox project
+            </h4>
+            <img height="75px" src="img/cncf-color.svg" alt="CNCF" />
+          </div>
           <div className={styles.footerContent}>
             <img src="img/home/logo-black.svg" height="60px"></img>
             <p>
@@ -612,5 +602,5 @@ export default function Home() {
         </footer>
       </div>
     </LayoutProviders>
-  )
+  );
 }
