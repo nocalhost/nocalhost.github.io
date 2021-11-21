@@ -85,7 +85,7 @@ module.exports = {
           label: 'Spec',
           items: [
             'config/config-spec-en',
-            'config/config-dev-container',
+            'config/config-dev-container-en',
             'config/config-enhance',
             {
               type: 'category',
