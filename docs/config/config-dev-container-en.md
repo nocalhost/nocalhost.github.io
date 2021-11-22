@@ -24,7 +24,7 @@ After entering DevMode, users need to select a local directory, or right-click t
 
 `workDir` defaults to `/home/nocalhost-dev`
 
-::: danger Note on workDir
+:::danger Note on workDir
 
 `workDir` uses emptyDir to share in `container` ，so **this directory is empty** at the beginning.
 
