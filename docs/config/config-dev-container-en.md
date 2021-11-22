@@ -39,14 +39,12 @@ After entering DevMode, users need to select a local directory, or right-click t
 Example:
 
 ```yaml
-
 name: nocalhost-api
 serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
       image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zsh
-      
 ```
 
 DevImage is the basis of DevMode, which can be regarded as a 'remote Linux'. If you want to correctly compile and run the files synchronized from the local, you must use the proper DevImage. Nocalhost provides multiple official DevImage, and if you do not configure this field before entering DevMode, you are required to select or enter a DevImage to move on.
@@ -126,7 +124,6 @@ Persistence includes two parts:
 Example:
 
 ```yaml
-
 name: nocalhost-api
 serviceType: deployment
 containers:
@@ -139,7 +136,6 @@ containers:
         requests:
           memory: 2Gi
           cpu: "0.5"
-          
 ```
 
 Nocalhost Dev Container inherits the resource settings of the original container. If there is no configuration in the original container and no `limitranges` (`kubectl get limitranges`) in the namespace, Dev Container will have no resource constraints.
@@ -163,14 +159,12 @@ Generally, after entering DevMode, the amount of the resource used will exceed t
 Example:
 
 ```yaml
-
 name: nocalhost-api
 serviceType: deployment
 containers:
   - name: nocalhost-api
     dev:
       sidecarImage: nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion
-      
 ```
 
 `sidecarImage` is a necessary image to enter DevMode, which is used for code synchronization, debug connection management, etc. `sidecarImage` defaults `docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar:sshversion` and does not need to be configured manually.
@@ -182,7 +176,6 @@ If your cluster cannot get this image because of the network, you can pull this 
 Example:
 
 ```yaml
-
 name: nocalhost-api
 serviceType: deployment
 containers:
@@ -194,10 +187,9 @@ containers:
         - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-dev","resources":{"limits":{"cpu":"2"}}}]}}}}'
         - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-sidecar","resources":{"limits":{"cpu":"2"}}}]}}}}'
           type: strategic
-          
 ```
 
-`patches` provide the function similar to  `kubectl patch`. Users can use `patches` to flexibly modify the Spec of the workload in Nocalhost DevMode.
+`patches` provide the function similar to `kubectl patch`. Users can use `patches` to flexibly modify the Spec of the workload in Nocalhost DevMode.
 
 In which：
 
