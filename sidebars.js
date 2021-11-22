@@ -85,7 +85,7 @@ module.exports = {
           label: 'Spec',
           items: [
             'config/config-spec-en',
-            'config/config-dev-container',
+            'config/config-dev-container-en',
             'config/config-enhance',
             {
               type: 'category',
@@ -139,7 +139,7 @@ module.exports = {
         {
           type: 'doc',
           label: 'Nocalhost Server in KubeSphere',
-          id: 'server/deploy-in-kubesphere',
+          id: 'server/deploy-in-kubesphere-en',
         },
       ]
     },
