@@ -193,15 +193,10 @@ containers:
 
 In which：
 
-<br/>
-
 ** &nbsp • ** **type**: The type of patch. The optional values are  `json`, `merge`, `strategic`, and the default value is `strategic`
 
-<br/>
+** &nbsp • ** **patch**: The content of patch
 
-** &nbsp • ** **patch**: The content of patch<br></br>
-
-<br/>
 
 To easily understand,  `type` and `patch` can be regarded as the `--type` and `--patch` parameters of `ubectl patch` command, respectively. To get more information about `kuebctl patch` , please see  [Update K8s API Object by kubectl patch](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
 

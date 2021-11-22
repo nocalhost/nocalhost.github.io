@@ -26,10 +26,15 @@ The configuration of Nocalhost can be divided into three parts.
 The first part is the development container configuration, including:
 
 ** &nbsp • ** The development image
+
 ** &nbsp • ** The remote directory for file synchronization
+
 ** &nbsp • ** The default shell of development container
+
 ** &nbsp • ** The persistence of development container (Volume)
+
 ** &nbsp • ** Requests and limits of development container resources
+
 ** &nbsp • ** Sidecar image customization
 
 :::tip Quickview
@@ -71,7 +76,9 @@ containers:
 The second part is enhance configuration, which is independent of the development container, including:
 
 ** &nbsp • ** The source code directory for git
+
 ** &nbsp • ** Whether to automatically turn on the port forwarding after entering `DevMode`
+
 ** &nbsp • ** File synchronization configuration, including the synchronizing pattern and the ignoring pattern
 
 :::tip Quickview
@@ -110,7 +117,9 @@ containers:
 The third part is the configuration for development process, including:
 
 ** &nbsp • ** One-click running
+
 ** &nbsp • ** One-click debugging
+
 ** &nbsp • ** HotReload
 
 :::tip Quickview
