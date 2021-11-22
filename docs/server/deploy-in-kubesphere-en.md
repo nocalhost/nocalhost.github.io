@@ -3,19 +3,25 @@
 [KubeSphere](https://kubesphere.com.cn/) is an application-centered multi-tenant container platform built on Kubernetes. It provides full stack IT automatic operation and simplifies the workflow of DevOps for enterprises.
 
 Kubesphere provides a user-friendly operation interface, so even the users without relevant experience can easily use it. Moreover, it provides a Helm-based application market, enabling users to easily install various Kubernetes applications through the graphical interface.
+
 This section introduces how to quickly deploy  [Nocalhost Server](https://nocalhost.dev/docs/server/server-overview) in Kubesphere, which provides a platform to assist the R & D team to manage the deployment of Nocalhost applications. 
 
 
 ## Preliminaries
+
 ### Install KubeSphere
+
 There are two ways to install KubeSphere, install on Linux (see [Install KubeSphere on Linux](https://kubesphere.com.cn/docs/quick-start/all-in-one-on-linux/)) and install on the existing Kubernetes (see [Install KubeSphere on Kubernetes](https://kubesphere.com.cn/docs/quick-start/minimal-kubesphere-on-k8s/)).
 
 ### Initiate App Store in KubeSphere
+
 Please see [KubeSphere App Store](https://kubesphere.com.cn/docs/pluggable-components/app-store/)
 
 
-## Install Nocalhost Server 
-### Install from App Store in KubeSphere 3.2 
+## Install Nocalhost Server
+
+### Install from App Store in KubeSphere 3.2
+
 Nocalhost server has been integrated in App store in Kubesphere 3.2, so you can access App Store and deploy the application in the [regular way](https://kubesphere.com.cn/docs/project-user-guide/application/deploy-app-from-appstore/).
 
 ![image.png](/img/server-ks/ks-app-store.png)
@@ -48,11 +54,12 @@ To get more information about adding private repository , please see [Import Hel
 
 
 #### Step 2: Deploy App from App Templates
-Enter the project in which you want to deploy Nocalhost Server. If no project is available, you can click「Project」in the left column and click「Create」to create a new project in the enterprise space.
+
+Enter the project in which you want to deploy Nocalhost Server. If no project is available, you can click 「Project」in the left column and click 「Create」to create a new project in the enterprise space.
 
 ![image.png](/img/server-ks/ks-project-create.png)
 
-Assume that a project named  `nocalhost-server` has been created. Enter the project page, click 「Application」under 「Application Workload」in the left column.  Then you can click「Create」 to create a new application. 
+Assume that a project named `nocalhost-server` has been created. Enter the project page, click 「Application」under 「Application Workload」in the left column. Then you can click 「Create」to create a new application. 
 
 ![image.png](/img/server-ks/ks-app-create.png)
 
@@ -67,7 +74,7 @@ Select 「From app templates」on the pop-up window.
 
 :::
 
-Select the imported private app repository  `nocalhost` from the list, then Nocalhost Server Helm Chart will be shown as below:
+Select the imported private app repository `nocalhost` from the list, then Nocalhost Server Helm Chart will be shown as below:
 
 ![image.png](/img/server-ks/ks-app-create-nocalhost.png)
 
@@ -77,13 +84,13 @@ Check 「App Information」and「Chart  File」, and select a version from the v
 
 
 
-Enter the app 「Name」,  then check the app 「Version」and the deployment 「Position」. Click「Next」
+Enter the app 「Name」, then check the app 「Version」and the deployment 「Position」. Click 「Next」
 
 ![image.png](/img/server-ks/ks-app-create-nocalhost-chart.png)
 
 
 
-On「App Setting」page, you can edit the list file or just directly click 「Install」. We suggest to set  `service.type`  to  `ClusterIP` to ensure the installation will not be affected by Kubernetes network environment. Of course, you can choose  `NodePort` or `LoadBalancer`  service type to expose Nocalhost Server according to your needs (Server sets no restrictions on this).
+On「App Setting」page, you can edit the list file or just directly click 「Install」. We suggest to set  `service.type`  to  `ClusterIP` to ensure the installation will not be affected by Kubernetes network environment. Of course, you can choose `NodePort` or `LoadBalancer` service type to expose Nocalhost Server according to your needs (Server sets no restrictions on this).
 
 ![image.png](/img/server-ks/ks-app-create-nocalhost-deploy-svc.png)
 
@@ -97,6 +104,7 @@ Finally, wait for Nocalhost Server to create and initiate the application. You c
 
 
 #### Step 3: Expose Nocalhost Server Service
+
 Click 「Service」under 「App Workload」in the left column. Select  `nocalhost-web` on the page and select「Edit external access」from the drop-down menu on the right.
 
 ![image.png](/img/server-ks/ks-svc-expose-nocalhost.png)
@@ -108,20 +116,25 @@ Select a proper 「Access method」for the current cloud network environment on 
 Assume that we keep using  `ClusterIP` access method and will use  `kubectl port-forward` for Nocalhost Server in the following. 
 
 ```bash
+
 ❯ kubectl -n nocalhost-server port-forward service/nocalhost-web 8080:80
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
+
 ```
+
 > ⚠️ Pay Attention: Please replace the  `nocalhost-server` above with the Namespace of the Nocahost application you actually deployed.
 
 
 ## Using Nocalhost Server
+
 > After Port Forward, use  `http://localhost:8080` to open Nocalhost Server Dashboar. Log in the `admin@admin.com` account with the password  `123456`.
 
 ![image.png](/img/server-ks/nh-overview.png)
 
 
 ### Create Cluster
+
 > Nocalhost Server is used to assist the team to manage the development environment. Therefore, we need to add the cluster first.
 
 
@@ -153,6 +166,7 @@ You can see the following cluster information page after it is added successfull
 
 
 ### Create DevSpace
+
 Enter「DevSpace」and click 「Create DevSpace」on the page. Click「Create seperate DevSpace」on the pop-up window.
 
 ![image.png](/img/server-ks/nh-devspace-create.png)
@@ -174,6 +188,7 @@ After that, this seperate DevSpace will be displayed on「DevSpace」page as bel
 
 
 ### Create bookinfo Demo App
+
 Next step is to create some deployable applications for the team. Enter「App」page and click 「Add App」
 
 ![image.png](/img/server-ks/nh-app-create.png)
@@ -184,7 +199,7 @@ Enter 「App Name」on the pop-up window and fill in other information.
 - Enter  `https://github.com/nocalhost/bookinfo.git`  in「Git Repo adress」
 - Select  `Manifest` as 「Manifest Type」
 - Leave「App Config File」blank. It will use  `config.yaml` by default.
--  Enter `manifest/templates` in「Git Repo relative path」
+- Enter `manifest/templates` in「Git Repo relative path」
 
 ![image.png](/img/server-ks/nh-app-config.png)
 
@@ -196,6 +211,7 @@ Please see the complete  [bookinfo](https://github.com/nocalhost/bookinfo/) on G
 
 
 ### Create User and Share DevSpace
+
 At last, we create a sample user to demonstrate how to share DevSpace. Enter「User」page and click 「Add user」, then fill in the required user information on the pop-up window.  Click 「Finish」after that.
 
 ![image.png](/img/server-ks/nh-user-create.png)
@@ -212,6 +228,7 @@ Now, we have finished configuration on Nocalhost Server Dashboard. We will use t
 
 
 ### Deploy bookinfo
+
 > Here we use VS Code to deploy applications. First, you need to [Install Nocalhost Plug-In in VS Code](https://nocalhost.dev/docs/installation#install-vs-code-plugin) or [Install Nocalhost Pulg-In in JetBrains](https://nocalhost.dev/docs/installation#install-jetbrains-plugin)。
 
 
