@@ -370,7 +370,8 @@ const Tools = () => {
           }
         } else if (len === 2) {
           const [field, index] = changedFields[0]?.name;
-          let obj = yamlObj.containers[containerIndex]["dev"]["sync"] || {};
+          let obj =
+            yamlObj.containers[containerIndex]["dev"]["sync"] || ({} as ISync);
           if (obj[field]) {
             obj[field][index] = value;
           } else {
