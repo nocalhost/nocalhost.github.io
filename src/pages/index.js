@@ -140,7 +140,6 @@ export default function Home() {
                     href="https://github.com/nocalhost/nocalhost"
                     target="_blank"
                     title="Material for MkDocs Insiders"
-                    className={styles.githubNav}
                     rel="noreferrer"
                   >
                     <img
