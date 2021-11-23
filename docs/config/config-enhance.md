@@ -83,7 +83,9 @@ containers:
 
 ******
 
-文件同步的配置包括两个部分，其一是同步类型 `containers[].dev.sync.type`，可配置为
+文件同步的配置包括三个部分：
+
+** &nbsp • ** 其一是同步类型 `containers[].dev.sync.type`，可配置为
 
 :::note
 
@@ -96,7 +98,15 @@ containers:
 
 ******
 
-其二是同步忽略控制，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件，如果不想要同步所有内容，则可以进行定制。
+** &nbsp • ** 其二是是否开启本地文件删除保护，即 `containers[].dev.sync.deleteProtection`，为布尔值
+
+** &nbsp &nbsp &nbsp - ** 如果开启此功能，则本地不会同步远端的删除操作（默认开启此功能）。
+
+** &nbsp &nbsp &nbsp - ** 如果关闭此功能，且开启双向同步的情况下，则当一个文件在远端被删除，本地也会相应将其进行删除。
+
+******
+
+** &nbsp • ** 其二是同步忽略控制，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件，如果不想要同步所有内容，则可以进行定制。
 
 Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
 
@@ -127,7 +137,7 @@ Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
 
 <br/>
 
-#### 使用 gitIgnore 模式 (功能未发布)
+#### 使用 gitIgnore 模式
 
 使用这种模式较为简便，它将自动使用该 `git` 项目的忽略配置，例如 `.gitignore` 等。
 
