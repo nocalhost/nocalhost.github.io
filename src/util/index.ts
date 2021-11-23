@@ -358,9 +358,8 @@ export const isPatchesValid = (data: YamlObj) => {
   let isValid = isObjValid(patchesObj, data);
 
   const containers = data.containers || [];
-
   for (let i = 0, len = containers.length; i < len; i++) {
-    const patches = containers[i].dev.patches || [];
+    const patches = containers[i]?.dev?.patches || [];
 
     for (let j = 0, patchLen = patches.length; j < patchLen; j++) {
       const patch = patches[j];
@@ -372,11 +371,6 @@ export const isPatchesValid = (data: YamlObj) => {
       }
     }
   }
-  containers.forEach((item) => {
-    const patchArr = item.dev.patches;
-
-    patchArr;
-  });
 
   return isValid;
 };
