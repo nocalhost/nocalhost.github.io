@@ -553,6 +553,7 @@ const Tools = () => {
       "command-debug": "",
       remoteDebugPort: "",
       hotReload: false,
+      deleteProtection: true,
       storageClass: "",
       persistentVolumeDirs: [],
       "requests-memory": "",
@@ -600,12 +601,14 @@ const Tools = () => {
           mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
+          deleteProtection = true,
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
           syncMode: mode,
           filePattern,
           ignoreFilePattern,
+          deleteProtection,
         });
       }
 

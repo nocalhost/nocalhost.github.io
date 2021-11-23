@@ -58,6 +58,7 @@ export interface Container {
       filePattern?: string[];
       ignoreFilePattern?: string[];
       mode: "pattern" | "gitIgnore";
+      deleteProtection: boolean;
     };
     env?: {
       name: string;

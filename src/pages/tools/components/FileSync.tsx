@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Select, Tooltip, Radio } from "antd";
+import { Form, Input, Select, Tooltip, Radio, Switch } from "antd";
 import Translate, { translate } from "@docusaurus/Translate";
 
 import styles from "../index.module.scss";
@@ -136,6 +136,20 @@ const FileSync = ({ form }) => {
           </Form.List>
         </>
       )}
+
+      <Form.Item
+        label={
+          <ItemLabel
+            label={translate({ message: "Delete Protection" })}
+            title={translate({ message: "deleteProtectTip" })}
+          ></ItemLabel>
+        }
+        name="deleteProtection"
+        valuePropName="checked"
+        initialValue={true}
+      >
+        <Switch />
+      </Form.Item>
     </>
   );
 };
