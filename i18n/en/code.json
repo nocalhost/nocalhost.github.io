@@ -706,5 +706,11 @@
   },
   "uisee.info": {
     "message": "UISEE is China's leading autonomous driving company, using Nocalhost Server to pull up a development environment for AI applications with one click, using IDE plug-ins and one-click debugging to shorten the development cycle."
+  },
+  "Delete Protection": {
+    "message": "Delete Protection"
+  },
+  "deleteProtectTip": {
+    "message": "Delete protection means that file synchronization will not actively delete your local files (this may also cause the files to be out of sync with the remote)"
   }
 }

@@ -30,7 +30,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { MenuItem, ConfigType, YamlObj, SaveInfo } from "../../types";
+import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
 import {
@@ -237,10 +237,22 @@ const Tools = () => {
                 checkContainerName();
               }
               break;
+            case "deleteProtection":
+              {
+                let obj =
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
+                obj.deleteProtection = value;
+                tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
+                  ...obj,
+                };
+              }
+              break;
             case "syncType":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.type = value;
                 tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
                   ...obj,
@@ -250,7 +262,8 @@ const Tools = () => {
             case "syncMode":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.mode = value;
                 if (value === "gitIgnore") {
                   delete obj["filePattern"];
@@ -269,7 +282,8 @@ const Tools = () => {
             case "ignoreFilePattern":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj[field] = value.map((item) =>
                   item === undefined ? "" : item
                 );
@@ -553,6 +567,7 @@ const Tools = () => {
       "command-debug": "",
       remoteDebugPort: "",
       hotReload: false,
+      deleteProtection: true,
       storageClass: "",
       persistentVolumeDirs: [],
       "requests-memory": "",
@@ -600,12 +615,14 @@ const Tools = () => {
           mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
+          deleteProtection = true,
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
           syncMode: mode,
           filePattern,
           ignoreFilePattern,
+          deleteProtection,
         });
       }
 
