@@ -53,13 +53,7 @@ export interface Container {
     };
     hotReload?: boolean;
     useDevContainer?: string;
-    sync?: {
-      type: string;
-      filePattern?: string[];
-      ignoreFilePattern?: string[];
-      mode: "pattern" | "gitIgnore";
-      deleteProtection: boolean;
-    };
+    sync?: ISync;
     env?: {
       name: string;
       value: string;
@@ -68,6 +62,14 @@ export interface Container {
     portForward?: string[];
     sidecarImage?: string;
   };
+}
+
+export interface ISync {
+  type: string;
+  filePattern?: string[];
+  ignoreFilePattern?: string[];
+  mode: "pattern" | "gitIgnore";
+  deleteProtection: boolean;
 }
 
 interface IPatches {
