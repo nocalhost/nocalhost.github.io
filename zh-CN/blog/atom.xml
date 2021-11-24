@@ -2,38 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/zh-CN/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2021-11-24T04:05:43.098Z</updated>
+    <updated>2021-11-24T06:32:33.863Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/zh-CN/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
     <icon>https://nocalhost.dev/zh-CN/img/favicon.ico</icon>
     <entry>
+        <title type="html"><![CDATA[使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller]]></title>
+        <id>使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
+        <updated>2021-11-24T06:32:33.863Z</updated>
+        <summary type="html"><![CDATA[简介]]></summary>
+        <author>
+            <name>Garry Chen</name>
+            <uri>https://github.com/neaped</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/zh-CN/blog/docs-translate"/>
-        <updated>2021-11-24T04:05:43.098Z</updated>
+        <updated>2021-11-24T06:32:33.863Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Nocalhost v0.5.6 发布]]></title>
         <id>Nocalhost v0.5.6 发布</id>
         <link href="https://nocalhost.dev/zh-CN/blog/0.5.6"/>
-        <updated>2021-11-24T04:05:43.094Z</updated>
+        <updated>2021-11-24T06:32:33.859Z</updated>
         <summary type="html"><![CDATA[Nocalhost v0.5.6已经发布，我们已经修复了一些缺陷，提高了性能并添加了一些新功能。]]></summary>
         <author>
             <name>Anur</name>
             <uri>https://github.com/anurnomeru</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller]]></title>
-        <id>使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller</id>
-        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
-        <updated>2021-11-24T04:05:43.094Z</updated>
-        <summary type="html"><![CDATA[简介]]></summary>
-        <author>
-            <name>Garry Chen</name>
-            <uri>https://github.com/neaped</uri>
         </author>
     </entry>
     <entry>
