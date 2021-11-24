@@ -21,7 +21,7 @@ The configuration of Nocalhost can be divided into three parts.
 
 ******
 
-## [Development Container Configuration](config-dev-container.md)
+## [Development Container Configuration](config-dev-container-en.md)
 
 The first part is the development container configuration, including:
 
