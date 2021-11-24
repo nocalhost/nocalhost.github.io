@@ -17,12 +17,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::
 
-:::danger Apple Silicon Supports
-
-Some features may require workarounds or be unavailable while we work to support Apple Silicon.
-
-:::
-
 ## 1. Install Nocalhost VS Code Extension
 
 1. Open VS Code and go to `Extensions` by click the <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon

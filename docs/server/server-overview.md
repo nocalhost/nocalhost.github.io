@@ -8,7 +8,7 @@ In this documentation, we will explain the core idea of Nocalhost Server and cla
 
 ### Cluster
 
-A Nocalhost **Cluster** is usually corresponds to a Kubernetes cluster. Nocalhost supports to manage multi cluster like TKE, GKE, Minikue and etc.
+A Nocalhost **Cluster** is usually corresponds to a Kubernetes cluster. Nocalhost supports to manage multi cluster like TKE, GKE, Minikube and etc.
 
 In the actual development process, users do not need to know the concept of Cluster, and user's operation under [DevSpace](#devspace) actually rely on the capabilities of Cluster.
 
