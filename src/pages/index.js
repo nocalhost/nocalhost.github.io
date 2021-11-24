@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-// import Layout from '@theme/Layout'
 import Link from "@docusaurus/Link";
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 import VideoModal from "../components/VideoModal";
 import Translate from "@docusaurus/Translate";
 import Head from "@docusaurus/Head";
 import LayoutProviders from "@theme/LayoutProviders";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-// Global namespace (backwards-compatibility)
-// eslint-disable-next-line no-unused-vars
 
 function newUrl(record) {
   var new_script = document.createElement("script");
@@ -140,7 +137,6 @@ export default function Home() {
                     href="https://github.com/nocalhost/nocalhost"
                     target="_blank"
                     title="Material for MkDocs Insiders"
-                    className={styles.githubNav}
                     rel="noreferrer"
                   >
                     <img
@@ -579,7 +575,7 @@ export default function Home() {
         </section>
         <footer id="nocalhost-footer" className={styles.footer}>
           <div className={styles["cncf-box"]}>
-            <h4 class="text-center">
+            <h4 style={{ textAlign: "center" }}>
               Nocalhost is a &nbsp;
               <a href="https://www.cncf.io">
                 Cloud Native Computing Foundation
@@ -589,15 +585,17 @@ export default function Home() {
             <img height="75px" src="img/cncf-color.svg" alt="CNCF" />
           </div>
           <div className={styles.footerContent}>
-            <img src="img/home/logo-black.svg" height="60px"></img>
-            <p>
-              <a href="https://coding.net">Coding.net</a>
-              &nbsp;&&nbsp;
-              <a href="https://github.com/nocalhost/nocalhost/graphs/contributors">
-                Nocalhost Project Authors
-              </a>
-              © 2021
-            </p>
+            <div className={styles["content"]}>
+              <img src="img/home/logo-black.svg" height="60px"></img>
+              <p>
+                <a href="https://coding.net">Coding.net</a>
+                &nbsp;&&nbsp;
+                <a href="https://github.com/nocalhost/nocalhost/graphs/contributors">
+                  Nocalhost Project Authors
+                </a>
+                © 2021
+              </p>
+            </div>
           </div>
         </footer>
       </div>

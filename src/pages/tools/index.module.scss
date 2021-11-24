@@ -1,11 +1,24 @@
-ul,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+body {
+  background-color: transparent !important;
+  color: var(--ifm-heading-color) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ifm-heading-color) !important;
 }
 
 .tool-wrap {
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
   min-width: 1200px;
   padding: 20px 8%;
   display: flex;

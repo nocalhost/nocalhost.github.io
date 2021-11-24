@@ -105,6 +105,7 @@ export const DEFAULT_CONTAINER: Container = {
       mode: "pattern",
       filePattern: ["."],
       ignoreFilePattern: [".git"],
+      deleteProtection: true,
     },
     env: [],
     portForward: [],

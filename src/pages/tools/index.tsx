@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-
-import styles from "./index.module.scss";
 import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
@@ -13,7 +11,6 @@ import Result from "./components/Result";
 import PortForward from "./components/PortForward";
 import GuidCard from "./components/GuideCard";
 import Patches from "./components/Patches";
-import "antd/dist/antd.css";
 
 import Translate, { translate } from "@docusaurus/Translate";
 import IconWaring from "./images/icon_label_warning.svg";
@@ -30,7 +27,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { MenuItem, ConfigType, YamlObj, SaveInfo } from "../../types";
+import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
 import {
@@ -46,6 +43,7 @@ import {
 import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 const cx = classNames.bind(styles);
 
 const search2Obj = (search: string): SaveInfo => {
@@ -237,10 +235,22 @@ const Tools = () => {
                 checkContainerName();
               }
               break;
+            case "deleteProtection":
+              {
+                let obj =
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
+                obj.deleteProtection = value;
+                tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
+                  ...obj,
+                };
+              }
+              break;
             case "syncType":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.type = value;
                 tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
                   ...obj,
@@ -250,7 +260,8 @@ const Tools = () => {
             case "syncMode":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.mode = value;
                 if (value === "gitIgnore") {
                   delete obj["filePattern"];
@@ -269,7 +280,8 @@ const Tools = () => {
             case "ignoreFilePattern":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj[field] = value.map((item) =>
                   item === undefined ? "" : item
                 );
@@ -356,7 +368,8 @@ const Tools = () => {
           }
         } else if (len === 2) {
           const [field, index] = changedFields[0]?.name;
-          let obj = yamlObj.containers[containerIndex]["dev"]["sync"] || {};
+          let obj =
+            yamlObj.containers[containerIndex]["dev"]["sync"] || ({} as ISync);
           if (obj[field]) {
             obj[field][index] = value;
           } else {
@@ -553,6 +566,7 @@ const Tools = () => {
       "command-debug": "",
       remoteDebugPort: "",
       hotReload: false,
+      deleteProtection: true,
       storageClass: "",
       persistentVolumeDirs: [],
       "requests-memory": "",
@@ -600,12 +614,14 @@ const Tools = () => {
           mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
+          deleteProtection = true,
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
           syncMode: mode,
           filePattern,
           ignoreFilePattern,
+          deleteProtection,
         });
       }
 
