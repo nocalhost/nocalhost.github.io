@@ -806,7 +806,6 @@ a:hover {
   color: #ffffff;
   margin: 0;
   margin-right: 150px;
-  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
@@ -851,16 +850,13 @@ a:hover {
 
 .footerContent {
   background: #fff;
-  display: flex;
-  justify-content: center;
   padding: 40px 20px 0;
-  align-items: center;
-
   .content {
-    width: 1240px;
+    max-width: 1240px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
   }
 }
 
@@ -1311,6 +1307,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   font-size: 24px;
+  background: #fff;
 }
 
 @media (max-width: 600px) {
