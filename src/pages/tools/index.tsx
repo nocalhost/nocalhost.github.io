@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-
-import styles from "./index.module.scss";
 import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
@@ -13,7 +11,6 @@ import Result from "./components/Result";
 import PortForward from "./components/PortForward";
 import GuidCard from "./components/GuideCard";
 import Patches from "./components/Patches";
-import "antd/dist/antd.css";
 
 import Translate, { translate } from "@docusaurus/Translate";
 import IconWaring from "./images/icon_label_warning.svg";
@@ -46,6 +43,7 @@ import {
 import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 const cx = classNames.bind(styles);
 
 const search2Obj = (search: string): SaveInfo => {
