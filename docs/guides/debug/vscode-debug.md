@@ -32,7 +32,7 @@ Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)
 
 <TabItem value="java">
 
-Java remote debugging relies on `JDWP` of `jdk`,The path to the Java Development Kit can be specified by the `java.home` setting in VS Code settings (workspace/user settings). If not specified, it is searched in the following order until a JDK meets current minimum requirement.
+The path to the Java Development Kit can be specified by the `java.home` setting in VS Code settings (workspace/user settings). If not specified, it is searched in the following order until a JDK meets current minimum requirement.
 
 * the `JDK_HOME` environment variable
 * the `JAVA_HOME` environment variable
@@ -41,7 +41,7 @@ Java remote debugging relies on `JDWP` of `jdk`,The path to the Java Development
 </TabItem>
 <TabItem value="go">
 
-Go remote debugging relies on the uses a few command-line tools developed by the Go community。n particular, `go`, `gopls`, and `dlv` must be installed for this extension to work correctly. See the [tools documentation]((https://github.com/golang/vscode-go/blob/master/docs/tools.md)) for a complete list of tools the extension depends on.
+The extension uses a few command-line tools developed by the Go community。in particular, `go`, `gopls`, and `dlv` must be installed for this extension to work correctly. See the [tools documentation]((https://github.com/golang/vscode-go/blob/master/docs/tools.md)) for a complete list of tools the extension depends on.
 
 In order to locate these command-line tools, the extension searches `GOPATH/bin` and directories specified in the `PATH` environment variable (or Path on Windows) with which the VS Code process has started. If the tools are not found, the extension will prompt you to install the missing tools and show the **"⚠️ Analysis Tools Missing"** warning in the bottom right corner. Please install them by responding to the warning notification, or by manually running the `Go: Install/Update Tools command`.
 
@@ -53,7 +53,7 @@ In order to locate these command-line tools, the extension searches `GOPATH/bin`
 1. Select the workload that you want to debug
 2. Right-click the workload and select  **`Dev Config`**, [configure your debugging configuration](#Configuration)
 3. Then right-click this workload again and select `Remote Debug`
-4. Nocalhost detects dependent plugins and installs them automatically
+4. Nocalhost will automatically install the dependencies on the first debug
 5. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
 <figure className="img-frame">
@@ -74,7 +74,7 @@ debug supports custom parameters to start, you just need to add parameters under
 
 If I need to pass in custom environment variables when debugging a `Node.js` application, I just need to change the following configuration.
 
-```json title="launch.json"
+```json {8,9,10} title="launch.json"
 {
     "version": "0.2.0",
     "configurations": [
