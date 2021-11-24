@@ -72,9 +72,9 @@ nocalhost will automatically configure `launch.json` of `vscode` when debug is f
 
 debug supports custom parameters to start, you just need to add parameters under `configurations` in `launch.json`, and the plugin will pass the parameters to the debugger when debug is launched.
 
-If I need to pass in custom environment variables when debugging a `Node.js` application, I just need to change the following configuration.
+If you need to pass in custom environment variables when debugging a `Node.js` application, you just need to change the following configuration.
 
-```json {8,9,10} title="launch.json"
+```json {8-10} title="launch.json"
 {
     "version": "0.2.0",
     "configurations": [
