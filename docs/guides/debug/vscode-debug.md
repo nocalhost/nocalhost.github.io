@@ -57,7 +57,7 @@ In order to locate these command-line tools, the extension searches `GOPATH/bin`
 5. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/server/dashboard.gif')} />
+  <img className="gif-img" src={useBaseUrl('/img/debug/vscode-debug.gif')} />
 </figure>
 
 <Configuration name="vscode"/>
@@ -65,13 +65,14 @@ In order to locate these command-line tools, the extension searches `GOPATH/bin`
 ## Debugging Configurations in IDE
 
 ### VSCode debug configuration
-The vscode `launch.json` will be automatically configured in the source directory after the debug is finishe,the debugging is then started directly with the shortcut **`F5`**
+
+nocalhost will automatically configure `launch.json` of `vscode` when debug is finished, next time you can launch debug directly with shortcut key **`F5`**
 
 ### Debugging parameters
 
 debug supports custom parameters to start, you just need to add parameters under `configurations` in `launch.json`, and the plugin will pass the parameters to the debugger when debug is launched.
 
-For example, if I need to pass in custom environment variables when debug `Node.js` program, I just need to change the configuration as follows.
+If I need to pass in custom environment variables when debugging a `Node.js` application, I just need to change the following configuration.
 
 ```json title="launch.json"
 {
