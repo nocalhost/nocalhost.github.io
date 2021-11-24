@@ -575,7 +575,7 @@ export default function Home() {
         </section>
         <footer id="nocalhost-footer" className={styles.footer}>
           <div className={styles["cncf-box"]}>
-            <h4 class="text-center">
+            <h4 style={{ textAlign: "center" }}>
               Nocalhost is a &nbsp;
               <a href="https://www.cncf.io">
                 Cloud Native Computing Foundation
