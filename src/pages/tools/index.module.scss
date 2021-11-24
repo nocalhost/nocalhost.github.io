@@ -1,11 +1,24 @@
-ul,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+body {
+  background-color: transparent !important;
+  color: var(--ifm-heading-color) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ifm-heading-color) !important;
 }
 
 .tool-wrap {
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
   min-width: 1200px;
   padding: 20px 8%;
   display: flex;
@@ -171,14 +184,47 @@ li {
             }
           }
 
+          .patches-json {
+            position: relative;
+            border: 1px dashed #999;
+            padding: 0 10px;
+            margin: 8px 0;
+
+            &-remove {
+              position: absolute;
+              right: -30px;
+              bottom: 2px;
+            }
+          }
+
           .directory-item {
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
 
             .form-item {
               display: flex;
+
+              .label-field {
+                display: flex;
+                align-items: center;
+                .label {
+                  display: inline-block;
+                  width: 40px;
+                }
+              }
+            }
+
+            .label-field {
+              display: flex;
+              align-items: center;
+              .label {
+                display: inline-block;
+                width: 40px;
+                font-size: 12px;
+              }
             }
 
             .remove {
@@ -195,6 +241,20 @@ li {
               position: relative;
               top: 4px;
             }
+            .patches-remove,
+            .patches-remove-first {
+              position: absolute;
+              right: 0;
+              top: 6px;
+            }
+
+            .patches-remove-first {
+              top: 34px;
+            }
+          }
+
+          .patches-area {
+            margin-left: 20px;
           }
 
           .limit-item {
@@ -491,4 +551,9 @@ li {
 
 :global(.ant-switch.ant-switch-checked) {
   background-color: #1890ff;
+}
+
+:global(.ant-select-single.ant-select-show-arrow .ant-select-selection-item) {
+  display: flex;
+  align-items: center;
 }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-
-import styles from "./index.module.scss";
-import { Button, Form, Select, Input, message, Modal } from "antd";
+import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -12,7 +10,7 @@ import EnvVar from "./components/EnvVar";
 import Result from "./components/Result";
 import PortForward from "./components/PortForward";
 import GuidCard from "./components/GuideCard";
-import "antd/dist/antd.css";
+import Patches from "./components/Patches";
 
 import Translate, { translate } from "@docusaurus/Translate";
 import IconWaring from "./images/icon_label_warning.svg";
@@ -29,7 +27,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const json2yaml = require("json2yaml");
 
-import { MenuItem, ConfigType, YamlObj, SaveInfo } from "../../types";
+import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
 import {
@@ -40,10 +38,12 @@ import {
   isLimitValid,
   isEnvVarValid,
   isPortForwardValid,
+  isPatchesValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 const cx = classNames.bind(styles);
 
 const search2Obj = (search: string): SaveInfo => {
@@ -81,7 +81,8 @@ const Tools = () => {
   const [limitValid, setLimitValid] = useState<boolean>(false);
   const [envVarValid, setEnvVarValid] = useState<boolean>(false);
   const [portForwardValid, setPortForwardValid] = useState<boolean>(false);
-  const [URLParams, setURLParams] = useState<SearchParams>({});
+  const [patchesValid, setPatchesValid] = useState<boolean>(false);
+  const [URLParams, setURLParams] = useState<SaveInfo>({} as SaveInfo);
   const [showResult, setShowResult] = useState<string>("");
   const [containerName, setContainerName] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -124,7 +125,32 @@ const Tools = () => {
     setLimitValid(isLimitValid(yamlObj));
     setEnvVarValid(isEnvVarValid(yamlObj));
     setPortForwardValid(isPortForwardValid(yamlObj));
+    setPatchesValid(isPatchesValid(yamlObj));
   }, [yamlObj]);
+
+  // check duplicate container name
+  const checkContainerName = (name?: string) => {
+    const containerNames = yamlObj.containers.map((item) => item.name);
+
+    if (name) {
+      if (containerNames.includes(name)) {
+        message.warning(
+          translate({
+            message: "Container name has duplicate!",
+          })
+        );
+        return false;
+      }
+    } else {
+      if (new Set(containerNames).size !== containerNames.length) {
+        message.warning(
+          translate({ message: "Container name has duplicate, please check!" })
+        );
+        return false;
+      }
+    }
+    return true;
+  };
 
   const getConfig = async (params: SaveInfo) => {
     const config = await queryConfig(params);
@@ -206,12 +232,25 @@ const Tools = () => {
                 tmpObj[containerIndex].label = value;
                 setContainerOptions(tmpObj);
                 tmpYamlObj.containers[containerIndex][field] = value;
+                checkContainerName();
+              }
+              break;
+            case "deleteProtection":
+              {
+                let obj =
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
+                obj.deleteProtection = value;
+                tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
+                  ...obj,
+                };
               }
               break;
             case "syncType":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.type = value;
                 tmpYamlObj.containers[containerIndex]["dev"]["sync"] = {
                   ...obj,
@@ -221,7 +260,8 @@ const Tools = () => {
             case "syncMode":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj.mode = value;
                 if (value === "gitIgnore") {
                   delete obj["filePattern"];
@@ -240,7 +280,8 @@ const Tools = () => {
             case "ignoreFilePattern":
               {
                 let obj =
-                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] || {};
+                  tmpYamlObj.containers[containerIndex]["dev"]["sync"] ||
+                  ({} as ISync);
                 obj[field] = value.map((item) =>
                   item === undefined ? "" : item
                 );
@@ -327,7 +368,8 @@ const Tools = () => {
           }
         } else if (len === 2) {
           const [field, index] = changedFields[0]?.name;
-          let obj = yamlObj.containers[containerIndex]["dev"]["sync"] || {};
+          let obj =
+            yamlObj.containers[containerIndex]["dev"]["sync"] || ({} as ISync);
           if (obj[field]) {
             obj[field][index] = value;
           } else {
@@ -335,6 +377,20 @@ const Tools = () => {
             obj[field][index] = value;
           }
           yamlObj.containers[containerIndex]["dev"]["sync"] = { ...obj };
+        } else if (len === 5) {
+          const [field, index, prop, subIndex, attr] = name;
+          tmpYamlObj.containers[containerIndex].dev[field][index][prop] =
+            yamlObj.containers[containerIndex].dev[field][index][prop] || [];
+          let obj =
+            tmpYamlObj?.containers?.[containerIndex]?.dev?.[field]?.[index]?.[
+              prop
+            ]?.[subIndex] || {};
+          obj[attr] = value;
+          tmpYamlObj.containers[containerIndex].dev[field][index][prop][
+            subIndex
+          ] = {
+            ...obj,
+          };
         } else {
           const [field, index, prop] = name;
 
@@ -351,6 +407,39 @@ const Tools = () => {
             if (field === "persistentVolumeDirs" && prop === "capacity") {
               value = value + "Gi";
             }
+
+            if (field === "patches" && prop === "patch") {
+              const arr =
+                tmpYamlObj?.containers?.[containerIndex]?.dev?.patches || [];
+              const result = arr.map((item) => {
+                const obj = item || ({} as { type: string });
+                return {
+                  ...obj,
+                  type: obj.type || "strategic",
+                };
+              });
+              // @ts-ignore
+              tmpYamlObj.containers[containerIndex].dev.patches = result;
+            }
+
+            if (field === "patches" && prop === "type") {
+              if (value === "strategic") {
+                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                  type: value,
+                  patch: "",
+                };
+              } else {
+                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                  type: value,
+                  patch: [{}],
+                };
+              }
+              // set field
+              form.setFieldsValue({
+                patches: tmpYamlObj.containers[containerIndex].dev.patches,
+              });
+            }
+
             let obj =
               tmpYamlObj.containers[containerIndex]["dev"][field][index] || {};
             obj[prop] = value;
@@ -371,34 +460,40 @@ const Tools = () => {
 
   const handleApply = async () => {
     const { from, application, name, namespace, type, kubeconfig } = URLParams;
-    if (from === "daemon") {
-      try {
-        setShowLoading(true);
-        const response = await saveConfig({
-          application,
-          name,
-          namespace,
-          type,
-          kubeconfig,
-          config: window.btoa(yamlStr),
-        });
-        const { Success, Message } = response;
-        if (Success) {
-          setShowResult("success");
-          message.success(Message);
-        } else {
+    if (checkContainerName()) {
+      if (from === "daemon") {
+        try {
+          setShowLoading(true);
+          const response = await saveConfig({
+            application,
+            name,
+            namespace,
+            type,
+            kubeconfig,
+            config: window.btoa(yamlStr),
+          });
+          const { Success, Message } = response;
+          if (Success) {
+            setShowResult("success");
+            message.success(Message);
+          } else {
+            if (Message.indexOf("[Configuration Validate Error]") > -1) {
+              message.error(Message, 10);
+            } else {
+              setShowResult("fail");
+              message.error(Message);
+            }
+          }
+          setShowLoading(false);
+        } catch (e) {
+          setShowLoading(false);
           setShowResult("fail");
-          message.error(Message);
+          message.error("Please Check Network");
+          throw new Error(e);
         }
-        setShowLoading(false);
-      } catch (e) {
-        setShowLoading(false);
-        setShowResult("fail");
-        message.error("Please Check Network");
-        throw new Error(e);
+      } else {
+        setShowModal(true);
       }
-    } else {
-      setShowModal(true);
     }
   };
 
@@ -413,9 +508,7 @@ const Tools = () => {
       form.setFieldsValue({
         containerIndex: "",
       });
-      return message.warning(
-        translate({ message: "Container Name Is Duplicate!" })
-      );
+      message.warning(translate({ message: "Container Name Is Duplicate!" }));
     }
     const tmpOptions = containerOptions || [];
     tmpOptions.push({
@@ -473,6 +566,7 @@ const Tools = () => {
       "command-debug": "",
       remoteDebugPort: "",
       hotReload: false,
+      deleteProtection: true,
       storageClass: "",
       persistentVolumeDirs: [],
       "requests-memory": "",
@@ -481,6 +575,7 @@ const Tools = () => {
       "limits-cpu": "",
       env: [],
       portForward: [],
+      patches: [],
     });
     const { containerIndex } = form.getFieldsValue();
     const currentContainer =
@@ -519,12 +614,14 @@ const Tools = () => {
           mode = "pattern",
           filePattern = [],
           ignoreFilePattern = [],
+          deleteProtection = true,
         } = currentContainer.dev.sync;
         form.setFieldsValue({
           syncType: type,
           syncMode: mode,
           filePattern,
           ignoreFilePattern,
+          deleteProtection,
         });
       }
 
@@ -544,22 +641,24 @@ const Tools = () => {
         });
       }
 
+      const formatMemory = (memory: string) => {
+        const num = parseFloat(memory);
+        return isNaN(num) ? "" : memory.indexOf("Gi") > -1 ? num * 1024 : num;
+      };
+
       if (currentContainer?.dev?.resources) {
         if (currentContainer?.dev?.resources?.limits) {
           const { memory, cpu } = currentContainer?.dev?.resources?.limits;
+
           form.setFieldsValue({
-            "limits-memory": isNaN(parseFloat(memory))
-              ? ""
-              : parseFloat(memory),
+            "limits-memory": formatMemory(memory),
             "limits-cpu": cpu,
           });
         }
         if (currentContainer?.dev?.resources?.requests) {
           const { memory, cpu } = currentContainer?.dev?.resources?.requests;
           form.setFieldsValue({
-            "requests-memory": isNaN(parseFloat(memory))
-              ? ""
-              : parseFloat(memory),
+            "requests-memory": formatMemory(memory),
             "requests-cpu": cpu,
           });
         }
@@ -574,6 +673,14 @@ const Tools = () => {
               container: container || "",
             };
           }),
+        });
+      }
+
+      // patches
+      const patches = currentContainer?.dev?.patches;
+      if (patches) {
+        form.setFieldsValue({
+          patches,
         });
       }
     }
@@ -773,29 +880,31 @@ const Tools = () => {
                           >
                             {
                               /*Basic Config*/
-                              index === 0 &&
+                              item.name === "Basic Config" &&
                                 (isValid ? <IconSuccess /> : <IconWaring />)
                             }
-                            {index === 1 &&
+                            {item.name === "File Synchronization" &&
                               (fileSyncValid ? (
                                 <IconSuccess />
                               ) : (
                                 <IconOption />
                               ))}
-                            {index === 2 &&
+                            {item.name === "Run And Debug" &&
                               (commandValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 3 &&
+                            {item.name === "Volume" &&
                               (volumeValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 4 &&
+                            {item.name === "Resource Limit" &&
                               (limitValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 5 &&
+                            {item.name === "Development Variable" &&
                               (envVarValid ? <IconSuccess /> : <IconOption />)}
-                            {index === 6 &&
+                            {item.name === "Port Forward" &&
                               (portForwardValid ? (
                                 <IconSuccess />
                               ) : (
                                 <IconOption />
                               ))}
+                            {item.name === "Patches" &&
+                              (patchesValid ? <IconSuccess /> : <IconOption />)}
                             <span>
                               <Translate>{item.name}</Translate>
                             </span>
@@ -812,6 +921,7 @@ const Tools = () => {
                     {configType === "ResourceLimit" && <ResourceLimit />}
                     {configType === "DevEnv" && <EnvVar />}
                     {configType === "PortForward" && <PortForward />}
+                    {configType === "Patches" && <Patches form={form} />}
                   </div>
                   {!hasContainer && <div className={styles["mask"]}></div>}
                 </div>

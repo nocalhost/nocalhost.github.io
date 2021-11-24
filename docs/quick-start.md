@@ -11,6 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 **Requirements:**
 - Any local or remote Kubernetes cluster (minikube, Docker Desktop, TKE, GKE, EKS, AKS, Rancher, ...). Allocate at least 4 GB of memory for single-node clusters like [Docker Desktop](https://docs.docker.com/docker-for-mac/kubernetes/) and [minikube](https://minikube.sigs.k8s.io/docs/start/).
 - **RBAC** must be enabled in the above cluster
+- **Socat** should installed in the nodes for cluster (Nocalhost file synchronization depends on port-forward)
 - **Configured KubeConfig file** that has namespace admin privilege
 - Kubernetes api-server can be accessed internal and external
 - Visual Studio Code (1.52+)

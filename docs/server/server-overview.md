@@ -76,8 +76,8 @@ If you need to manage **Applications**, you can refer to [Manage Application](./
 
 **Service** is completely different from svc of Kubernetes. Service can be considered as an enhancement of application deployment and development.
 
-- [Read more to learn how to configure application deployment](../config/config-deploy)
-- [Read more to learn how to configure application development](../config/config-dev)
+- [Read more to learn how to configure application development](../config/config-spec-en.md)
+- [Read more to learn how to configure application deployment](../config/config-deployment-quickstart.md)
 
 :::caution Service Configs
 

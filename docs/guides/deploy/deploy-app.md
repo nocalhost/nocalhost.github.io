@@ -56,7 +56,7 @@ You can only deploy Kubernetes manifest within a `application`. You can deploy t
 
 :::danger Configuration Required
 
-You need to have configured `config.yaml` before deploy applications. [Learn how to configure application deployment](../../config/config-deploy).
+You need to have configured `config.yaml` before deploy applications. [Learn how to configure application deployment](../../config/config-deployment-quickstart.md).
 
 :::
 

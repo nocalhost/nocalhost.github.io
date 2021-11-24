@@ -2,6 +2,8 @@ import Ajv from "ajv";
 
 const ajv = new Ajv();
 
+import { YamlObj } from "../types";
+
 const schema = {
   type: "object",
   required: ["name", "serviceType", "containers"],
@@ -77,6 +79,10 @@ const validate = ajv.compile(schema);
 
 function isObjValid(obj, data) {
   return ajv.compile(generateSchema(obj))(data);
+}
+
+function isPureOjbValid(obj, data) {
+  return ajv.compile(obj)(data);
 }
 
 export const isYamlValid = (data) => {
@@ -283,4 +289,88 @@ export const isPortForwardValid = (data) => {
     },
   };
   return isObjValid(portObj, data);
+};
+
+export const isPatchesValid = (data: YamlObj) => {
+  const patchesObj = {
+    type: "object",
+    required: ["image", "patches"],
+    properties: {
+      image: {
+        type: "string",
+        minLength: 1,
+      },
+      patches: {
+        type: "array",
+        minItems: 1,
+      },
+    },
+  };
+
+  const strPatchObj = {
+    type: "object",
+    required: ["type", "patch"],
+    properties: {
+      type: {
+        type: "string",
+        minLength: 1,
+      },
+      patch: {
+        type: "string",
+        minLength: 1,
+      },
+    },
+  };
+
+  const arrPatchObj = {
+    type: "object",
+    required: ["type", "patch"],
+    properties: {
+      type: {
+        type: "string",
+        minLength: 1,
+      },
+      patch: {
+        type: "array",
+        minItems: 1,
+        items: {
+          type: "object",
+          required: ["op", "path", "value"],
+          properties: {
+            op: {
+              type: "string",
+              minLength: 1,
+            },
+            path: {
+              type: "string",
+              minLength: 1,
+            },
+            value: {
+              type: "string",
+              minLength: 1,
+            },
+          },
+        },
+      },
+    },
+  };
+
+  let isValid = isObjValid(patchesObj, data);
+
+  const containers = data.containers || [];
+  for (let i = 0, len = containers.length; i < len; i++) {
+    const patches = containers[i]?.dev?.patches || [];
+
+    for (let j = 0, patchLen = patches.length; j < patchLen; j++) {
+      const patch = patches[j];
+      const patchValid =
+        isPureOjbValid(strPatchObj, patch) ||
+        isPureOjbValid(arrPatchObj, patch);
+      if (!patchValid) {
+        return false;
+      }
+    }
+  }
+
+  return isValid;
 };

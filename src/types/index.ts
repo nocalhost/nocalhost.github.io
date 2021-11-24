@@ -10,7 +10,8 @@ export type ConfigType =
   | "Volume"
   | "ResourceLimit"
   | "DevEnv"
-  | "PortForward";
+  | "PortForward"
+  | "Patches";
 
 export interface MenuItem {
   name: string;
@@ -52,19 +53,34 @@ export interface Container {
     };
     hotReload?: boolean;
     useDevContainer?: string;
-    sync?: {
-      type: string;
-      filePattern?: string[];
-      ignoreFilePattern?: string[];
-      mode: "pattern" | "gitIgnore";
-    };
+    sync?: ISync;
     env?: {
       name: string;
       value: string;
     }[];
+    patches?: IPatches[];
     portForward?: string[];
     sidecarImage?: string;
   };
+}
+
+export interface ISync {
+  type: string;
+  filePattern?: string[];
+  ignoreFilePattern?: string[];
+  mode: "pattern" | "gitIgnore";
+  deleteProtection: boolean;
+}
+
+interface IPatches {
+  type: "json" | "strategic";
+  patch: IPatch[] | string;
+}
+
+interface IPatch {
+  op: string;
+  path: string;
+  value: string;
 }
 export interface YamlObj {
   name: string;
@@ -80,4 +96,5 @@ export interface SaveInfo {
   config: string;
   kubeconfig: string;
   container?: string;
+  from?: string;
 }

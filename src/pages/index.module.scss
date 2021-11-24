@@ -27,6 +27,14 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff !important;
+  }
 }
 
 .txContainer {
@@ -278,8 +286,7 @@ strong {
     margin-top: 20px;
   }
 }
-.bigStartBtnBox {
-}
+
 .bigStartBtn {
   margin: 0 10px 10px;
   font-size: 18px;
@@ -295,9 +302,6 @@ strong {
   border-radius: 0.1rem;
   background: #0078f9 !important;
   text-align: center;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 a:hover {
@@ -319,15 +323,15 @@ a:hover {
   background: #9b5bfb;
   color: #fff !important;
   border-radius: 0.1rem !important;
-}
 
-.githubBtn a {
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  align-items: center;
+  a {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
 }
 
 .githubLogo {
@@ -528,7 +532,7 @@ a:hover {
     rgb(161, 182, 223) 48%,
     rgb(200, 179, 255) 100%
   );
-  width: 100vw;
+  width: 100%;
   height: 100%;
   position: absolute;
   left: -95px;
@@ -802,7 +806,6 @@ a:hover {
   color: #ffffff;
   margin: 0;
   margin-right: 150px;
-  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
@@ -846,27 +849,20 @@ a:hover {
 }
 
 .footerContent {
-  display: flex;
-  max-width: 1240px;
-  justify-content: space-between;
-  padding: 0 20px;
-  margin: 40px auto;
-  align-items: center;
-}
-
-.footer p {
-  line-height: 1;
-  margin: 0;
-  font-size: 13px;
-  color: #0b0f13;
-}
-
-.footer p a {
-  color: #0078f9;
+  background: #fff;
+  padding: 40px 20px 0;
+  .content {
+    max-width: 1240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
 }
 
 .footer {
   height: 140px;
+  background: #fff;
   border-top: 1px solid;
   border-left: 0;
   border-right: 0;
@@ -880,6 +876,21 @@ a:hover {
     )
     1;
   z-index: 1;
+
+  h4 {
+    color: rgba(0, 0, 0, 0.85) !important;
+  }
+
+  p {
+    line-height: 1;
+    margin: 0;
+    font-size: 13px;
+    color: #0b0f13;
+
+    a {
+      color: #0078f9;
+    }
+  }
 }
 
 .mdHeader {
@@ -1117,6 +1128,9 @@ a:hover {
   min-height: 400px;
   border-radius: 4px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* margin-right: 16px; */
   margin-top: 20px;
   padding: 20px 28px;
@@ -1131,6 +1145,7 @@ a:hover {
 }
 
 .whoUseCar .title {
+  align-self: flex-start;
   font-size: 16px;
   color: rgb(11, 15, 19);
   margin-bottom: 14px;
@@ -1284,6 +1299,15 @@ a:hover {
   .githubBtn {
     width: 80%;
   }
+}
+
+.cncf-box {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  background: #fff;
 }
 
 @media (max-width: 600px) {
