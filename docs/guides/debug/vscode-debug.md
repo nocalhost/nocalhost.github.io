@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Configuration from './_debug-configuration.md';
 
 # VSCode Remote Debugging
@@ -20,14 +21,6 @@ import Configuration from './_debug-configuration.md';
 Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)
 
 :::
-
-## Debugging Process
-
-1. Select the workload that you want to debug
-2. Right-click the workload and select  **`Dev Config`**, [configure your debugging configuration](#Configuration)
-3. Then right-click this workload again and select `Remote Debug`
-4. Nocalhost detects dependent plugins and installs them automatically
-5. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
 ### Plugin Configuration
 <Tabs
@@ -50,17 +43,35 @@ Java remote debugging relies on `JDWP` of `jdk`,The path to the Java Development
 
 Go remote debugging relies on the uses a few command-line tools developed by the Go community。n particular, `go`, `gopls`, and `dlv` must be installed for this extension to work correctly. See the [tools documentation]((https://github.com/golang/vscode-go/blob/master/docs/tools.md)) for a complete list of tools the extension depends on.
 
-In order to locate these command-line tools, the extension searches `GOPATH/bin` and directories specified in the `PATH` environment variable (or Path on Windows) with which the VS Code process has started. If the tools are not found, the extension will prompt you to install the missing tools and show the "⚠️ Analysis Tools Missing" warning in the bottom right corner. Please install them by responding to the warning notification, or by manually running the `Go: Install/Update Tools command`.
+In order to locate these command-line tools, the extension searches `GOPATH/bin` and directories specified in the `PATH` environment variable (or Path on Windows) with which the VS Code process has started. If the tools are not found, the extension will prompt you to install the missing tools and show the **"⚠️ Analysis Tools Missing"** warning in the bottom right corner. Please install them by responding to the warning notification, or by manually running the `Go: Install/Update Tools command`.
 
 </TabItem>
 </Tabs>
+
+## Debugging Process
+
+1. Select the workload that you want to debug
+2. Right-click the workload and select  **`Dev Config`**, [configure your debugging configuration](#Configuration)
+3. Then right-click this workload again and select `Remote Debug`
+4. Nocalhost detects dependent plugins and installs them automatically
+5. Nocalhost will automatically enter the `DevMode` and start remote debugging
+
+<figure className="img-frame">
+  <img className="gif-img" src={useBaseUrl('/img/server/dashboard.gif')} />
+</figure>
 
 <Configuration name="vscode"/>
 
 ## Debugging Configurations in IDE
 
-### Configuring debugging
+### VSCode debug configuration
 The vscode `launch.json` will be automatically configured in the source directory after the debug is finishe,the debugging is then started directly with the shortcut **`F5`**
+
+### Debugging parameters
+
+debug supports custom parameters to start, you just need to add parameters under `configurations` in `launch.json`, and the plugin will pass the parameters to the debugger when debug is launched.
+
+For example, if I need to pass in custom environment variables when debug `Node.js` program, I just need to change the configuration as follows.
 
 ```json title="launch.json"
 {
@@ -69,12 +80,20 @@ The vscode `launch.json` will be automatically configured in the source director
         {
             "type": "nocalhost",
             "request": "attach",
-            "name": "Nocalhost Debug"
+            "name": "Nocalhost Debug",
+            "env":{
+                "environment":"production"
+            }
         }
     ]
 }
 ```
 
-### Configure start-up parameters
+### Supported debugging parameters
 
-nocalhost 支持debug时传入自定义参数
+- Java: [Debugger for Java](https://code.visualstudio.com/docs/java/java-debugging#_attach)
+- Go: [Go](https://github.com/golang/vscode-go/blob/master/docs/debugging.md#attach)
+- Python: [Python](https://code.visualstudio.com/docs/python/debugging#_set-configuration-options)
+- PHP: [PHP Debug](https://github.com/xdebug/vscode-php-debug#supported-launchjson-settings)
+- Node.js: [VSCode](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_remote-debugging)
+- Ruby: [Ruby](https://github.com/rubyide/vscode-ruby/wiki/3.-Attaching-to-a-debugger)
