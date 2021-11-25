@@ -80,13 +80,11 @@ Select the imported private app repository `nocalhost` from the list, then Nocal
 
 Check 「App Information」and「Chart  File」, and select a version from the version list. Then click 「Deploy」.
 
-![image.png](/img/server-ks/ks-app-create-nocalhost-deploy.png)
-
-
+![image.png](/img/server-ks/ks-app-create-nocalhost-chart.png)
 
 Enter the app 「Name」, then check the app 「Version」and the deployment 「Position」. Click 「Next」
 
-![image.png](/img/server-ks/ks-app-create-nocalhost-chart.png)
+![image.png](/img/server-ks/ks-app-create-nocalhost-deploy.png)
 
 
 
