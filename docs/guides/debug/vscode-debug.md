@@ -41,7 +41,7 @@ The path to the Java Development Kit can be specified by the `java.home` setting
 </TabItem>
 <TabItem value="go">
 
-The extension uses a few command-line tools developed by the Go community。in particular, `go`, `gopls`, and `dlv` must be installed for this extension to work correctly. See the [tools documentation]((https://github.com/golang/vscode-go/blob/master/docs/tools.md)) for a complete list of tools the extension depends on.
+The extension uses a few command-line tools developed by the Go community。in particular, `go`, `gopls`, and `dlv` must be installed for this extension to work correctly. See the [tools documentation](https://github.com/golang/vscode-go/blob/master/docs/tools.md) for a complete list of tools the extension depends on.
 
 In order to locate these command-line tools, the extension searches `GOPATH/bin` and directories specified in the `PATH` environment variable (or Path on Windows) with which the VS Code process has started. If the tools are not found, the extension will prompt you to install the missing tools and show the **"⚠️ Analysis Tools Missing"** warning in the bottom right corner. Please install them by responding to the warning notification, or by manually running the `Go: Install/Update Tools command`.
 
