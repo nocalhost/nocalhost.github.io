@@ -1,42 +1,37 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Configuration from './_debug-configuration.md';
+import Configuration from './\_debug-configuration.md';
 
 # VSCode Remote Debugging
 
 ## Supported Languages
 
-| Language    | Required Plugin                                                   | Pod Required       |
-| ------- | ------------------------------------------------------------ | -------------- |
-| Java    | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) | N/A            |
-| Go      | [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go) | dlv   |
-| Python  | [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | debugpy        |
-| PHP     | [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) | xdebug         |
-| Node.js | N/A                                                          | N/A            |
-| Ruby    | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) | ruby-debug-ide |
-
-:::danger ISSUES
-
-Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)
-
-:::
+| Language | Required Plugin                                                                                    | Pod Required   |
+| -------- | -------------------------------------------------------------------------------------------------- | -------------- |
+| Java     | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) | N/A            |
+| Go       | [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)                                | dlv            |
+| Python   | [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                     | debugpy        |
+| PHP      | [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)            | xdebug         |
+| Node.js  | N/A                                                                                                | N/A            |
+| Ruby     | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)                          | ruby-debug-ide |
 
 ### Plugin Configuration
+
 <Tabs
-  defaultValue="java"
-   values={[
-    {label: 'Java', value: 'java'},
-    {label: 'Go', value: 'go'}
-    ]}>
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Go', value: 'go'}
+]}>
 
 <TabItem value="java">
 
 The path to the Java Development Kit can be specified by the `java.home` setting in VS Code settings (workspace/user settings). If not specified, it is searched in the following order until a JDK meets current minimum requirement.
 
-* the `JDK_HOME` environment variable
-* the `JAVA_HOME` environment variable
-* on the current system path
+- the `JDK_HOME` environment variable
+- the `JAVA_HOME` environment variable
+- on the current system path
 
 </TabItem>
 <TabItem value="go">
@@ -51,7 +46,7 @@ In order to locate these command-line tools, the extension searches `GOPATH/bin`
 ## Debugging Process
 
 1. Select the workload that you want to debug
-2. Right-click the workload and select  **`Dev Config`**, [configure your debugging configuration](#Configuration)
+2. Right-click the workload and select **`Dev Config`**, [configure your debugging configuration](#Configuration)
 3. Then right-click this workload again and select `Remote Debug`
 4. Nocalhost will automatically install the dependencies on the first debug
 5. Nocalhost will automatically enter the `DevMode` and start remote debugging
@@ -76,17 +71,17 @@ If you need to pass in custom environment variables when debugging a `Node.js` a
 
 ```json {8-10} title="launch.json"
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "nocalhost",
-            "request": "attach",
-            "name": "Nocalhost Debug",
-            "env":{
-                "environment":"production"
-            }
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "nocalhost",
+      "request": "attach",
+      "name": "Nocalhost Debug",
+      "env": {
+        "environment": "production"
+      }
+    }
+  ]
 }
 ```
 

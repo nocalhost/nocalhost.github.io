@@ -636,7 +636,7 @@
     "message": "请输入工作负载名称 "
   },
   "Please select workload type": {
-    "message": "请选择工作类型"
+    "message": "请选择工作负载类型"
   },
   "Please input or select container name": {
     "message": "请输入或选择容器名称"
@@ -708,9 +708,9 @@
     "message": "驭势科技 UISEE 是中国领先的自动驾驶公司，使用 Nocalhost Server 一键拉起 AI 应用的开发环境，使用 IDE 插件和一键调试缩短开发循环。"
   },
   "Delete Protection": {
-    "message": "Delete Protection"
+    "message": "删除保护"
   },
   "deleteProtectTip": {
-    "message": "deleteProtectTip"
+    "message": "删除保护意味着文件同步不会主动删除你的本地文件（这也可能导致文件与远程不同步）"
   }
 }

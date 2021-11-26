@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Configuration from './_debug-configuration.md';
+import Configuration from './\_debug-configuration.md';
 
 # Jetbrains Remote Debugging
 
@@ -67,12 +67,6 @@ import Configuration from './_debug-configuration.md';
     </tr>
   </tbody>
 </table>
-
-:::danger ISSUES
-
-Debugging feature has issue with [Kind](https://kind.sigs.k8s.io/)
-
-:::
 
 ## Debugging Process
 
