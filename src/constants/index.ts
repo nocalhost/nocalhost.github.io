@@ -70,7 +70,7 @@ export const WORKLOAD_TYPE = [
     value: "daemonset",
   },
   { label: "Job", value: "job" },
-  { label: "CronJob", value: "cornjob" },
+  { label: "CronJob", value: "cronjob" },
   { label: "Pod", value: "pod" },
 ];
 
