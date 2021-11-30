@@ -27,7 +27,7 @@ values={[
 
 <TabItem value="java">
 
-The path to the Java Development Kit can be specified by the `java.home` setting in VS Code settings (workspace/user settings). If not specified, it is searched in the following order until a JDK meets current minimum requirement.
+The path to the Java Development Kit can be specified by the `java.home` setting in VS Code settings (workspace/user settings). If not specified, it is searched in the following order until a JDK meets current minimum requirement,for extension jdk configuration, see [Setting the JDK](https://github.com/redhat-developer/vscode-java#setting-the-jdk).
 
 - the `JDK_HOME` environment variable
 - the `JAVA_HOME` environment variable
