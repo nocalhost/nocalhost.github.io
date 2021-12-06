@@ -116,8 +116,6 @@ Assume that we keep using  `ClusterIP` access method and will use  `kubectl port
 ```bash
 
 ❯ kubectl -n nocalhost-server port-forward service/nocalhost-web 8080:80
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
 
 ```
 
