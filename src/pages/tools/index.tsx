@@ -325,10 +325,14 @@ const Tools = () => {
                   tmpYamlObj.containers[containerIndex]["dev"]["resources"] ||
                   {};
                 if (obj[a]) {
-                  obj[a][b] = b === "memory" ? `${value}Mi` : value;
+                  obj[a][b] = value
+                    ? b === "memory"
+                      ? `${value}Mi`
+                      : value
+                    : "";
                 } else {
                   obj[a] = {
-                    [b]: b === "memory" ? `${value}Mi` : value,
+                    [b]: value ? (b === "memory" ? `${value}Mi` : value) : "",
                   };
                 }
                 tmpYamlObj.containers[containerIndex]["dev"]["resources"] = {
