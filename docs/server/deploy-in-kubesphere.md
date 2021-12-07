@@ -97,8 +97,6 @@ Nocalhost Server 已经集成在了 KubeSphere 3.2 的应用商店中了，因�
 本文假设我们仍然保持 `ClusterIP` 的访问方式，通过 `kubectl port-forward` 来进行后续的 Nocalhost Server 使用。
 ```bash
 ❯ kubectl -n nocalhost-server port-forward service/nocalhost-web 8080:80
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
 ```
 > ⚠️ 注意：这里的 `nocalhost-server` 请替换为您实际使用的部署了 Nocalhost 应用的 Namespace
 
