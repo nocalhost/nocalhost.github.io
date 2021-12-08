@@ -508,6 +508,25 @@ export default function Home() {
                   </div>
                   <div className={styles.whoUseCar}>
                     <img
+                      src="img/home/consumer-kuaikan.png"
+                      className={styles.logo}
+                    ></img>
+                    <div className={styles.title}>
+                      <Translate id="kuaikan.title">KuaiKan </Translate>
+                    </div>
+                    <div className={styles.text}>
+                      <Translate id="kuaikan.info">
+                        KuaiKan is a national comic IP platform and sharing
+                        community for young people in China, with over 340
+                        million users. Use Nocalhost Server to manage the
+                        development environment based on Namespace isolation,
+                        and use IDE plug-ins to shorten the development cycle
+                        feedback.
+                      </Translate>
+                    </div>
+                  </div>
+                  <div className={styles.whoUseCar}>
+                    <img
                       src="img/home/consumer-2.png"
                       className={styles.logo}
                     ></img>
