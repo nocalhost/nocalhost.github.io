@@ -712,5 +712,11 @@
   },
   "deleteProtectTip": {
     "message": "Delete protection means that file synchronization will not actively delete your local files (this may also cause the files to be out of sync with the remote)"
+  },
+  "kuaikan.title": {
+    "message": "KuaiKan"
+  },
+  "kuaikan.info": {
+    "message": "KuaiKan is a national comic IP platform and sharing community for young people in China, with over 340 million users. Use Nocalhost Server to manage the development environment based on Namespace isolation, and use IDE plug-ins to shorten the development cycle feedback."
   }
 }
