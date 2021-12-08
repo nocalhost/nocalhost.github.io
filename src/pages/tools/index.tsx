@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
+import {
+  Button,
+  Form,
+  Select,
+  Input,
+  message,
+  Modal,
+  AutoComplete,
+} from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -807,7 +815,7 @@ const Tools = () => {
                     ]}
                     name="workloadType"
                   >
-                    <Select
+                    <AutoComplete
                       options={WORKLOAD_TYPE}
                       style={{ width: 352 }}
                       suffixIcon={DownArrow}

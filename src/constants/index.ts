@@ -72,10 +72,6 @@ export const WORKLOAD_TYPE = [
   { label: "Job", value: "job" },
   { label: "CronJob", value: "cronjob" },
   { label: "Pod", value: "pod" },
-  {
-    label: "CRD",
-    value: "crd",
-  },
 ];
 
 export const BASE_URL = "http://127.0.0.1:30125";
