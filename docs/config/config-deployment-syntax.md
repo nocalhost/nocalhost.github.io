@@ -8,18 +8,18 @@ title: Syntax
 
 ******
 
-## 在 config.yaml 中注入环境变量
+## Injecting environment variables in config.yaml
 
-config.yaml 支持动态环境变量注入，如果你想在部署时动态控制某些内容，则可以使用此功能。 环境注入的基本语法为 `${ENV}`，环境变量的值将从当前进程获取。
+config.yaml supports dynamic injection of environment variables. You can take advantage of this feature when you want to control something dynamically during deployment. The basic syntax of environment variables injection is `${ENV}`. The actual values of the environment variables will be read from the current process.
 
-:::info 为环境变量配置默认值
+:::info Setting default values for environment variables
 
-语法为 `${ENV:-DEFAULT_VALUE}`，如果找不到 `ENV` 这个环境变量，则会使用 DEFAULT_VALUE 作为默认值。
+The syntax is `${ENV:-DEFAULT_VALUE}`. The DEFAULT_VALUE will be used if the environment variable `ENV` was not found.
 
 :::
 
 
-### 示例
+### Example
 
 ```yaml
 - name: e-micro-agile
@@ -56,7 +56,7 @@ CODING_GIT_URL=git@e.coding.net:nocalhost/nocalhost.git
 PRIORITY=2
 ```
 
-结果：
+RESULT:
 ```yaml
 
 - name: e-micro-agile
@@ -90,15 +90,15 @@ PRIORITY=2
 
 ******
 
-## 在 config.yaml 中使用 include 语法引入其他文件内容
+## Using the include syntax in config.yaml to introduce other file's content
 
-config.yaml 支持通过 include 语法来实现配置的高度的封装，例如 "抽象"，"继承"，"重写" 等。 include 的基本语法为 `${_INCLUDE_:- file/rel/path | nindent 2}`，其中 nindent 为文件引入时的整体缩进。
+configuring with config.yaml supports the use of include syntax to achieve a high degree of encapsulation, such as "abstraction", "inheritance", "rewriting" and so on. The basic syntax of include is `${_INCLUDE_:- file/rel/path | nindent 2}`, where nindent is the overall indentation when the file is imported.
 
 <br/>
 
-### 示例1：通过 include 语法组合 config.yaml
+### Example 1: Combining config.yaml with the include syntax
 
-这里使用 [部署配置示例](./config-deployment-quickstart.md#示例) 来拆解。
+Here we use [Deployment configuration example](./config-deployment-quickstart.md#example) to demonstrate.
 
 config.yaml:
 
@@ -180,7 +180,7 @@ application:
 
 <br/>
 
-目录结构为：
+The structure of the directories is:
 
 ```dot
 ├── service
@@ -191,13 +191,13 @@ application:
 
 <br/>
 
-:::tip 如何验证
-可以使用 `nhctl render ./config.yaml` 来对结果进行验证，这个命令将拿到渲染后的结果。
+:::tip How to verify
+You can use `nhctl render ./config.yaml` to verify the result, which will get the rendered result.
 :::
 
-### 示例2：对配置进行抽象
+### Example 2: Abstracting the configuration
 
-对于许多服务的开发配置来说，很可能是近似的。如果发生了改动，往往需要全部一起改，对于那些相同的配置，可以将其进行抽象：
+The configuration of many services is likely to be similar. If you need to modify, then you must modify them altogether. For those common configurations, they can be abstracted:
 
 config.yaml:
 
@@ -261,7 +261,7 @@ env:
 
 <br/>
 
-目录结构为：
+The structure of the directories is:
 
 ```dot
 ├── service
@@ -274,7 +274,7 @@ env:
 
 <br/>
 
-调用 `nhctl render ./config.yaml` 得到结果：
+Using `nhctl render ./config.yaml` to get the result:
 
 ```yaml
 application:
@@ -323,13 +323,13 @@ application:
                 value: "true"
 ```
 
-### 示例3："重载" 配置
+### Example 3: "Reloading" the configuration
 
-配置不一定完全相同，例如每个服务使用的开发镜像和启动命令不一定一样，如何在抽象的情况下又进行定制化呢？
+The configurations may not be exactly identical. For example, the development image and startup command used by each service are different. How to customize them when use abstracted configuration?
 
 <br/>
 
-这里以 `示例2` 为例，productpage 使用了基础的 dev-config.yaml 作为 dev 部分内容。同时，定义了 `gitUrl` 和 `image` 覆盖 dev-config.yaml 已经定义好的内容。另外，还定义了 `resources` 拓展了  dev-config.yaml。
+Taking `Example 2` as an example, productpage uses the basic dev-config.yaml for the dev part. But at the same time, the definition of `gitUrl` and `image` overrides the already defined content in dev-config.yaml. In addition, `resources` is also defined to expand the dev-config.yaml.
 
 /service/productpage.yaml:
 
@@ -374,7 +374,7 @@ env:
 
 <br/>
 
-目录结构为：
+The structure of the directories is:
 
 ```dot
 ├── service
@@ -385,7 +385,7 @@ env:
 
 <br/>
 
-调用 `nhctl render ./service/productpage.yaml` 得到结果：
+Using `nhctl render ./service/productpage.yaml` to get the result:
 
 ```yaml
 - name: productpage
