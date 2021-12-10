@@ -89,7 +89,7 @@ const Tools = () => {
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
   const [hasContainer, setHasContainer] = useState<boolean>(false);
-  const [isNameValid, setIsNameValid] = useState<boolean>(false);
+  const [isNameValid, setIsNameValid] = useState<boolean>(true);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
@@ -119,7 +119,8 @@ const Tools = () => {
     if (yamlObj) {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
-    setIsValid(isYamlValid(yamlObj) && checkContainerName());
+    checkContainerName();
+    setIsValid(isYamlValid(yamlObj));
     setFileSyncValid(isFileSyncValid(yamlObj));
     setCommandValid(isCommandValid(yamlObj));
     setVolumeValid(isVolumeValid(yamlObj));
@@ -131,8 +132,8 @@ const Tools = () => {
 
   // check duplicate container name
   function checkContainerName(name?: string) {
-    const containerNames = yamlObj.containers.map((item) => item.name);
-
+    let isValid = true;
+    const containerNames = yamlObj?.containers?.map((item) => item.name) || [];
     if (name) {
       if (containerNames.includes(name)) {
         message.warning(
@@ -140,21 +141,18 @@ const Tools = () => {
             message: "Container name has duplicate!",
           })
         );
-        setIsNameValid(false);
-        return false;
+        isValid = false;
       }
     } else {
-      if (new Set(containerNames).size !== containerNames.length) {
+      if (new Set(containerNames).size !== containerNames?.length) {
         message.warning(
           translate({ message: "Container name has duplicate, please check!" })
         );
-        setIsNameValid(false);
-
-        return false;
+        isValid = false;
       }
     }
-    setIsNameValid(true);
-    return true;
+    setIsNameValid(isValid);
+    return isValid;
   }
 
   const getConfig = async (params: SaveInfo) => {
