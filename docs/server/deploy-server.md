@@ -55,8 +55,6 @@ nocalhost-web-9dd659b8-s89f4    1/1     Running   0          2m7s
 Once the deployment completed, you need to manually port-forward the Nocalhost Web Service to local by using the following command.  
 ```console
 ❯ kubectl -n nocalhost port-forward service/nocalhost-web 8080:80
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
 ```
 
 You can now access the nocalhost dashboard with [http://127.0.0.1:8080](http://127.0.0.1:8080)  
