@@ -14,19 +14,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ******
 
-# Nocalhost 提供了哪些部署配置？
+# What deployment configurations does Nocalhost provide?
 
-:::danger 部分配置需额外组件
+:::danger Some configurations require additional components
 
 
-部署配置的部分功能依赖于 **Nocalhost-Dep 组件**，如果你使用 Nocalhost Server，我们会自动帮你处理这个组件的安装，否则需要进行额外的安装。
+Some functions of the deployment configuration rely on the **Nocalhost-Dep component**. If you use Nocalhost Server, we will automatically install this component for you. Otherwise an additional installation is required.
 
-如果没有安装 **Nocalhost-Dep 组件**，部分功能将受限，文章中将会标记出那些需要借助 ** Nocalhost-Dep ** 才能实现的功能。
+If the **Nocalhost-Dep component** is not installed, some functions will be restricted. This article will mark those functions that need **Nocalhost-Dep**.
 
 :::
 
-## 启动顺序依赖控制 ([组件依赖](#danger))
-范例：
+## Startup dependency control ([component dependency](#danger))
+Example:
 ```yaml
 application:
   name: example
@@ -45,18 +45,20 @@ application:
           - "job-name=init-job"
 ```
 
-当某项资源在部署配置中声明了 `dependLabelSelector` 以后， `pods` 数组中的字符代表要等待的 pods 的 labels，格式为键值对。`jobs` 数组中的字符代表要等待的 jods 的 labels，格式为键值对。
+When a resource declares `dependLabelSelector` in the deployment configuration, the characters in the `pods` array represent the labels of the pods to be waited for. The format is key-value pairs. The characters in the `jobs` array represent the labels of the jods to be waited for. The format is also key-value pairs.
 
-`pods` 与 `jobs` 都为可选项。实际部署过程中，它会为指定的工作负载生成一个 `initContinaer`，等待所有匹配 label 的 pods 状态为 `Ready`，等待所有匹配 label 的 jobs 状态为 `Succeeded`。
+Both `pods` and `jobs` are optional. When you actually deploy your application, it will generate an `initContainer` for the specified workload, wait for the status of all pods matching the label to be `Ready`, and wait for the status of all jobs matching the label to be `Succeeded`.
 
 <br/>
 
 ******
 
-## 环境变量注入 ([组件依赖](#danger))
+## Injecting Environment variable ([Component dependency](#danger))
 
-### 全局变量注入
-范例：
+### Injecting Global variable
+
+Example:
+
 ```yaml
 application:
   name: example
@@ -76,24 +78,33 @@ application:
 
 ```
 
-全局变量注入需要声明在 `application` 这一级，在部署时，它将往所有部署的 `Deployment`、`DaemonSet`、`ReplicaSet`、`StatefulSet`、`Job`、`CronJob` 中注入对应的环境变量。
+Injecting global variables needs to be declared at the level of `application`. During the deployment, it will inject the corresponding environment variables into all deployed `Deployment`, `DaemonSet`, `ReplicaSet`, `StatefulSet`, `Job`, and `CronJob`.
 
-:::tip 变量注入支持两种写法，可以混搭
-- 第一种是直接声明键值对
-- 第二种是声明一个相对于 `config.yaml` 的 env 文件，内容为逐行的 `Key=Value`：
+:::tip Injecting variables supports two kinds syntax, which can be mixed
+
+- The first one is to declare key-value pairs directly
+- The second is to declare an env file relative to `config.yaml`, the content is line-by-line `Key=Value`:
+
+
 ```dotenv
+
 DEBUG=true
 DOMAIN=nocalhost.dev
+
 ```
+
 :::
 
-其中，`env` 的优先级高于 `envFrom`
+The priority of `env` is higher than that of `envFrom`
 
 <br/>
 
-### 容器级变量注入
-范例：
+### Injecting variables at the level of container
+
+Example:
+
 ```yaml
+
 application:
   name: example
   manifestType: rawManifestGit
@@ -116,16 +127,19 @@ application:
               envFile:
                 - path: relpath/to/env/file  
             ##### end
+            
 ```
 
-容器级的变量注入声明在 `application.services[*].containers[*].install` 中，表明在部署时，往对应的容器中注入对应变量。`env` 与 `envFrom` 的规则与应用级一致。
+The container-level variable injection is declared in `application.services[*].containers[*].install`, indicating that the corresponding variables are injected into the corresponding container during deployment. The rules of `env` and `envFrom` are in line with the application level's.
 
 <br/>
 
 ******
 
-## 安装后自动端口转发
-范例：
+## Automatic port forwarding after installation
+
+Example:
+
 ```yaml
 application:
   name: example
@@ -144,18 +158,21 @@ application:
               - 5005:5005
               - 3306:3306
             ##### end
+            
 ```
 
-配置规则与容器及的变量注入声明类似，需要配置在 `application.services[*].containers[*].install` 中。
+The configuration rules are similar to the container and variable injection declarations, and need to be configured in `application.services[*].containers[*].install`.
 
-安装后的端口转发顾名思义，在应用安装完毕，可以自动为某些服务做端口转发到本地，如常用的数据库、MQ 等端口，适合在安装完毕后自动转发，配置的规则。端口转发的规则与 K8s 一致，即 `本地端口:容器端口`
+The port forwarding after installation is as it's name implies. After the application is installed, it can automatically forward port to the local for some services. For instance, database, MQ and other commonly used services' ports are suitable for automatic forwarding and configuration rules after installation. The port forwarding rules are consistent with K8s, namely `local port: container port`.
 
 <br/>
 
 ******
 
 ## Hook
-范例：
+
+Example:
+
 ```yaml
 application:
   name: example
@@ -184,34 +201,40 @@ application:
     - path: manifest/templates/hook/post-delete.yaml
       weight: "1"
   ##### end
+
 ```
 
 
-Nocalhost 支持在应用的生命周期注入各种 Hook，**Hook 目前只支持 Job**，其中 `path` 为**相对于主目录**的 RawManifest，必须是 Job 类型，`weight` 为权重，权重低的先执行。
+Nocalhost supports injecting various hooks in the life cycle of the application. **Hooks currently only support Job**, where `path` is the RawManifest **relative to the home directory**, which must be the job type. `weight` is the weight. The lower ones are executed first.
 
 <br/>
 
-:::danger Hook的限制
-Hook 与 Helm 的 Hook 类似，Hook 本身是为了弥补非 Helm 应用的不足，所以**Helm 类型应用无法配置 Hook（你可以直接使用 Helm 的 Hook）**。
+:::danger The limits on the Hook
+
+Hook is similar to Helm's Hook. Hook itself is to make up for the shortcomings of non-Helm applications, so ** Helm-type applications cannot configure Hook (You can use Helm's Hook directly)**.
+
 :::
 
 <br/>
 
-:::info Hook的解释
-- `onPreInstall` 发生在应用部署之前，例如执行集群、数据库之类的的一些初始化操作。会在 Job 状态为 `Successed` 后，才开始真正执行部署，如果失败，则安装终止。
-- `onPostInstall` 发生在应用部署之后，当所有资源都提交到 K8s Api Server，会执行此 Job，状态为 `Successed` 后，部署成功。否则将回滚，执行卸载操作。
+:::info The explanation of Hook
+
+- `onPreInstall` occurs before the employment of the application, including performing some initialization operations such as clusters and databases. The deployment will start after the job status is `Successed`. If it fails, the installation will be terminated.
+- `onPostInstall` occurs after the application is deployed. When all resources are submitted to the K8s Api Server, this job will be executed. After the status is `Successed`, the deployment is successful. Otherwise, it will roll back and perform the uninstall operation.
 
 <br/>
 
-依次类推，UpgradeHook 和 DeleteHook 不同的是，它们在执行失败后都不会进行回滚，仅提示失败。
+By analogy, the Upgrade Hook and Delete Hook will not roll back after the execution fails, and only prompt failure.
 :::
 
 <br/>
 
 ******
 
-## HelmValues 的定制
-范例：
+## The customization of the HelmValues
+
+Example:
+
 ```yaml
 application:
   name: example
@@ -231,11 +254,14 @@ application:
       deploy:
         example: {{ Release.Name }}
   ##### end
+
 ```
 
 <br/>
 
-:::tip HelmValues 支持两种写法
-- 第一种写法仅支持纯字符串，优先级更高。
-- 第二种写法与 `values.yaml` 别无二致，可穿插 Helm 语法。
+:::tip HelmValues supports two kinds of syntax
+
+- The first syntax only supports pure strings and has a higher priority.
+- The second syntax is the same as `values.yaml` and can be interspersed with Helm syntax.
+
 :::
