@@ -25,7 +25,7 @@ If the **Nocalhost-Dep component** is not installed, some functions will be rest
 
 :::
 
-## Startup sequence dependency control ([component dependency](#danger))
+## Startup dependency control ([component dependency](#danger))
 Example:
 ```yaml
 application:
@@ -47,7 +47,7 @@ application:
 
 When a resource declares `dependLabelSelector` in the deployment configuration, the characters in the `pods` array represent the labels of the pods to be waited for. The format is key-value pairs. The characters in the `jobs` array represent the labels of the jods to be waited for. The format is also key-value pairs.
 
-Both `pods` and `jobs` are optional. In the actual deployment process, it will generate an `initContainer` for the specified workload, wait for the status of all pods matching the label to be `Ready`, and wait for the status of all jobs matching the label to be `Succeeded`.
+Both `pods` and `jobs` are optional. When you actually deploy your application, it will generate an `initContainer` for the specified workload, wait for the status of all pods matching the label to be `Ready`, and wait for the status of all jobs matching the label to be `Succeeded`.
 
 <br/>
 
@@ -56,7 +56,9 @@ Both `pods` and `jobs` are optional. In the actual deployment process, it will g
 ## Injecting Environment variable ([Component dependency](#danger))
 
 ### Injecting Global variable
+
 Example:
+
 ```yaml
 application:
   name: example
@@ -76,15 +78,21 @@ application:
 
 ```
 
-Injecting global variables needs to be declared at the level of `application`. During the deploying process, it will inject the corresponding environment variables into all deployed `Deployment`, `DaemonSet`, `ReplicaSet`, `StatefulSet`, `Job`, and `CronJob`.
+Injecting global variables needs to be declared at the level of `application`. During the deployment, it will inject the corresponding environment variables into all deployed `Deployment`, `DaemonSet`, `ReplicaSet`, `StatefulSet`, `Job`, and `CronJob`.
 
 :::tip Injecting variables supports two kinds syntax, which can be mixed
+
 - The first one is to declare key-value pairs directly
 - The second is to declare an env file relative to `config.yaml`, the content is line-by-line `Key=Value`:
+
+
 ```dotenv
+
 DEBUG=true
 DOMAIN=nocalhost.dev
+
 ```
+
 :::
 
 The priority of `env` is higher than that of `envFrom`
@@ -92,8 +100,11 @@ The priority of `env` is higher than that of `envFrom`
 <br/>
 
 ### Injecting variables at the level of container
+
 Example:
+
 ```yaml
+
 application:
   name: example
   manifestType: rawManifestGit
@@ -116,6 +127,7 @@ application:
               envFile:
                 - path: relpath/to/env/file  
             ##### end
+            
 ```
 
 The container-level variable injection is declared in `application.services[*].containers[*].install`, indicating that the corresponding variables are injected into the corresponding container during deployment. The rules of `env` and `envFrom` are in line with the application level's.
@@ -125,7 +137,9 @@ The container-level variable injection is declared in `application.services[*].c
 ******
 
 ## Automatic port forwarding after installation
+
 Example:
+
 ```yaml
 application:
   name: example
@@ -144,6 +158,7 @@ application:
               - 5005:5005
               - 3306:3306
             ##### end
+            
 ```
 
 The configuration rules are similar to the container and variable injection declarations, and need to be configured in `application.services[*].containers[*].install`.
@@ -155,7 +170,9 @@ The port forwarding after installation is as it's name implies. After the applic
 ******
 
 ## Hook
+
 Example:
+
 ```yaml
 application:
   name: example
@@ -184,6 +201,7 @@ application:
     - path: manifest/templates/hook/post-delete.yaml
       weight: "1"
   ##### end
+
 ```
 
 
@@ -192,12 +210,15 @@ Nocalhost supports injecting various hooks in the life cycle of the application.
 <br/>
 
 :::danger The limits on the Hook
+
 Hook is similar to Helm's Hook. Hook itself is to make up for the shortcomings of non-Helm applications, so ** Helm-type applications cannot configure Hook (You can use Helm's Hook directly)**.
+
 :::
 
 <br/>
 
 :::info The explanation of Hook
+
 - `onPreInstall` occurs before the employment of the application, including performing some initialization operations such as clusters and databases. The deployment will start after the job status is `Successed`. If it fails, the installation will be terminated.
 - `onPostInstall` occurs after the application is deployed. When all resources are submitted to the K8s Api Server, this job will be executed. After the status is `Successed`, the deployment is successful. Otherwise, it will roll back and perform the uninstall operation.
 
@@ -211,7 +232,9 @@ By analogy, the Upgrade Hook and Delete Hook will not roll back after the execut
 ******
 
 ## The customization of the HelmValues
+
 Example:
+
 ```yaml
 application:
   name: example
@@ -231,11 +254,14 @@ application:
       deploy:
         example: {{ Release.Name }}
   ##### end
+
 ```
 
 <br/>
 
 :::tip HelmValues supports two kinds of syntax
+
 - The first syntax only supports pure strings and has a higher priority.
 - The second syntax is the same as `values.yaml` and can be interspersed with Helm syntax.
+
 :::
