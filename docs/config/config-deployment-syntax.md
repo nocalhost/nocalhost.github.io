@@ -22,6 +22,7 @@ The syntax is `${ENV:-DEFAULT_VALUE}`. The DEFAULT_VALUE will be used if the env
 ### Example
 
 ```yaml
+
 - name: e-micro-agile
     serviceType: deployment
     dependPodsLabelSelector:
@@ -45,6 +46,7 @@ The syntax is `${ENV:-DEFAULT_VALUE}`. The DEFAULT_VALUE will be used if the env
      - ".nocalhost"}
 
     testPriority: ${PRIORITY:-0}
+    
 ```
 
 <br/>
@@ -52,11 +54,14 @@ The syntax is `${ENV:-DEFAULT_VALUE}`. The DEFAULT_VALUE will be used if the env
 env:
 
 ```env
+
 CODING_GIT_URL=git@e.coding.net:nocalhost/nocalhost.git
 PRIORITY=2
+
 ```
 
 RESULT:
+
 ```yaml
 
 - name: e-micro-agile
@@ -192,7 +197,9 @@ The structure of the directories is:
 <br/>
 
 :::tip How to verify
+
 You can use `nhctl render ./config.yaml` to verify the result, which will get the rendered result.
+
 :::
 
 ### Example 2: Abstracting the configuration
@@ -202,6 +209,7 @@ The configuration of many services is likely to be similar. If you need to modif
 config.yaml:
 
 ```yaml
+
 application:
   name: bookinfo
   manifestType: rawManifestGit
@@ -210,6 +218,7 @@ application:
   service:
     ${_INCLUDE_:- ./service/productpage.yaml | nindent 4}
     ${_INCLUDE_:- ./service/details.yaml | nindent 4}
+    
 ```
 
 
@@ -243,6 +252,7 @@ application:
 /base/dev-config.yaml:
 
 ```yaml
+
 gitUrl: https://e.coding.net/codingcorp/nocalhost/bookinfo-details.git
 image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/ruby:2.7.1-slim
 shell: bash
@@ -257,6 +267,7 @@ sync:
 env: 
 - name: DEBUG
   value: "true"
+  
 ```
 
 <br/>
