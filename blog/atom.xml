@@ -2,31 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2021-12-13T08:56:13.101Z</updated>
+    <updated>2021-12-13T09:16:59.454Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
     <icon>https://nocalhost.dev/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Announcing Nocalhost v0.5.6]]></title>
-        <id>Announcing Nocalhost v0.5.6</id>
-        <link href="https://nocalhost.dev/blog/0.5.6"/>
-        <updated>2021-12-13T08:56:13.101Z</updated>
-        <summary type="html"><![CDATA[Nocalhost v0.5.6 has been released, we've fixed some bugs, improved the performance and add some new features.]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
         <id>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</id>
         <link href="https://nocalhost.dev/blog/api-six"/>
-        <updated>2021-12-13T08:56:13.101Z</updated>
+        <updated>2021-12-13T09:16:59.454Z</updated>
         <summary type="html"><![CDATA[Introduction]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/blog/docs-translate"/>
-        <updated>2021-12-13T08:56:13.101Z</updated>
+        <updated>2021-12-13T09:16:59.454Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Announcing Nocalhost v0.5.6]]></title>
+        <id>Announcing Nocalhost v0.5.6</id>
+        <link href="https://nocalhost.dev/blog/0.5.6"/>
+        <updated>2021-12-13T09:16:59.454Z</updated>
+        <summary type="html"><![CDATA[Nocalhost v0.5.6 has been released, we've fixed some bugs, improved the performance and add some new features.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
