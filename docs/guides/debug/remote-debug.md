@@ -57,7 +57,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
       <td rowSpan="2">Node.js</td>
       <td>IntelliJ IDEA</td>
       <td>Ultimate</td>
-      <td>Node.js plugin</td>
+      <td>N/A</td>
     </tr>
     <tr>
       <td>WebStrom</td>
