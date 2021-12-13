@@ -234,7 +234,7 @@ containers:
           debug:
             - ./debug.sh
         debug:
-          remoteDebugPort: 9009
+          remoteDebugPort: 9003
         ...
 ```
 
