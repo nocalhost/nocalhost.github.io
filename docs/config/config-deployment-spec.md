@@ -14,8 +14,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ******
 
-# What deployment configurations does Nocalhost provide?
-
 :::danger Some configurations require additional components
 
 

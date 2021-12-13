@@ -12,9 +12,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ******
 
-# Support for Dep components and other configuration methods
+Nocalhost's development configuration supports multiple developing ways, such as ConfigMap, Annotations, etc. 
 
-Nocalhost's development configuration supports multiple developing ways, such as ConfigMap, Annotations, etc. In fact, these configuration methods ** also suit for ** deployment configuration. But some functions need to be implemented through the K8s adminssion WebHook. In Nocalhost, a component called `Nocalhost-Dep` plays this role, and `Nocalhost Server` will automatically deploy this component for you. if you do not use `Nocalhost Server`, then additional deployment of `Nocalhost Dep` is required.
+In fact, these configuration methods ** also suit for ** deployment configuration. Buts some functions need to be implemented through the K8s Admission WebHook. In Nocalhost, a component called `Nocalhost-Dep` plays this role, and `Nocalhost Server` will automatically deploy this component for you. 
+
+if you do not use `Nocalhost Server`, then additional deployment of `Nocalhost Dep` is required.
 
 <br/>
 
