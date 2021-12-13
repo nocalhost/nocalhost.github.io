@@ -16,7 +16,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::danger Some configurations require additional components
 
-
 Some functions of the deployment configuration rely on the **Nocalhost-Dep component**. If you use Nocalhost Server, we will automatically install this component for you. Otherwise an additional installation is required.
 
 If the **Nocalhost-Dep component** is not installed, some functions will be restricted. This article will mark those functions that need **Nocalhost-Dep**.
@@ -24,7 +23,9 @@ If the **Nocalhost-Dep component** is not installed, some functions will be rest
 :::
 
 ## Startup dependency control ([component dependency](#danger))
+
 Example:
+
 ```yaml
 application:
   name: example
@@ -73,7 +74,6 @@ application:
     envFile:
       - path: relpath/to/env/file
   ##### end
-
 ```
 
 Injecting global variables needs to be declared at the level of `application`. During the deployment, it will inject the corresponding environment variables into all deployed `Deployment`, `DaemonSet`, `ReplicaSet`, `StatefulSet`, `Job`, and `CronJob`.
@@ -83,12 +83,9 @@ Injecting global variables needs to be declared at the level of `application`. D
 - The first one is to declare key-value pairs directly
 - The second is to declare an env file relative to `config.yaml`, the content is line-by-line `Key=Value`:
 
-
 ```dotenv
-
 DEBUG=true
 DOMAIN=nocalhost.dev
-
 ```
 
 :::
@@ -102,7 +99,6 @@ The priority of `env` is higher than that of `envFrom`
 Example:
 
 ```yaml
-
 application:
   name: example
   manifestType: rawManifestGit
@@ -124,8 +120,7 @@ application:
             envFrom:
               envFile:
                 - path: relpath/to/env/file  
-            ##### end
-            
+            ##### end   
 ```
 
 The container-level variable injection is declared in `application.services[*].containers[*].install`, indicating that the corresponding variables are injected into the corresponding container during deployment. The rules of `env` and `envFrom` are in line with the application level's.
@@ -156,7 +151,6 @@ application:
               - 5005:5005
               - 3306:3306
             ##### end
-            
 ```
 
 The configuration rules are similar to the container and variable injection declarations, and need to be configured in `application.services[*].containers[*].install`.
@@ -199,7 +193,6 @@ application:
     - path: manifest/templates/hook/post-delete.yaml
       weight: "1"
   ##### end
-
 ```
 
 
@@ -223,6 +216,7 @@ Hook is similar to Helm's Hook. Hook itself is to make up for the shortcomings o
 <br/>
 
 By analogy, the Upgrade Hook and Delete Hook will not roll back after the execution fails, and only prompt failure.
+
 :::
 
 <br/>
@@ -252,7 +246,6 @@ application:
       deploy:
         example: {{ Release.Name }}
   ##### end
-
 ```
 
 <br/>
