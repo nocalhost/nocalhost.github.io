@@ -68,6 +68,7 @@ When install Nocalhost IDE plugin, it will install the `nhctl` for you automatic
 1. Download the latest version from our [Github Repo](https://github.com/nocalhost/nocalhost-vscode-plugin/releases/latest)
 2. Open VS Code and go to `Extensions` by click the <img src={useBaseUrl('/img/icons/vs-code-icon.jpg')} width="20" /> icon
 3. Click <img src={useBaseUrl('/img/icons/cluster-action-icon.jpg')} width="20" /> on the top right of the `Extension` list, select `Install from VSIX...`, select the `VSIX` downloaded above
+4. Download the latest nhctl from out [Github Repo](https://github.com/nocalhost/nocalhost/releases), and put it under `~/.nh/bin/` then named nhctl, you need to give this binary execution permission (chmod +x ./nhctl). (the path is %homepath%/.nh/bin/ in windows, and the binary named 'nhctl.exe', no need to grant additional execution permissions under windows)
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/vs-manual.jpg')} />
@@ -88,11 +89,11 @@ When install Nocalhost IDE plugin, it will install the `nhctl` for you automatic
   ]}>
 <TabItem value="market">
 
-### Windows
+#### Windows
     
 `File > Settings > Plugins > Browse repositories... > Search for "Nocalhost" > Install Plugin`
 
-### MacOS
+#### MacOS
 
 `Preferences > Settings > Plugins > Browse repositories... > Search for "Nocalhost" > Install Plugin`
 
@@ -107,6 +108,7 @@ When install Nocalhost IDE plugin, it will install the `nhctl` for you automatic
 
 1. Download the latest version from our [Github Repo](https://github.com/nocalhost/nocalhost-intellij-plugin/releases/latest)
 2. Install plugin: <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install from disk... </kbd>
+3. Download the latest nhctl from out [Github Repo](https://github.com/nocalhost/nocalhost/releases), and put it under `~/.nh/bin/` then named nhctl, you need to give this binary execution permission (chmod +x ./nhctl). (the path is %homepath%/.nh/bin/ in windows, and the binary named 'nhctl.exe', no need to grant additional execution permissions under windows)
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/installation/jb-manual.jpg')} />
