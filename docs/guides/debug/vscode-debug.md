@@ -1,9 +1,11 @@
+---
+title: VSCode Remote Debugging
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Configuration from './\_debug-configuration.md';
-
-# VSCode Remote Debugging
 
 ## Supported Languages
 

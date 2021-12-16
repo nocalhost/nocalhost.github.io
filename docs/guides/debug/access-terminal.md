@@ -16,11 +16,11 @@ Nocalhost provides two modes to access the terminal of a target container.
 ## VS Code
 
 <Tabs
-  defaultValue="open"
-  values={[
-    {label: 'Open Remote Terminal', value: 'open'},
-    {label: 'Copy Terminal Exec Command', value: 'copy'},
-  ]}>
+defaultValue="open"
+values={[
+{label: 'Open Remote Terminal', value: 'open'},
+{label: 'Copy Terminal Exec Command', value: 'copy'},
+]}>
 <TabItem value="open">
 
 <figure className="img-frame">
@@ -43,11 +43,11 @@ Nocalhost provides two modes to access the terminal of a target container.
 ## JetBrains
 
 <Tabs
-  defaultValue="jb-open"
-  values={[
-    {label: 'Open Remote Terminal', value: 'jb-open'},
-    {label: 'Copy Terminal Exec Command', value: 'jb-copy'},
-  ]}>
+defaultValue="jb-open"
+values={[
+{label: 'Open Remote Terminal', value: 'jb-open'},
+{label: 'Copy Terminal Exec Command', value: 'jb-copy'},
+]}>
 <TabItem value="jb-open">
 
 <figure className="img-frame">

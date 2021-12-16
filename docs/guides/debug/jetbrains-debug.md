@@ -1,9 +1,11 @@
+---
+title: Jetbrains Remote Debugging
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Configuration from './\_debug-configuration.md';
-
-# Jetbrains Remote Debugging
 
 ## Supported IDEs
 

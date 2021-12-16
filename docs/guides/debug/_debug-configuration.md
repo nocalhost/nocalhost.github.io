@@ -3,20 +3,21 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Configuration
+
 The development environment is different between developers. You should configure remote debug configurations according to the actual situation.
 
 ### Sample Configuration
 
 <Tabs
-  defaultValue="java"
-  values={[
-    {label: 'Java', value: 'java'},
-    {label: 'Python', value: 'python'},
-    {label: 'Go', value: 'go'},
-    {label: 'PHP', value: 'php'},
-    {label: 'Node.js', value: 'node'},
-    {label: 'Ruby', value: 'ruby'},
-  ]}>
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Python', value: 'python'},
+{label: 'Go', value: 'go'},
+{label: 'PHP', value: 'php'},
+{label: 'Node.js', value: 'node'},
+{label: 'Ruby', value: 'ruby'},
+]}>
 <TabItem value="java">
 
 ```yaml {8,11} title="Nocalhost Configs"
@@ -33,6 +34,7 @@ containers:
           remoteDebugPort: 5005
         ...
 ```
+
 #### Maven Example
 
 The shell command for **Maven** example:
@@ -41,9 +43,9 @@ The shell command for **Maven** example:
  mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 ```
 
-For jdk <=1.7 you  should  replace `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005` with `-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005`
+For jdk <=1.7 you should replace `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005` with `-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005`
 
-For lower version of the springBoot  you should replace `-Drun.jvmArguments` with `-Dspring-boot.run.jvmArguments`
+For lower version of the springBoot you should replace `-Drun.jvmArguments` with `-Dspring-boot.run.jvmArguments`
 
 #### Gradle Example
 
@@ -70,12 +72,13 @@ containers:
           remoteDebugPort: 9009
         ...
 ```
+
 <Tabs
-  defaultValue={props.name}
-  values={[
-    {label: 'VSCode', value: 'vscode'},
-    {label: 'Jetbrains', value: 'jetbrains'},
-  ]}>
+defaultValue={props.name}
+values={[
+{label: 'VSCode', value: 'vscode'},
+{label: 'Jetbrains', value: 'jetbrains'},
+]}>
 <TabItem value="jetbrains">
 
 ```yaml title="debug.sh"
@@ -89,6 +92,7 @@ export FLASK_ENV=development
 
 flask run --host=0.0.0.0 --port=9999
 ```
+
 </TabItem>
 <TabItem value="vscode">
 
@@ -99,6 +103,7 @@ pip3 install --no-cache-dir -r ./requirements.txt
 
 python -m debugpy --listen 9009 --wait-for-client productpage.py 9080
 ```
+
 </TabItem>
 </Tabs>
 
@@ -135,7 +140,6 @@ containers:
 
 export GOPROXY=https://goproxy.cn
 dlv --headless --log --listen :9009 --api-version 2 --accept-multiclient debug app.go
-
 ```
 
 </TabItem>
@@ -153,7 +157,7 @@ containers:
           debug:
             - ./debug.sh
         debug:
-          remoteDebugPort: 9009
+          remoteDebugPort: 9003
         ...
 ```
 
@@ -161,7 +165,6 @@ containers:
 #！/bin/sh
 
 php -t ./ -S 0.0.0.0:9999;
-
 ```
 
 **How does it works?**
@@ -197,7 +200,6 @@ containers:
 
 npm install
 node --inspect=0.0.0.0:9229 ./index.js
-
 ```
 
 </TabItem>
