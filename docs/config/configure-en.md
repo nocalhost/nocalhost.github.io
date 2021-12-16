@@ -10,8 +10,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ******
 
-# Multiple ways to configure Nocalhost Configuration
-
 Apart from putting the configuration in `DevConfig` of IDE plugin (right-click), Nocalhost also supports putting it in source code directory, ConfigMap or Annotation. For example, You can putting your configuration into Annotation, Helm chart or rawManifest to avoid repeated configuration through IDE.
 
 :::info PRE-REQUIRE

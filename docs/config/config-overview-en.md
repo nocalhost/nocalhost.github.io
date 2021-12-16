@@ -6,8 +6,6 @@ title: What is Nocalhost Config?
 
 ******
 
-# Nocalhost —— What is it? How to configure it? What features it has?
-
 We will introduce the configuration of Nocalhost, how to modify it and its features, etc. If you don't have a concept of the configuration of Nocalhost, or want to know more about its structure and features, please read this section.
 
 <br/>

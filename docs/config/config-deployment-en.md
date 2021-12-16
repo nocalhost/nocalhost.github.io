@@ -7,8 +7,6 @@ title: Deploy Config
 
 ******
 
-# Nocalhost Deploy Config
-
 We will introduce Nocalhost Deploy config in this section.
 
 Nocalhost supports the deployment of K8s applications by Helm, RawManifest and Kustomiz. They can provide functions such as dependency order specification when apply the workload, deployment env injection, life cycle hook, etc. Moreover, they also support multiple configuration methods, such as Configmap, Annotation, etc. 

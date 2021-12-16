@@ -110,6 +110,12 @@ Make sure you have successfully deployed workloads within your Kubernetes Cluste
   <figcaption>Workload Enter DevMode</figcaption>
 </figure>
 
+:::warning On premise case
+
+If you are experiencing DevMode in on premise K8s cluster, you need to [configure the sidecar image address](../config/config-dev-container-en#sidecar-image-customization) additionally and push the image to your own repository.
+
+:::
+
 ## 4. Change Code and See Result
 
 ### Execute main process in remote Container

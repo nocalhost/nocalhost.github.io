@@ -12,15 +12,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ******
 
-# Dep 组件与其他配置方式的支持
+Nocalhost's development configuration supports multiple developing ways, such as ConfigMap, Annotations, etc. 
 
-Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 等。实际上，这些配置方式**同样适用于**部署配置。但有些功能是需要配合 K8s WebHook 功能来实现，在 Nocalhost 中，是由一个叫做 `Nocalhost-Dep` 的组件来承担这个角色，`Nocalhost Server` 将自动为你部署这个组件，如果你没有使用 `Nocalhost Server`，那么则需要额外进行 `Nocalhost Dep` 的部署。
+In fact, these configuration methods ** also suit for ** deployment configuration. Buts some functions need to be implemented through the K8s Admission WebHook. In Nocalhost, a component called `Nocalhost-Dep` plays this role, and `Nocalhost Server` will automatically deploy this component for you. 
+
+if you do not use `Nocalhost Server`, then additional deployment of `Nocalhost Dep` is required.
 
 <br/>
 
 :::info
 
-[Nocalhost 提供了哪些部署配置？](config-deployment-spec.md) 中介绍了哪些部署配置需要额外部署 `Nocalhost Dep` 来进行支持。
+[What deployment configurations does Nocalhost provide?](config-deployment-spec.md) introduces which deployment configurations require additional deployment of `Nocalhost Dep`.
 
 :::
 
@@ -28,14 +30,13 @@ Nocalhost 的开发配置支持多种开发方式，如 ConfigMap、Annotations 
 
 ******
 
-## 使用 ConfigMap 配置部署配置
+## Using ConfigMap to make deployment configuration
 
-在 [部署配置入门 ——— Nocalhost 基础部署配置](config-deployment-quickstart.md) 提到了如何配置一个简单的部署配置。结合 [Nocalhost 支持哪些配置方式 —— 将配置放置在 configmap 中](configure-en.md#将配置放置在-configmap-中)，我们可以得到 ConfigMap 部署配置：
+To make a simple deployment configuration is mentioned in [Introduction to Deployment Configuration --- Nocalhost Basic Deployment Configuration](config-deployment-quickstart.md). Combining with [What configuration methods are supported by Nocalhost-place the configuration in configmap](configure-en.md#configuration-in-configmap), we can get the configuration:
 
-我们为此准备了一个体验项目，它将自动部署 `Nocalhost Dep`，并且使用 ConfigMap 的形式进行部署配置的配置。
+We have prepared an demo for this, which will automatically deploy `Nocalhost Dep`, and use the way of ConfigMap to make the deployment configuration.
 
-
-:::tip 使用下列命令来获取并查看此项目（体验该 Chart 包需要 ClusterAdmin 级别的权限）
+:::tip Using the following commands to try out this demo (trying the Chart package requires ClusterAdmin)
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout config/example
@@ -45,8 +46,7 @@ git clone https://github.com/nocalhost/bookinfo && git checkout config/example
 
 <br/>
 
-
-然后再使用 Helm 来进行安装：
+Then use Helm to install:
 
 ```shell
 helm dep build ./charts/bookinfo && helm install bookinfo ./charts/bookinfo
@@ -54,8 +54,7 @@ helm dep build ./charts/bookinfo && helm install bookinfo ./charts/bookinfo
 
 <br/>
 
-
-部署配置的内容本身这里不做赘述，我们来看看 `charts/bookinfo/templates/nocalhost-app-config.yaml`。
+The content of the deployment configuration itself will not be repeated here. let's take a look at `charts/bookinfo/templates/nocalhost-app-config.yaml`.
 
 ```yaml
 apiVersion: v1
@@ -77,7 +76,7 @@ data:
 
 :::danger
 
-这个 ConfigMap 需要最先被提交的 Api Server，如在 Helm 的应用场景下，它应该被声明为 `pre-install`
+This ConfigMap requires to apply to Api Server first. For example, in the Helm application scenario, it should be declared as `pre-install`.
 
 ```yaml
   annotations:
@@ -88,7 +87,7 @@ data:
 
 <br/>
 
-它引入了 `.Values.nocalhost.config.path` 来渲染部署配置的主体内容。配置实际上声明在 `./charts/bookinfo/example/config-from-cm/nocalhost-full-config.yaml` 中，它是一个标准的 Nocalhost 部署配置，没有做额外的改造：
+It introduces `.Values.nocalhost.config.path` to render the main body of the deployment configuration. The configuration is actually declared in `./charts/bookinfo/example/config-from-cm/nocalhost-full-config.yaml`, which is a standard Nocalhost deployment configuration without any additional modification:
 
 ```yaml
 application:
@@ -154,21 +153,21 @@ application:
 
 ******
 
-## 使用 Annotations 配置部署配置
+## Using Annotations to make the deployment configuration
 
-使用方式与 [Nocalhost 支持哪些配置方式 —— 将配置放置在 annotations 中](configure-en.md#将配置放置在-annotations-中) 完全一致。
+The method of usage is exactly the same as [Which configuration methods Nocalhost supports-place the configuration in annotations](configure-en.md#configuration-in-annotations).
 
-:::danger 额外注意
+:::danger Extra attention
 
-由于 Annotations 紧跟工作负载，所以不支持应用级别的一些配置，仅支持 `application.services` 下的配置。
+Since Annotations closely follow the workload, some configurations at the application level are not supported. Only the configurations under `application.services` is supported.
 
 :::
 
 <br/>
 
-同样使用上述这个体验项目：
+Again, use the same demo project:
 
-:::tip 使用下列命令来获取并查看此项目（体验该 Chart 包需要 ClusterAdmin 级别的权限）
+:::tip Use the following commands to get and try out this project (trying the Chart package requires ClusterAdmin)
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout config/example
@@ -179,7 +178,7 @@ git clone https://github.com/nocalhost/bookinfo && git checkout config/example
 <br/>
 
 
-然后再使用 Helm 来进行安装：
+Then use Helm to install:
 
 ```shell
 helm dep build ./charts/bookinfo && helm install bookinfo ./charts/bookinfo -f ./charts/bookinfo/values-annotation-config.yaml
@@ -187,7 +186,7 @@ helm dep build ./charts/bookinfo && helm install bookinfo ./charts/bookinfo -f .
 
 <br/>
 
-我们指定了 `values-annotation-config.yaml` 作为 Values.yaml，里面指定了将本地配置文件渲染到工作负载的 Annotations 中，以 `./charts/bookinfo/templates/microservice-details.yaml` 为例：
+We specified `values-annotation-config.yaml` as Values.yaml, which specifies the rendering of the local configuration file to the Annotations of the workload. Take `./charts/bookinfo/templates/microservice-details.yaml` as an example:
 
 ```yaml
 apiVersion: apps/v1
@@ -205,7 +204,7 @@ metadata:
 
 <br/>
 
-Helm 会将 `.Values.nocalhost.annotations.path.details` 所配置路径渲染到 yaml 中，内容如下，即 Values 中指定的 `./charts/bookinfo/example/config-from-annotations/details.yaml`：
+Helm will render the path configured by `.Values.nocalhost.annotations.path.details` into yaml, whose content is as follows, that is, `./charts/bookinfo/example/config-from-annotations/details.yaml` specified in Values :
 
 ```yaml
 containers:
@@ -219,9 +218,9 @@ containers:
 
 ******
 
-## 如何部署 `Nocalhost Dep`
+## How to deploy `Nocalhost Dep`
 
-我们推荐使用 `Nocalhost Server` 来获得 `Nocalhost Dep` 的全部功能。
+We recommend using `Nocalhost Server` to get all the functions of `Nocalhost Dep`.
 
 :::danger 
 

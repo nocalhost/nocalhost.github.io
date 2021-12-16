@@ -7,8 +7,6 @@ title: Spec
 
 ******
 
-# Nocalhost configurations Spec
-
 :::info PRE-REQUIRE
 
 Before starting this section, please make sure you have already known how to configure Nocalhost. If not, please read [Nocalhost Overview](config-overview-en.md) first.

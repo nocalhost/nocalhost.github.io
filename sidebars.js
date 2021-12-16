@@ -49,7 +49,7 @@ module.exports = {
           label: 'Development',
           items: [
             'guides/develop-service',
-            'guides/develop-service-replace',
+            'guides/develop-service-replace-en',
             'guides/develop-service-dup-en',
               ],
 

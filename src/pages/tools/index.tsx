@@ -89,6 +89,7 @@ const Tools = () => {
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
   const [hasContainer, setHasContainer] = useState<boolean>(false);
+  const [isNameValid, setIsNameValid] = useState<boolean>(true);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
@@ -118,6 +119,7 @@ const Tools = () => {
     if (yamlObj) {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
+    checkContainerName();
     setIsValid(isYamlValid(yamlObj));
     setFileSyncValid(isFileSyncValid(yamlObj));
     setCommandValid(isCommandValid(yamlObj));
@@ -129,9 +131,9 @@ const Tools = () => {
   }, [yamlObj]);
 
   // check duplicate container name
-  const checkContainerName = (name?: string) => {
-    const containerNames = yamlObj.containers.map((item) => item.name);
-
+  function checkContainerName(name?: string) {
+    let isValid = true;
+    const containerNames = yamlObj?.containers?.map((item) => item.name) || [];
     if (name) {
       if (containerNames.includes(name)) {
         message.warning(
@@ -139,18 +141,19 @@ const Tools = () => {
             message: "Container name has duplicate!",
           })
         );
-        return false;
+        isValid = false;
       }
     } else {
-      if (new Set(containerNames).size !== containerNames.length) {
+      if (new Set(containerNames).size !== containerNames?.length) {
         message.warning(
           translate({ message: "Container name has duplicate, please check!" })
         );
-        return false;
+        isValid = false;
       }
     }
-    return true;
-  };
+    setIsNameValid(isValid);
+    return isValid;
+  }
 
   const getConfig = async (params: SaveInfo) => {
     const config = await queryConfig(params);
@@ -232,7 +235,6 @@ const Tools = () => {
                 tmpObj[containerIndex].label = value;
                 setContainerOptions(tmpObj);
                 tmpYamlObj.containers[containerIndex][field] = value;
-                checkContainerName();
               }
               break;
             case "deleteProtection":
@@ -325,10 +327,14 @@ const Tools = () => {
                   tmpYamlObj.containers[containerIndex]["dev"]["resources"] ||
                   {};
                 if (obj[a]) {
-                  obj[a][b] = b === "memory" ? `${value}Mi` : value;
+                  obj[a][b] = value
+                    ? b === "memory"
+                      ? `${value}Mi`
+                      : value
+                    : "";
                 } else {
                   obj[a] = {
-                    [b]: b === "memory" ? `${value}Mi` : value,
+                    [b]: value ? (b === "memory" ? `${value}Mi` : value) : "",
                   };
                 }
                 tmpYamlObj.containers[containerIndex]["dev"]["resources"] = {
@@ -643,7 +649,7 @@ const Tools = () => {
 
       const formatMemory = (memory: string) => {
         const num = parseFloat(memory);
-        return isNaN(num) ? "" : memory.indexOf("Gi") > -1 ? num * 1024 : num;
+        return isNaN(num) ? "" : memory.indexOf("G") > -1 ? num * 1024 : num;
       };
 
       if (currentContainer?.dev?.resources) {
@@ -737,14 +743,18 @@ const Tools = () => {
                       valid: isValid,
                     })}
                   >
-                    {isValid ? (
-                      <Translate>
-                        Completed the minimal development configuration
-                      </Translate>
+                    {isNameValid ? (
+                      isValid ? (
+                        <Translate>
+                          Completed the minimal development configuration
+                        </Translate>
+                      ) : (
+                        <Translate>
+                          Minimal development configuration is incomplete
+                        </Translate>
+                      )
                     ) : (
-                      <Translate>
-                        Minimal development configuration is incomplete
-                      </Translate>
+                      <Translate>Container name has duplicate!</Translate>
                     )}
                   </span>
                 </div>
