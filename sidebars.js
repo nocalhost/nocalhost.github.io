@@ -60,7 +60,14 @@ module.exports = {
           label: 'Debugging',
           items: [
             'guides/debug/overview',
-            'guides/debug/remote-debug',
+            {
+              type: 'category',
+              label: 'Remote Debugging',
+              items: [
+                'guides/debug/jetbrains-debug',
+                'guides/debug/vscode-debug',
+              ]
+            },
             'guides/debug/access-terminal', 
             'guides/debug/log-viewer',
           ]
