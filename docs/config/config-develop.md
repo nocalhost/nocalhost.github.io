@@ -56,7 +56,7 @@ containers:
 debug 的配置除了 `command.debug` 之外，还需要填写一个调试端口，如 gradle 默认调试端口为 5005。如果指定了其他端口，这里也应同步变更。
 
 :::info 如何使用一键调试
-[Remote Debugging](../guides/debug/jetbrains-debug.md) 中介绍了如何使用一键调试。
+[Remote Debugging](../guides/debug/jetbrains-debug.mdx) 中介绍了如何使用一键调试。
 :::
 
 
