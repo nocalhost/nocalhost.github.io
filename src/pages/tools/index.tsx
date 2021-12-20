@@ -47,10 +47,10 @@ import {
   isPatchesValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
-import { CaretDownOutlined } from "@ant-design/icons";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
+import EnterButton from "./components/EnterButton";
 const cx = classNames.bind(styles);
 
 const search2Obj = (search: string): SaveInfo => {
@@ -98,6 +98,7 @@ const Tools = () => {
   const [hasContainer, setHasContainer] = useState<boolean>(false);
   const [isNameValid, setIsNameValid] = useState<boolean>(true);
   const [workloadType, setWorkloadType] = useState([]);
+  const [openWorkload, setOpenWorkload] = useState<boolean>(false);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
@@ -735,12 +736,12 @@ const Tools = () => {
 
   const handleSearchWorkload = () => {
     setWorkloadType(WORKLOAD_TYPE);
+    setOpenWorkload(true);
   };
 
-  const handleSelectWorkload = (value: any) => {
-    if (value?.target.value) {
-      setWorkloadType([]);
-    }
+  const handleSelectWorkload = () => {
+    setWorkloadType([]);
+    setOpenWorkload(false);
   };
 
   return (
@@ -825,15 +826,17 @@ const Tools = () => {
                       ref={workloadRef}
                       options={workloadType}
                       style={{ width: 352 }}
-                      placeholder={translate({
-                        message: "Please select workload type",
-                      })}
+                      open={openWorkload}
+                      onSelect={handleSelectWorkload}
                     >
-                      <Input.Search
-                        onSearch={handleSearchWorkload}
-                        onSelect={handleSelectWorkload}
-                        enterButton={
-                          <CaretDownOutlined style={{ color: "" }} />
+                      <Input
+                        placeholder={translate({
+                          message: "Please select workload type",
+                        })}
+                        addonAfter={
+                          <EnterButton
+                            handleShowSelect={handleSearchWorkload}
+                          />
                         }
                       />
                     </AutoComplete>

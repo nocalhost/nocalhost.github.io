@@ -545,6 +545,10 @@ h6 {
   }
 }
 
+.enter-button {
+  width: 40px;
+}
+
 :global(.ant-tooltip.ant-tooltip-placement-top.ant-tooltip-hidden) {
   display: none;
 }
@@ -556,4 +560,8 @@ h6 {
 :global(.ant-select-single.ant-select-show-arrow .ant-select-selection-item) {
   display: flex;
   align-items: center;
+}
+
+:global(.ant-input-group-addon) {
+  padding: 0;
 }

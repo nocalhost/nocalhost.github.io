@@ -8,19 +8,21 @@ import IconArrowRight from "../images/arrow_right.svg";
 import DownArrow from "./DownArrow";
 import { ItemLabel } from "./RunAndDebug";
 import { CaretDownOutlined } from "@ant-design/icons";
+import EnterButton from "./EnterButton";
 
 const BasicConfig = () => {
   const [unfold, setUnfold] = useState<boolean>(false);
   const [imageArr, setImageArr] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const handleSearch = () => {
     setImageArr(IMAGE_OPTIONS);
+    setOpen(true);
   };
 
   const handleSelect = (value: any) => {
-    if (value?.target?.value) {
-      setImageArr([]);
-    }
+    setImageArr([]);
+    setOpen(false);
   };
 
   return (
@@ -45,15 +47,14 @@ const BasicConfig = () => {
         <AutoComplete
           style={{ width: 460 }}
           options={imageArr}
-          placeholder={translate({
-            message: "Please Select OR Enter A Development Image",
-          })}
-          suffixIcon={DownArrow}
+          onSelect={handleSelect}
+          open={open}
         >
-          <Input.Search
-            onSearch={handleSearch}
-            onSelect={handleSelect}
-            enterButton={<CaretDownOutlined />}
+          <Input
+            placeholder={translate({
+              message: "Please Select OR Enter A Development Image",
+            })}
+            addonAfter={<EnterButton handleShowSelect={handleSearch} />}
           />
         </AutoComplete>
       </Form.Item>
