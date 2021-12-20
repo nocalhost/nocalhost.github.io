@@ -20,7 +20,7 @@ const BasicConfig = () => {
     setOpen(true);
   };
 
-  const handleSelect = (value: any) => {
+  const handleSelect = () => {
     setImageArr([]);
     setOpen(false);
   };
@@ -49,6 +49,7 @@ const BasicConfig = () => {
           options={imageArr}
           onSelect={handleSelect}
           open={open}
+          onBlur={() => setOpen(false)}
         >
           <Input
             placeholder={translate({

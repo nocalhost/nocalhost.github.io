@@ -828,6 +828,7 @@ const Tools = () => {
                       style={{ width: 352 }}
                       open={openWorkload}
                       onSelect={handleSelectWorkload}
+                      onBlur={() => setOpenWorkload(false)}
                     >
                       <Input
                         placeholder={translate({
