@@ -1,6 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
+import {
+  Button,
+  Form,
+  Select,
+  Input,
+  message,
+  Modal,
+  Alert,
+  AutoComplete,
+} from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -22,11 +31,8 @@ import ImageYamlEmpty from "./images/image_yamlEmpty.svg";
 import DownArrow from "./components/DownArrow";
 import IconFile from "./images/icon_container_unfinished.svg";
 import IconFileActive from "./images/icon_container_finish.svg";
-
 import CopyToClipboard from "react-copy-to-clipboard";
-
 const json2yaml = require("json2yaml");
-
 import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
 
@@ -41,6 +47,7 @@ import {
   isPatchesValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
@@ -90,11 +97,11 @@ const Tools = () => {
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
   const [hasContainer, setHasContainer] = useState<boolean>(false);
   const [isNameValid, setIsNameValid] = useState<boolean>(true);
+  const [workloadType, setWorkloadType] = useState([]);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
-
-  const handleSubmit = () => {};
+  const workloadRef = useRef<any>(null);
 
   const handleCopy = () => {
     message.success(translate({ message: "Copy Successfully!" }));
@@ -726,6 +733,16 @@ const Tools = () => {
     }, 0);
   };
 
+  const handleSearchWorkload = () => {
+    setWorkloadType(WORKLOAD_TYPE);
+  };
+
+  const handleSelectWorkload = (value: any) => {
+    if (value?.target.value) {
+      setWorkloadType([]);
+    }
+  };
+
   return (
     <Layout>
       {!showResult && (
@@ -772,7 +789,6 @@ const Tools = () => {
               <Form
                 form={form}
                 layout="vertical"
-                onFinish={handleSubmit}
                 onFieldsChange={handleFieldChange}
               >
                 <div className={styles["form-line"]}>
@@ -805,14 +821,22 @@ const Tools = () => {
                     ]}
                     name="workloadType"
                   >
-                    <Select
-                      options={WORKLOAD_TYPE}
+                    <AutoComplete
+                      ref={workloadRef}
+                      options={workloadType}
                       style={{ width: 352 }}
-                      suffixIcon={DownArrow}
                       placeholder={translate({
                         message: "Please select workload type",
                       })}
-                    />
+                    >
+                      <Input.Search
+                        onSearch={handleSearchWorkload}
+                        onSelect={handleSelectWorkload}
+                        enterButton={
+                          <CaretDownOutlined style={{ color: "" }} />
+                        }
+                      />
+                    </AutoComplete>
                   </Form.Item>
                 </div>
                 <Form.Item
