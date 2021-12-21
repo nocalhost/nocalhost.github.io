@@ -45,12 +45,15 @@ import {
   isEnvVarValid,
   isPortForwardValid,
   isPatchesValid,
+  isContainerItemValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import EnterButton from "./components/EnterButton";
+import { ItemLabel } from "./components/RunAndDebug";
+
 const cx = classNames.bind(styles);
 
 const search2Obj = (search: string): SaveInfo => {
@@ -99,6 +102,7 @@ const Tools = () => {
   const [isNameValid, setIsNameValid] = useState<boolean>(true);
   const [workloadType, setWorkloadType] = useState([]);
   const [openWorkload, setOpenWorkload] = useState<boolean>(false);
+  const [containerValidArr, setContainerValidArr] = useState<boolean[]>([]);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
@@ -127,6 +131,11 @@ const Tools = () => {
     if (yamlObj) {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
+    // check container valid
+    const tmpValidArr =
+      yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
+    console.log(">>> valid: ", tmpValidArr);
+    setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
     setFileSyncValid(isFileSyncValid(yamlObj));
@@ -843,61 +852,74 @@ const Tools = () => {
                     </AutoComplete>
                   </Form.Item>
                 </div>
-                <Form.Item
-                  label={translate({ message: "Select Container" })}
-                  required={true}
-                  name="containerIndex"
-                >
-                  <Select
-                    style={{ width: 352 }}
-                    filterOption={false}
-                    notFoundContent={null}
-                    onInputKeyDown={handleInputContainer}
-                    onSelect={handleSelect}
-                    suffixIcon={DownArrow}
-                    placeholder={translate({
-                      message: "Please input or select container name",
-                    })}
+                <div className={styles["form-line-start"]}>
+                  <Form.Item
+                    label={
+                      <ItemLabel
+                        title={translate({ message: "Container Tip" })}
+                        label={translate({ message: "Container" })}
+                      />
+                    }
+                    required={true}
+                    name="containerIndex"
                   >
-                    {containerOptions.map((item, index) => {
-                      return (
-                        <Select.Option key={index} value={item.value}>
-                          <div className={styles["container-option"]}>
-                            <div className={styles["option-left"]}>
-                              <div className={styles["icon"]}>
-                                {form.getFieldValue("containerIndex") ===
-                                index ? (
-                                  <IconFileActive />
-                                ) : (
-                                  <IconFile />
-                                )}
+                    <Select
+                      style={{ width: 352 }}
+                      filterOption={false}
+                      notFoundContent={null}
+                      onInputKeyDown={handleInputContainer}
+                      onSelect={handleSelect}
+                      suffixIcon={DownArrow}
+                      placeholder={translate({
+                        message: "Please input or select container name",
+                      })}
+                    >
+                      {containerOptions.map((item, index) => {
+                        return (
+                          <Select.Option key={index} value={item.value}>
+                            <div className={styles["container-option"]}>
+                              <div className={styles["option-left"]}>
+                                <div className={styles["icon"]}>
+                                  {containerValidArr[index] ? (
+                                    <IconFileActive />
+                                  ) : (
+                                    <IconFile />
+                                  )}
+                                </div>
+                                {item.label}
                               </div>
-
-                              {item.label}
+                              <div
+                                className={styles["delete"]}
+                                onClick={() => handleDeleteContainer(index)}
+                              >
+                                <IconDel />
+                              </div>
                             </div>
-                            <div
-                              className={styles["delete"]}
-                              onClick={() => handleDeleteContainer(index)}
-                            >
-                              <IconDel />
-                            </div>
-                          </div>
-                        </Select.Option>
-                      );
-                    })}
-                    <Select.Option key="add" value="add">
-                      <div
-                        style={{ display: "flex", alignItems: "center" }}
-                        className={styles["add-container"]}
-                      >
-                        <IconAdd />
-                        <span style={{ marginLeft: 4 }}>
-                          {translate({ message: "Add Container" })}
-                        </span>
-                      </div>
-                    </Select.Option>
-                  </Select>
-                </Form.Item>
+                          </Select.Option>
+                        );
+                      })}
+                      <Select.Option key="add" value="add">
+                        <div
+                          style={{ display: "flex", alignItems: "center" }}
+                          className={styles["add-container"]}
+                        >
+                          <IconAdd />
+                          <span style={{ marginLeft: 4 }}>
+                            {translate({ message: "Add Container" })}
+                          </span>
+                        </div>
+                      </Select.Option>
+                    </Select>
+                  </Form.Item>
+                  {containerValidArr.includes(false) && (
+                    <div className={styles["container-waring"]}>
+                      <IconWaring />
+                      <span className={styles["ml6"]}>
+                        <Translate>Container Waring</Translate>
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <div
                   className={cx({
                     "config-wrap": true,

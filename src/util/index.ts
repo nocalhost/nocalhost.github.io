@@ -77,6 +77,7 @@ const generateSchema = (dev) => {
 
 const validate = ajv.compile(schema);
 
+// check container obj valid
 function isObjValid(obj, data) {
   return ajv.compile(generateSchema(obj))(data);
 }
@@ -87,6 +88,30 @@ function isPureOjbValid(obj, data) {
 
 export const isYamlValid = (data) => {
   return validate(data);
+};
+
+export const isContainerItemValid = (data) => {
+  const containerObj = {
+    type: "object",
+    required: ["name", "dev"],
+    properties: {
+      name: {
+        type: "string",
+        minLength: 1,
+      },
+      dev: {
+        type: "object",
+        required: ["image"],
+        properties: {
+          image: {
+            type: "string",
+            minLength: 1,
+          },
+        },
+      },
+    },
+  };
+  return isPureOjbValid(containerObj, data);
 };
 
 export const isFileSyncValid = (data) => {
