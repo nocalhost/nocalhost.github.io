@@ -83,7 +83,7 @@ const Tools = () => {
   const [yamlStr, setYamlStr] = useState("");
   const [containerOptions, setContainerOptions] = useState([]);
   const [configType, setConfigType] = useState<ConfigType>("Basic");
-  const [menuList] = useState<MenuItem[]>(CONFIG_TYPE);
+  const [menuList, setMenuList] = useState<MenuItem[]>(CONFIG_TYPE);
   const [isValid, setIsValid] = useState<boolean>(false);
   const [fileSyncValid, setFileSyncValid] = useState<boolean>(false);
   const [commandValid, setCommandValid] = useState<boolean>(false);
@@ -134,7 +134,6 @@ const Tools = () => {
     // check container valid
     const tmpValidArr =
       yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
-    console.log(">>> valid: ", tmpValidArr);
     setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
@@ -233,6 +232,27 @@ const Tools = () => {
             case "workloadType":
               {
                 tmpYamlObj.serviceType = value;
+                if (
+                  [
+                    "deployment",
+                    "statefulset",
+                    "daemonset",
+                    "job",
+                    "cronjob",
+                    "pod",
+                  ].includes(value)
+                ) {
+                  setMenuList([
+                    ...CONFIG_TYPE,
+                    {
+                      name: "Patches",
+                      status: "pending",
+                      type: "Patches",
+                    },
+                  ]);
+                } else {
+                  setMenuList(CONFIG_TYPE);
+                }
               }
               break;
             case "containerIndex":
