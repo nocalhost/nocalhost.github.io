@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Select, Tooltip, Radio, Switch } from "antd";
 import Translate, { translate } from "@docusaurus/Translate";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import styles from "../index.module.scss";
 import { SYNC_FILE_TYPE } from "../../../constants";
@@ -19,6 +20,11 @@ const FileSync = ({ form }) => {
           placeholder={translate({ message: "Please Select Sync Type" })}
           options={SYNC_FILE_TYPE}
           style={{ width: 460 }}
+          suffixIcon={
+            <CaretDownOutlined
+              style={{ color: "rgba(0, 0, 0, 0.85)", fontSize: 14 }}
+            />
+          }
         ></Select>
       </Form.Item>
       <Form.Item

@@ -28,13 +28,13 @@ import IconOption from "./images/icon_label_option.svg";
 import IconAdd from "./images/icon_add.svg";
 import IconDel from "./images/icon_del.svg";
 import ImageYamlEmpty from "./images/image_yamlEmpty.svg";
-import DownArrow from "./components/DownArrow";
 import IconFile from "./images/icon_container_unfinished.svg";
 import IconFileActive from "./images/icon_container_finish.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
 const json2yaml = require("json2yaml");
 import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import {
   isYamlValid,
@@ -889,7 +889,11 @@ const Tools = () => {
                       notFoundContent={null}
                       onInputKeyDown={handleInputContainer}
                       onSelect={handleSelect}
-                      suffixIcon={DownArrow}
+                      suffixIcon={
+                        <CaretDownOutlined
+                          style={{ color: "rgba(0, 0, 0, 0.85)", fontSize: 14 }}
+                        />
+                      }
                       placeholder={translate({
                         message: "Please input or select container name",
                       })}
