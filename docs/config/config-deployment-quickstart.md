@@ -40,7 +40,7 @@ application:
 <br/>
 
 
-:::danger A unique configuration method of Deploy Config ———— `config.yaml`
+:::danger Deployment configuration is usually declared through `config.yaml`
 
 The name of Deploy Config is normally `config.yaml`, which is also the recommended name, but it is ok to use other names.
 
@@ -67,7 +67,7 @@ We use `bookinfo` as an example here to introduce Deploy Config of Nocalhost.
 
 ### RawManifest Minimized Configuration
 
-The following is an actual Nocalhost Deploy Config, indicating that this is a RawManifest application and its `resourcePath` is the directory corresponding to `apply manifest/templates `.
+The following is an actual Nocalhost Deploy Config, indicating that this is a RawManifest application, resourcePath contains all resource paths, when deployed, they will be applied to the api server through `kubectl apply`.
 
 ```yaml
 application:
@@ -76,7 +76,7 @@ application:
   resourcePath: [ "manifest/templates" ]
 ```
 
-The directory is as follows, and the only change is the `config.yaml` under  `.nocalhost `.
+The directories are as follows, `.nocalhost` folder is created in the root directory, and `config.yaml` file is under the folder.
 
 ```shell
 ├── .nocalhost
@@ -127,25 +127,25 @@ Nocalhost will deploy this RawManifest application after you click OK. Now, you 
 
 #### Customize resourcePath and ignoredPath
 
-`resourcePath` is an array used to specify the RawManifest files to be deployed. For example, for the above application, if you only want to apply `job.yaml` files, you can change the configuration as follows.
+`resourcePath` is an array used to specify the RawManifest files to be deployed. For example, for the above application, if you only want to apply `*job*.yaml`, you can change the configuration as follows.
 
 ```yaml
 application:
   name: bookinfo
   manifestType: rawManifestGit
-  resourcePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
+  resourcePath: [ "manifest/templates/pre-install" ]
 ```
 
 <br/>
 
-Moreover, Deploy Config also supports setting `ignoredPath`. For example, for the above application, if you only want to apply `job.yaml` files, you can change the configuration as follows.
+Moreover, Deploy Config also supports setting `ignoredPath`. For example, for the above application, if you only want to apply all manifest without `*job*.yaml`, you can change the configuration as follows.
 
 ```yaml
 application:
   name: bookinfo
   manifestType: rawManifestGit
   resourcePath: [ "manifest/templates" ]
-  ignorePath: [ "manifest/templates/bookinfo" ]
+  ignorePath: [ "manifest/templates/pre-install" ]
 ```
 
 <br/>
