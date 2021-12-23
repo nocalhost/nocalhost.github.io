@@ -50,7 +50,7 @@ containers:
         remoteDebugPort: 5005
 ```
 
-Apart from configuring  `command.debug`, you also need to enter a debug port. For example, the default debug port for gradle is 5505. If you want to use other ports, here `remoteDebugPort` should be changed too.
+Apart from configuring  `command.debug`, you also need to enter a debug port. For example, the default debug port for gradle is 5005. If you want to use other ports, here `remoteDebugPort` should be changed too.
 
 :::info How to use one-click debugging
 
