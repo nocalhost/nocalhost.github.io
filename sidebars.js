@@ -93,7 +93,7 @@ module.exports = {
           items: [
             'config/config-spec-en',
             'config/config-dev-container-en',
-            'config/config-enhance-en',
+            'config/config-enhance',
             {
               type: 'category',
               label: 'Pattern',
@@ -101,16 +101,16 @@ module.exports = {
                 'config/config-pattern',
               ]
             },
-            'config/config-develop-en',
+            'config/config-develop',
           ]
         },
         'config/configure-en',
         {
           type: 'category',
-          label: 'Deploy',
+          label: 'Deployment',
           items: [
             'config/config-deployment-en',
-            'config/config-deployment-quickstart-en',
+            'config/config-deployment-quickstart',
             'config/config-deployment-spec',
             'config/config-deployment-advance',
             'config/config-deployment-syntax'
