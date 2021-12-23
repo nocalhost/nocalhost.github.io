@@ -114,15 +114,11 @@ export const isContainerItemValid = (data) => {
   return isPureOjbValid(containerObj, data);
 };
 
-export const isFileSyncValid = (data) => {
+export const isFileSyncValid = (data: YamlObj, index: number) => {
   const fileSyncObj = {
     type: "object",
-    required: ["image", "sync"],
+    required: ["sync"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       sync: {
         type: "object",
         required: ["type", "filePattern", "ignoreFilePattern"],
@@ -151,18 +147,15 @@ export const isFileSyncValid = (data) => {
       },
     },
   };
-  return isObjValid(fileSyncObj, data);
+
+  return isPureOjbValid(fileSyncObj, data?.containers?.[index]?.dev);
 };
 
-export const isCommandValid = (data) => {
+export const isCommandValid = (data: YamlObj, index: number) => {
   const commandObj = {
     type: "object",
-    required: ["image", "command"],
+    required: ["command"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       command: {
         type: "object",
         required: ["run", "debug"],
@@ -187,18 +180,15 @@ export const isCommandValid = (data) => {
       },
     },
   };
-  return isObjValid(commandObj, data);
+
+  return isPureOjbValid(commandObj, data?.containers?.[index]?.dev);
 };
 
-export const isVolumeValid = (data) => {
+export const isVolumeValid = (data: YamlObj, index: number) => {
   const volumeObj = {
     type: "object",
-    required: ["image", "persistentVolumeDirs", "storageClass"],
+    required: ["persistentVolumeDirs", "storageClass"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       storageClass: {
         type: "string",
         minLength: 1,
@@ -223,18 +213,14 @@ export const isVolumeValid = (data) => {
       },
     },
   };
-  return isObjValid(volumeObj, data);
+  return isPureOjbValid(volumeObj, data?.containers?.[index]?.dev);
 };
 
-export const isLimitValid = (data) => {
+export const isLimitValid = (data: YamlObj, index: number) => {
   const limitObj = {
     type: "object",
     required: ["image", "resources"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       resources: {
         type: "object",
         required: ["limits", "requests"],
@@ -258,18 +244,14 @@ export const isLimitValid = (data) => {
     },
   };
 
-  return isObjValid(limitObj, data);
+  return isPureOjbValid(limitObj, data?.containers?.[index]?.dev);
 };
 
-export const isEnvVarValid = (data) => {
+export const isEnvVarValid = (data: YamlObj, index: number) => {
   const devObj = {
     type: "object",
-    required: ["image", "env"],
+    required: ["env"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       env: {
         type: "array",
         minItems: 1,
@@ -291,18 +273,14 @@ export const isEnvVarValid = (data) => {
     },
   };
 
-  return isObjValid(devObj, data);
+  return isPureOjbValid(devObj, data?.containers?.[index]?.dev);
 };
 
-export const isPortForwardValid = (data) => {
+export const isPortForwardValid = (data: YamlObj, index: number) => {
   let portObj = {
     type: "object",
-    required: ["image", "portForward"],
+    required: ["portForward"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       portForward: {
         type: "array",
         minItems: 1,
@@ -313,13 +291,13 @@ export const isPortForwardValid = (data) => {
       },
     },
   };
-  return isObjValid(portObj, data);
+  return isPureOjbValid(portObj, data?.containers?.[index]?.dev);
 };
 
-export const isPatchesValid = (data: YamlObj) => {
+export const isPatchesValid = (data: YamlObj, index: number) => {
   const patchesObj = {
     type: "object",
-    required: ["image", "patches"],
+    required: ["patches"],
     properties: {
       image: {
         type: "string",
@@ -380,12 +358,10 @@ export const isPatchesValid = (data: YamlObj) => {
     },
   };
 
-  let isValid = isObjValid(patchesObj, data);
-
+  let isValid = isPureOjbValid(patchesObj, data?.containers?.[index]?.dev);
   const containers = data.containers || [];
   for (let i = 0, len = containers.length; i < len; i++) {
     const patches = containers[i]?.dev?.patches || [];
-
     for (let j = 0, patchLen = patches.length; j < patchLen; j++) {
       const patch = patches[j];
       const patchValid =
@@ -396,6 +372,5 @@ export const isPatchesValid = (data: YamlObj) => {
       }
     }
   }
-
   return isValid;
 };

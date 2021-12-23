@@ -7,7 +7,6 @@ import {
   Input,
   message,
   Modal,
-  Alert,
   AutoComplete,
 } from "antd";
 import BasicConfig from "./components/BasicConfig";
@@ -134,16 +133,18 @@ const Tools = () => {
     // check container valid
     const tmpValidArr =
       yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
+    const index = form.getFieldValue("containerIndex");
+    console.log(">>> index: ", index);
     setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
-    setFileSyncValid(isFileSyncValid(yamlObj));
-    setCommandValid(isCommandValid(yamlObj));
-    setVolumeValid(isVolumeValid(yamlObj));
-    setLimitValid(isLimitValid(yamlObj));
-    setEnvVarValid(isEnvVarValid(yamlObj));
-    setPortForwardValid(isPortForwardValid(yamlObj));
-    setPatchesValid(isPatchesValid(yamlObj));
+    setFileSyncValid(isFileSyncValid(yamlObj, index));
+    setCommandValid(isCommandValid(yamlObj, index));
+    setVolumeValid(isVolumeValid(yamlObj, index));
+    setLimitValid(isLimitValid(yamlObj, index));
+    setEnvVarValid(isEnvVarValid(yamlObj, index));
+    setPortForwardValid(isPortForwardValid(yamlObj, index));
+    setPatchesValid(isPatchesValid(yamlObj, index));
   }, [yamlObj]);
 
   // check duplicate container name
@@ -852,7 +853,6 @@ const Tools = () => {
                     name="workloadType"
                   >
                     <AutoComplete
-                      ref={workloadRef}
                       options={workloadType}
                       style={{ width: 352 }}
                       open={openWorkload}
@@ -884,6 +884,7 @@ const Tools = () => {
                     name="containerIndex"
                   >
                     <Select
+                      ref={workloadRef}
                       style={{ width: 352 }}
                       filterOption={false}
                       notFoundContent={null}
@@ -891,7 +892,11 @@ const Tools = () => {
                       onSelect={handleSelect}
                       suffixIcon={
                         <CaretDownOutlined
-                          style={{ color: "rgba(0, 0, 0, 0.85)", fontSize: 14 }}
+                          className="ant-select-suffix"
+                          style={{
+                            color: "rgba(0, 0, 0, 0.85)",
+                            fontSize: 14,
+                          }}
                         />
                       }
                       placeholder={translate({
@@ -935,14 +940,17 @@ const Tools = () => {
                       </Select.Option>
                     </Select>
                   </Form.Item>
-                  {containerValidArr.includes(false) && (
-                    <div className={styles["container-waring"]}>
-                      <IconWaring />
-                      <span className={styles["ml6"]}>
-                        <Translate>Container Waring</Translate>
-                      </span>
-                    </div>
-                  )}
+                  {containerValidArr.includes(false) &&
+                    containerValidArr[
+                      form?.getFieldValue("containerIndex")
+                    ] && (
+                      <div className={styles["container-waring"]}>
+                        <IconWaring />
+                        <span className={styles["ml6"]}>
+                          <Translate>Container Waring</Translate>
+                        </span>
+                      </div>
+                    )}
                 </div>
                 <div
                   className={cx({
@@ -965,7 +973,13 @@ const Tools = () => {
                             {
                               /*Basic Config*/
                               item.name === "Basic Config" &&
-                                (isValid ? <IconSuccess /> : <IconWaring />)
+                                (containerValidArr[
+                                  form?.getFieldValue("containerIndex")
+                                ] ? (
+                                  <IconSuccess />
+                                ) : (
+                                  <IconWaring />
+                                ))
                             }
                             {item.name === "File Synchronization" &&
                               (fileSyncValid ? (
