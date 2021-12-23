@@ -76,7 +76,7 @@ application:
   resourcePath: [ "manifest/templates" ]
 ```
 
-The directory is as follows, and the only change is the ` config.yaml` under  `.nocalhost `.
+The directory is as follows, and the only change is the `config.yaml` under  `.nocalhost `.
 
 ```shell
 ├── .nocalhost
@@ -99,7 +99,7 @@ The directory is as follows, and the only change is the ` config.yaml` under  `.
 
 <span id="deploy"></span>
 
-:::tip Use the following commands to get and check this application.
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/example
@@ -111,7 +111,7 @@ git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/
 
 #### Deploy the application by Nocalhost plug-in
 
-You can right-click any  `namespace` on Nocalhost plug-in, then click  `Deploy Application` and select  `clone from git`. Enter `https://github.com/nocalhost/bookinfo`  to Git URL column and  `manifest/config/example` to the branch column.
+You can right-click any `namespace` on Nocalhost plug-in, then click `Deploy Application` and select `clone from git`. Enter `https://github.com/nocalhost/bookinfo` to Git URL column and `manifest/config/example` to the branch column.
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/config/deploy-config-install-manifest.png')} />
@@ -127,7 +127,7 @@ Nocalhost will deploy this RawManifest application after you click OK. Now, you 
 
 #### Customize resourcePath and ignoredPath
 
-`resourcePath` is an array used to specify the RawManifest files to be deployed. For example, for the above application, if you only want to apply ` job.yaml` files, you can change the configuration as follows.
+`resourcePath` is an array used to specify the RawManifest files to be deployed. For example, for the above application, if you only want to apply `job.yaml` files, you can change the configuration as follows.
 
 ```yaml
 application:
@@ -138,21 +138,21 @@ application:
 
 <br/>
 
-Moreover, Deploy Config also supports setting `ignoredPath`. For example, for the above application, if you only want to apply all ` job.yaml` files, you can change the configuration as follows.
+Moreover, Deploy Config also supports setting `ignoredPath`. For example, for the above application, if you only want to apply `job.yaml` files, you can change the configuration as follows.
 
 ```yaml
 application:
   name: bookinfo
   manifestType: rawManifestGit
   resourcePath: [ "manifest/templates" ]
-  ignorePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
+  ignorePath: [ "manifest/templates/bookinfo" ]
 ```
 
 <br/>
 
 ### Kustomize Minimized Configuration
 
-Just like RawManifest, `config.yaml` for Kustomize type is as follows. It indicates that this is a Kustomize application named `bookinfo-kustomize` and  `resourcePath` is the directory corresponding to `kubectl apply -k`.
+Just like RawManifest, `config.yaml` for Kustomize type is as follows. It indicates that this is a Kustomize application named `bookinfo-kustomize` and `resourcePath` is the directory corresponding to `kubectl apply -k`.
 
 ```shell
 application:
@@ -185,7 +185,7 @@ Its directory structure is as follows, and `kustomize/base` corresponds to the d
 
 <br/>
 
-:::tip Use the following commands to get and check the application.
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout kustomize/config/example
@@ -205,7 +205,7 @@ You can follow the above instructions in **[Deploy the application by Nocalhost 
 
 ### Helm Minimized Configuration
 
-Like Kustomize,   `config.yaml` for Helm type is as follows. It indicates that this is a Helm application named `bookinfo-helm` and its `resourcePath` is the directory corresponding to `helm install` .
+Like Kustomize,  `config.yaml` for Helm type is as follows. It indicates that this is a Helm application named `bookinfo-helm` and its `resourcePath` is the directory corresponding to `helm install` .
 
 ```shell
 application:
@@ -214,7 +214,7 @@ application:
   resourcePath: ["charts/bookinfo"]
 ```
 
-Its directory structure is as follows, and `charts/bookinfo` corresponds to the directory containing  `Chart.yaml`.
+Its directory structure is as follows, and `charts/bookinfo` corresponds to the directory containing `Chart.yaml`.
 
 ```shell
 ├── .nocalhost
@@ -237,7 +237,7 @@ Its directory structure is as follows, and `charts/bookinfo` corresponds to the 
 
 <br/>
 
-:::tip Use the following commands to get and check the application.
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/example
