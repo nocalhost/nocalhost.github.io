@@ -20,12 +20,11 @@ containers:
         - 3306:3306
 ```
 
-If you expect some ports of the Dev Container could be automatically mapped to the local after entering Dev Mode, you need to do some related configurations. 
-
+If you expect some ports of the Dev Container could be automatically port-forward to the local after entering Dev Mode, you can do some related configurations. 
 
 :::danger About system ports
 
-If permission is required to listen on the local ports, such as the system ports (below 1024) in Ubuntu or Windows,  automatic port forwarding cannot be enabled after entering Dev Mode.
+If permission is required to listen on the local ports, such as the system ports (below 1024) in Ubuntu or Windows, automatic port-forward cannot be enabled after entering Dev Mode.
 
 :::
 
@@ -126,7 +125,7 @@ Nocalhost offers two synchronization modes. `containers[].dev.sync.mode`
 
 If you want to use pattern mode, you can configure filePattern and ignoreFilePattern to customize, such as only synchronizing building products or ignoring all files irrelevant to the building.
 
-As the example given above, it means to synchronize files in send only way and ignore  `.git`、`.github`、`.vscode` and `node_modules` .
+As the example given above, it means to synchronize files in send only way and ignore `.git`、`.github`、`.vscode` and `node_modules`.
 
 :::info Pattern
 
@@ -142,7 +141,7 @@ This mode is easy to use. It will automatically use `git` ignore configuration, 
 
 :::warning Requirements
 
-Since this function is based on `git`, you need to make sure that your device has installed  `git`. Moreover, the synchronized directory has to be in a `git` project.
+Since this function is based on `git`, you need to make sure that your device has installed `git`. Moreover, the synchronized directory has to be in a `git` project.
 
 If the above two requirements are not met, Nocalhost will not enable synchronization control, which means that all files will be synchronized. This is equivalent to no synchronization configuration. 
 
