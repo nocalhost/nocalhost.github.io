@@ -8,8 +8,6 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import use
 
 <br/>
 
-#Deploy Config ——— Nocalhost Basic Deployment Configuration 
-
 You can configure the appropriate deployment method to deploy your K8s applications by Nocalhost IDE plug-in. Nocalhost supports the following types to deploy applications:
 
 - RawManifest
