@@ -308,10 +308,6 @@ export const isPatchesValid = (data: YamlObj, index: number) => {
     type: "object",
     required: ["patches"],
     properties: {
-      image: {
-        type: "string",
-        minLength: 1,
-      },
       patches: {
         type: "array",
         minItems: 1,
@@ -368,18 +364,15 @@ export const isPatchesValid = (data: YamlObj, index: number) => {
   };
 
   let isValid = isPureOjbValid(patchesObj, data?.containers?.[index]?.dev);
-  const containers = data.containers || [];
-  for (let i = 0, len = containers.length; i < len; i++) {
-    const patches = containers[i]?.dev?.patches || [];
-    for (let j = 0, patchLen = patches.length; j < patchLen; j++) {
-      const patch = patches[j];
-      const patchValid =
-        isPureOjbValid(strPatchObj, patch) ||
-        isPureOjbValid(arrPatchObj, patch);
-      if (!patchValid) {
-        return false;
-      }
+  const patches = data?.containers?.[index]?.dev?.patches || [];
+  for (let j = 0, patchLen = patches.length; j < patchLen; j++) {
+    const patch = patches[j];
+    const patchValid =
+      isPureOjbValid(strPatchObj, patch) || isPureOjbValid(arrPatchObj, patch);
+    if (!patchValid) {
+      return false;
     }
   }
+
   return isValid;
 };
