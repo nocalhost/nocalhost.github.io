@@ -541,12 +541,6 @@ const Tools = () => {
     }
   };
 
-  const handleInputContainer = (e: any) => {
-    if (e.keyCode === 13) {
-      generateContainer(e.target.value);
-    }
-  };
-
   const generateContainer = (value: string) => {
     if (containerOptions.map((item) => item.label).includes(value)) {
       form.setFieldsValue({
@@ -888,7 +882,6 @@ const Tools = () => {
                       style={{ width: 352 }}
                       filterOption={false}
                       notFoundContent={null}
-                      onInputKeyDown={handleInputContainer}
                       onSelect={handleSelect}
                       suffixIcon={
                         <CaretDownOutlined

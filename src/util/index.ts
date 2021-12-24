@@ -154,7 +154,7 @@ export const isFileSyncValid = (data: YamlObj, index: number) => {
 export const isCommandValid = (data: YamlObj, index: number) => {
   const commandObj = {
     type: "object",
-    required: ["command"],
+    required: ["command", "debug"],
     properties: {
       command: {
         type: "object",
@@ -175,6 +175,15 @@ export const isCommandValid = (data: YamlObj, index: number) => {
               minLength: 1,
             },
             minItems: 1,
+          },
+        },
+      },
+      debug: {
+        type: "object",
+        required: ["remoteDebugPort"],
+        properties: {
+          remoteDebugPort: {
+            type: "number",
           },
         },
       },
