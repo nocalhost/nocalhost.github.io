@@ -735,5 +735,8 @@
   },
   "Container Waring": {
     "message": "containers with unfinished configurations"
+  },
+  "Please input or select workload type": {
+    "message": "Please input or select workload type"
   }
 }

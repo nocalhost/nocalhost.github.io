@@ -130,11 +130,9 @@ const Tools = () => {
     if (yamlObj) {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
-    // check container valid
     const tmpValidArr =
       yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
     const index = form.getFieldValue("containerIndex");
-    console.log(">>> index: ", index);
     setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
@@ -198,6 +196,27 @@ const Tools = () => {
       name: currentContainer?.label,
       containerIndex: currentContainer?.value,
     });
+
+    if (
+      [
+        "deployment",
+        "statefulset",
+        "daemonset",
+        "job",
+        "cronjob",
+        "pod",
+      ].includes(config.serviceType)
+    ) {
+      setMenuList([
+        ...CONFIG_TYPE,
+        {
+          name: "Patches",
+          status: "pending",
+          type: "Patches",
+        },
+      ]);
+    }
+
     coverFormField(config.containers[currentContainer?.value || 0]);
     setHasContainer(
       config.containers[currentContainer?.value || 0] ? true : false
@@ -855,7 +874,7 @@ const Tools = () => {
                     >
                       <Input
                         placeholder={translate({
-                          message: "Please select workload type",
+                          message: "Please input or select workload type",
                         })}
                         addonAfter={
                           <EnterButton
