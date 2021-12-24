@@ -940,17 +940,18 @@ const Tools = () => {
                       </Select.Option>
                     </Select>
                   </Form.Item>
-                  {containerValidArr.includes(false) &&
-                    containerValidArr[
-                      form?.getFieldValue("containerIndex")
-                    ] && (
-                      <div className={styles["container-waring"]}>
-                        <IconWaring />
-                        <span className={styles["ml6"]}>
-                          <Translate>Container Waring</Translate>
-                        </span>
-                      </div>
-                    )}
+                  {(containerValidArr.filter((item) => !item).length > 1 ||
+                    (containerValidArr.includes(false) &&
+                      containerValidArr[
+                        form?.getFieldValue("containerIndex")
+                      ])) && (
+                    <div className={styles["container-waring"]}>
+                      <IconWaring />
+                      <span className={styles["ml6"]}>
+                        <Translate>Container Waring</Translate>
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div
                   className={cx({
