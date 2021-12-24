@@ -197,6 +197,7 @@ h6 {
             margin: 8px 0;
 
             &-remove {
+              cursor: pointer;
               position: absolute;
               right: -30px;
               bottom: 2px;
@@ -234,6 +235,7 @@ h6 {
             }
 
             .remove {
+              cursor: pointer;
               position: relative;
               top: 18px;
             }
@@ -244,11 +246,13 @@ h6 {
             }
 
             .normal {
+              cursor: pointer;
               position: relative;
               top: 4px;
             }
             .patches-remove,
             .patches-remove-first {
+              cursor: pointer;
               position: absolute;
               right: 0;
               top: 6px;
