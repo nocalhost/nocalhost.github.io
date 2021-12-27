@@ -54,7 +54,6 @@ import EnterButton from "./components/EnterButton";
 import { ItemLabel } from "./components/RunAndDebug";
 
 const cx = classNames.bind(styles);
-
 const search2Obj = (search: string): SaveInfo => {
   let obj: SaveInfo = {} as SaveInfo;
   try {
@@ -72,7 +71,6 @@ const search2Obj = (search: string): SaveInfo => {
   }
   return obj;
 };
-
 const Tools = () => {
   const [form] = Form.useForm();
   const [yamlObj, setYamlObj] = useState<YamlObj | null>({
@@ -116,7 +114,6 @@ const Tools = () => {
     if (search) {
       const searchObj: SaveInfo = search2Obj(location.search);
       setURLParams(searchObj);
-
       try {
         getConfig(searchObj);
       } catch (e) {
@@ -223,7 +220,6 @@ const Tools = () => {
     );
     console.log(config);
   };
-
   const handleFieldChange = (changedFields: any) => {
     if (timer.current) {
       clearTimeout(timer.current);
@@ -1108,5 +1104,4 @@ const Tools = () => {
     </Layout>
   );
 };
-
 export default Tools;
