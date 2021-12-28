@@ -27,7 +27,7 @@ import IconOption from "./images/icon_label_option.svg";
 import IconAdd from "./images/icon_add.svg";
 import IconDel from "./images/icon_del.svg";
 import ImageYamlEmpty from "./images/image_yamlEmpty.svg";
-import IconFile from "./images/icon_container_unfinished.svg";
+import IconFile from "./images/icon_container_unfinish.svg";
 import IconFileActive from "./images/icon_container_finish.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
 const json2yaml = require("json2yaml");
