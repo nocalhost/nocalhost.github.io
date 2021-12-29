@@ -69,6 +69,7 @@ module.exports = {
         'guides/remote-run',
         // Hot Reload
         'guides/hot-reload',
+        'guides/sleep-mode',
         // 'guides/clear-pvc',
       ]
     },
