@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="crowdin-cli">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/node_modules/@crowdin/cli/jdeploy-bundle/crowdin-cli.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

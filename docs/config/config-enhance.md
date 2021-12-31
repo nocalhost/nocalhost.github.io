@@ -7,7 +7,7 @@ title: Enhance configuration
 
 ******
 
-### 开发模式后自动端口转发
+### Automatic Port Forwarding in Dev Mode
 
 ```yaml
 name: nocalhost-api
@@ -20,12 +20,11 @@ containers:
         - 3306:3306
 ```
 
-如果你希望在进入开发模式后，**自动**将某些开发容器端口与本地进行打通，可以进行相应的配置。
+If you expect some ports of the Dev Container could be automatically port-forward to the local after entering Dev Mode, you can do some related configurations. 
 
+:::danger About system ports
 
-:::danger 小端口权限问题
-
-如果本地监听的端口需要权限，如 ubuntu 或者 windows 系统下的小端口(1024 以下)，则无法在启动开发模式以后自动转发。
+If permission is required to listen on the local ports, such as the system ports (below 1024) in Ubuntu or Windows, automatic port-forward cannot be enabled after entering Dev Mode.
 
 :::
 
@@ -33,7 +32,7 @@ containers:
 
 ******
 
-### 源码地址
+### Source Code Address
 
 ```yaml
 name: nocalhost-api
@@ -44,22 +43,21 @@ containers:
       gitUrl: git@github.com:nocalhost/nocalhost.git
 ```
 
-源码地址指的是当前服务所对应的 git 源码目录，用于在**本地没有对应源码的时候快速便捷将源码下载到本地**，可支持 http/https 协议与 ssh 协议。
+Source code address refers to the git source code directory of the service. It is used to quickly and easily download the source code and it supports http/https and ssh protocols.
 
 :::tip
 
-能否真正克隆下来**取决于操作者使用的设备是否有权限**
+Whether the code can be successfully cloned depends on whether the device has the permission.
 
 :::
 
-
-适宜场景为提前配置好各个服务的 gitUrl，这样，对于团队协作来说，可以省去团队之间服务与业务的沟通成本。
+It would be the best to configure the gitUrl for each service in advance. In this way, the communication cost between teams could be greatly reduced.
 
 <br/>
 
 ******
 
-### 文件同步
+### File Synchronization
 
 ```yaml
 name: nocalhost-api
@@ -83,14 +81,14 @@ containers:
 
 ******
 
-文件同步的配置包括三个部分：
+The configuration of file synchronization includes three parts:
 
-** &nbsp • ** 其一是同步类型 `containers[].dev.sync.type`，可配置为
+** &nbsp • ** The first is the synchronization type, which includes:
 
 :::note
 
- - send，意为仅发送，所有的变更以本地为准，远程的变更不会影响到本地（默认方式）
- - sendReceive，意为双向同步，即一端的新增、修改、删除等操作将同步到另一端
+ - send. Send only (one-way). All changes depend on the local, and the remote changes will not affect the local (by default).
+ - sendReceive. Send and receive (two-way). Operations such as adding, modifying, and deleting at either end will be synchronized to the other end.
 
 :::
 
@@ -98,22 +96,22 @@ containers:
 
 ******
 
-** &nbsp • ** 其二是是否开启本地文件删除保护，即 `containers[].dev.sync.deleteProtection`，为布尔值
+** &nbsp • ** The second is the local file deletion protection `containers[].dev.sync.deleteProtection`, which is a Bool value.
 
-** &nbsp &nbsp &nbsp - ** 如果开启此功能，则本地不会同步远端的删除操作（默认开启此功能）。
+** &nbsp &nbsp &nbsp - ** If this function is enabled, the deletion in the remote will not be synchronized to the local (this function is enabled by default).
 
-** &nbsp &nbsp &nbsp - ** 如果关闭此功能，且开启双向同步的情况下，则当一个文件在远端被删除，本地也会相应将其进行删除。
+** &nbsp &nbsp &nbsp - ** If this function is disabled when `sendReceive` is enabled, the file will be deleted in the local when it is deleted in the remote.
 
 ******
 
-** &nbsp • ** 其二是同步忽略控制，我们知道，进入开发模式要选择一个本地的关联目录，默认情况下，Nocalhost 将同步目录下所有的文件，如果不想要同步所有内容，则可以进行定制。
+** &nbsp • ** The third is synchronization mode. You are required to select a local directory when entering Dev Mode, and then Nocalhost will synchronize all files under this directory by default. If you do not want to synchronize all files, you can customize it.
 
-Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
+Nocalhost offers two synchronization modes. `containers[].dev.sync.mode`
 
 :::note
 
- - pattern，意为使用模式匹配来进行同步内容控制（默认方式）
- - gitIgnore，意为使用目录的 gitIgnore 来忽略部分文件进行上传
+ - pattern. Synchronize files based on pattern matching (default mode).
+ - gitIgnore. Synchronize and ignore files according to `gitIgnore`.
 
 :::
 
@@ -123,43 +121,43 @@ Nocalhost 提供了两种同步内容控制方式，`containers[].dev.sync.mode`
 
 
 
-#### 使用 pattern 模式
+#### Pattern Mode
 
-如果想要对同步的内容使用模式匹配，可配置 filePattern 和 ignoreFilePattern 来进行定制，如只同步构建产物，或者忽略与构建无关的所有文件等。
+If you want to use pattern mode, you can configure filePattern and ignoreFilePattern to customize, such as only synchronizing building products or ignoring all files irrelevant to the building.
 
-如本小节所给出的示例意为，以 **只发送** 的形式来进行文件同步，同步所有的文件内容，并忽略命名为 `.git`、`.github`、`.vscode` 以及 `node_modules` 的文件与目录。
+As the example given above, it means to synchronize files in send only way and ignore `.git`、`.github`、`.vscode` and `node_modules`.
 
 :::info Pattern
 
-[点击这里查看 Pattern 的详细配置与语法](config-pattern.md)
+See more instructions in [Pattern Config](config-pattern.md).
 
 :::
 
 <br/>
 
-#### 使用 gitIgnore 模式
+#### gitIgnore Mode
 
-使用这种模式较为简便，它将自动使用该 `git` 项目的忽略配置，例如 `.gitignore` 等。
+This mode is easy to use. It will automatically use `git` ignore configuration, such as `gitignore `.
 
-:::warning 限制
+:::warning Requirements
 
-由于此功能基于 `git` 实现，所以当前使用的设备上必须安装 `git`。另外，同步目录需要是一个 `git` 项目所在的目录。
+Since this function is based on `git`, you need to make sure that your device has installed `git`. Moreover, the synchronized directory has to be in a `git` project.
 
-如果不满足上述两个条件，Nocalhost 将不启用同步内容控制，表现的行为为"同步目录下的所有文件"，**相当于没有进行任何同步配置控制**。
-
-:::
-
-<br/>
-
-:::tip 哪些文件被忽略了？
-
-你可以定位到同步目录下（如 `cd /yourpath`），输入 `git status --ignored=matching -s` 来查看那些被忽略的文件/文件夹。以 `!!` 开头的文件/文件夹将不会被同步到远端。
+If the above two requirements are not met, Nocalhost will not enable synchronization control, which means that all files will be synchronized. This is equivalent to no synchronization configuration. 
 
 :::
 
 <br/>
 
-示例：
+:::tip Which files are ignored?
+
+You can move to the file synchronization directory (e.g., `cd /yourpath`) and then enter `git status --ignored=matching -s` to see the ignored files/folders. Files/folders starting with `!!` will not be synchronized to the remote.
+
+:::
+
+<br/>
+
+Example:
 ```yaml
 name: nocalhost-api
 serviceType: deployment

@@ -7,12 +7,7 @@ title: Develop configuration
 
 ******
 
-:::danger VSCode 插件
-VSCode 插件暂不支持一键运行、调试等功能，Coming soon。
-:::
-
-
-### 配置一键运行
+### One-click Running
 
 ```yaml
 name: example
@@ -25,17 +20,19 @@ containers:
         run: [ "./gradlew", "bootRun" ]
 ```
 
-配置了 `command.run` 之后，即支持一键运行。其中，运行的命令与参数需要拆分成数组中的各个元素，如 `./gradlew bootRun` 配置为 `[ "./gradlew", "bootRun" ]`
+You can use one-click running after configuring `command.run`. The commands and parameters correspond to different elements in the array. For example, `./gradlew bootRun ` will be `["./gradlew", "bootRun"]`
 
-:::info 如何使用一键运行
-[Remote Run](../guides/remote-run.md) 中介绍了如何使用一键运行。
+:::info How to use one-click running
+
+See more instructions in [Remote Run](../guides/remote-run.md).
+
 :::
 
 <br/>
 
 ******
 
-### 配置一键调试
+### One-click Debugging
 
 ```yaml
 name: example
@@ -53,10 +50,12 @@ containers:
         remoteDebugPort: 5005
 ```
 
-debug 的配置除了 `command.debug` 之外，还需要填写一个调试端口，如 gradle 默认调试端口为 5005。如果指定了其他端口，这里也应同步变更。
+Apart from configuring  `command.debug`, you also need to enter a debug port. For example, the default debug port for gradle is 5005. If you want to use other ports, here `remoteDebugPort` should be changed too.
 
-:::info 如何使用一键调试
-[Remote Debugging](../guides/debug/jetbrains-debug.mdx) 中介绍了如何使用一键调试。
+:::info How to use one-click debugging
+
+See more instructions in [Remote Debugging](../guides/debug/jetbrains-debug.mdx).
+
 :::
 
 
@@ -64,7 +63,7 @@ debug 的配置除了 `command.debug` 之外，还需要填写一个调试端口
 
 ******
 
-### 配置 HotReload
+### Configure HotReload
 
 
 ```yaml
@@ -77,9 +76,10 @@ containers:
       hotReload: true
 ```
 
-在配置了 run 或者 debug 的前提下，再配置 `hotReload: true` 即可开启 hotReload。Nocalhost 原生提供的 hotReload 为 liveReload，如果你的语言与运行方式不支持 HotReload，或者配置复杂，可以尝试使用 Nocalhost 的 HotReload。
+With run or debug configured, you can further configure  `hotReload: true`  to enable HotReload. Nocalhost offers liveReload, so if your programming language and running method do not support HotReload or the configuration is too complex, you can try to use the HotReload provided by Nocalhost.
 
-:::info 配置了 run 命令的 HotReload
+:::info HotReload with run command
+
 ```yaml
 name: example
 serviceType: deployment

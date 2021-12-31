@@ -107,7 +107,7 @@ module.exports = {
         'config/configure-en',
         {
           type: 'category',
-          label: 'Deploy',
+          label: 'Deployment',
           items: [
             'config/config-deployment-en',
             'config/config-deployment-quickstart',

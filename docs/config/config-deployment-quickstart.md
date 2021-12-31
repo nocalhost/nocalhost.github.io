@@ -8,12 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import use
 
 <br/>
 
-******
-
-# 部署配置入门 ——— Nocalhost 基础部署配置
-
-You can configured the deployment method of matching type to deploy your application in Kubernetes with Nocalhost IDE
-plugin. Nocalhost supports to use the following types to deploy application:
+You can configure the appropriate deployment method to deploy your K8s applications by Nocalhost IDE plug-in. Nocalhost supports the following types to deploy applications:
 
 - RawManifest
 - Helm
@@ -23,9 +18,9 @@ plugin. Nocalhost supports to use the following types to deploy application:
 
 ******
 
-## 部署配置的结构
+## Deploy Config Structure
 
-[开发配置](config-overview-en.md)是部署配置的子集，是部署配置的一部分。部署配置的最精简结构如下：
+[Dev Config](config-overview-en.md) is a part of Deploy Config. The simplest structure of Deploy Config is as follows:
 
 ```yaml
 application:
@@ -34,20 +29,20 @@ application:
   resourcePath: []
 ```
 
-`application` 层级下分别为应用名、应用类型、与资源所在数组。
+`application` includes the application name, application type and the resource array.
 
-- 应用名用于在 Nocalhost 插件中展示并归档聚合资源，如果是 Helm 类型的应用，它也将成为 `Release.Name`
-- 应用类型大体分为 RawManifest、Helm 与 Kustomize 三种，不同的类型部署方式有所不同，所以需要类型来加以区分。
-- 最后则是资源路径，它应该包含所有需部署的资源的路径
+- Application name will be displayed in Nocalhost plug-in. If the application type is Helm, it will be of the form  `Release.Name`.
+- Applications are generally divided into three types, RawManifest, Helm and Kustomize. The deployment methods are different for different types, which is why it is necessary to distinguish types.
+- The last one is the resource path, which contains the paths of all the resources to be deployed.
 
 <br/>
 
 
-:::danger 部署配置独特的配置方式 ———— `config.yaml`
+:::danger Deployment configuration is usually declared through `config.yaml`
 
-部署配置的命名一般为 `config.yaml`，也可以使用其他命名，推荐使用 `config.yaml`。
+The name of Deploy Config is normally `config.yaml`, which is also the recommended name, but it is ok to use other names.
 
-`config.yaml` 需固定放在 git 主目录下的 .nocalhost 文件夹中。
+`config.yaml` has to be placed in the `.nocalhost` folder in git root directory.
 
 ```dotenv
 ├── .nocalhost
@@ -62,15 +57,15 @@ application:
 
 ******
 
-## 快速上手各个应用类型的部署配置
+## A Quick start for Deploy Config
 
-我们会以 bookinfo 这个应用为实例，介绍 Nocalhost 部署配置。
+We use `bookinfo` as an example here to introduce Deploy Config of Nocalhost.
 
 <br/>
 
-### RawManifest 最小化配置
+### RawManifest Minimized Configuration
 
-这是一个实际可用的 Nocalhost 部署配置，表明这是一个 RawManifest 应用，并且将 apply manifest/templates 目录下的所有资源，部署后，这个应用的应用名字是 bookinfo。
+The following is an actual Nocalhost Deploy Config, indicating that this is a RawManifest application, resourcePath contains all resource paths, when deployed, they will be applied to the api server through `kubectl apply`.
 
 ```yaml
 application:
@@ -79,7 +74,7 @@ application:
   resourcePath: [ "manifest/templates" ]
 ```
 
-该项目的目录结构如下，除了 .nocalhost 目录下的 config.yaml 以外，没有其他额外的修改：
+The directories are as follows, `.nocalhost` folder is created in the root directory, and `config.yaml` file is under the folder.
 
 ```shell
 ├── .nocalhost
@@ -102,7 +97,7 @@ application:
 
 <span id="deploy"></span>
 
-:::tip 使用下列命令来获取并查看此项目
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/example
@@ -112,50 +107,51 @@ git clone https://github.com/nocalhost/bookinfo && git checkout manifest/config/
 
 <br/>
 
-#### 在 Nocalhost 插件中部署这个应用
+#### Deploy the application by Nocalhost plug-in
 
-我们可以在 Nocalhost 插件中任意一个 `namespace` 点击右键，再点击 `Deploy Application`，选择 `clone from git`。 然后填入 `https://github.com/nocalhost/bookinfo` 这个地址与 `manifest/config/example` 分支。
+You can right-click any `namespace` on Nocalhost plug-in, then click `Deploy Application` and select `clone from git`. Enter `https://github.com/nocalhost/bookinfo` to Git URL column and `manifest/config/example` to the branch column.
+
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/config/deploy-config-install-manifest.png')} />
 </figure>
-
 <br/>
 
-点击部署即可，Nocalhost 将为你部署这个 RawManifest 应用，当前 `namespace` 下，将出现 bookinfo 这个应用。
+Nocalhost will deploy this RawManifest application after you click OK. Now, you can find `bookinfo` under  `namespace`.
+
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/config/deploy-config-install-manifest-success.png')} />
 </figure>
-
 <br/>
 
-#### 定制化 resourcePath 以及 ignoredPath
+#### Customize resourcePath and ignoredPath
 
-resourcePath 是一个数组，可以自由定制需要部署的 RawManifest，例如对于上述的应用来说，如果只想应用那些 job.yaml ，可以更改配置为：
+`resourcePath` is an array used to specify the RawManifest files to be deployed. For example, for the above application, if you only want to apply `*job*.yaml`, you can change the configuration as follows.
 
 ```yaml
 application:
   name: bookinfo
   manifestType: rawManifestGit
-  resourcePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
+  resourcePath: [ "manifest/templates/pre-install" ]
 ```
 
 <br/>
 
-此外，部署配置同样支持 `ignoredPath`，例如对于上述的应用来说，如果不想应用所有 job.yaml ，可以更改配置为：
+Moreover, Deploy Config also supports setting `ignoredPath`. For example, for the above application, if you only want to apply all manifest without `*job*.yaml`, you can change the configuration as follows.
 
 ```yaml
 application:
   name: bookinfo
   manifestType: rawManifestGit
   resourcePath: [ "manifest/templates" ]
-  ignorePath: [ "manifest/templates/bookinfo", "manifest/templates/pre-install" ]
+  ignorePath: [ "manifest/templates/pre-install" ]
 ```
 
 <br/>
 
-### Kustomize 最小化配置
+### Kustomize Minimized Configuration
 
-与 RawManifest 类似，Kustomize 类型的 config.yaml 如下，意为这是一个 Kustomize 应用，名字为 bookinfo-kustomize，配置的 resourcePath 对应为 `kubectl apply -k` 使用的目录。
+Just like RawManifest, `config.yaml` for Kustomize type is as follows. It indicates that this is a Kustomize application named `bookinfo-kustomize` and `resourcePath` is the directory corresponding to `kubectl apply -k`.
+
 ```shell
 application:
   name: bookinfo-kustomize
@@ -164,6 +160,8 @@ application:
 ```
 
 该项目的目录结构如下，`kustomize/base` 对应到 `kustomization.yaml` 所在的相对目录：
+
+Its directory structure is as follows, and `kustomize/base` corresponds to the directory containing `kustomization.yaml`.
 
 ```shell
 ├── .nocalhost
@@ -185,7 +183,7 @@ application:
 
 <br/>
 
-:::tip 使用下列命令来获取并查看此项目
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout kustomize/config/example
@@ -195,17 +193,18 @@ git clone https://github.com/nocalhost/bookinfo && git checkout kustomize/config
 
 <br/>
 
-:::info 尝试用 Nocalhost 插件中部署此项目
+:::info Deploy this application by Nocalhost plug-in
 
-可以在本文前面提到的 **[如何在插件中部署 Nocalhost 应用中](#deploy)** 进行操作，对应的分支名填写 `kustomize/config/example`
+You can follow the above instructions in **[Deploy the application by Nocalhost plug-in](#deploy)** and enter `kustomize/config/example` to the branch column.
 
 :::
 
 <br/>
 
-### Helm 最小化配置
+### Helm Minimized Configuration
 
-与 Kustomize 类似，Helm 类型的 config.yaml 如下，意为这是一个 Helm 应用，`Release.Name` 为 bookinfo-helm，配置的 resourcePath 对应为 `helm install` 使用的目录。
+Like Kustomize,  `config.yaml` for Helm type is as follows. It indicates that this is a Helm application named `bookinfo-helm` and its `resourcePath` is the directory corresponding to `helm install` .
+
 ```shell
 application:
   name: bookinfo-helm
@@ -213,7 +212,7 @@ application:
   resourcePath: ["charts/bookinfo"]
 ```
 
-该项目的目录结构如下，`charts/bookinfo` 对应到 `Chart.yaml` 所在的相对目录：
+Its directory structure is as follows, and `charts/bookinfo` corresponds to the directory containing `Chart.yaml`.
 
 ```shell
 ├── .nocalhost
@@ -236,7 +235,7 @@ application:
 
 <br/>
 
-:::tip 使用下列命令来获取并查看此项目
+:::tip Use the following commands to experience.
 
 ```shell
 git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/example
@@ -246,9 +245,9 @@ git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/exam
 
 <br/>
 
-:::info 尝试用 Nocalhost 插件中部署此项目
+:::info Deploy this application by Nocalhost plug-in
 
-可以在本文前面提到的 **[如何在插件中部署 Nocalhost 应用中](#deploy)** 进行操作，对应的分支名填写 `helm/config/example`
+You can follow the above instructions in **[Deploy the application by Nocalhost plug-in](#deploy)** and enter  `helm/config/example` to the branch column.
 
 :::
 
@@ -256,21 +255,23 @@ git clone https://github.com/nocalhost/bookinfo && git checkout helm/config/exam
 
 ******
 
-## 在部署配置中预先配置好开发配置
+## Pre-Configure Dev Config in Deploy Config
 
 :::info
-在阅读本小节之前，已经默认你已知晓开发配置应如何配置。
+
+Please note that we assume that you have already known Dev Config before reading this section.
+
 :::
 
-在 Nocalhost 部署配置中，可以将开发配置进行嵌入。这样有一个好处，可以将 Nocalhost 配置植入到应用部署过程中，省去在新环境中重复进行配置 Nocalhost 的工作。两者并不冲突，相当于在 Nocalhost 部署应用后，自动将开发配置与服务进行关联。
+Dev Config can be embedded in Deploy Config. That brings a benefit that Nocalhost configuration would be contained in the application deployment process, which eliminates the repeated configuration work in the new environment. There is no conflict here, because it is equivalent to automatically associating Dev Config with the service after the application is deployed.
 
 <br/>
 
-### 示例
+### Example
 
-例如，在前面的部署示例中，我们始终部署 bookinfo 这个应用，里面有几个类型为 Deployment 的工作负载，我们来对它们进行一些配置，最终如下。
+The bookinfo application we used above has several workloads which are deployment type. Now, let us configure them as follows.
 
-除了上述的最小化配置以外，我们引入了 services 这个数组，数组内的元素则是我们熟悉的**[开发配置](config-spec-en.md)**：
+Apart from the above minimized configurations, we introduce an array named services, in which the elements are **[Dev Config](config-spec-en.md)** .
 
 ```yaml
 application:
@@ -335,10 +336,10 @@ application:
 
 <br/>
 
-:::tip 可以使用 QuickStart 示例应用来体验
+:::tip Use the QuickStart sample to experience
 
-** [Demo 中使用的应用就是在部署配置中嵌入了开发配置](../guides/deploy/deploy-demo.md)**
+The **[demo application](../guides/deploy/deploy-demo.md)** embeds Dev Config in Deploy Config.
 
-在部署完毕的 Demo 应用中，随意右键点击应用底下的一个工作负载，如 `Deployment/details` ，发现它已经提前配置好了一系列开发配置，我们可以按照预设的配置直接进入开发模式。
+After deploying demo application, just right-click a workload under this application, such as `Deployment / details`. You will find that it has been configured with a series of development configurations in advance, so you can directly enter the Dev Mode based on them.
 
 :::
