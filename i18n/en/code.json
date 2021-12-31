@@ -272,7 +272,7 @@
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
     "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
-    "description": "The label used to tell the user to check the latest version"
+    "description": "The label userd to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "latest version",
@@ -718,5 +718,25 @@
   },
   "kuaikan.info": {
     "message": "KuaiKan is a national comic IP platform and sharing community for young people in China, with over 340 million users. Use Nocalhost Server to manage the development environment based on Namespace isolation, and use IDE plug-ins to shorten the development cycle feedback."
+  },
+  "Container Tip": {
+    "message": "All containers used in the menu need to be configured for minimal development, otherwise they need to be deleted"
+  },
+  "Container": {
+    "message": "Container"
+  },
+  "theme.docs.sidebar.responsiveCloseButtonLabel": {
+    "message": "Close menu",
+    "description": "The ARIA label for close button of mobile doc sidebar"
+  },
+  "theme.docs.sidebar.responsiveOpenButtonLabel": {
+    "message": "Open menu",
+    "description": "The ARIA label for open button of mobile doc sidebar"
+  },
+  "Container Waring": {
+    "message": "containers with unfinished configurations"
+  },
+  "Please input or select workload type": {
+    "message": "Please input or select workload type"
   }
 }
