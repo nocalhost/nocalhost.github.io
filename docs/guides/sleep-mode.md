@@ -45,6 +45,6 @@ You can trigger sleep/wakeup in three different ways.
 
 - By default, `Nocalhost` performs a round of sleep checks every `10s`.
 - Workloads that are already in `DevMode` will be ignored and will not be sleep.
-- `DevSpace` that are manually sleep by the user will not automatically wakeup that day.
-- `DevSpace` that are manually wakeup by the user will not automatically sleep that day.
+- `DevSpace` that are manually sleep by the user will not automatically wakeup on the same day.
+- `DevSpace` that are manually wakeup by the user will not automatically sleep on the same day.
 - When the user clears all sleep settings, the `DevSpace` that has gone to sleep will wake up automatically.
