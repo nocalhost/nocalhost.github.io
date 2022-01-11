@@ -100,9 +100,9 @@ We are using the bookinfo application as an example here. You can use your own a
 
 Make sure you have successfully deployed workloads within your Kubernetes Cluster, then:
 
-1. Expand the workloads tree, find the workload you want to develop
+1. Expand the workloads tree, find the productpage workload to begin our development
 2. Click <img className="svg-icon" src={useBaseUrl('/img/icons/dev_start.svg')} width="18" /> to start the `Development Mode (DevMode)`
-3. Specify the source code local directory or you can clone from existing Git repository. 
+3. Clone source code from a Git repository (or you can associate with a local derectory). 
 4. Nocalhost will open a new VS Code window, and start the `DevMode` automatically.
 
 <figure className="img-frame">
@@ -126,7 +126,7 @@ When entering DevMode, the application main process will not automatically start
 
 :::
 
-**2.** View the running result on [http://127.0.0.1:39080](http://127.0.0.1:39080) in your web browser
+**2.** View the running result on [http://127.0.0.1:39080/productpage](http://127.0.0.1:39080/productpage) in your web browser
 
 <figure className="img-frame">
   <img className="gif-img" src={useBaseUrl('/img/opt/main-process.gif')} />
@@ -141,7 +141,7 @@ In our `bookinfo` demo, we've already set the port-forward to 39080:9080, which 
 
 ### Change the code
 
-**1.** Modify code in  `productpage.py` and see change in web browser. **Do not** forget to save your change.
+**1.** Modify code in  `productpage.py` and see change in web browser. Find the `getProducts` function in line 379 and change the `'title'` of the return value from `'The Comedy of Errors'` to `'Hello Nocalhost'`. **Do not** forget to save your change.
 
 **2.** Refresh the web browser and see the code change
 
