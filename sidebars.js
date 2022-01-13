@@ -23,8 +23,8 @@ module.exports = {
       label: 'Getting Started',
       collapsed: false,
       items: [
-        'quick-start',
         'installation',
+        'quick-start',
       ]
     },
     // Guides

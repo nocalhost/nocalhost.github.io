@@ -31,7 +31,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::tip JetBrains Plugin
 
-Nocalhost does fully supports JetBrains, please refer to [Install JetBrains Plugin](./installation##install-jetbrains-plugin).
+Nocalhost does fully support JetBrains, please refer to [Install JetBrains Plugin](./installation##install-jetbrains-plugin).
 
 :::
 
@@ -153,6 +153,10 @@ In our `bookinfo` demo, we've already set the port-forward to 39080:9080, which 
 👍 **Congratulations!** You are all set to go
 
 ## What's Next?
+
+Now you are ready to develop with Nocalhost. But if you still want more details about Nocalhost, you can consult [USER GUIDES](https://nocalhost.dev/docs/guides/manage-cluster), or if you are a team leader, then you can try [Nocalhost Server](https://nocalhost.dev/docs/server/server-overview) and understand how Nocalhost can improve your team's efficiency.
+
+You can also:
 
 - Refer to Nocalhost's [Introduction](./introduction)
 - Visit our [Github Repo](https://github.com/nocalhost/nocalhost)
