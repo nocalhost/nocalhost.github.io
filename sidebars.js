@@ -11,6 +11,12 @@
 
 module.exports = {
   docs: [
+    // Summary
+    {
+      type: 'doc',
+      label: 'Summary',
+      id: 'summary',
+    },
     // Intro
     {
       type: 'doc',
