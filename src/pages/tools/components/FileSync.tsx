@@ -22,6 +22,7 @@ const FileSync = ({ form }) => {
           style={{ width: 460 }}
           suffixIcon={
             <CaretDownOutlined
+              className="ant-select-suffix"
               style={{ color: "rgba(0, 0, 0, 0.85)", fontSize: 14 }}
             />
           }
