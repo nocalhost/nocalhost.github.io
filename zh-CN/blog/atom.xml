@@ -2,31 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2022-01-17T02:00:18.993Z</updated>
+    <updated>2022-01-17T02:52:26.776Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
     <icon>https://nocalhost.dev/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller]]></title>
-        <id>使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller</id>
-        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
-        <updated>2022-01-17T02:00:18.993Z</updated>
-        <summary type="html"><![CDATA[Introduction]]></summary>
+        <title type="html"><![CDATA[Nocalhost v0.5.6 发布]]></title>
+        <id>Nocalhost v0.5.6 发布</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/0.5.6"/>
+        <updated>2022-01-17T02:52:26.776Z</updated>
+        <summary type="html"><![CDATA[Nocalhost v0.5.6已经发布，我们已经修复了一些缺陷，提高了性能并添加了一些新功能。]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/zh-CN/blog/docs-translate"/>
-        <updated>2022-01-17T02:00:18.993Z</updated>
+        <updated>2022-01-17T02:52:26.776Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Nocalhost v0.5.6 发布]]></title>
-        <id>Nocalhost v0.5.6 发布</id>
-        <link href="https://nocalhost.dev/zh-CN/blog/0.5.6"/>
-        <updated>2022-01-17T02:00:18.989Z</updated>
-        <summary type="html"><![CDATA[Nocalhost v0.5.6已经发布，我们已经修复了一些缺陷，提高了性能并添加了一些新功能。]]></summary>
+        <title type="html"><![CDATA[使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller]]></title>
+        <id>使用 Nocalhost 开发 Kubernetes 中的 APISIX Controller</id>
+        <link href="https://nocalhost.dev/zh-CN/blog/api-six"/>
+        <updated>2022-01-17T02:52:26.776Z</updated>
+        <summary type="html"><![CDATA[Introduction]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
