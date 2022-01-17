@@ -272,7 +272,7 @@
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
     "message": "最新的文档请参阅 {latestVersionLink} ({versionLabel})。",
-    "description": "The label used to tell the user to check the latest version"
+    "description": "The label userd to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "最新文档",
@@ -712,5 +712,31 @@
   },
   "deleteProtectTip": {
     "message": "删除保护意味着文件同步不会主动删除你的本地文件（这也可能导致文件与远程不同步）"
+  },
+  "kuaikan.title": {
+    "message": "快看漫画"
+  },
+  "kuaikan.info": {
+    "message": "快看APP是中国年轻人的国漫IP平台和分享社区，用户数超过 3.4 亿。快看APP使用 Nocalhost Server 管理基于 Namespace 隔离的开发环境，使用 IDE 插件缩短开发循环反馈。"
+  },
+  "Container Tip": {
+    "message": "All containers used in the menu need to be configured for minimal development, otherwise they need to be deleted"
+  },
+  "Container": {
+    "message": "Container"
+  },
+  "theme.docs.sidebar.responsiveCloseButtonLabel": {
+    "message": "Close menu",
+    "description": "The ARIA label for close button of mobile doc sidebar"
+  },
+  "theme.docs.sidebar.responsiveOpenButtonLabel": {
+    "message": "Open menu",
+    "description": "The ARIA label for open button of mobile doc sidebar"
+  },
+  "Container Waring": {
+    "message": "containers with unfinished configurations"
+  },
+  "Please input or select workload type": {
+    "message": "Please input or select workload type"
   }
 }

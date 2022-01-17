@@ -1,19 +1,27 @@
 import React, { useState } from "react";
-
 import { Form, Input, AutoComplete } from "antd";
-
 import Translate, { translate } from "@docusaurus/Translate";
-
 import styles from "../index.module.scss";
-
 import { IMAGE_OPTIONS } from "../../../constants";
 import IconArrowDown from "../images/arrow_down.svg";
 import IconArrowRight from "../images/arrow_right.svg";
-import DownArrow from "./DownArrow";
 import { ItemLabel } from "./RunAndDebug";
+import EnterButton from "./EnterButton";
 
 const BasicConfig = () => {
   const [unfold, setUnfold] = useState<boolean>(false);
+  const [imageArr, setImageArr] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  const handleSearch = () => {
+    setImageArr(IMAGE_OPTIONS);
+    setOpen(true);
+  };
+
+  const handleSelect = () => {
+    setImageArr([]);
+    setOpen(false);
+  };
 
   return (
     <>
@@ -36,12 +44,18 @@ const BasicConfig = () => {
       >
         <AutoComplete
           style={{ width: 460 }}
-          options={IMAGE_OPTIONS}
-          placeholder={translate({
-            message: "Please Select OR Enter A Development Image",
-          })}
-          suffixIcon={DownArrow}
-        />
+          options={imageArr}
+          onSelect={handleSelect}
+          open={open}
+          onBlur={() => setOpen(false)}
+        >
+          <Input
+            placeholder={translate({
+              message: "Please Select OR Enter A Development Image",
+            })}
+            addonAfter={<EnterButton handleShowSelect={handleSearch} />}
+          />
+        </AutoComplete>
       </Form.Item>
       <div
         className={styles["config-title"]}

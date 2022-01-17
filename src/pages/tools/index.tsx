@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
-import { Button, Form, Select, Input, message, Modal, Alert } from "antd";
+import {
+  Button,
+  Form,
+  Select,
+  Input,
+  message,
+  Modal,
+  AutoComplete,
+} from "antd";
 import BasicConfig from "./components/BasicConfig";
 import FileSync from "./components/FileSync";
 import RunAndDebug from "./components/RunAndDebug";
@@ -19,16 +27,13 @@ import IconOption from "./images/icon_label_option.svg";
 import IconAdd from "./images/icon_add.svg";
 import IconDel from "./images/icon_del.svg";
 import ImageYamlEmpty from "./images/image_yamlEmpty.svg";
-import DownArrow from "./components/DownArrow";
-import IconFile from "./images/icon_container_unfinished.svg";
+import IconFile from "./images/icon_container_unfinish.svg";
 import IconFileActive from "./images/icon_container_finish.svg";
-
 import CopyToClipboard from "react-copy-to-clipboard";
-
 const json2yaml = require("json2yaml");
-
 import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
 import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import {
   isYamlValid,
@@ -39,13 +44,16 @@ import {
   isEnvVarValid,
   isPortForwardValid,
   isPatchesValid,
+  isContainerItemValid,
 } from "../../util";
 import { saveConfig, queryConfig } from "../../util/request";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-const cx = classNames.bind(styles);
+import EnterButton from "./components/EnterButton";
+import { ItemLabel } from "./components/RunAndDebug";
 
+const cx = classNames.bind(styles);
 const search2Obj = (search: string): SaveInfo => {
   let obj: SaveInfo = {} as SaveInfo;
   try {
@@ -63,7 +71,6 @@ const search2Obj = (search: string): SaveInfo => {
   }
   return obj;
 };
-
 const Tools = () => {
   const [form] = Form.useForm();
   const [yamlObj, setYamlObj] = useState<YamlObj | null>({
@@ -73,7 +80,7 @@ const Tools = () => {
   const [yamlStr, setYamlStr] = useState("");
   const [containerOptions, setContainerOptions] = useState([]);
   const [configType, setConfigType] = useState<ConfigType>("Basic");
-  const [menuList] = useState<MenuItem[]>(CONFIG_TYPE);
+  const [menuList, setMenuList] = useState<MenuItem[]>(CONFIG_TYPE);
   const [isValid, setIsValid] = useState<boolean>(false);
   const [fileSyncValid, setFileSyncValid] = useState<boolean>(false);
   const [commandValid, setCommandValid] = useState<boolean>(false);
@@ -90,11 +97,13 @@ const Tools = () => {
   const [newContainerIndex, setNewContainerIndex] = useState<number>(0);
   const [hasContainer, setHasContainer] = useState<boolean>(false);
   const [isNameValid, setIsNameValid] = useState<boolean>(true);
+  const [workloadType, setWorkloadType] = useState([]);
+  const [openWorkload, setOpenWorkload] = useState<boolean>(false);
+  const [containerValidArr, setContainerValidArr] = useState<boolean[]>([]);
 
   const timer = useRef<number | null>();
   const flagRef = useRef<string>("change");
-
-  const handleSubmit = () => {};
+  const workloadRef = useRef<any>(null);
 
   const handleCopy = () => {
     message.success(translate({ message: "Copy Successfully!" }));
@@ -105,7 +114,6 @@ const Tools = () => {
     if (search) {
       const searchObj: SaveInfo = search2Obj(location.search);
       setURLParams(searchObj);
-
       try {
         getConfig(searchObj);
       } catch (e) {
@@ -119,15 +127,19 @@ const Tools = () => {
     if (yamlObj) {
       setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
     }
+    const tmpValidArr =
+      yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
+    const index = form.getFieldValue("containerIndex");
+    setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
-    setFileSyncValid(isFileSyncValid(yamlObj));
-    setCommandValid(isCommandValid(yamlObj));
-    setVolumeValid(isVolumeValid(yamlObj));
-    setLimitValid(isLimitValid(yamlObj));
-    setEnvVarValid(isEnvVarValid(yamlObj));
-    setPortForwardValid(isPortForwardValid(yamlObj));
-    setPatchesValid(isPatchesValid(yamlObj));
+    setFileSyncValid(isFileSyncValid(yamlObj, index));
+    setCommandValid(isCommandValid(yamlObj, index));
+    setVolumeValid(isVolumeValid(yamlObj, index));
+    setLimitValid(isLimitValid(yamlObj, index));
+    setEnvVarValid(isEnvVarValid(yamlObj, index));
+    setPortForwardValid(isPortForwardValid(yamlObj, index));
+    setPatchesValid(isPatchesValid(yamlObj, index));
   }, [yamlObj]);
 
   // check duplicate container name
@@ -181,13 +193,33 @@ const Tools = () => {
       name: currentContainer?.label,
       containerIndex: currentContainer?.value,
     });
+
+    if (
+      [
+        "deployment",
+        "statefulset",
+        "daemonset",
+        "job",
+        "cronjob",
+        "pod",
+      ].includes(config.serviceType)
+    ) {
+      setMenuList([
+        ...CONFIG_TYPE,
+        {
+          name: "Patches",
+          status: "pending",
+          type: "Patches",
+        },
+      ]);
+    }
+
     coverFormField(config.containers[currentContainer?.value || 0]);
     setHasContainer(
       config.containers[currentContainer?.value || 0] ? true : false
     );
     console.log(config);
   };
-
   const handleFieldChange = (changedFields: any) => {
     if (timer.current) {
       clearTimeout(timer.current);
@@ -216,6 +248,27 @@ const Tools = () => {
             case "workloadType":
               {
                 tmpYamlObj.serviceType = value;
+                if (
+                  [
+                    "deployment",
+                    "statefulset",
+                    "daemonset",
+                    "job",
+                    "cronjob",
+                    "pod",
+                  ].includes(value)
+                ) {
+                  setMenuList([
+                    ...CONFIG_TYPE,
+                    {
+                      name: "Patches",
+                      status: "pending",
+                      type: "Patches",
+                    },
+                  ]);
+                } else {
+                  setMenuList(CONFIG_TYPE);
+                }
               }
               break;
             case "containerIndex":
@@ -503,12 +556,6 @@ const Tools = () => {
     }
   };
 
-  const handleInputContainer = (e: any) => {
-    if (e.keyCode === 13) {
-      generateContainer(e.target.value);
-    }
-  };
-
   const generateContainer = (value: string) => {
     if (containerOptions.map((item) => item.label).includes(value)) {
       form.setFieldsValue({
@@ -726,6 +773,16 @@ const Tools = () => {
     }, 0);
   };
 
+  const handleSearchWorkload = () => {
+    setWorkloadType(WORKLOAD_TYPE);
+    setOpenWorkload(true);
+  };
+
+  const handleSelectWorkload = () => {
+    setWorkloadType([]);
+    setOpenWorkload(false);
+  };
+
   return (
     <Layout>
       {!showResult && (
@@ -772,7 +829,6 @@ const Tools = () => {
               <Form
                 form={form}
                 layout="vertical"
-                onFinish={handleSubmit}
                 onFieldsChange={handleFieldChange}
               >
                 <div className={styles["form-line"]}>
@@ -805,71 +861,106 @@ const Tools = () => {
                     ]}
                     name="workloadType"
                   >
-                    <Select
-                      options={WORKLOAD_TYPE}
+                    <AutoComplete
+                      options={workloadType}
                       style={{ width: 352 }}
-                      suffixIcon={DownArrow}
-                      placeholder={translate({
-                        message: "Please select workload type",
-                      })}
-                    />
+                      open={openWorkload}
+                      onSelect={handleSelectWorkload}
+                      onBlur={() => setOpenWorkload(false)}
+                    >
+                      <Input
+                        placeholder={translate({
+                          message: "Please input or select workload type",
+                        })}
+                        addonAfter={
+                          <EnterButton
+                            handleShowSelect={handleSearchWorkload}
+                          />
+                        }
+                      />
+                    </AutoComplete>
                   </Form.Item>
                 </div>
-                <Form.Item
-                  label={translate({ message: "Select Container" })}
-                  required={true}
-                  name="containerIndex"
-                >
-                  <Select
-                    style={{ width: 352 }}
-                    filterOption={false}
-                    notFoundContent={null}
-                    onInputKeyDown={handleInputContainer}
-                    onSelect={handleSelect}
-                    suffixIcon={DownArrow}
-                    placeholder={translate({
-                      message: "Please input or select container name",
-                    })}
+                <div className={styles["form-line-start"]}>
+                  <Form.Item
+                    label={
+                      <ItemLabel
+                        title={translate({ message: "Container Tip" })}
+                        label={translate({ message: "Container" })}
+                      />
+                    }
+                    required={true}
+                    name="containerIndex"
                   >
-                    {containerOptions.map((item, index) => {
-                      return (
-                        <Select.Option key={index} value={item.value}>
-                          <div className={styles["container-option"]}>
-                            <div className={styles["option-left"]}>
-                              <div className={styles["icon"]}>
-                                {form.getFieldValue("containerIndex") ===
-                                index ? (
-                                  <IconFileActive />
-                                ) : (
-                                  <IconFile />
-                                )}
+                    <Select
+                      ref={workloadRef}
+                      style={{ width: 352 }}
+                      filterOption={false}
+                      notFoundContent={null}
+                      onSelect={handleSelect}
+                      suffixIcon={
+                        <CaretDownOutlined
+                          className="ant-select-suffix"
+                          style={{
+                            color: "rgba(0, 0, 0, 0.85)",
+                            fontSize: 14,
+                          }}
+                        />
+                      }
+                      placeholder={translate({
+                        message: "Please input or select container name",
+                      })}
+                    >
+                      {containerOptions.map((item, index) => {
+                        return (
+                          <Select.Option key={index} value={item.value}>
+                            <div className={styles["container-option"]}>
+                              <div className={styles["option-left"]}>
+                                <div className={styles["icon"]}>
+                                  {containerValidArr[index] ? (
+                                    <IconFileActive />
+                                  ) : (
+                                    <IconFile />
+                                  )}
+                                </div>
+                                {item.label}
                               </div>
-
-                              {item.label}
+                              <div
+                                className={styles["delete"]}
+                                onClick={() => handleDeleteContainer(index)}
+                              >
+                                <IconDel />
+                              </div>
                             </div>
-                            <div
-                              className={styles["delete"]}
-                              onClick={() => handleDeleteContainer(index)}
-                            >
-                              <IconDel />
-                            </div>
-                          </div>
-                        </Select.Option>
-                      );
-                    })}
-                    <Select.Option key="add" value="add">
-                      <div
-                        style={{ display: "flex", alignItems: "center" }}
-                        className={styles["add-container"]}
-                      >
-                        <IconAdd />
-                        <span style={{ marginLeft: 4 }}>
-                          {translate({ message: "Add Container" })}
-                        </span>
-                      </div>
-                    </Select.Option>
-                  </Select>
-                </Form.Item>
+                          </Select.Option>
+                        );
+                      })}
+                      <Select.Option key="add" value="add">
+                        <div
+                          style={{ display: "flex", alignItems: "center" }}
+                          className={styles["add-container"]}
+                        >
+                          <IconAdd />
+                          <span style={{ marginLeft: 4 }}>
+                            {translate({ message: "Add Container" })}
+                          </span>
+                        </div>
+                      </Select.Option>
+                    </Select>
+                  </Form.Item>
+                  {(containerValidArr.filter((item) => !item).length > 1 ||
+                    (containerValidArr.includes(false) &&
+                      containerValidArr[
+                        form?.getFieldValue("containerIndex")
+                      ])) && (
+                    <div className={styles["container-waring"]}>
+                      <IconWaring />
+                      <span className={styles["ml6"]}>
+                        <Translate>Container Waring</Translate>
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <div
                   className={cx({
                     "config-wrap": true,
@@ -891,7 +982,13 @@ const Tools = () => {
                             {
                               /*Basic Config*/
                               item.name === "Basic Config" &&
-                                (isValid ? <IconSuccess /> : <IconWaring />)
+                                (containerValidArr[
+                                  form?.getFieldValue("containerIndex")
+                                ] ? (
+                                  <IconSuccess />
+                                ) : (
+                                  <IconWaring />
+                                ))
                             }
                             {item.name === "File Synchronization" &&
                               (fileSyncValid ? (
@@ -1007,5 +1104,4 @@ const Tools = () => {
     </Layout>
   );
 };
-
 export default Tools;
