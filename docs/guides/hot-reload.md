@@ -99,4 +99,6 @@ containers:
 
 ```
 
+## What's Next?
 
+Now you have understood what DevMode is and how it works. Nocalhost supports a lot of configurations that control the actions when Nocalhost enter DevMode. If you are interested in Nocalhost configurations, you can check [CONFIGURATION](https://nocalhost.dev/docs/config/config-en).

@@ -11,6 +11,12 @@
 
 module.exports = {
   docs: [
+    // Summary
+    {
+      type: 'doc',
+      label: 'Summary',
+      id: 'summary',
+    },
     // Intro
     {
       type: 'doc',
@@ -23,8 +29,8 @@ module.exports = {
       label: 'Getting Started',
       collapsed: false,
       items: [
-        'quick-start',
         'installation',
+        'quick-start',
       ]
     },
     // Guides
