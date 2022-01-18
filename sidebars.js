@@ -57,6 +57,7 @@ module.exports = {
             'guides/develop-service',
             'guides/develop-service-replace-en',
             'guides/develop-service-dup-en',
+            'guides/develop-service-crd',
               ],
 
         },
