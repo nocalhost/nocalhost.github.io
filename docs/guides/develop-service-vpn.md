@@ -1,21 +1,27 @@
 ---
-title: VPN replace
+title: VPN proxy
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import useBaseUrl from '@docusaurus/useBaseUrl';
 
-### VPN replace mode
+### VPN proxy mode
 
-Nocalhost support VPN now, so we have another different develop mode called VPN replace mode. in this mode, nocalhost
-will intercept all traffic which hit to service and forward it to local, at the same time, you can access remote
-kubernetes cluster network, like: you can use DNS to connect MySQL service in k8s cluster, and also you can access pod
-service with pod ip directly.
+Nocalhost already supports the VPN function, If your application can start in a simple way and has less dependence on
+K8s resources, such as PVC, Secret, Cm, etc. then it is very suitable to use the traffic proxy mode to enter the
+development mode.
+
+In this mode, Nocalhost will provide you with the K8s network environment locally, and you can directly access K8s
+service with K8s DNS (such as directly accessing the K8s service through svc name), pod ip, svc ip, etc.
+
+At the same time, Nocalhost will intercept all inbound traffic of the specified service and forward it to the local, you
+can directly start your business code locally for development and debugging.
 
 ### Feature
 
 - use k8s dns to access remote service on local computer.
-- intercept the special service all traffic and forward it to local service.
-- support multiple platform, like Windows，macOS，Linux etc.
+- intercept all inbound traffic of special service and forward it to local service.
+- support multiple protocol, like TCP, UDP, ICMP etc.
+- support multiple platform, like Windows, macOS, Linux etc.
 
 ### Architecture
 
@@ -33,11 +39,11 @@ like the picture below, at the same cluster and namespace
 
 ### How to use it
 
-#### open VPN replace mode
+#### Enter VPN proxy mode
 
 ![vscode](/img/vpn/vpn-replace-start-all.png)
 
-- on Windows, you will see a promote with full screen, remember chose yes
+- on Windows, you will see a prompt with full screen, remember chose yes
 
 ![vscode](/img/vpn/vpn-replace-sudo-password-windows.png)
 
