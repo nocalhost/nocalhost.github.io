@@ -8,4 +8,4 @@ Service dependencies can be defined through `services[*].dependLabelSelector` in
 
 ## What's Next?
 
-You have finished Nocalhost Server section. You can use Nocalhost to accelerate your team's development process. But we recommend you to read the [Best Prictices](https://nocalhost.dev/docs/practice/cloud/k8s-compatible) section before using Nocalhost. 
+You have finished Nocalhost Server section. You can use Nocalhost to accelerate your team's development process. We recommend you to read the [User Guides](https://nocalhost.dev/docs/guides/manage-cluster/) before take Nocalhost Server into use.
