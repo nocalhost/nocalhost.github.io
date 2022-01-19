@@ -35,7 +35,7 @@ notes:
     - create: Specify if a new Deployment is created in order to develop when CustomResources objects enter `DevMode`.
         - If it's set into `true`, Nocalhost will use the Pod template definition in `podTemplatePath` to create a new Deployment. All of the operations in `DevMode` will be done in that Deployment.
         - If it's set into `false`, Nocalhost will modify the Pod template definition of the CustomResources object directly. All of the operations done in `DevMode` will be applied to the CustomeResources object.
-    - scalePatches: It specifies the patch that configure the CustomResources object to reduce the amount of replicas into 1 before entering `DevMode`. If the amount of replicas has already been 1 or you don't mean to reduce the amount, then you can ignore this piece of config(refering to `How to make sure the cluster's traffic only visit the developing image in DevMod?`).
+    - scalePatches: It specifies the patch that configure the CustomResources object to reduce the amount of replicas into 1 before entering `DevMode`. If the amount of replicas has already been 1 or you don't mean to reduce the amount, then you can ignore this piece of config(refering to `How to make sure the cluster's traffic only visit the developing image in DevMode?`).
 
 Besides, Nocalhost also has built-in support for several common open-source CustomResources, which includes [CloneSet](https://openkruise.io/docs/user-manuals/cloneset/) of [Kruise](https://github.com/openkruise/kruise), [Advanced StatefulSet](https://openkruise.io/docs/user-manuals/advancedstatefulset), [Advanced DaemonSet](https://openkruise.io/docs/user-manuals/advanceddaemonset) etc. You can use Nocalhost to develop these CustomResources without configuration.
 
