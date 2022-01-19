@@ -32,7 +32,12 @@ import IconFileActive from "./images/icon_container_finish.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
 const json2yaml = require("json2yaml");
 import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
-import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
+import {
+  CONFIG_TYPE,
+  WORKLOAD_TYPE,
+  DEFAULT_CONTAINER,
+  LANGUAGE_OPTIONS,
+} from "../../constants";
 import { CaretDownOutlined } from "@ant-design/icons";
 
 import {
@@ -360,15 +365,15 @@ const Tools = () => {
               }
               break;
             case "remoteDebugPort":
+            case "language":
               {
                 let obj =
                   tmpYamlObj.containers[containerIndex]["dev"]["debug"] || {};
-                obj[field] = +value;
+                obj[field] = field === "remoteDebugPort" ? +value : value;
                 tmpYamlObj.containers[containerIndex]["dev"]["debug"] = {
                   ...obj,
                 };
               }
-
               break;
             case "limits-memory":
             case "requests-cpu":
@@ -420,6 +425,19 @@ const Tools = () => {
             default:
               {
                 let obj = tmpYamlObj.containers[containerIndex]["dev"] || {};
+                if (field === "image") {
+                  for (let i = 0, len = LANGUAGE_OPTIONS.length; i < len; i++) {
+                    const language = LANGUAGE_OPTIONS[i].label;
+                    if (value.indexOf(language) > -1) {
+                      form.setFieldsValue({
+                        language: LANGUAGE_OPTIONS[i].value,
+                      });
+                      obj["debug"]["language"] = LANGUAGE_OPTIONS[i].value;
+                      break;
+                    }
+                  }
+                }
+
                 obj[field] = value;
                 tmpYamlObj.containers[containerIndex]["dev"] = { ...obj };
               }
@@ -618,6 +636,7 @@ const Tools = () => {
       "command-run": "",
       "command-debug": "",
       remoteDebugPort: "",
+      language: "",
       hotReload: false,
       deleteProtection: true,
       storageClass: "",
@@ -691,6 +710,13 @@ const Tools = () => {
         const { remoteDebugPort } = currentContainer.dev.debug;
         form.setFieldsValue({
           remoteDebugPort,
+        });
+      }
+
+      if (currentContainer.dev?.debug?.language) {
+        const { language } = currentContainer.dev.language;
+        form.setFieldsValue({
+          language,
         });
       }
 

@@ -1,3 +1,4 @@
+import { MenuItem, Container } from "../types";
 export const IMAGE_OPTIONS = [
   {
     label: "java:11",
@@ -32,7 +33,34 @@ export const IMAGE_OPTIONS = [
     value: "nocalhost-docker.pkg.coding.net/nocalhost/dev-images/php:latest",
   },
 ];
-import { MenuItem, Container } from "../types";
+
+export const LANGUAGE_OPTIONS = [
+  {
+    label: "java",
+    value: "java",
+  },
+  {
+    label: "ruby",
+    value: "ruby",
+  },
+  {
+    label: "node",
+    value: "node",
+  },
+  {
+    label: "python",
+    value: "python",
+  },
+  {
+    label: "golang",
+    value: "go",
+  },
+  {
+    label: "php",
+    value: "php",
+  },
+];
+
 export const CONFIG_TYPE: MenuItem[] = [
   { name: "Basic Config", status: "reject", type: "Basic" },
   { name: "File Synchronization", status: "pending", type: "FileSync" },
