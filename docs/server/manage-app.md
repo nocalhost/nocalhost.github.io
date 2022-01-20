@@ -45,3 +45,7 @@ You can also expand the `Workload` in Nocalhost control panel to see the details
 ![image.png](/img/server-ks/vsc-nocalhost-workload.png)
 
 Then you can develop this bookinfo app like the conventional way of Nocalhost [Enter Development Mode](https://nocalhost.dev/docs/quick-start/#3-enter-development-mode). Enjoy the convenience of Nocalhost!
+
+## What's Next?
+
+You have finished Nocalhost Server section. You can use Nocalhost to accelerate your team's development process. We recommend you to read the [User Guides](https://nocalhost.dev/docs/guides/manage-cluster/) before take Nocalhost Server into use.
