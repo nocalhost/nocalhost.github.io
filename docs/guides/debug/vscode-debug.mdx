@@ -2,23 +2,23 @@
 title: VSCode
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Configuration from './_debug-configuration.md';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Configuration from "./_debug-configuration.md";
 
 # VSCode Remote Debugging
 
 ## Supported Languages
 
-| Language | Required Plugin                                                                                    | Dev Image Required   |
-| -------- | -------------------------------------------------------------------------------------------------- | -------------- |
-| Java     | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) | N/A            |
-| Go       | [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)                                | dlv            |
-| Python   | [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                     | debugpy        |
-| PHP      | [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)            | xdebug         |
-| Node.js  | N/A                                                                                                | N/A            |
-| Ruby     | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)                          | ruby-debug-ide |
+| Language | Required Plugin                                                                                    | Dev Image Required |
+| -------- | -------------------------------------------------------------------------------------------------- | ------------------ |
+| Java     | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) | N/A                |
+| Go       | [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)                                | dlv                |
+| Python   | [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                     | debugpy            |
+| PHP      | [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)            | xdebug             |
+| Node.js  | N/A                                                                                                | N/A                |
+| Ruby     | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)                          | ruby-debug-ide     |
 
 ### Plugin Configuration
 
@@ -56,10 +56,10 @@ In order to locate these command-line tools, the extension searches `GOPATH/bin`
 5. Nocalhost will automatically enter the `DevMode` and start remote debugging
 
 <figure className="img-frame">
-  <img className="gif-img" src={useBaseUrl('/img/debug/vscode-debug.gif')} />
+  <img className="gif-img" src={useBaseUrl("/img/debug/vscode-debug.gif")} />
 </figure>
 
-<Configuration name="vscode"/>
+<Configuration name="vscode" />
 
 ## Debugging Configurations in IDE
 
@@ -95,3 +95,9 @@ If you need to enable diagnostic output when debugging a `Node.js` application, 
 - PHP: [PHP Debug](https://github.com/xdebug/vscode-php-debug#supported-launchjson-settings)
 - Node.js: [VSCode](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_remote-debugging)
 - Ruby: [Ruby](https://github.com/rubyide/vscode-ruby/wiki/3.-Attaching-to-a-debugger)
+
+### FAQ
+
+#### The java debugger stops at `return ma.invoke(obj, args);`in the `java.lang.reflect.Method.class` file.
+
+Execute the `Java: Clean the Java language server workspace` command
