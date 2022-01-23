@@ -95,7 +95,7 @@ After `KubeConfig` is successfully loaded, select the context that you want to a
 
 :::tip Application
 
-We are using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Demo Application](./guides/deploy/deploy-demo)** to deploy the demo application in your Kubernetes clusters.
+We are using the bookinfo application as an example here. You can use your own application that already deployed in your Kubernetes clusters, or you can follow **[Deploy Demo Application](./guides/deploy/deploy-demo.md)** to deploy the demo application in your Kubernetes clusters.
 
 :::
 
