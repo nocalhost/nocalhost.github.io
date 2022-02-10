@@ -72,7 +72,7 @@ export interface ISync {
   deleteProtection: boolean;
 }
 
-interface IPatches {
+export interface IPatches {
   type: "json" | "strategic";
   patch: IPatch[] | string;
 }
