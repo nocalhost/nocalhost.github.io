@@ -152,7 +152,6 @@ const Tools = () => {
       } catch (e) {
         tmpYamlObj = yamlObj;
       }
-      console.log(tmpYamlObj);
       if (tmpYamlObj)
         setYamlStr(json2yaml.stringify(tmpYamlObj).replace(/\-\-\-\s*\n/, ""));
     }
@@ -199,15 +198,22 @@ const Tools = () => {
   }
 
   const getConfig = async (params: SaveInfo) => {
-    const config = await queryConfig(params);
+    const tmpConfig = await queryConfig(params);
+    const config: YamlObj = JSON.parse(JSON.stringify(tmpConfig));
+    tmpConfig.containers.forEach((container, containerIndex) => {
+      container?.dev?.patches?.forEach((patch, patchIndex) => {
+        if (patch.type === "json") {
+          config.containers[containerIndex].dev.patches[patchIndex].patch =
+            JSON.parse(patch.patch as string);
+        }
+      });
+    });
     const containerArr = config.containers.map((item, index) => ({
       label: item.name,
       value: index,
     }));
     setContainerOptions(containerArr);
-
     let currentContainer = containerArr[0];
-
     if (params?.container) {
       const result = containerArr.find(
         (item) => item.label === params.container
@@ -216,7 +222,6 @@ const Tools = () => {
         currentContainer = result;
       }
     }
-
     setYamlObj(config);
     form.setFieldsValue({
       workloadName: config.name,
@@ -249,7 +254,6 @@ const Tools = () => {
     setHasContainer(
       config.containers[currentContainer?.value || 0] ? true : false
     );
-    console.log(config);
   };
   const handleFieldChange = (changedFields: any) => {
     if (timer.current) {
@@ -528,7 +532,6 @@ const Tools = () => {
                 tmpYamlObj?.containers?.[containerIndex]?.dev?.patches || [];
               const result = arr.map((item) => {
                 const obj = item || ({} as IPatches);
-
                 return {
                   ...obj,
                   type: obj.type || "strategic",
