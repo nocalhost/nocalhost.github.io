@@ -31,8 +31,20 @@ import IconFile from "./images/icon_container_unfinish.svg";
 import IconFileActive from "./images/icon_container_finish.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
 const json2yaml = require("json2yaml");
-import { MenuItem, ConfigType, YamlObj, SaveInfo, ISync } from "../../types";
-import { CONFIG_TYPE, WORKLOAD_TYPE, DEFAULT_CONTAINER } from "../../constants";
+import {
+  MenuItem,
+  ConfigType,
+  YamlObj,
+  SaveInfo,
+  ISync,
+  IPatches,
+} from "../../types";
+import {
+  CONFIG_TYPE,
+  WORKLOAD_TYPE,
+  DEFAULT_CONTAINER,
+  LANGUAGE_OPTIONS,
+} from "../../constants";
 import { CaretDownOutlined } from "@ant-design/icons";
 
 import {
@@ -125,11 +137,29 @@ const Tools = () => {
 
   useEffect(() => {
     if (yamlObj) {
-      setYamlStr(json2yaml.stringify(yamlObj).replace(/\-\-\-\s*\n/, ""));
+      // deal with patches
+      let tmpYamlObj: YamlObj = JSON.parse(JSON.stringify(yamlObj));
+      try {
+        yamlObj.containers.forEach((container, containerIndex) => {
+          container?.dev?.patches.forEach((patch, patcheIndex) => {
+            if (patch.type === "json") {
+              tmpYamlObj.containers[containerIndex].dev.patches[
+                patcheIndex
+              ].patch = JSON.stringify(patch.patch);
+            }
+          });
+        });
+      } catch (e) {
+        tmpYamlObj = yamlObj;
+      }
+      if (tmpYamlObj)
+        setYamlStr(json2yaml.stringify(tmpYamlObj).replace(/\-\-\-\s*\n/, ""));
     }
     const tmpValidArr =
       yamlObj?.containers?.map((item) => isContainerItemValid(item)) || [];
     const index = form.getFieldValue("containerIndex");
+
+    // valiate yaml
     setContainerValidArr(tmpValidArr);
     checkContainerName();
     setIsValid(isYamlValid(yamlObj));
@@ -168,15 +198,22 @@ const Tools = () => {
   }
 
   const getConfig = async (params: SaveInfo) => {
-    const config = await queryConfig(params);
+    const tmpConfig = await queryConfig(params);
+    const config: YamlObj = JSON.parse(JSON.stringify(tmpConfig));
+    tmpConfig.containers.forEach((container, containerIndex) => {
+      container?.dev?.patches?.forEach((patch, patchIndex) => {
+        if (patch.type === "json") {
+          config.containers[containerIndex].dev.patches[patchIndex].patch =
+            JSON.parse(patch.patch as string);
+        }
+      });
+    });
     const containerArr = config.containers.map((item, index) => ({
       label: item.name,
       value: index,
     }));
     setContainerOptions(containerArr);
-
     let currentContainer = containerArr[0];
-
     if (params?.container) {
       const result = containerArr.find(
         (item) => item.label === params.container
@@ -185,7 +222,6 @@ const Tools = () => {
         currentContainer = result;
       }
     }
-
     setYamlObj(config);
     form.setFieldsValue({
       workloadName: config.name,
@@ -218,7 +254,6 @@ const Tools = () => {
     setHasContainer(
       config.containers[currentContainer?.value || 0] ? true : false
     );
-    console.log(config);
   };
   const handleFieldChange = (changedFields: any) => {
     if (timer.current) {
@@ -360,15 +395,15 @@ const Tools = () => {
               }
               break;
             case "remoteDebugPort":
+            case "language":
               {
                 let obj =
                   tmpYamlObj.containers[containerIndex]["dev"]["debug"] || {};
-                obj[field] = +value;
+                obj[field] = field === "remoteDebugPort" ? +value : value;
                 tmpYamlObj.containers[containerIndex]["dev"]["debug"] = {
                   ...obj,
                 };
               }
-
               break;
             case "limits-memory":
             case "requests-cpu":
@@ -417,9 +452,32 @@ const Tools = () => {
                 );
               }
               break;
+            case "patches":
+              tmpYamlObj.containers[containerIndex]["dev"][field] = value.map(
+                (item) =>
+                  item === undefined
+                    ? {
+                        type: "strategic",
+                        patch: "",
+                      }
+                    : item
+              );
+              break;
             default:
               {
                 let obj = tmpYamlObj.containers[containerIndex]["dev"] || {};
+                if (field === "image") {
+                  for (let i = 0, len = LANGUAGE_OPTIONS.length; i < len; i++) {
+                    const language = LANGUAGE_OPTIONS[i].label;
+                    if (value.indexOf(language) > -1) {
+                      form.setFieldsValue({
+                        language: LANGUAGE_OPTIONS[i].value,
+                      });
+                      obj["debug"]["language"] = LANGUAGE_OPTIONS[i].value;
+                      break;
+                    }
+                  }
+                }
                 obj[field] = value;
                 tmpYamlObj.containers[containerIndex]["dev"] = { ...obj };
               }
@@ -438,8 +496,10 @@ const Tools = () => {
           yamlObj.containers[containerIndex]["dev"]["sync"] = { ...obj };
         } else if (len === 5) {
           const [field, index, prop, subIndex, attr] = name;
+          // const patches = tmpYamlObj.containers[containerIndex].dev[field]
           tmpYamlObj.containers[containerIndex].dev[field][index][prop] =
-            yamlObj.containers[containerIndex].dev[field][index][prop] || [];
+            yamlObj.containers[containerIndex].dev[field]?.[index]?.[prop] ||
+            [];
           let obj =
             tmpYamlObj?.containers?.[containerIndex]?.dev?.[field]?.[index]?.[
               prop
@@ -471,7 +531,7 @@ const Tools = () => {
               const arr =
                 tmpYamlObj?.containers?.[containerIndex]?.dev?.patches || [];
               const result = arr.map((item) => {
-                const obj = item || ({} as { type: string });
+                const obj = item || ({} as IPatches);
                 return {
                   ...obj,
                   type: obj.type || "strategic",
@@ -480,31 +540,33 @@ const Tools = () => {
               // @ts-ignore
               tmpYamlObj.containers[containerIndex].dev.patches = result;
             }
-
             if (field === "patches" && prop === "type") {
+              const patches =
+                tmpYamlObj.containers[containerIndex]?.dev?.patches || [];
+              tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                type: value,
+                patch: "",
+              };
+
               if (value === "strategic") {
-                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
-                  type: value,
-                  patch: "",
-                };
+                form.setFieldsValue({
+                  patches: tmpYamlObj.containers[containerIndex].dev.patches,
+                });
               } else {
-                tmpYamlObj.containers[containerIndex].dev.patches[index] = {
+                patches[index] = {
                   type: value,
                   patch: [{}],
                 };
+                form.setFieldsValue({
+                  patches,
+                });
               }
-              // set field
-              form.setFieldsValue({
-                patches: tmpYamlObj.containers[containerIndex].dev.patches,
-              });
             }
-
             let obj =
               tmpYamlObj.containers[containerIndex]["dev"][field][index] || {};
             obj[prop] = value;
             tmpYamlObj.containers[containerIndex]["dev"][field][index] = {
               ...obj,
-              [prop]: value,
             };
           }
         }
@@ -618,6 +680,7 @@ const Tools = () => {
       "command-run": "",
       "command-debug": "",
       remoteDebugPort: "",
+      language: "",
       hotReload: false,
       deleteProtection: true,
       storageClass: "",
@@ -691,6 +754,13 @@ const Tools = () => {
         const { remoteDebugPort } = currentContainer.dev.debug;
         form.setFieldsValue({
           remoteDebugPort,
+        });
+      }
+
+      if (currentContainer.dev?.debug?.language) {
+        const { language } = currentContainer.dev.language;
+        form.setFieldsValue({
+          language,
         });
       }
 

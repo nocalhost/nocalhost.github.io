@@ -1,9 +1,11 @@
 import React from "react";
-import { Form, Input, Switch } from "antd";
+import { Form, Input, Select, Switch } from "antd";
 import { translate } from "@docusaurus/Translate";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import styles from "../index.module.scss";
 import CommonIcon from "./CommonIcon";
+import { LANGUAGE_OPTIONS } from "../../../constants";
 
 export const ItemLabel = ({ label, title }) => {
   return (
@@ -69,6 +71,20 @@ const RunAndDebug = () => {
           placeholder={translate({ message: "Please Input Debug Port" })}
           style={{ width: 460 }}
         />
+      </Form.Item>
+      <Form.Item
+        label={translate({ message: "Debug Language" })}
+        name="language"
+      >
+        <Select
+          options={LANGUAGE_OPTIONS}
+          suffixIcon={
+            <CaretDownOutlined
+              className="ant-select-suffix"
+              style={{ color: "rgba(0, 0, 0, 0.85)", fontSize: 14 }}
+            />
+          }
+        ></Select>
       </Form.Item>
       <Form.Item
         label={translate({ message: "Whether To Enable Hot Reload" })}
