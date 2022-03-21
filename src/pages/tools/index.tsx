@@ -467,6 +467,7 @@ const Tools = () => {
               {
                 let obj = tmpYamlObj.containers[containerIndex]["dev"] || {};
                 if (field === "image") {
+                  obj.debug = obj.debug || {};
                   for (let i = 0, len = LANGUAGE_OPTIONS.length; i < len; i++) {
                     const language = LANGUAGE_OPTIONS[i].label;
                     if (value.indexOf(language) > -1) {
@@ -758,7 +759,7 @@ const Tools = () => {
       }
 
       if (currentContainer.dev?.debug?.language) {
-        const { language } = currentContainer.dev.language;
+        const { language } = currentContainer.dev.debug;
         form.setFieldsValue({
           language,
         });
