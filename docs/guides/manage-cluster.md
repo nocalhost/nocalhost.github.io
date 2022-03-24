@@ -27,7 +27,7 @@ Past the `KubeConfig` as a text.
 You can use the following command to view your `KubeConfig`, copy and paste to the Nocalhost plugin.
 
 ```bash
-kubectl config view --minify --raw --flattern
+kubectl config view --minify --raw --flatten
 ```
 
 :::
