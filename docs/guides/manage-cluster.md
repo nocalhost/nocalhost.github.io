@@ -20,7 +20,7 @@ Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by defa
 
 **Paste KubeConfig as Text**
 
-Past the `KubeConfig` as a text.
+Paste the `KubeConfig` as a text.
 
 :::tip Get KubeConfig
 
