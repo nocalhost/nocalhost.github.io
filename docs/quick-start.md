@@ -74,7 +74,7 @@ Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by defa
 You can use the following command to view your `KubeConfig` and copy it.
 
 ```bash
-kubectl config view --raw --flattern
+kubectl config view --raw --flatten
 ```
 
 :::
