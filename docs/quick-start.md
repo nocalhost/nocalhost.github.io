@@ -51,7 +51,7 @@ There are two methods that you can use to connect to Kubernetes cluster:
 defaultValue="kubeconfig"
 values={[
 {label: 'By KubeConfig', value: 'kubeconfig'},
-{label: 'Past as Text', value: 'text'},
+{label: 'Paste as Text', value: 'text'},
 ]}>
 <TabItem value="kubeconfig">
 
