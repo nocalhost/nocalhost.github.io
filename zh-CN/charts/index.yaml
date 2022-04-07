@@ -1,0 +1,541 @@
+apiVersion: v1
+entries:
+  nocalhost:
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.5.6
+    created: "2021-09-22T12:01:38.046280904+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: d42305e84109e0aa71cf9dd37fa80ca15b5809675d4657479c60fb885ddde84d
+    home: https://github.com/nocalhost/nocalhost
+    icon: https://nocalhost.dev/img/favicon.ico
+    keywords:
+    - nocalhost
+    - nhctl
+    kubeVersion: '>= 1.16.0-0'
+    name: nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.5.6.tgz
+    version: 0.5.6
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.9
+    created: "2021-12-15T11:11:44.312488673+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 46ac56edc3f6941850d78305ca625869ac95339d615a8488a89609434c1c2848
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.9.tgz
+    version: 0.6.9
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.0
+    created: "2021-10-15T20:47:50.867084506+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: b11123c7313953803db458a56c2be429be61368ed932ae15929e3d13eed353ee
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.0.tgz
+    version: 0.6.0
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.5.10
+    created: "2021-10-09T14:26:36.126871961+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: e8971d907b3d2fb6e792a4ba7a26c0dcbfd1fbba67c28e12a0a70a1aeadc0af7
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.5.10.tgz
+    version: 0.5.10
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.16
+    created: "2022-03-25T10:26:45.974678134+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: a5fdd3962030acf5ef28de9a5ea694f03806ee849e37c215e397b84bfeaf2ba4
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.16.tgz
+    version: 0.6.16
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.5.8
+    created: "2021-09-27T14:27:52.601830488+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: a2dce4c6c314383200d09643486134464bdf5c7ef0aa7e02f552418c32514ad7
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.5.8.tgz
+    version: 0.5.8
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.8
+    created: "2021-12-13T17:24:36.026221052+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: f8ed187803dfd11a86d2d0272231f242f688d5d057439fdb29328682278afa46
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.8.tgz
+    version: 0.6.8
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.3
+    created: "2021-11-01T22:18:58.048895527+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: f64b0fc1f205067f831de90fe5333bfe465f826a0e5582da0e21700573a9ffca
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.3.tgz
+    version: 0.6.3
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.15
+    created: "2022-01-19T10:32:13.441479631+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: a604d5128bfee2f65d6f3b847defd65b3f098b5331bfeb63e4af746d54e610bd
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.15.tgz
+    version: 0.6.15
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.4
+    created: "2021-11-01T23:30:14.721151942+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 797fa84faf5f197a1b46a4ca4bc23230ead134b545b60052ab6f26cb9b44d769
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.4.tgz
+    version: 0.6.4
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.2
+    created: "2021-10-18T21:11:55.527749476+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 481b29594e60eb9f3af82eac1f0d19a462ff9662a8fed5aff9ce0e780abaa38e
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.2.tgz
+    version: 0.6.2
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.13
+    created: "2022-01-13T12:06:34.297921408+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: b58d09abd71049d895b29fe99ac9a760065a16b18694fa6a814e46e81c620d8c
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.13.tgz
+    version: 0.6.13
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.6
+    created: "2021-11-22T15:55:19.591901385+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 5b599f5056d7f4729f897c7bd112f8a464bef59f63de10aac0deaae27ba0757f
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.6.tgz
+    version: 0.6.6
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.5.7
+    created: "2021-09-22T18:09:55.33635651+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 79cb7f715d3b65b130e1055333cb8b2cecef2eda3194ffa234809f5940476e9b
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/favicon.ico
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.5.7.tgz
+    version: 0.5.7
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.12
+    created: "2022-01-12T14:57:19.943337044+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 396e39d63fad8a0e2f7855d15d164e001468cf18141a3f89f431e259b70c070a
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.12.tgz
+    version: 0.6.12
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.7
+    created: "2021-12-13T16:14:54.62838222+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 152c75a1f4e9ac0ea65d88ab4552f4eb3decc35fcf9aa8afa5daea6fa6fa3b67
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.7.tgz
+    version: 0.6.7
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.10
+    created: "2021-12-17T16:03:50.890058554+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 86b8cac23072fe464638bf0cbe9a951f651c733985e59c29f5c7674f2d74a285
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.10.tgz
+    version: 0.6.10
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.5.9
+    created: "2021-09-27T14:42:08.811395881+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: a27351b62f47c98dd73d816ab84789fefaa60ae95b1a06668bbbe2826b80a7ac
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.5.9.tgz
+    version: 0.5.9
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.1
+    created: "2021-10-15T22:47:34.750122841+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 04f339f4cbb3cd406bb21f660302c60ad448a9063e735ea899d7dfec60217f9a
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.1.tgz
+    version: 0.6.1
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.11
+    created: "2021-12-24T10:42:52.211471465+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: d63cbbde345512c2bd8630d2e4302528409e6c82caed3fe73909c30074031d8b
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.11.tgz
+    version: 0.6.11
+  - annotations:
+      category: App Definition and Development
+    apiVersion: v2
+    appVersion: v0.6.5
+    created: "2021-11-09T18:39:32.559910772+08:00"
+    description: Nocalhost is Cloud Native Dev Environment.
+    digest: 68fe6a10f3740774e7b27175c6f663a39b5e7a07c226325bd87d012384a75369
+    home: https://nocalhost.dev
+    icon: https://nocalhost.dev/img/icon_helmchart.png
+    keywords:
+    - nocalhost
+    - nhctl
+    - kubernetes
+    - develop
+    - telepresence
+    - skaffold
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - name: Nocalhost
+      url: https://github.com/nocalhost/nocalhost
+    name: nocalhost
+    sources:
+    - https://github.com/nocalhost/nocalhost
+    urls:
+    - https://nocalhost.github.io/charts/nocalhost-0.6.5.tgz
+    version: 0.6.5
+generated: "2022-03-28T10:55:20.211568179+08:00"
