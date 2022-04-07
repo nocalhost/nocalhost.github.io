@@ -67,7 +67,7 @@ Nocalhost will try to load `KubeConfig` from your local `~/.kube/config` by defa
   
 <TabItem value="text">
 
-<p>Past the <code>KubeConfig</code> as a text</p>
+<p>Paste the <code>KubeConfig</code> as a text</p>
 
 :::tip Get KubeConfig
 
