@@ -53,6 +53,7 @@ module.exports = {
             'guides/develop-service-dup-en',
             'guides/develop-service-crd-en',
             'guides/develop-service-vpn',
+            'guides/develop-service-dup-mesh',
               ],
 
         },
