@@ -18,6 +18,22 @@ DevMode, use special headers will route to your DevMode pod, other traffic will 
 
 Use envoy to route traffic with headers, we make a control-plane to distribute route rule.
 
+Like the picture below:
+
+Service A is original, receive inbound traffic
+
+Service A' is created by one user enter mesh devMode with special header `Header: a=1`
+
+Service A'' is created by another user enter mesh devMode with special header `Header: a=2`
+
+Traffic with header `Header: a=1` will route to Service A'
+
+Traffic with header `Header: a=2` will route to Service A''
+
+Otherwise, traffic will other header, like `Header: b=1` or `Header: c=2` or without header, will handle by Service A
+
+![image](/img/develop-mesh/arch-mesh.png)
+
 ### How to use
 
 Right-click `Start Mesh(Duplicate)` on the Jetbrains and VS Code extension to enter  `Mesh DevMode`:
@@ -52,7 +68,10 @@ scenarios.
 
 #### How to verify Mesh DevMode works fine?
 
-You can not use port-forward to verify current pod, because of localhost traffic will route to local, you can enter
-another pod terminal, use command line `curl` or use another service to access this service with special header to
-verify Mesh DevMode.
+You can not use port-forward to verify Mesh devMode, because of localhost traffic will route to local, you can use two
+ways to verify it:
+
+- enter another pod terminal, use command line `curl` to send request to origin pod with special header to verify Mesh
+  DevMode.
+- port-forward service to local, access this service with special header to verify Mesh DevMode.
 
