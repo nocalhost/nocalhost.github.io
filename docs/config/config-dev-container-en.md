@@ -184,7 +184,7 @@ containers:
       patches:
         - patch: '[{"op": "add","path":"/metadata/annotations/nocalhost-patch","value":"hello-world"}]'
           type: json
-        - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-dev","resources":{"limits":{"cpu":"2"}}}]}}}}'
+        - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-dev","imagePullPolicy":"IfNotPresent","resources":{"limits":{"cpu":"2"}}}]}}}}'
         - patch: '{"spec":{"template":{"spec":{"containers":[{"name":"nocalhost-sidecar","resources":{"limits":{"cpu":"2"}}}]}}}}'
           type: strategic
 ```
