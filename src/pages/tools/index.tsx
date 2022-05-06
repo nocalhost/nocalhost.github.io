@@ -807,6 +807,14 @@ const Tools = () => {
           patches,
         });
       }
+
+      // env var
+      const envList = currentContainer?.dev?.env
+      if (envList) {
+        form.setFieldsValue({
+          env: envList
+        })
+      }
     }
   }
 
