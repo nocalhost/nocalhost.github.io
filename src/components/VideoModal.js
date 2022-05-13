@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../pages/index.module.scss";
 
 function VideoModal(props) {
+  const {isZh, setShowVideoModa} = props
   const Div = (
     <div className={styles.modal} onClick={() => props.setShowVideoModa(false)}>
       <div className={styles.modalMask}>
@@ -14,10 +15,11 @@ function VideoModal(props) {
             style={{ objectFit: "cover", borderRadius: "10px" }}
           >
             <source
-              src="https://nocalhost-1301578102.cos.ap-nanjing.myqcloud.com/nh-overview-eng-20210714.mp4"
+              src="video/nh-overview-eng.mp4"
+              src={`video/${isZh ? 'nh-overview-chn.mp4' : 'nh-overview-eng.mp4'}`}
               type="video/mp4"
             />
-            <track
+            {/* <track
               src="video/nh-overview-eng.vtt"
               kind="subtitles"
               label="en text track"
@@ -29,10 +31,10 @@ function VideoModal(props) {
               kind="subtitles"
               label="中文字幕"
               srcLang="zh"
-            />
+            /> */}
             <p>
               Your browser doesn&apos;t support HTML5 video. Here is a{" "}
-              <a href="https://nocalhost-1301578102.cos.ap-nanjing.myqcloud.com/nh-overview-eng-20210714.mp4">
+              <a href={`video/${isZh ? 'nh-overview-chn.mp4' : 'nh-overview-eng.mp4'}`}>
                 link to the video
               </a>{" "}
               instead.
