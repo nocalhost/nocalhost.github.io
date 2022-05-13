@@ -82,7 +82,7 @@ export default function Home() {
       </Head>
       <div className={styles.mdContainer}>
         {showVideoModal && (
-          <VideoModal setShowVideoModa={setShowVideoModa}></VideoModal>
+          <VideoModal setShowVideoModa={setShowVideoModa} isZh={isZh}></VideoModal>
         )}
         <header className={styles.mdHeader}>
           <nav className={clsx(styles.mdGridTop, styles.mdHeaderNav)}>
