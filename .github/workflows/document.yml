@@ -1,21 +1,28 @@
 name: documentation
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
-  push:
+  pull_request_target:
     branches: [main]
 
 jobs:
-
   checks:
-    if: github.event_name != 'push'
+    # Run workflow pull_request if it is not a fork.
+    # As pull_request_target if it is a fork.
+    if: >-
+      ( github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.fork == true ) ||
+      ( github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false )
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
         with:
-          node-version: '14.x'
+          ref: "refs/pull/${{ github.event.number }}/merge"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
       - name: Test Build
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
@@ -31,13 +38,13 @@ jobs:
           npm run build
 
   gh-release:
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: 14
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
