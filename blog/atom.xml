@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nocalhost.dev/blog</id>
     <title>Nocalhost Blog</title>
-    <updated>2022-06-07T07:48:47.572Z</updated>
+    <updated>2022-06-07T08:08:14.150Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nocalhost.dev/blog"/>
     <subtitle>Nocalhost Blog</subtitle>
@@ -11,29 +11,36 @@
         <title type="html"><![CDATA[Announcing Nocalhost v0.5.6]]></title>
         <id>Announcing Nocalhost v0.5.6</id>
         <link href="https://nocalhost.dev/blog/0.5.6"/>
-        <updated>2022-06-07T07:48:47.572Z</updated>
+        <updated>2022-06-07T08:08:14.150Z</updated>
         <summary type="html"><![CDATA[Nocalhost v0.5.6 has been released, we've fixed some bugs, improved the performance and add some new features.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Developing APISIX Ingress Controller with Nocalhost in Kubernetes]]></title>
         <id>Developing APISIX Ingress Controller with Nocalhost in Kubernetes</id>
         <link href="https://nocalhost.dev/blog/api-six"/>
-        <updated>2022-06-07T07:48:47.572Z</updated>
+        <updated>2022-06-07T08:08:14.150Z</updated>
         <summary type="html"><![CDATA[Introduction]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Nocalhost 官方文档翻译活动]]></title>
         <id>Nocalhost 官方文档翻译活动</id>
         <link href="https://nocalhost.dev/blog/docs-translate"/>
-        <updated>2022-06-07T07:48:47.572Z</updated>
+        <updated>2022-06-07T08:08:14.150Z</updated>
         <summary type="html"><![CDATA[背景]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[更美的开发环境发展历程与Nocalhost落地实践]]></title>
         <id>更美的开发环境发展历程与Nocalhost落地实践</id>
         <link href="https://nocalhost.dev/blog/gm-cd"/>
-        <updated>2022-06-07T07:48:47.572Z</updated>
+        <updated>2022-06-07T08:08:14.150Z</updated>
         <summary type="html"><![CDATA[更美成立于2013年，旗下更美App是专业医美平台， 提供整形、微整形、齿科、眼科、抗衰老等消费医疗服务。更美App平台的业务主要分为三大部分：医美用户社区、健康服务电商及特卖、企业级医疗机构应用平台。 更美致力于帮助求美者更高效地找到合适的医生，降低消费风险；也帮助医生塑造个人品牌。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用 Nocalhost 开发 Rainbond 上的微服务应用]]></title>
+        <id>使用 Nocalhost 开发 Rainbond 上的微服务应用</id>
+        <link href="https://nocalhost.dev/blog/rainbond-dev"/>
+        <updated>2022-06-07T08:08:14.150Z</updated>
+        <summary type="html"><![CDATA[本文将介绍如何使用 Nocalhost 快速开发 Rainbond 上的微服务应用的开发流程以及实践操作步骤。]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[How to debug microservices in Kubernetes with proxy, sidecar or service mesh?]]></title>
