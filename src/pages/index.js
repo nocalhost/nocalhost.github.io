@@ -82,7 +82,10 @@ export default function Home() {
       </Head>
       <div className={styles.mdContainer}>
         {showVideoModal && (
-          <VideoModal setShowVideoModa={setShowVideoModa} isZh={isZh}></VideoModal>
+          <VideoModal
+            setShowVideoModa={setShowVideoModa}
+            isZh={isZh}
+          ></VideoModal>
         )}
         <header className={styles.mdHeader}>
           <nav className={clsx(styles.mdGridTop, styles.mdHeaderNav)}>
@@ -156,13 +159,13 @@ export default function Home() {
                 <div className={styles.txHeroHeaderBgContainer}>
                   <div className={styles.txHeroHeaderBgLavender}></div>
                 </div>
-                <div className={styles.txHeroHeaderBgContainerEnd}>
+                <div className={styles.txHeroHeaderBgContainer}>
                   <div className={styles.txHeroHeaderBgBlue}></div>
                 </div>
-                <div className={styles.txHeroHeaderBgContainerStart}>
+                <div className={styles.txHeroHeaderBgContainer}>
                   <div className={styles.txHeroHeaderBgBlack}></div>
                 </div>
-                <div className={styles.txHeroHeaderBgContainerStart}>
+                <div className={styles.txHeroHeaderBgContainer}>
                   <div className={styles.txHeroHeaderBgWhite}></div>
                 </div>
                 <div className={styles.txHeroHeaderBgContainer}>
