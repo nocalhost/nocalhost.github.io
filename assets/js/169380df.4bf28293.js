@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunknh_docs=self.webpackChunknh_docs||[]).push([[8231],{45469:function(n){n.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"rainbond","name":"rainbond","count":1,"permalink":"/blog/tags/rainbond"}')}}]);
