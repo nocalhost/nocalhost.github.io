@@ -22,6 +22,7 @@
 }
 .txHero {
   position: relative;
+  overflow: hidden;
 }
 .mdContainer {
   display: flex;
@@ -95,22 +96,6 @@
   top: 0;
 }
 
-.txHeroHeaderBgContainerEnd {
-  justify-content: flex-end;
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-
-.txHeroHeaderBgContainerStart {
-  justify-content: flex-start;
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-
 .txHeroHeaderBgLavender {
   width: 100%;
   height: 1400px;
@@ -118,9 +103,7 @@
 }
 
 .txHeroHeaderBgBlue {
-  height: 3200px;
-  /* width: 100%; */
-  width: calc(100% - 100px);
+  height: 3105px;
   border-top: 1272px solid transparent;
   border-right: 200px solid transparent;
   border-bottom: 200px solid transparent;
@@ -129,39 +112,45 @@
   border-image-slice: 1272 200 200 430 fill;
   border-image-repeat: stretch;
   position: relative;
-  left: -95px;
+  min-width: 1680px;
+  width: calc( (50vw - 96px) + (700px + 200px) );
+  left: calc( (50vw - ((50vw - 96px) + (700px + 200px)) / 2) - 96px );
+
+  @media (max-width: 1752px) {
+    left: -60px;
+  }
 }
 
 .txHeroHeaderBgBlue::after {
   content: "";
-  height: 2942px;
-  width: 95px;
-  background: #444;
+  height: 3105px;
+  width: 100vw;
+  background: #7209fc;
   position: absolute;
   top: -1272px;
-  right: -294px;
-  background: linear-gradient(
-    -180deg,
-    rgb(23, 76, 211) 0%,
-    rgb(3, 14, 14) 68%,
-    rgb(114, 9, 252) 100%
-  );
+  right: calc(0px - (200px + 100vw));
+  border-top: 1272px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 200px solid transparent;
+  border-left: 1px solid transparent;
+  border-image-source: url("@site/static/img/home/header-bg-blue-after.svg");
+  border-image-slice: 1272 1 200 1 fill;
 }
 
 .txHeroHeaderBgWhite {
-  width: calc(100%);
+  width: 100%;
   border-top: 300px solid transparent;
   border-right: 200px solid transparent;
-  border-bottom: 0px solid transparent;
+  border-bottom: 1px solid transparent;
   border-left: 300px solid transparent;
-  border-image-slice: 300 200 0 300 fill;
+  border-image-source: url("@site/static/img/home/image1.svg");
+  border-image-slice: 300 200 1 300 fill;
   border-image-repeat: stretch;
   position: relative;
-  top: 820px;
+  top: 856px;
   opacity: 0.9;
-  height: 2122px;
-  /* min-width: 1920px; */
-  border-image-source: url("@site/static/img/home/image1.svg");
+  height: 2255px;
+  min-width: 1920px;
 }
 
 .txHeroElementBubbles {
@@ -171,11 +160,30 @@
   position: relative;
   top: 725px;
   left: -665px;
+
+  @media (max-width: 1550px) {
+    position: absolute;
+    left: -40px;
+  }
+
+  @media (max-width: 1400px) {
+    top: 520px;
+  }
+
+  @media (max-width: 1200px) {
+    transform: scale(0.8);
+    top: 500px;
+    left: -50px;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .txHeroHeaderBgBlack {
-  height: 1100px;
-  width: calc(100% - 238px);
+  height: 1140px;
+  width: calc(50% + 700px);
   min-width: 1660px;
   border-top: 0;
   border-right: 200px solid transparent;
@@ -185,13 +193,25 @@
   border-image-slice: 0 200 621 330 fill;
   border-image-repeat: stretch;
   position: relative;
-  /* left: -130px; */
+  left: -130px;
   opacity: 0.8;
-}
 
-@media (min-width: 1920px) {
-  .txHeroHeaderBgBlack {
-    /* left:calc(350px - 25%); */
+  @media (min-width: 1920px) {
+    left: calc(350px - 25%);
+  }
+
+  @media (max-width: 1440px) {
+    position: absolute;
+    left: auto;
+    right: 20px;
+  }
+
+  @media (max-width: 600px) {
+    right: 10px;
+  }
+
+  @media (max-width: 540px) {
+    position: relative;
   }
 }
 
@@ -504,10 +524,28 @@ a:hover {
 .txHeroContent3 {
   background: linear-gradient(0deg, rgb(33, 8, 74) 0%, rgb(45, 7, 118) 100%);
   border-radius: 150px 0px 0 150px;
-  width: calc(100% - 95px);
+  width: calc(100% - 96px);
   position: relative;
-  left: 95px;
-  /* background-image: url(); */
+  left: 96px;
+  padding-right: 114px;
+
+  @media (max-width: 1920px) {
+    width: calc(100% - 36px);
+    left: 36px;
+    padding-right: 54px;
+  }
+
+  @media (max-width: 1630px) {
+    width: calc(1630px - 36px);
+    left: calc((100% - (1630px - 36px)) / 2 + 17px);
+  }
+
+  @media (max-width: 1240px) {
+    width: 100%;
+    left: 0;
+    padding-right: 20px;
+    border-radius: 0;
+  }
 }
 .txHeroContent3 .topImg {
   position: absolute;
@@ -517,19 +555,27 @@ a:hover {
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
-  top: -199px;
+  top: -200px;
+
+  @media (max-width: 1240px) {
+    display: none;
+  }
 }
 
 .txHeroContent3 .bottomImg {
   position: absolute;
   background-image: url("@site/static/img/home/round1-bottom.svg");
   right: 0px;
-  bottom: -199px;
+  bottom: -200px;
   height: 200px;
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 1;
+
+  @media (max-width: 1240px) {
+    display: none;
+  }
 }
 
 .txHeroContent3::after {
@@ -543,13 +589,14 @@ a:hover {
   width: 100%;
   height: 100%;
   position: absolute;
-  left: -95px;
+  left: -96px;
   top: 0;
   z-index: -1;
   border-radius: 150px;
-}
 
-.txHeroContent3 .content {
+  @media (max-width: 1920px) {
+    left: -36px;
+  }
 }
 
 .txHeroContent3 .h2 h2 {
@@ -701,7 +748,7 @@ a:hover {
   background-image: linear-gradient(-180deg, #e5fefe 0%, #ffffff 100%);
   position: relative;
   top: -150px;
-  padding: 265px 20px 30px 20px;
+  padding: 265px 20px 28px 20px;
   z-index: -2;
 }
 
@@ -714,6 +761,14 @@ a:hover {
   z-index: 0;
   content: "";
   background-image: url("@site/static/img/home/right-edge.svg");
+
+  @media (max-width: 1920px) {
+    right: -59px;
+  }
+
+  @media (max-width: 1630px) {
+    right: calc((100% - 1630px) / 2 - 59px);
+  }
 }
 
 .txHeroContent4 h2 {
@@ -783,7 +838,7 @@ a:hover {
   height: 100%;
   position: absolute;
   top: -160px;
-  z-index: -1;
+  z-index: -2;
   background: linear-gradient(
     -180deg,
     rgb(232, 253, 255) 0%,
@@ -1073,43 +1128,55 @@ a:hover {
     rgb(27, 48, 158) 64%,
     rgb(22, 72, 201) 100%
   );
-  /* height: 1056px; */
   border-radius: 150px 0 150px 150px;
-  /* width: 100%; */
-  padding: 140px;
-  /* margin-top: 180px; */
-  width: calc(100% - 95px);
   position: relative;
-  left: 95px;
-  /* z-index: 2; */
+  width: calc(100% - 96px);
+  position: relative;
+  left: 96px;
+  padding-right: 96px;
+  padding-top: 140px;
+  padding-bottom: 140px;
+
+  @media (max-width: 1920px) {
+    width: calc(100% - 36px);
+    left: 36px;
+    padding-right: 54px;
+  }
+
+  @media (max-width: 1630px) {
+    width: calc(1630px - 36px);
+    left: calc((100% - (1630px - 36px)) / 2 + 17px);
+  }
+
+  @media (max-width: 1240px) {
+    width: 100%;
+    left: 0;
+    padding-right: 0px;
+    border-radius: 0;
+  }
 }
 
 .whoUse::before {
   content: "";
   position: absolute;
   top: 0px;
-  left: -95px;
-  width: calc(100vw - 200px);
-  height: 100%;
   background: linear-gradient(
     -180deg,
     rgb(170, 189, 225) 0%,
     rgb(193, 170, 255) 100%
   );
   z-index: -1;
-  border-radius: 150px 0 0 150px;
+  border-radius: 150px;
+  width: 100%;
+  height: 100%;
+  left: -96px;
+
+  @media (max-width: 1920px) {
+    left: -36px;
+  }
+
 }
 
-/* .whoUse .shadow {
-  position: absolute;
-  top:0px;
-  left: -95px;
-  width: calc(100vw - 200px);
-  height: 100%;
-  background: linear-gradient(-180deg, rgb(170, 189, 225) 0%, rgb(193, 170, 255) 100%);
-  z-index: -1;
-  border: 200px;
-} */
 
 .whoUse::after {
   content: "";
@@ -1120,28 +1187,37 @@ a:hover {
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
-  top: -199px;
+  top: -200px;
+
+  @media (max-width: 1240px) {
+    display: none;
+  }
 }
 
 .whoUseCardBox {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   max-width: 1200px;
   margin: 100px auto 0;
-  justify-content: space-between;
+  padding: 0 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+
+  @media (max-width: 1240px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 .whoUseCar {
-  width: 288px;
-  min-height: 400px;
   border-radius: 4px;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-right: 16px; */
-  margin-top: 20px;
-  padding: 20px 28px;
+  padding: 28px 28px;
 }
 
 .whoUseCar .logo {
