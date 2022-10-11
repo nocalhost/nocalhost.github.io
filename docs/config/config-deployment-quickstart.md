@@ -330,8 +330,8 @@ application:
                 - ".git"
                 - ".github"
             env: 
-            - name: DEBUG
-              value: "true"
+              - name: DEBUG
+                value: "true"
 ```
 
 <br/>
