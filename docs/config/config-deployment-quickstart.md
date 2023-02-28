@@ -159,8 +159,6 @@ application:
   resourcePath: ["kustomize/base"]
 ```
 
-该项目的目录结构如下，`kustomize/base` 对应到 `kustomization.yaml` 所在的相对目录：
-
 Its directory structure is as follows, and `kustomize/base` corresponds to the directory containing `kustomization.yaml`.
 
 ```shell
