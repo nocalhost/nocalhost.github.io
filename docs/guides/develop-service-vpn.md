@@ -29,10 +29,10 @@ like the picture below, at the same cluster and namespace
 
 - developer 1 intercept service 3.
 - developer 2 intercept service 4.
-- service 3 all inbound traffic will forward to developer 1 thought pod trafficManager.
-- service 4 all inbound traffic will forward to developer 2 thought pod trafficManager.
-- developer 1 can access cluster another service thought pod trafficManager.
-- developer 2 can access cluster another service thought pod trafficManager.
+- service 3 all inbound traffic will forward to developer 1 through pod trafficManager.
+- service 4 all inbound traffic will forward to developer 2 through pod trafficManager.
+- developer 1 can access cluster another service through pod trafficManager.
+- developer 2 can access cluster another service through pod trafficManager.
 - developer 1 and developer 2 can access each other with inner ip (**magic**).
 
 ![architecture](/img/vpn/vpn-replace-traffic-manager.png)
