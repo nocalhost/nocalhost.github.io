@@ -38,7 +38,7 @@ You can deploy Kubernetes manifests or Kustomizations by using Nocalhost plugin.
 
 :::caution Deploy within Application
 
-You can only deploy Kubernetes manifest within a `application`. You can deploy to `default` application if you do note have any `application` within namespace.
+You can only deploy Kubernetes manifest within a `application`. You can deploy to `default` application if you do not have any `application` within namespace.
 
 :::
 
